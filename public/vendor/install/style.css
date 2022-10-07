@@ -1,0 +1,489 @@
+@import url('../../themes/frontend/assets/font/nunito.css');
+@import url('../../themes/frontend/assets/fontawesome.css');
+
+:root {
+	--primary: #CFD8DC;
+	--divider: #BDBDBD;
+	--black: #212121;
+	--red: #f44336;
+	--pink: #E91E63;
+	--purple: #9C27B0;
+	--deep-purple: #512DA8;
+	--blue: #2196F3;
+	--green: #4CAF50;
+	--yellow: #FFEB3B;
+	--orange: #FF9800;
+	--brown: #ca917c;
+	--grey: #9E9E9E;
+	--blue-grey: #607D8B;
+}
+
+body {
+	font-family: 'Nunito', sans-serif;
+	background-color: #f8f9fa;
+}
+
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.app-container>.container {
+	margin-top: 2.2rem;
+}
+
+.app-install-area {
+	margin-top: 3rem;
+}
+
+/* https://codepen.io/gau/pen/ZWZKxO */
+#hello-container.fin .path-1,
+#hello-container.fin .path-2,
+#hello-container.fin .path-3 {
+	stroke-dashoffset: 0;
+}
+#hello-container .path {
+	fill: none;
+	stroke: #37474F;
+	stroke-width: 18px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+#hello-container .path-1 {
+	stroke-dasharray: 1850 2000;
+	stroke-dashoffset: 1851;
+	transition: 2.5s linear;
+}
+#hello-container .path-2 {
+	stroke-dasharray: 260 1000;
+	stroke-dashoffset: 261;
+	transition: 1s linear 2.5s;
+}
+#hello-container .path-3 {
+	stroke-dasharray: 100 1000;
+	stroke-dashoffset: 101;
+	transition: 1s linear 3.7s;
+}
+
+.logo {
+	text-align: center;
+	position: relative;
+}
+
+.logo.install-index {
+	display: none;
+}
+
+.logo svg {
+	width: 500px;
+	height: 170px;
+	padding-bottom: 20px;
+}
+
+.logo.install-index svg [class^='st'] {
+	fill: #f8f9fa;
+	stroke: #37474F;
+	stroke-width: 5px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+
+	stroke-dasharray: 2000;
+	stroke-dashoffset: 2000;
+	animation: draw 3s linear forwards;
+}
+
+.logo.install svg [class^='st'] {
+	fill: #f8f9fa;
+	stroke: #37474F;
+	stroke-width: 5px;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.logo.install.step1a svg .st0 {
+	fill: url("#step1a");
+}
+
+.logo.install.step1b svg .st0 {
+	fill: url("#step1b");
+}
+
+.logo.install.step1c svg .st0 {
+	fill: url("#step1c");
+}
+
+.logo.install.step2a svg .st1 {
+	fill: url("#step2a");
+}
+
+.logo.install.step2b svg .st1 {
+	fill: url("#step2b");
+}
+
+.logo.install.step3a svg .st2 {
+	fill: url("#step3a");
+}
+
+.logo.install.step3b svg .st2 {
+	fill: url("#step3b");
+}
+
+.logo.install.step4a svg .st3 {
+	fill: url("#step4a");
+}
+
+.logo.install.step5a svg .st4 {
+	fill: url("#step5a");
+}
+
+.logo.install.step6a svg .st5 {
+	fill: url("#step6a");
+}
+
+.logo.install.step7a svg .st6 {
+	fill: url("#step7a");
+}
+
+.logo.install.step7b svg .st6 {
+	fill: url("#step7b");
+}
+
+.logo.install.step8a svg .st7 {
+	fill: url("#step8a");
+}
+
+.logo.install.step8b svg .st7 {
+	fill: url("#step8b");
+}
+
+.app-install-container {
+	margin-top: 3rem;
+}
+
+.app-install {
+	border-top: 5px solid #fb8f20;
+}
+
+.app-install.error {
+	border-top: 5px solid #e53935;
+}
+
+.app-install > .layout {
+	position: relative;
+	width: 100%;
+	padding: 10px;
+	padding-top: 13px;
+}
+
+.app-install > .layout p {
+	color: #000;
+	margin-bottom: 0;
+}
+
+.app-install-serverReport .tableContainer {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+.btn.btn-app {
+	min-width: 195px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 15px;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: transparent;
+	padding: 0;
+	height: 45px;
+	color: #37474f;
+	border: 2px solid #37474f;
+	padding: 0 10px;
+	-webkit-transition: border-color 0.3s, color 0.3s;
+	transition: border-color 0.3s, color 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(.2, 1, .3, 1);
+	transition-timing-function: cubic-bezier(.2, 1, .3, 1);
+	overflow: hidden;
+	position: relative;
+	vertical-align: middle;
+	transition: all .3s ease;
+	border-radius: 0.25rem;
+	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+.btn.btn-app > span {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn.btn-app:hover {
+	border: 2px solid #fb8f21;
+	color: #fb8f21;
+}
+
+/* Progress animation by https://codepen.io/holdencreative/pen/vEVbwv */
+.progress {
+	position: absolute;
+	height: 5px;
+	display: block;
+	width: 100%;
+	background-color: #37474f;
+	border-radius: 2px;
+	background-clip: padding-box;
+	margin: 0;
+	left: 0;
+	top: -5px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.progress .determinate {
+	position: absolute;
+	background-color: inherit;
+	top: 0;
+	bottom: 0;
+	background-color: #cccccc;
+	transition: width .3s linear;
+}
+
+.progress .indeterminate {
+	background-color: #cccccc;
+}
+
+.progress .indeterminate:before {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	will-change: left, right;
+	-webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+	animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.progress .indeterminate:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	will-change: left, right;
+	-webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+	animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+	-webkit-animation-delay: 1.15s;
+	animation-delay: 1.15s;
+}
+
+.slideIn {
+	-webkit-animation-name: slideIn;
+	animation-name: slideIn;
+}
+
+.fadeIn {
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+
+.scrollable::-webkit-scrollbar {
+	background-color:transparent;
+	width:15px;
+	height: 5px;
+}
+
+.scrollable::-webkit-scrollbar-corner {
+	background-color: transparent;
+}
+
+/* background of the scrollbar except button or resizer */
+.scrollable::-webkit-scrollbar-track {
+	background-color:transparent;
+	padding-left: 10px;
+}
+.scrollable::-webkit-scrollbar-track:hover {
+	background-color:transparent;
+}
+
+/* scrollbar itself */
+.scrollable::-webkit-scrollbar-thumb {
+	background-color:#6f8692;
+	border-left: 10px solid transparent;
+	background-clip: padding-box;
+}
+.scrollable::-webkit-scrollbar-thumb:hover {
+	background-color:#37474f;
+}
+
+/* set button(top and bottom of the scrollbar) */
+.scrollable::-webkit-scrollbar-button {display:none}
+
+@keyframes fadeIn {
+	0% {
+		transform: translateY(0rem);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0rem);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		-webkit-transform: translateY(0rem);
+		-webkit-opacity: 0;
+	}
+
+	100% {
+		-webkit-transform: translateY(0);
+		-webkit-opacity: 1;
+	}
+}
+
+@-webkit-keyframes indeterminate {
+	0% {
+		left: -35%;
+		right: 100%;
+	}
+
+	60% {
+		left: 100%;
+		right: -90%;
+	}
+
+	100% {
+		left: 100%;
+		right: -90%;
+	}
+}
+
+@keyframes indeterminate {
+	0% {
+		left: -35%;
+		right: 100%;
+	}
+
+	60% {
+		left: 100%;
+		right: -90%;
+	}
+
+	100% {
+		left: 100%;
+		right: -90%;
+	}
+}
+
+@-webkit-keyframes indeterminate-short {
+	0% {
+		left: -200%;
+		right: 100%;
+	}
+
+	60% {
+		left: 107%;
+		right: -8%;
+	}
+
+	100% {
+		left: 107%;
+		right: -8%;
+	}
+}
+
+@keyframes indeterminate-short {
+	0% {
+		left: -200%;
+		right: 100%;
+	}
+
+	60% {
+		left: 107%;
+		right: -8%;
+	}
+
+	100% {
+		left: 107%;
+		right: -8%;
+	}
+}
+
+@keyframes slideIn {
+	0% {
+		transform: translateY(1rem);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0rem);
+		opacity: 1;
+	}
+
+	0% {
+		transform: translateY(1rem);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes slideIn {
+	0% {
+		-webkit-transform: transform;
+		-webkit-opacity: 0;
+	}
+
+	100% {
+		-webkit-transform: translateY(0);
+		-webkit-opacity: 1;
+	}
+
+	0% {
+		-webkit-transform: translateY(1rem);
+		-webkit-opacity: 0;
+	}
+}
+
+@keyframes draw {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@media (min-width: 1200px) {
+	.animate {
+		animation-duration: 0.3s;
+		-webkit-animation-duration: 0.3s;
+		animation-fill-mode: both;
+		-webkit-animation-fill-mode: both;
+	}
+
+	.container {
+		max-width: 1190px;
+	}
+}
+
+@media (max-width: 768px) {
+	.slideIn {
+		-webkit-animation-name: none;
+		animation-name: none;
+	}
+
+	.app-install-area {
+		margin-top: 0;
+	}
+
+	.logo svg {
+		width: 100%;
+	}
+
+	.app-install-container {
+		margin-top: 0;
+	}
+
+	.app-install .btn-app {
+		margin: 0 auto;
+	}
+}

@@ -1,0 +1,136 @@
+Language:
+  items:
+    list:
+      title: "Diller"
+      desc: "Buradan yüklü olan dilleri görebilirsiniz."
+      checkbox:
+        title: "Varsayılan dil mi?"
+
+    edit:
+      title: "{1} dil ayarları"
+      desc: "Dil seçenekleri."
+    
+    new:
+      title: "Dil paketi oluştur"
+      desc: "Buradan yeni dil paketi oluşturabilirsiniz."
+      head:
+        title: "Dil paketi"
+      dropdown:
+        title: "Baz alınacak dil"
+      help: "Dil paketinizi oluşturduktan sonra <strong>src/Languages/{oluşturduğunuz dil}</strong> klasörü içinden dosyaları düzenleyebilirsiniz."
+      main_language_text: "<strong>{1}</strong> seçildi, ön tanımlı ayarları kopyalandı."
+
+    sentences:
+      title: "Cümle ve kelimeler"
+      desc: "Buradan dillere ait cümleleri görebilir ve düzenleyebilirsiniz."
+      search:
+        title: "Kelimelerde ara"
+        desc: "Buradan cümle ve kelimelerde seçtiğiniz dil üzerinden arama yapabilir ve onları düzenleyebilirsiniz."
+        label: "Dillerde ara"
+        placeholder: "Cümle veya kelime"
+        dropdown: 
+          languages:
+            all: "Tüm dillerde"
+          addons:
+            all: "Tüm eklentilerde"
+        no_results: "Aramanıza uygun bir sonuç bulunamadı."
+
+    phrase:
+      title: "Cümleleri düzenle"
+      desc: "Cümleleri ve kelimeleri buradan düzenleyebilirsiniz."
+
+      forms:
+        variable:
+          title: "Değişken"
+          desc: "Benzersiz olmalıdır."
+        phrase: 
+          title: "Cümle"
+          desc: "Düzenlenmemiş cümle"
+        modification:
+          title: "Düzenlenilen cümle"
+          desc: "Eğer cümleyi değiştirmek istiyorsanız bu kısma yazın. Bu, orijinal cümleyi değiştirmeyecek yalnızca dil paketinde modifikasyon sağlayacaktır ve çıktı olarak sizin tarafınızdan düzenlenilen cümle baz alınacaktır."
+          placeholder: "Cümlenin düzenlenmiş versiyonu"
+        text: "Cümlelerin içinde kullanılan <code>{1}</code>, <code>{2}</code> gibi ifadeler değişkenleri temsil eder. <br /> Örneğin: <code>{1} önce</code> cümlesindeki <code>{1}</code> değişkeni <code>biraz</code> veya <code>bir saat</code> olarak dönüştürür ve <code>biraz önce</code> olarak çıktı alırız.<br /><br /> Eğer html kullanacaksanız ve bunu bir şablon dosyasında kullanmak istiyorsanız öncelikle bunu Twig'e tanımlı bir halde yazmalısınız. Örnek <code>{{ foo.bar|raw }}</code> <br /> Ayrıntılı bilgi için: <a target=\"blank\" href=\"https://twig.symfony.com/doc/3.x/filters/raw.html\">https://twig.symfony.com/doc/3.x/filters/raw.html</a>"
+
+    forms:
+      id:
+        title: "ID"
+        desc: "Dil kimliği örneğin: tr-TR, en-US gibi."
+      name:
+        title: "Sabit isim"
+        desc: "Dil sabit ismi."
+      title:
+        title: "Başlık"
+        desc: "Başlığı"
+      desc: 
+        title: "Açıklama"
+        desc: "Açıklaması"
+      dir:
+        title: "Yazı yönü"
+        desc: "Dilin yazı yönü, örneğin soldan sağa: 'ltr', sağdan sola: 'rtl' olarak ifade edilir. Eğer metin yönü bilinmiyorsa 'auto' değeri verilebilir."
+      zone:
+        title: "Bölge"
+        desc: "Saat bölgesi"
+      format:
+        title: "Genel tarih formatı"
+        desc: "Örnek: 'j F l Y, H:i' <strong>18 Ocak Salı 2022, 16:44</strong> ifadesine denk gelir. <br /> Ayrıntılı bilgi: <a target=\"_blank\" href=\"https://www.php.net/manual/tr/datetime.format.php\">https://www.php.net/manual/tr/datetime.format.php</a>"
+      date_format:
+        title: "Tarih formatı"
+        desc: "Tarih formatı. Örnek: 'j F l' <strong>18 Ocak Salı</strong> ifadesine denk gelir."
+      date_format_simple:
+        title: "Basit tarih formatı"
+        desc: "Basit tarih formatı. Örnek: 'dd/mm/yyyy' <strong>18/01/2022</strong> ifadesine denk gelir."
+      year_format:
+        title: "Yıl formatı"
+        desc: "Yıl formatını belirtir. Örneğin 'Y' <strong>2022</strong> ifadesine denk gelir."
+    
+    search:
+      label: "Dillerde ara"
+      placeholder: "Cümlelerde veya değişkenlerde ara"
+      
+    languages:
+      Turkish: "Türkçe"
+      English_US: "İngilizce(US)"
+      English_UK: "İngilizce(UK)"
+      German: "Almanca"
+      Spanish: "İspanyolca"
+      Italian: "İtalyanca"
+      Portuguese: "Portekizce"
+      Japanese: "Japonca"
+      Chinese: "Çince"
+      Russian: "Rusça"
+      Arabic: "Arapça"
+      files:
+        Addons: "Eklentiler"
+        Attachments: "Dosyalar"
+        CensorWords: "Kelime sansürü"
+        Container: "Genel"
+        Forums: "Forumlar"
+        Index: "Ana sayfa"
+        Languages: "Diller"
+        NativeApi: "Api keyleri"
+        OAuth: "OAuth"
+        RouteFilters: "Rota filtreleri"
+        Settings: "Ayarlar"
+        Theme: "Temalar"
+        Users: "Kullanıcılar"
+        Account: "Hesap"
+        Discussion: "Konular"
+        Editor: "Editör"
+        Error: "Hatalar"
+        Messages: "Konuşmalar"
+        Pages: "Sayfalar"
+        Profile: "Profil"
+
+    remove:
+      title: "Dil silinsin mi?"
+      desc: "Bu dil paketini silerseniz bu dile bağlu tüm cümle ve kelimeler de silinecektir. Onaylıyor musunuz?"
+      success: "Dil paketi kaldırıldı."
+
+    import:
+      title: "Dil paketi içe aktar"
+      desc: "Buradan yeni dil paketleri ekleyebilirsiniz."
+      install: 
+        title: "Paket yükleyici"
+        file: 
+          text: "Dil paketi dosyanızı seçin"

@@ -1,0 +1,35 @@
+{% extends 'container.tpl' %}
+
+{% block app_template_name '404' %}
+
+{% block content %}
+	<div class="app-profile-sub-menu d-flex flex-column flex-lg-row align-items-lg-center w-100 mb-4">
+		<div class="d-flex">
+			<div class="app-title">
+				<div class="app-breadcrumb d-flex">
+					<div class="home"><a href="{{ app.settings.site_url }}">{{ app.settings.site_title }}</a></div>
+					<div>{{ app.sub.lang.string.container.page_errors.page_not_found.breadcrumb }}</div>
+				</div>
+			</div>
+		</div>
+		<div class="ml-lg-auto">
+			{% include 'usermenu_member.tpl' %}
+		</div>
+	</div>
+	<aside class="col-12">
+		<div class="d-flex justify-content-center align-items-center text-dark mt-4" id="main">
+			<h1 class="mr-3 pr-3 align-top border-right inline-block align-content-center">{{ app.sub.lang.string.container.page_errors.page_not_found.breadcrumb }}</h1>
+			<div class="inline-block align-middle">
+				<h2 class="font-weight-normal lead" id="desc">{{ app.sub.lang.string.container.page_errors.page_not_found.text }}</h2>
+			</div>
+		</div>
+	</aside>
+    {# This is includes meta definitions. #}
+	<div hook-action="{Mention:App-domEvent-metacontents}"
+		data-title="{{ app.sub.lang.string.container.page_errors.page_not_found.title }}"
+		data-meta-description="{{ app.settings.meta_description }}"
+		data-og-description="{{ app.settings.meta_description }}"
+		data-twitter-description="{{ app.settings.meta_description }}" data-og-title="{{ app.settings.meta_description }}"
+		data-twitter-title="{{ app.settings.meta_description }}" class="d-none">
+	</div>
+{% endblock %}

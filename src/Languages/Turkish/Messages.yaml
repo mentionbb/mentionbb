@@ -1,0 +1,38 @@
+Language:
+  items:
+    title: "Mesajlar"
+
+    breadcrumb:
+      messages: "Mesajlar"
+      conversations: "Konuşmalar"
+      new: "Yeni"
+      all: "Tümü"
+
+    search:
+      title: "Arama"
+      placeholder: "Hızlı arama"
+
+    conversation:
+      title: "Konuşmalar"
+      default: "Listeden bir konuşma seçin veya yeni bir tane oluşturun."
+      options:
+        title: "Mesaj seçenekleri"
+        buttons:
+          archive: "Arşivle"
+          remove_archive: "Arşivden çıkar"
+          remove: "Sil"
+      status:
+        delivered: "İletildi"
+        seen: "Görüldü"
+        last_seen: "Son görülme: {1}"
+      just_before: "Biraz önce"
+      archived_text: "Arşivlediğiniz mesaja cevap yazamazsınız."
+      archived: "Arşivlenmiş"
+
+    new:
+      form:
+        username: "Kullanıcı adı"
+        username_placeholder: "Alıcının kullanıcı adı"
+        username_result: "Sonuçlar"
+        title: "Başlık"
+        title_placeholder: "Mesaj başlığı girin"

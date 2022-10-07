@@ -1,0 +1,11 @@
+Language:
+  items:
+    editor:
+      title_cannot_be_blank: "Konu başlığı boş bırakılamaz."
+      title_is_greater_then: "Konu başlığı {1} karakterden fazla olmalıdır."
+      content_is_greater_then: "İçerik {1} karakter veya daha uzun olmalıdır."
+      attachment_max: "En fazla {1} adet dosya ekleyebilirsiniz."
+      attachment_max_size: "Dosya çok büyük: {2}. Yükleyebileceğiniz maksimum dosya boyutu: {1}"
+      please_select_a_forum: "Lütfen bir forum seçiniz."
+      report_cannot_be_blank: "Rapor içeriği boş geçilemez!"
+      profile_photo_max_size: "Yüklemeye çalıştığınız dosya çok büyük, izin verilen maksimum boyut: {1}"

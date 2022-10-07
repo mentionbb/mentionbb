@@ -1,0 +1,10 @@
+{
+	"path": "app",
+	"js": {
+		"1": "editor/bbcode.js",
+		"2": "editor/user-tagging.js",
+		"3": "editor/spoiler.js",
+		"4": "editor/emoticons.js",
+		"5": "editor/quote-message.js"
+	}
+}

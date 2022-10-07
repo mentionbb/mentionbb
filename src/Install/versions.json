@@ -1,0 +1,22 @@
+{
+	"1101239": {
+		"version": "1",
+		"versionId": "1101239",
+		"versionTitle": "1.0 BETA for testers.",
+		"contains": {
+			"status": "stable",
+			"installable": "true",
+			"upgradable": "true"
+		}
+	},
+	"1101339": {
+		"version": "1",
+		"versionId": "1101339",
+		"versionTitle": "1.0 BETA for testers.",
+		"contains": {
+			"status": "stable",
+			"installable": "true",
+			"upgradable": "true"
+		}
+	}
+}

@@ -1,0 +1,90 @@
+Language:
+  items:
+    title: "Mention seçenekleri"
+
+    groups:
+      languages:
+        title: "Dil seçenekleri"
+        desc: "Varsayılan dil seçenekleri."
+      posts:
+        title: "Konular ve mesajlar"
+        desc: "Konu veya mesajlardaki bazı ayarları değiştirmek için bu seçeneği kullanabilirsiniz."
+      recaptcha:
+        title: "ReCaptcha ayarları"
+        desc: "ReCaptcha key ve secret key bu ayardan girilmektedir."
+      site:
+        title: "Genel ayarlar"
+        desc: "Sitenin genel ayarları, Site başlığı, açıklaması gibi seçenekleri içerir."
+      styles:
+        title: "Stil ayarları"
+        desc: "Site logosu veya Emojileri yönetebileceğiniz seçenek grubu."
+      users:
+        title: "Kullanıcı seçenekleri"
+        desc: "Kullanıcı ayarları veya Profil fotoğrafı gibi seçenekler."
+
+    forms:
+      site:
+        site_url:
+          name: "Site adresi"
+          desc: "Sitenizin tam adresi. Sonu '/' ile bitmemesi gerekiyor."
+        site_title:
+          name: "Site başlığı"
+          desc: "Sitenizin başlığı. Bu bütün sayfalarda gözükecektir."
+        site_short_title:
+          name: "Kısa başlık"
+          desc: "Sitenizin kısa başlığı."
+        meta_description:
+          name: "Meta açıklaması"
+          desc: "Meta açıklaması. Seo açısından önemlidir, 50-160 karakter arasında olmasına önem verin."
+        site_mail:
+          name: "İletişim mail adresi"
+          desc: "Sitenizin iletişim için kullanılacak ana mail adresidir. Giden posta için hangi maili kullandığınız fark etmeksiniz bu isimle gidecek."
+
+      languages:
+        default_language:
+          name: "Varsayılan dil"
+          desc: "Lütfen sitenizin varsayılan dilini seçin. Dil seçeneğiniz seçeneklerde gözükmüyorsa, <strong>Diller</strong> sekmesinden paket yükleyebilir veya yeni oluşturabilirsiniz."
+
+      posts:
+        per_page:
+          name: "Sayfa başına mesaj miktarı"
+          desc: "konu içleri ve ana sayfa özelinde, sayfa başına maksimum mesaj."
+        title_char_min:
+          name: "Minimum başlık uzunluğu"
+          desc: "Konu açarken yazılabilecek minimum başlık uzunluğunu belirtir."
+        content_char_min:
+          name: "Minimum içerik uzunluğu"
+          desc: "Konu açarken minimum içerik uzunluğu"
+        max_attachments:
+          name: "Maksimum eklenebilecek dosya"
+          desc: "Bir mesaja maksimum eklenebilecek dosya sınırı."
+        attachment_max_size:
+          name: "Eklenebilecek maksimum dosya boyutu"
+          desc: "Mesaja eklenecek maksimum dosya boyutu."
+
+      recaptcha:
+        gr_secret_key:
+          name: "Gizli anahtar"
+          desc: "Google reCaptcha gizli anahtarı."
+        gr_site_key:
+          name: "Site anahtarı"
+          desc: "Google reCaptcha site anahtarı."
+
+      styles:
+        site_logo:
+          name: "Site logosu"
+          desc: "Sol üstte ve kayıt/giriş yaparken gösterilecek logo. <br /> <strong>Maksimum boyut: {phrase:getGlobals().admin.max_site_logo_size}</strong>"
+        site_logo_night:
+          name: "Karanlık tema logosu"
+          desc: "Normal logonun yanında birde koyu mod logosu olmalıdır. <br /> <strong>Maksimum boyut: {phrase:getGlobals().admin.max_site_logo_size}</strong>"
+        emoticon_database:
+          name: "Emoji veritabanı"
+          desc: "Emoji veritabanı, sunucunuzdan veya uzak sunucudan çekebilir. <br /> <strong>local: yerel sunucu <br /> twemoji: uzak sunucu</strong>"
+        default_theme:
+          name: "Varsayılan tema"
+          desc: "Sitenizin varsayılan temasını buradan seçebilirsiniz."
+
+      users:
+        profile_photo_max_size:
+          name: "Maksimum profil fotoğrafı boyutu"
+          desc: "Kullanıcıların maksimum yükleyebileceği profil fotoğrafı dosya büyüklüğü"

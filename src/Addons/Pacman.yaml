@@ -1,0 +1,19 @@
+event_id: '1ec8040f-3ff0-6026-82f0-032d72d0ef46'
+name: "Pacman"
+description: "Adds a time-passing game on the 404 page."
+version: '1.00'
+developers:
+  list:
+    name: "ParantezTech"
+    link: "https://mentioncommunity.com"
+application:
+  app: '\Addons\Pacman\App\Event'
+  start: '\Addons\Pacman\Addon::Event'
+  routing: "Pacman/App/Config/routes.yaml"
+  prefix: "/"
+  editable: "Templates"
+settings:
+  perm_id: "addon"
+  viewing: 0
+  stopping: 0
+  order: 300

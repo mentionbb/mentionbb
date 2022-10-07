@@ -1,0 +1,18 @@
+event_id: '1ec7abae-860d-69dc-9e70-b984a0d43ef3'
+name: "Debug"
+description: "Shows debug information to admin."
+version: '1.00'
+developers:
+  list:
+    name: "ParantezTech"
+    link: "https://mentioncommunity.com"
+application:
+  app: '\Addons\Debug\App\Event'
+  start: '\Addons\Debug\Addon::Event'
+  prefix: "/"
+  editable: "Templates"
+settings:
+  perm_id: "addon"
+  viewing: 0
+  stopping: 0
+  order: 200

@@ -1,0 +1,8 @@
+db:
+  host: localhost
+  name: sf
+  user: root
+  password:
+  table_ext:
+  driver: pdo-mysql
+  charset: utf8mb4

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ <sitemap>
+  <loc>http://localhost/mention/sitemap-1.xml</loc>
+  <lastmod>2022-07-24T17:39:06+03:00</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://localhost/mention/sitemap-2.xml</loc>
+  <lastmod>2022-07-24T17:39:06+03:00</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://localhost/mention/sitemap-3.xml</loc>
+  <lastmod>2022-07-24T17:39:06+03:00</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://localhost/mention/sitemap-4.xml</loc>
+  <lastmod>2022-07-24T17:39:06+03:00</lastmod>
+ </sitemap>
+</sitemapindex>

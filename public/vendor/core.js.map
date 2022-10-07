@@ -1,0 +1,20 @@
+{
+	"path": "app",
+	"js": {
+		"1": "app.js",
+		"2": "core.js",
+		"3": "visitor.js",
+		"4": "index.js",
+		"5": "discussion.js",
+		"6": "post.js",
+		"7": "profile.js",
+		"8": "account.js",
+		"9": "messages.js",
+		"10": "pages.js",
+		"11": "editor/bbcode.js",
+		"12": "editor/user-tagging.js",
+		"13": "editor/spoiler.js",
+		"14": "editor/emoticons.js",
+		"15": "editor/quote-message.js"
+	}
+}

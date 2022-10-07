@@ -1,0 +1,15 @@
+Language:
+  init:
+    id: "tr-TR" #This is the setting used when creating cache language files. And Carbon/Carbon https://github.com/briannesbitt/Carbon/tree/master/src/Carbon/Lang && https://bootstrap-datepicker.readthedocs.io/en/latest/i18n.html
+    name: "Turkish" #Display name.
+    title: "Türkçe" #Display title.
+    desc: "Türkçe dil paketi"
+    version: "1" #Version of the language package.
+    path: "Turkish" #This is to understand which folder the language files are in.
+    text_direction: "ltr" #ltr|rtl Specifies the text direction of the element's content. https://www.w3schools.com/tags/att_global_dir.asp
+    timer: #Timestamp. This is related to the language of the general time and date stamp.
+      zone: "Europe/Istanbul" #Zone
+      format: "j F l Y, H:i" #18 Ocak Salı 2022, 16:44 / https://www.php.net/manual/tr/datetime.format.php
+      date_format: "j F l" #18 Ocak Salı / https://www.php.net/manual/tr/datetime.format.php
+      date_format_simple: "dd/mm/yyyy" #18/01/2022 / https://www.php.net/manual/tr/datetime.format.php
+      year_format: "Y" #2022 / https://www.php.net/manual/tr/datetime.format.php

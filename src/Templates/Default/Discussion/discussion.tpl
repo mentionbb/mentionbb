@@ -1,0 +1,106 @@
+{% extends 'container.tpl' %}
+
+{% block app_template_name 'discussion' %}
+
+{% block content %}
+	<aside class="col-sm-10 pr-4">
+		<div class="app-discuss-sub-menu d-flex flex-column flex-lg-row mb-lg-3 mb-sm-0 w-100">
+			{% if string.discussion.is_open is same as('1') %}
+				<div class="order-2 order-sm-1">
+					{% if app.user.loggedIn() %}
+					    <button type="button" class="btn btn-app-discussion icon reply d-lg-block d-none" data-ui="show-editor" data-scroll="true">{{ app.sub.lang.string.container.buttons.reply }}</button>
+					{% else %}
+						<button type="button" class="btn btn-app-discussion icon exclamation d-lg-block d-none" data-ui="login-attempt" data-scroll="true">{{ app.sub.lang.string.container.buttons.reply_login }}</button>
+				    {% endif %}
+				</div>
+			{% else %}
+				<div class="order-2 order-sm-1">
+					 <button type="button" class="btn btn-app-discussion icon reply d-lg-block d-none" data-scroll="true" disabled>{{ app.sub.lang.string.container.buttons.reply }}</button>
+				</div>
+			{% endif %}
+			<div class="order-1 order-lg-2 ml-lg-auto align-self-lg-center">
+				{% include 'usermenu_member.tpl' %}
+			</div>
+		</div>
+		<div class="d-flex mb-3">
+			<div class="app-title">
+				<div class="app-breadcrumb d-flex">
+					<div class="home"><a href="{{ app.phrase.buildLink('indexAction', {}) }}">{{ app.settings.site_title }}</a></div>
+					<div>
+						<a href="{{ app.phrase.buildLink('forum', {'forum_id': string.discussion.forum_id, 'title': string.discussion.forum_title}) }}">{{ string.discussion.forum_title }}</a>
+					</div>
+					<div>{{ app.string.render.title.Render(string.discussion.title) }}</div>
+				</div>
+				<span class="date">{{ app.timer.date.toHumanReadable(string.discussion.dateline) }}</span>
+			</div>
+		</div>
+		{% if string.discussion.is_sticky %}
+			<div class="app-discussion-status pinned">
+				<span>{{ app.sub.lang.string.discussion.first_post.pinned }}</span>
+			</div>
+		{% endif %}
+		{% if not string.discussion.is_open %}
+			<div class="app-discussion-status locked">
+				<span>{{ app.sub.lang.string.discussion.first_post.locked }}</span>
+			</div>
+		{% endif %}
+	</aside>
+	<aside class="col-sm-2">
+		{% if app.user.loggedIn() %}
+			{% if not discussion.isUserSubscribeDiscussion(app.visitor.user_id, string.discussion.discussion_id) %}
+				<button type="button" class="btn btn-app-discussion icon subscription mb-2" data-ui="subscribe-discussion" data-scroll="true" data-text="{{ app.sub.lang.string.container.buttons.subscribe }}" data-remove-text="{{ app.sub.lang.string.container.buttons.subscribe_remove }}">{{ app.sub.lang.string.container.buttons.subscribe }}</button>
+			{% else %}
+				<button type="button" class="btn btn-app-discussion icon subscription-remove mb-2" data-ui="remove-subscribe-discussion" data-scroll="true" data-text="{{ app.sub.lang.string.container.buttons.subscribe }}" data-remove-text="{{ app.sub.lang.string.container.buttons.subscribe_remove }}">{{ app.sub.lang.string.container.buttons.subscribe_remove }}</button>
+			{% endif %}
+		{% endif %}
+	</aside>
+	<aside class="col-sm-10 pr-4">
+		<div hook-action="{Mention:App-domEvent-discussion}" class="app-post-container animate slideIn">
+			{% import 'macro.posts.tpl' as macros %}
+			{{ macros.posts(string.discussion, false, true, string) }}
+			{% include 'discussion_posts.tpl' %}
+		</div>
+		<div class="post-loader-spin"></div>
+	</aside>
+	<aside class="col-sm-2">
+		<div class="post-timeliner">
+			<div data-ui="go-first-post" class="first-post mb-2">{{ app.sub.lang.string.discussion.scrubber.discussion_post }}</div>
+			<div class="scrollable-parent">
+				<div class="scrollbar-before"></div>
+				{% if string.post.getDiscussionPostCount() > 2 %}
+					<div class="scrollbar-area scrubber__scroll">
+						<div class="info">
+							<span class="post-count">{{ string.post.getDiscussionPostCount() }}</span>
+							<span> / </span>
+							<span class="scrubber__index font-weight-bold text-dark"></span>
+							<span class="scrubber__date d-block"></span>
+						</div>
+						<div class="backto-post d-none">
+							<button class="btn btn-primary btn-sm" data-ui="backto-post" data-post-id="">{{ app.sub.lang.string.container.buttons.back }}</button>
+						</div>
+					</div>
+					<div class="scrollbar-after"></div>
+				{% else %}
+					<div style="cursor: default" class="scrollbar-area scrubber__scroll no-scrollbar">
+						<div style="background: #546168;height: 295px" class="bar"></div>
+						<div style="position: relative;top: 115px;" class="info ml-3">
+							<span class="post-count">{{ string.post.getDiscussionPostCount() }} /</span>
+							<span class="scrubber__index no-index font-weight-bold text-dark">{{ string.post.getDiscussionPostCount() }}</span>
+							<span class="scrubber__date d-block"></span>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+			<div data-ui="go-last-post" class="last-post">{{ app.sub.lang.string.discussion.scrubber.first_message }}</div>
+		</div>
+	</aside>
+	{# This is includes meta definitions. #}
+	{% set meta_content = app.sub.renderer.bbcode.ClearBBCode(string.discussion.content, false, false)|replace({'&nbsp;': '', '&amp': ''}) %}
+	<div hook-action="{Mention:App-domEvent-metacontents}"
+		data-title="{{ app.string.render.title.Render(string.discussion.title) }}"
+		data-meta-description="{{ meta_content }}" data-og-description="{{ meta_content }}"
+		data-twitter-description="{{ meta_content }}"
+		data-og-title="{{ app.string.render.title.Render(string.discussion.title) }}"
+		data-twitter-title="{{ app.string.render.title.Render(string.discussion.title) }}" class="d-none">
+	</div>
+{% endblock %}

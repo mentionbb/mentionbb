@@ -1,0 +1,226 @@
+Language:
+  items:
+    proceed: "yükleniyor.."
+
+    generic:
+      yes: "Evet"
+      no: "Hayır"
+      and: "ve"
+      or: "veya"
+      either: "ya da"
+      except: "başka"
+      end: "son"
+      all: "tümü"
+
+    nav:
+      home: "Ana Sayfa"
+      help:
+        title: "Yardım"
+        faq: "SSS"
+        privacy: "Gizlilik"
+        contact: "İletişim"
+
+    quick_menu: "Hızlı Erişim"
+
+    welcome_message: 'Hoşgeldiniz, forumumuzda bilgi alışverişinde bulunmak, özel mesaj yazmak, bildirim almak ve konu oluşturmak için lütfen <a class="text-light font-weight-bold" data-ui="register-attempt" href="#">Kayıt</a> olunuz.'
+    cookie_text: 'Bu site, içeriği kişiselleştirmek, deneyiminizi geliştirmek ve ayrıca Kayıt ve Giriş gibi işlemler için çerezleri kullanır.Sitemizi kullanarak bunu kabul etmiş olursunuz.<a class="text-white u" href="{1}/privacy">Gizlilik politikamız.</a>'
+
+    buttons:
+      copy: "Kopyala"
+      submit: "Gönder"
+      publish: "Yayınla"
+      save: "Kaydet"
+      cancel: "İptal"
+      reply: "Cevap yaz"
+      reply_login: "Cevap yazmak için giriş yap"
+      subscribe: "Abone ol"
+      subscribe_remove: "Abonelikten çık"
+      search: "Ara"
+      refresh: "Yenile"
+      show_all: "Tümünü göster"
+      more: "Daha fazla yükle"
+      sign_in: "Giriş yap"
+      register: "Kayıt ol"
+      navigation: "Navigasyon"
+      close: "Kapat"
+      complete: "Tamamla"
+      clear: "Temizle"
+      back: "Geri"
+      next: "İleri"
+      approve: "Onayla"
+      setup: "Kur"
+      update: "Güncelle"
+      delete: "Sil"
+      browse: "Gözat"
+      select: "Seçiniz"
+      select_file: "Dosya ekleyin"
+      restore: "Geri yükle"
+      new: "Yeni"
+      sort: "Sırala"
+      edit: "Düzenle"
+      remove: "Kaldır"
+      install: "Yükle"
+      export: "Dışa aktar"
+      import: "İçe aktar"
+
+    visitor:
+      auth:
+        csrf_error: "CSRF token hatası"
+        cannot_be_blank: "Kullanıcı adı veya şifre boş bırakılamaz!"
+        wrong_username_or_password: "Kullanıcı adı veya şifre yanlış!"
+      register:
+        title: "Kayıt ol"
+        mail_small: "Doğrulama kodu gelecektir."
+        username_available: "Bu kullanıcı adı alınabilir."
+        username_not_available: "Bu kullanıcı adı alınamaz."
+        quick_login: "Kayıt tamamlandıktan sonra hızlı giriş"
+        quick_login_title: "Hızlı giriş"
+        desc: "Şifrenizi güvenilir seçiniz, dilerseniz kayıt olduktan sonra 2 aşamalı doğrulamayı da açabilirsiniz bu sayede Google Authentication uygulaması ile oturum açabilirsiniz."
+        or_login: 'Hesabınız varsa hemen <a class="login" href="#">Giriş yapabilirsiniz.</a>'
+        agreement: '<a target="_blank" href="{1}/faq">Kuralları</a> ve <a target="_blank" href="{1}/privacy">Gizlilik sözleşmesini</a> okudum ve kabul ediyorum.'
+        please_verify_captcha: "Lüfen bot olmadığınızı doğrulayın."
+      login:
+        title: "Giriş yap"
+        none: '<p>Hesabınız yok mu hemen <a class="register" href="#">Kayıt olun!</a></p><a href="#" data-ui="forgot-password">Şifremi unuttum</a>'
+        remember_me: "Hatırla?"
+      placeholder:
+        username: "Kullanıcı adı"
+        password: "Şifre"
+        mail: "E-Posta"
+      buttons:
+        login: "Giriş"
+      status:
+        online: "Kullanıcı çevrimiçi"
+        offline: "Kullanıcı çevrimdışı"
+      sign_out:
+        title: "Çıkış yap"
+        text: "Çıkış yapmak istediğinize emin misiniz?"
+      forgot:
+        title: "Şifremi unuttum"
+        text: "Lütfen geçerli bir mail adresi girin"
+      default_title: "Üye"
+      ban_message: "Yasaklandığınız için bu eylemi gerçekleştiremezsiniz."
+      ban: 
+        title: "Forumdan yasaklandınız!"
+        reason_title: "Şu sebeple forumdan yasaklandınız:"
+        expires_in: "Sona erme tarihi: {1}"
+
+    search:
+      text: "Aranacak kelime.."
+      search_forums: "Seçili forumda ara"
+      advanced_search: "Gelişmiş arama"
+      no_results: "Aramanıza uygun bir sonuç bulunamadı."
+      discussions: "Konular"
+      users: "Kullanıcılar"
+      discussions_containing_word: '"{1}" içeren bütün konular.'
+      users_containing_word: '"{1}" içeren bütün kullanıcılar.'
+      quick_message_text: "{1} kullanıcısına mesaj gönder"
+
+    message:
+      title: "Mesajlar"
+      buttons:
+        mark_read: "Tümünü okundu say"
+        new: "Yeni mesaj yaz"
+      none: "Şu anda yeni bir mesajınız bulunmuyor."
+      reply: "Cvp: <b>{1}</b>"
+
+    notification:
+      title: "Bildirimler"
+      buttons:
+        settings: "Bildirim ayarları"
+      text:
+        replied: "<strong>{1}</strong> adlı kullanıcı şu mesajınıza cevap verdi."
+        reply: "<strong>{1}</strong> adlı kullanıcı konunuza bir mesaj yazdı."
+        tagged: "<strong>{1}</strong> adlı kullanıcı siz bir mesaja etiketledi."
+        reaction: '<span><strong>{1}</strong> adlı kullanıcı şu mesajınıza bir ifade bıraktı: </span><span class="reaction {2}"></span>'
+        subscribe: "<span><strong>{1}</strong> adlı kullanıcı abone olduğunuz bir konuya mesaj yazdı."
+        friendship_request: "<span><strong>{1}</strong> adlı kullanıcı sizi arkadaş olarak ekledi."
+      none: "Yeni bildiriminiz yok."
+      friendship_request:
+        text:
+          approved: "İstek kabul edildi."
+          removed: "İstek silindi."
+
+    usermenu:
+      buttons:
+        control_panel: "Kontrol paneli"
+        password: "Şifre işlemleri"
+        two_step_verification: "2 adımlı doğrulama"
+        profile_picture: "Profil fotoğrafı"
+      links:
+        admin: "Admin panel"
+        profile: "Profiliniz"
+        bookmarks: "Koleksiyonum"
+        posts: "Tüm içeriğiniz"
+        sign_out: "Çıkış yap"
+        night_mode: "Gece modu"
+      guest:
+        title: "Hoşgeldin ziyaretçi"
+
+    editor:
+      placeholder:
+        title: "Konu başlığı"
+        forum: "Forum seçin"
+        write: "Cevap yazmak için buraya tıklayın"
+        new_post: "Buraya bir şeyler yazın.."
+        message: "Bir mesaj yazın"
+      shared_by: "<strong>{1}</strong> olarak paylaşılıyor."
+      next:
+        text: "Daha fazla seçenek"
+        attachment:
+          title: "Eklentiler"
+          max_size_text: "Maksimum dosya boyutu: <strong>{1}</strong>"
+        admin_options:
+          pinned: "Konu sabitlensin"
+          locked: "Konu kilitlensin"
+
+    order:
+      title: "Sıralama ölçütü"
+      new_message: "Yeni mesaj"
+      popular: "Popüler"
+      top_likes: "Beğenilere göre"
+      oldest: "Eskiden yeniye"
+
+    no_post:
+      none: "Burada görüntülenecek bir şey yok."
+      new: "Yeni konuyu siz açın."
+      new_post: "Yeni mesajı siz yazın."
+
+    posts:
+      pinned: "Sabit"
+      locked: "Kilitli"
+
+    login_error: "Giriş hatası"
+
+    two_step_verification:
+      title: "2 aşamalı doğrulama"
+      help_text: "Lütfen Google Authenticator uygulamasından edindiğiniz kodu girin."
+      reset: "Kimlik doğrulamayı sıfırla"
+
+    flash_message:
+      wait_a_while: "Bir süre bekleyin.."
+      copy_to_clipboard: "Panoya kopyalandı."
+      report_post: "Mesaj yöneticiye raporlandı."
+      delete_post: "Mesaj yayından kaldırıldı."
+      edit_post: "Mesaj düzenlendi."
+      bookmark_post: "Koleksiyona eklendi."
+      unbookmark_post: "Koleksiyondan kaldırıldı."
+      two_step_verification_code_error: "Uygulama kodu hatalı."
+      add_friend: "Arkadaşlık isteği gönderildi."
+      remove_friend: "Kullanıcı arkadaş listenizden kaldırıldı."
+      account_settings_success: "Ayarlar güncellendi."
+      account_password_success: "Şifreniz başarılı bir şekilde güncellendi."
+      messages_archived: "Mesaj arşivlendi."
+      messages_removed_archive: "Mesaj arşivden kaldırıldı."
+      messages_write_a_username: "Bir kullanıcı adı girmelisiniz."
+      messages_write_a_title: "Bir başlık girmelisiniz."
+      messages_not_self: "Kendinize mesaj yollayamazsınız."
+      not_saving_content: "Kaydedilmemiş veriler var!"
+      account_passwords_must_much: "Girilen şifreler aynı olmalıdır."
+      attachment_deleted_successfull: "Dosya silindi."
+
+    page_errors:
+      page_not_found:
+        title: "Sayfa bulunamadı"
+        breadcrumb: "404"
+        text: "Aradığınız sayfa bulunamadı."

@@ -1,0 +1,6 @@
+Language:
+  items:
+    title: "Native api"
+    desc: "Bu sayfadan api oluşturabilir ve mobil uygulamalar veya diğer yazılımlarınız için basit bir şekilde sitenizden veri çekebilirsiniz."
+
+    help: Native Api henüz geliştirilme aşamasındadır. İlerleyen güncellemeler ile birlikte tarafınıza ulaşacaktır.

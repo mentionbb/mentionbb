@@ -1,0 +1,44 @@
+Language:
+  items:
+    title: "Giriş"
+
+    logs:
+      text: "Yazılımda saptanmış PHP uyarı günlükleri bulunmaktadır. Uyarıları görmek ve temizlemek için <a href=\"{1}?PHPWarnings\">buraya</a> tıklayın."
+
+    quick_search:
+      label: "Kullanıcı ara"
+      placeholder: "Kullanıcı adı, mail"
+      users:
+        button: "{1} kullanıcısını düzenle"
+
+    stats:
+      title: "İstatistikler"
+
+    check_requirements:
+      text:
+        success: "Sunucunuz Mention'un stabil bir şekilde çalışması için gerekli kriterleri sağlamaktadır."
+        fail: "Sunucunuzda bir veya birden fazla modül eksik. Bu durumda Mention'un çalışması sekteye uğrayabilir veya çalışmayı durdurabilir."
+      error:
+        php: "Sunucunuzun PHP versiyonu: {1}, gereken PHP versiyonu: {2}"
+        mbstring: "<a href=\"https://www.php.net/manual/tr/book.mbstring.php\">PHP mbstring</a> eklentisi kapalı veya yüklenmemiş."
+        zip: "Zip eklentisi kapalı, sistemin paketleri dışa veya içeriye aktarabilmesi için <a href=\"https://www.php.net/manual/tr/book.zip.php\">Zip</a> eklentisi gerekiyor."
+        curl: "Mention, bazı uzak sitelerden bilgi alır veya gönderir. <a href=\"https://www.php.net/manual/tr/book.curl\">PHP Curl</a> eklentisi şarttır."
+
+    server_environment:
+      title: "Sunucu raporu"
+      table:
+        head: 
+          feature: "Özellik"
+          value: "Değer"
+        rows:
+          php_version: "PHP sürümü"
+          mysql_version: "MySQL sürümü"
+          memory_limit: "memory_limit"
+          post_max_size: "post_max_size"
+          upload_max_filesize: "upload_max_filesize"
+          max_input_vars: "max_input_vars"
+          max_execution_time: "max_execution_time"
+          curl_version: "cURL versiyonu"
+          support_gzip: "GZip desteği"
+          support_mbstring: "Mbstring desteği"
+          support_zip: "ZipArchive desteği"

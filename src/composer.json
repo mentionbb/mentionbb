@@ -1,0 +1,57 @@
+{
+    "autoload": {
+        "psr-4": {
+			"Release\\": ".",
+            "ComponentBundle\\": "Addons/Mention",
+            "App\\": "App",
+            "Addons\\": "Addons",
+			"Install\\": "Install"
+        }
+    },
+    "require": {
+        "symfony/routing": "^5.2",
+        "symfony/http-foundation": "^5.2",
+        "symfony/yaml": "^5.0",
+        "matthiasmullie/minify": "^1.3",
+        "symfony/filesystem": "^5.0",
+        "twig/twig": "^3",
+        "nesbot/carbon": "^2.11",
+        "markrogoyski/math-php": "0.*",
+        "symfony/config": "^5.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "doctrine/dbal": "^3.2",
+        "laminas/laminas-escaper": "^2.6",
+        "socialconnect/auth": "^3.1",
+        "socialconnect/http-client": "^1.0",
+        "symfony/cache": "^5.1",
+        "phpgangsta/googleauthenticator": "dev-master",
+        "matomo/device-detector": "^4.2",
+        "joypixels/emoji-toolkit": "^6.5",
+        "doctrine/annotations": "^1.13",
+        "google/recaptcha": "1.2",
+        "symfony/dom-crawler": "^5.2",
+        "symfony/css-selector": "^5.2",
+        "kevinrob/guzzle-cache-middleware": "^3.3",
+        "symfony/event-dispatcher": "^5.2",
+        "masterminds/html5": "^2.7",
+        "symfony/uid": "^5.2",
+        "voku/portable-utf8": "^5.4",
+        "symfony/dependency-injection": "^5.3",
+        "symfony/mailer": "^5.4",
+        "nikic/php-parser": "^4.13",
+        "symfony/console": "^5.4",
+        "nelexa/zip": "^4.0",
+        "symfony/finder": "^5.4",
+        "symfony/process": "^5.4",
+        "symfony/error-handler": "^5.4",
+        "symfony/serializer": "^5.4",
+        "symfony/property-access": "^5.4",
+        "symfony/framework-bundle": "^5.4",
+        "symfony/twig-bundle": "^5.4",
+        "sensio/framework-extra-bundle": "^6.2"
+    },
+    "extra": [],
+    "require-dev": {
+        "symfony/var-dumper": "^5.4"
+    }
+}

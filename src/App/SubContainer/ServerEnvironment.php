@@ -1,0 +1,171 @@
+<?php
+
+namespace App\SubContainer;
+
+use App\App;
+
+class ServerEnvironment
+{
+    public function getPHPVersion()
+    {
+        return phpversion();
+    }
+
+    public function getPHPInfo()
+    {
+        return phpinfo();
+    }
+
+    public function getMySQLVersion()
+    {
+        return (new \App\Entity\Version)->getVersion();
+    }
+
+    public function getMemoryLimit()
+    {
+        return ini_get('memory_limit');
+    }
+
+    public function getPostMaxSize()
+    {
+        return ini_get('post_max_size');
+    }
+
+    public function getUploadMaxFilesize()
+    {
+        return ini_get('upload_max_filesize');
+    }
+
+    public function getMaxInputVars()
+    {
+        return ini_get('max_input_vars');
+    }
+
+    public function getMaxExecutionTime()
+    {
+        return ini_get('max_execution_time');
+    }
+
+    public function getCurlVersion()
+    {
+        return curl_version()['version'];
+    }
+
+    public function isSupportGZip()
+    {
+        if (App::isLoadExtension('zlib'))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isMbstringEnabled()
+    {
+        if (App::isLoadExtension('mbstring'))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isCurlEnabled()
+    {
+        if (App::isLoadExtension('curl'))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function isZipEnabled()
+    {
+        if (App::isLoadExtension('zip'))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function checkRequirement()
+    {
+        if (version_compare($this->getPHPVersion(), App::$_supportPhpVersion, '>='))
+        {
+            $message['php'] = [
+                'status' => 'ok',
+                'error' => false
+            ];
+        }
+        else
+        {
+            $message['php'] = [
+                'status' => 'fail',
+                'error' => 'php'
+            ];
+        }
+
+        if ($this->isMbstringEnabled())
+        {
+            $message['mbstring'] = [
+                'status' => 'ok',
+                'error' => false
+            ];
+        }
+        else
+        {
+            $message['mbstring'] = [
+                'status' => 'fail',
+                'error' => 'mbstring'
+            ];
+        }
+
+        if ($this->isZipEnabled())
+        {
+            $message['zip'] = [
+                'status' => 'ok',
+                'error' => false
+            ];
+        }
+        else
+        {
+            $message['zip'] = [
+                'status' => 'fail',
+                'error' => 'zip'
+            ];
+        }
+
+        if ($this->isCurlEnabled())
+        {
+            $message['curl'] = [
+                'status' => 'ok',
+                'error' => false
+            ];
+        }
+        else
+        {
+            $message['curl'] = [
+                'status' => 'fail',
+                'error' => 'curl'
+            ];
+        }
+
+        foreach ($message as $requirement)
+        {
+            if ($requirement['status'] == 'fail')
+            {
+                $req[] = $requirement;
+            }
+        }
+
+        if (isset($req))
+        {
+            return $req;
+        }
+
+        return true;
+    }
+}

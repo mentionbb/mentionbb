@@ -1,0 +1,7 @@
+#Admin Routing
+app_file:
+    resource: "../../Extending/Admin/Config/routes.yaml"
+
+#Install Routing
+app_install:
+    resource: "../../../../Install/Resource/routes.yaml"
