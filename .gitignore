@@ -1,2 +1,15 @@
 src/vendor
 mention-22072022-dev.zip
+.vscode
+mention.code-workspace
+src/Cache
+src/Backups/Modification
+src/Dev
+src/Logs
+src/composer.lock
+public/vendor/compiled.admin.js
+public/vendor/compiled.core.js
+public/vendor/compiled.editor.admin.js
+public/vendor/compiled.editor.js
+public/vendor/compiled.gestures.app.js
+public/vendor/compiled.gestures.css
