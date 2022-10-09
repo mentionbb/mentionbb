@@ -1,1 +1,1 @@
-*.tpl linguist-detectable=false
+*.tpl linguist-language=twig
