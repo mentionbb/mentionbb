@@ -1,0 +1,10 @@
+app:
+  version: "{build:versionNaming}, Build: {build:versionId}"
+  installer_version: "Installer version: {install:versionNaming}"
+
+  copyright:
+    text: "@ {year} ParantezTech."
+    links:
+      official: "https://mentionbb.com/community|Mention Community"
+      github: "https://github.com/par274"
+      r10: "https://www.r10.net/profil/90047-scarecrow.html"

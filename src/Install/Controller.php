@@ -58,6 +58,9 @@ abstract class Controller
                 'query' => $this->query,
                 'phrase' => $this->phrase,
                 'csrf_token' => \App\Repository\CookieEncrypt::getInstance()->defineAuthToken(),
+                'resource' => [
+                    'common' => new \Install\Resource()
+                ]
             ]
         ]);
     }

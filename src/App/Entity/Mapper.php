@@ -36,15 +36,13 @@ abstract class Mapper
 			'url' => $schema->db
 		];
 
-		$this->stack = new \Doctrine\DBAL\Logging\DebugStack();
-
 		/**
 		 * [$this->conn Connect to MySQL with parameters.]
 		 * @var [object]
 		 */
 		$this->conn = DoctrineDriverManager::getConnection($connectionParams, new DoctrineConfiguration());
 
-		$this->conn->getConfiguration()->setSQLLogger($this->stack);
+		$this->conn->getConfiguration()->setMiddlewares([new \Doctrine\DBAL\Logging\Middleware(new \Psr\Log\NullLogger())]);
 	}
 
 	/**
