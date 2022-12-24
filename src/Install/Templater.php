@@ -4,7 +4,9 @@ namespace Install;
 
 class Templater
 {
-    protected $path = APPLICATION_SELF . '/Install/Views/view.%s.php';
+    protected $ext = 'php';
+
+    protected $path = APPLICATION_SELF . '/Install/Views/view.%s.%s';
     protected $allowedHeadTags = ['title', 'meta', 'link', 'script'];
 
     protected $template;
@@ -14,7 +16,7 @@ class Templater
 
     protected function getTemplate($name, $current = false)
     {
-        $template = \sprintf($this->path, $name);
+        $template = \sprintf($this->path, $name, $this->ext);
 
         if (!\file_exists($template))
         {

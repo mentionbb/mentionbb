@@ -3,25 +3,25 @@
 }
 
 .app-night-mode .bg-white {
-	background-color: #37474f!important;
+	background-color: #37474f !important;
 }
 
 .app-night-mode .bg-light {
-	background-color: #48575f!important;
+	background-color: #48575f !important;
 }
 
 .app-night-mode .bg-light-transparent {
-	background-color: rgb(0 0 0 / 53%)!important;
+	background-color: rgb(0 0 0 / 53%) !important;
 }
 
 .app-night-mode .text-dark {
-	color: #bbbbbb!important;
+	color: #bbbbbb !important;
 }
 
 .app-night-mode .form-control {
 	background-color: #3c5165;
-    border: 1px solid #000000;
-    color: #dcdcdc;
+	border: 1px solid #000000;
+	color: #dcdcdc;
 }
 
 .app-night-mode .app-box {
@@ -56,30 +56,32 @@
 	color: #ff9600;
 }
 
-.app-night-mode .app-post-manage .dropdown.show button, .app-night-mode .dropdown.show button.btn-app-account, .app-night-mode .app-order-profile-post.dropdown.show button {
-	background-color: #697d88!important;
+.app-night-mode .app-post-manage .dropdown.show button,
+.app-night-mode .dropdown.show button.btn-app-account,
+.app-night-mode .app-order-profile-post.dropdown.show button {
+	background-color: #697d88 !important;
 }
 
 .app-night-mode .app-post-manage button:hover {
 	background-color: #2d3b42;
 	border: 2px solid #222731;
-	color: #ff9600!important;
+	color: #ff9600 !important;
 }
 
 .app-night-mode .navbar {
-	box-shadow: 0 2px 10px -2px #2d2d2d!important;
+	box-shadow: 0 2px 10px -2px #2d2d2d !important;
 	border: 0;
 	border-style: solid;
 	border-bottom-width: 1px;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
 .app-night-mode .app-alert {
 	background-color: #d0e7ff;
-    color: #000;
+	color: #000;
 }
 
-.app-night-mode .app-alert-container.alert-login > .app-alert {
+.app-night-mode .app-alert-container.alert-login>.app-alert {
 	color: #fff;
 }
 
@@ -89,11 +91,12 @@
 }
 
 .app-night-mode .app-forums .card-header.border-top {
-	border-top: 1px solid #48575f!important;
+	border-top: 1px solid #48575f !important;
 }
 
-.app-night-mode .app-forums .list-group-item.active, .app-night-mode .app-forums a.list-group-item:hover {
-	background-color: #283746!important;
+.app-night-mode .app-forums .list-group-item.active,
+.app-night-mode .app-forums a.list-group-item:hover {
+	background-color: #283746 !important;
 }
 
 .app-night-mode .app-forums .list-group-item {
@@ -101,7 +104,7 @@
 }
 
 .app-night-mode .badge-dark {
-	color: #283746!important;
+	color: #283746 !important;
 	background-color: #ff9600;
 	font-weight: 900;
 }
@@ -110,41 +113,48 @@
 	border: 2px solid #ff9600;
 }
 
-.app-night-mode .switch.active > .slider:before {
+.app-night-mode .switch.active>.slider:before {
 	background-color: #ff9600;
 }
 
-.app-night-mode .app-forums > .card-group-item > div > a:hover, .app-night-mode .app-forums > .card-group-item > div > a:focus, .app-night-mode .app-forums > .card-group-item > div > a:active {
-	color: #bbbbbb!important;
+.app-night-mode .app-forums>.card-group-item>div>a:hover,
+.app-night-mode .app-forums>.card-group-item>div>a:focus,
+.app-night-mode .app-forums>.card-group-item>div>a:active {
+	color: #bbbbbb !important;
 	text-decoration: underline;
 }
 
 .app-night-mode .btn:not(.btn-app-social):before {
-	color: #ff9600!important;
+	color: #ff9600 !important;
 }
 
 .app-night-mode .btn-app-account {
-	border: none!important;
-	background-color: transparent!important;
+	border: none !important;
+	background-color: transparent !important;
 }
 
-.app-night-mode .app-account-area > span {
-	color: #bbbbbb!important;
+.app-night-mode .app-account-area>span {
+	color: #bbbbbb !important;
 }
 
 .app-night-mode .navbar-brand {
 	color: #fff;
 }
 
-.app-night-mode h5.app-title, .app-night-mode .app-title, .app-night-mode .app-title a {
-	color: #c5c5c5!important;
+.app-night-mode h5.app-title,
+.app-night-mode .app-title,
+.app-night-mode .app-title a {
+	color: #c5c5c5 !important;
 }
 
-.app-night-mode .navbar-light .navbar-nav .active > .nav-link, .app-night-mode .navbar-light .navbar-nav .nav-link.active, .app-night-mode .navbar-light .navbar-nav .nav-link.show, .app-night-mode .navbar-light .navbar-nav .show > .nav-link {
+.app-night-mode .navbar-light .navbar-nav .active>.nav-link,
+.app-night-mode .navbar-light .navbar-nav .nav-link.active,
+.app-night-mode .navbar-light .navbar-nav .nav-link.show,
+.app-night-mode .navbar-light .navbar-nav .show>.nav-link {
 	color: rgb(157 189 220);
 }
 
-.app-night-mode .navbar-light .navbar-nav .nav-item.show > a {
+.app-night-mode .navbar-light .navbar-nav .nav-item.show>a {
 	background-color: #697d88;
 	color: #e2e2e2;
 }
@@ -166,66 +176,73 @@
 	color: #a9b6c3;
 }
 
-.app-night-mode .dropdown-item:hover, .app-night-mode .dropdown-item:active, .app-night-mode .dropdown-item:focus {
-	background-color: #283746!important;
+.app-night-mode .dropdown-item:hover,
+.app-night-mode .dropdown-item:active,
+.app-night-mode .dropdown-item:focus {
+	background-color: #283746 !important;
 }
 
-.app-night-mode .app-post.app-post-create > .post-layout > .post-content textarea, .app-night-mode textarea {
-	background-color: #333c46!important;
-	border: 1px solid #1a252d!important;
-	color: #cecece!important;
+.app-night-mode .app-post.app-post-create>.post-layout>.post-content textarea,
+.app-night-mode textarea {
+	background-color: #333c46 !important;
+	border: 1px solid #1a252d !important;
+	color: #cecece !important;
 }
 
 .app-night-mode textarea::placeholder {
 	color: #94989a;
 }
 
-.app-night-mode .app-post.app-post-create > .post-layout > .post-user > .guest-avatar {
+.app-night-mode .app-post.app-post-create>.post-layout>.post-user>.guest-avatar {
 	background-color: #283746;
 }
 
-.app-night-mode p, .app-night-mode h5, .app-night-mode ul.list-unstyled li, .app-night-mode small, .app-night-mode i {
-	color: #a9b6c3!important;
+.app-night-mode p,
+.app-night-mode h5,
+.app-night-mode ul.list-unstyled li,
+.app-night-mode small,
+.app-night-mode i {
+	color: #a9b6c3 !important;
 }
 
 .app-night-mode label:not(.custom-file-label) {
-	color: #a9b6c3!important;
+	color: #a9b6c3 !important;
 }
 
-.app-night-mode .app-post > .post-layout {
+.app-night-mode .app-post>.post-layout {
 	border-top: 5px solid #697d88;
 }
 
-.app-night-mode .app-post.app-post-create > .post-layout {
+.app-night-mode .app-post.app-post-create>.post-layout {
 	border-top: 5px solid #fb8f20;
 }
 
-.app-night-mode .app-post.app-post-create > .post-layout:hover {
-	background-color: #48575f!important
+.app-night-mode .app-post.app-post-create>.post-layout:hover {
+	background-color: #48575f !important
 }
 
-.app-night-mode .app-post.app-message-create > .post-layout:hover {
-	background-color: transparent!important;
+.app-night-mode .app-post.app-message-create>.post-layout:hover {
+	background-color: transparent !important;
 }
 
-.app-night-mode .app-post.app-discussion > .post-layout:hover{
-	background-color: #37474f!important;
+.app-night-mode .app-post.app-discussion>.post-layout:hover {
+	background-color: #37474f !important;
 }
 
-.app-night-mode .app-post > .post-layout:hover {
-	background-color: #3f535d!important;
+.app-night-mode .app-post>.post-layout:hover {
+	background-color: #3f535d !important;
 }
 
-.app-night-mode .app-post > .post-layout > .post-content .discuss-info>div.info > span.post-count {
-	color: #9898f9!important;
+.app-night-mode .app-post>.post-layout>.post-content .discuss-info>div.info>span.post-count {
+	color: #9898f9 !important;
 }
 
-.app-night-mode .app-post > .post-layout > .post-content .discuss-info > div.info>span.view-count {
-	color: #36cc36!important;
+.app-night-mode .app-post>.post-layout>.post-content .discuss-info>div.info>span.view-count {
+	color: #36cc36 !important;
 }
 
 .app-night-mode .app-reactions {
-	color: #a9b6c3!important;
+	color: #a9b6c3 !important;
 }
 
 .app-night-mode .post-loader-spin:before {
@@ -233,28 +250,30 @@
 	border-top-color: transparent;
 }
 
-.app-night-mode .dropdown-menu.custom-menu > .title {
+.app-night-mode .dropdown-menu.custom-menu>.title {
 	background: #48575f;
 	color: #dedede;
 	box-shadow: 0 2px 10px -2px #2d2d2d;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .dropdown-menu.custom-menu > .title:before {
+.app-night-mode .dropdown-menu.custom-menu>.title:before {
 	background-color: #48575f;
 }
 
 .app-night-mode .dropdown-menu.custom-menu a {
-	color: #dedede!important;
+	color: #dedede !important;
 }
 
 .app-night-mode .dropdown-menu.custom-menu .notification {
 	background-color: #37474f;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .dropdown-menu.custom-menu .notification.new, .app-night-mode .dropdown-menu.custom-menu .notification[data-is-seeing="0"], .app-night-mode .dropdown-menu.custom-menu a.notification:hover {
-	background-color: #283746!important;
+.app-night-mode .dropdown-menu.custom-menu .notification.new,
+.app-night-mode .dropdown-menu.custom-menu .notification[data-is-seeing="0"],
+.app-night-mode .dropdown-menu.custom-menu a.notification:hover {
+	background-color: #283746 !important;
 }
 
 .app-night-mode .dropdown-menu.custom-menu .notification.bg-admin {
@@ -262,57 +281,58 @@
 }
 
 .app-night-mode .dropdown-menu.custom-menu .notification.bg-admin:hover {
-	background-color: #794b92!important;
+	background-color: #794b92 !important;
 }
 
-.app-night-mode .dropdown-menu.custom-menu .notification > .text > span {
+.app-night-mode .dropdown-menu.custom-menu .notification>.text>span {
 	color: #a2b8d0;
 }
 
-.app-night-mode .dropdown-menu.custom-menu .notification > .text > span.date {
+.app-night-mode .dropdown-menu.custom-menu .notification>.text>span.date {
 	color: #b3b3b3;
 }
 
 .app-night-mode span:not(.badge-dark, .discussion-post-user span, .app-profile-info span, i, pre span, .bbContainer_appCodeBlock span, .js-MentionEditor_Icons, .tox-icon, .tox-tbtn, .discussion-text span, .app-alert span, .tooltip span, .monaco-editor span) {
-	color: #cacaca!important;
+	color: #cacaca !important;
 }
 
 .app-night-mode .discussion-text span {
 	color: #cacaca;
 }
 
-.app-night-mode .discussion-post-user span, .app-night-mode .app-profile-info span {
+.app-night-mode .discussion-post-user span,
+.app-night-mode .app-profile-info span {
 	color: #cacaca;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content a.tagged-user {
-    color: #faedb7;
+.app-night-mode .app-discussion>.post-layout>.post-content a.tagged-user {
+	color: #faedb7;
 }
 
 .app-night-mode .dropdown-menu.custom-menu .inner-head {
 	background: #48575f;
 	color: #dedede;
 	box-shadow: 0 2px 10px -2px #2d2d2d;
-	border-image: linear-gradient(to right,black 0%,#a0a0a0 40%,#6087a0 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #a0a0a0 40%, #6087a0 60%, black 100%) 1 20%;
 }
 
 .app-night-mode .no-post {
 	color: #a5a5a5;
 }
 
-.app-night-mode .modal.custom-modal > .modal-dialog > .modal-content > .modal-header {
+.app-night-mode .modal.custom-modal>.modal-dialog>.modal-content>.modal-header {
 	background: #48575f;
 	color: #d4d4d4;
 	box-shadow: 0 2px 10px -2px #2d2d2d;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .modal.custom-modal > .modal-dialog > .modal-content > .modal-body {
+.app-night-mode .modal.custom-modal>.modal-dialog>.modal-content>.modal-body {
 	background-color: #2e3740;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .modal.custom-modal > .modal-dialog>.modal-content > .modal-body .big-icon.sign-out:before {
+.app-night-mode .modal.custom-modal>.modal-dialog>.modal-content>.modal-body .big-icon.sign-out:before {
 	color: #b7b7b7;
 }
 
@@ -322,21 +342,24 @@
 	border-radius: 10px;
 }
 
-.app-night-mode .modal.custom-modal > .modal-dialog>.modal-content > .modal-body input {
+.app-night-mode .modal.custom-modal>.modal-dialog>.modal-content>.modal-body input {
 	color: #aab5c1;
 	background-color: #48575f;
 	border: 3px solid #222731;
 }
 
-.app-night-mode .modal.custom-modal > .modal-dialog>.modal-content > .modal-body input::placeholder {
+.app-night-mode .modal.custom-modal>.modal-dialog>.modal-content>.modal-body input::placeholder {
 	color: #94989a;
 }
 
 .app-night-mode .discussion-text {
-	color: #cacaca!important;
+	color: #cacaca !important;
 }
 
-.app-night-mode .discussion-text a, .app-night-mode .discussion-text a:active, .app-night-mode .discussion-text a:hover, .app-night-mode .discussion-text a:focus {
+.app-night-mode .discussion-text a,
+.app-night-mode .discussion-text a:active,
+.app-night-mode .discussion-text a:hover,
+.app-night-mode .discussion-text a:focus {
 	color: #92c7ff;
 }
 
@@ -344,59 +367,61 @@
 	text-decoration: underline;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text .js-Spoiler.spoiler-alert:hover {
-	background-color: #2e3740!important;
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .js-Spoiler.spoiler-alert:hover {
+	background-color: #2e3740 !important;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text .js-Spoiler.spoiler-alert > div.title {
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .js-Spoiler.spoiler-alert>div.title {
 	background-color: #5f4857;
 	color: #d4d4d4;
 	box-shadow: 0 2px 10px -2px #2d2d2d;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text .js-Spoiler.spoiler-alert > div.title:hover, .app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text .js-Spoiler.spoiler-alert.show > div.title {
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .js-Spoiler.spoiler-alert>div.title:hover,
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .js-Spoiler.spoiler-alert.show>div.title {
 	background-color: #73596a;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text .js-Spoiler.spoiler-alert > div {
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .js-Spoiler.spoiler-alert>div {
 	background-color: #2e3740;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content .discuss-info a, .app-night-mode .app-discussion > .post-layout > .post-content .discuss-info span {
-	color: #92b9da!important;
+.app-night-mode .app-discussion>.post-layout>.post-content .discuss-info a,
+.app-night-mode .app-discussion>.post-layout>.post-content .discuss-info span {
+	color: #92b9da !important;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content .discuss-info .app-touchGestures-icon.active {
-	color: #ff9600!important;
+.app-night-mode .app-discussion>.post-layout>.post-content .discuss-info .app-touchGestures-icon.active {
+	color: #ff9600 !important;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content .discuss-info a:hover {
-	color: #ff9600!important;
+.app-night-mode .app-discussion>.post-layout>.post-content .discuss-info a:hover {
+	color: #ff9600 !important;
 }
 
 .app-night-mode .discussion-post-user a:hover {
-	color: #fff!important;
+	color: #fff !important;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text  .quote-container {
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .quote-container {
 	background-color: #697c87;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text .bbContainer_appQuote .expandQuote {
-	background: linear-gradient(to bottom,rgba(245,245,245,0) 0%,#697b86 80%);
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .bbContainer_appQuote .expandQuote {
+	background: linear-gradient(to bottom, rgba(245, 245, 245, 0) 0%, #697b86 80%);
 	border-bottom: 3px solid #a8a8a8;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text .bbContainer_appQuote .expandQuote > a {
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .bbContainer_appQuote .expandQuote>a {
 	color: #ffffff;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text  .quote-container .quote-container {
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .quote-container .quote-container {
 	background-color: #405663;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content > .discussion-text .quote .user {
+.app-night-mode .app-discussion>.post-layout>.post-content>.discussion-text .quote .user {
 	background-color: #37474f;
 }
 
@@ -404,11 +429,12 @@
 	color: #b2b4b6;
 }
 
-.app-night-mode .post-timeliner > .scrollable-parent > .scrollbar-before, .app-night-mode .post-timeliner > .scrollable-parent > .scrollbar-after {
+.app-night-mode .post-timeliner>.scrollable-parent>.scrollbar-before,
+.app-night-mode .post-timeliner>.scrollable-parent>.scrollbar-after {
 	border-left: 1px solid #48575f;
 }
 
-.app-night-mode .post-timeliner > .scrollable-parent > .scrollbar-area .track {
+.app-night-mode .post-timeliner>.scrollable-parent>.scrollbar-area .track {
 	background-color: #48575f;
 }
 
@@ -416,73 +442,74 @@
 	background-color: #37474f;
 }
 
-.app-night-mode #post-edit.modal[id*="post-"] > .modal-dialog > .modal-content > .modal-body input {
+.app-night-mode #post-edit.modal[id*="post-"]>.modal-dialog>.modal-content>.modal-body input {
 	background-color: #2f3742;
-	border: 1px solid #1b1b1b!important;
+	border: 1px solid #1b1b1b !important;
 	color: #c7d4e0;
 }
 
-.app-night-mode .popover > .popover-header {
+.app-night-mode .popover>.popover-header {
 	background: #48575f;
 	color: #dedede;
 	box-shadow: 0 2px 10px -2px #2d2d2d;
-	border-image: linear-gradient(to right,black 0%,#a0a0a0 40%,#6087a0 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #a0a0a0 40%, #6087a0 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .popover > .popover-header:before {
+.app-night-mode .popover>.popover-header:before {
 	background: #48575f;
 }
 
-.app-night-mode .popover > .popover-body {
+.app-night-mode .popover>.popover-body {
 	background-color: #37474f;
-	border-image: linear-gradient(to right,black 0%,#a0a0a0 40%,#6087a0 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #a0a0a0 40%, #6087a0 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content .discuss-info a.like-button .reaction-box {
+.app-night-mode .app-discussion>.post-layout>.post-content .discuss-info a.like-button .reaction-box {
 	background-color: #283746;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content .post-likes {
+.app-night-mode .app-discussion>.post-layout>.post-content .post-likes {
 	color: #b2b4b6;
 }
 
-.app-night-mode .app-discussion>.post-layout>.post-content .post-likes > a, .app-night-mode .app-discussion > .post-layout > .post-content .post-likes > .dropdown > a {
+.app-night-mode .app-discussion>.post-layout>.post-content .post-likes>a,
+.app-night-mode .app-discussion>.post-layout>.post-content .post-likes>.dropdown>a {
 	color: #b2b4b6;
 }
 
-.app-night-mode .app-box .profile-picture-ready > div {
+.app-night-mode .app-box .profile-picture-ready>div {
 	border: 2px solid #848484;
 }
 
-.app-night-mode .app-box .profile-picture-ready > div.active {
+.app-night-mode .app-box .profile-picture-ready>div.active {
 	border: 2px solid #ff3939;
 }
 
-.app-night-mode .conversation-area > .app-box {
+.app-night-mode .conversation-area>.app-box {
 	background-color: #283746;
 }
 
 .app-night-mode .conversation-area .border-bottom {
-	border-bottom: 1px solid #000000!important;
+	border-bottom: 1px solid #000000 !important;
 }
 
 .app-night-mode .conversation-area .border-top {
-	border-bottom: 1px solid #000000!important;
+	border-bottom: 1px solid #000000 !important;
 }
 
-.app-night-mode .conversation-area .messages > div {
+.app-night-mode .conversation-area .messages>div {
 	background: #5a5a5a;
 }
 
-.app-night-mode .conversation-area .messages > div:after {
+.app-night-mode .conversation-area .messages>div:after {
 	border-right-color: #5a5a5a;
 }
 
-.app-night-mode .conversation-area .messages > div.me {
+.app-night-mode .conversation-area .messages>div.me {
 	background: #ad7a2d;
 }
 
-.app-night-mode .conversation-area .messages > div.me:after {
+.app-night-mode .conversation-area .messages>div.me:after {
 	border-left-color: #ad7a2d;
 	border-right-color: #ad7a2d;
 }
@@ -499,99 +526,104 @@
 	background: #48575f;
 	color: #dedede;
 	box-shadow: 0 2px 10px -2px #2d2d2d;
-	border-image: linear-gradient(to right,black 0%,#a0a0a0 40%,#6087a0 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #a0a0a0 40%, #6087a0 60%, black 100%) 1 20%;
 }
 
 .app-night-mode .conversation-area .user-results .post-user {
 	background-color: #37474f;
-	border-image: linear-gradient(to right,black 0%,#a0a0a0 40%,#6087a0 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #a0a0a0 40%, #6087a0 60%, black 100%) 1 20%;
 }
 
 .app-night-mode .conversation-area .user-results a.post-user:hover {
-	background-color: #283746!important;
+	background-color: #283746 !important;
 }
 
-.app-night-mode .conversation-area .messages > div > .anim-area > .post-loader-spin:before {
+.app-night-mode .conversation-area .messages>div>.anim-area>.post-loader-spin:before {
 	border: 2px solid #ff9600;
 	border-top-color: transparent;
 }
 
-.app-night-mode .form-control:focus, .app-night-mode .form-control:hover {
-	border: 1px solid #50545d!important;
+.app-night-mode .form-control:focus,
+.app-night-mode .form-control:hover {
+	border: 1px solid #50545d !important;
 }
 
 .app-night-mode hr {
 	border: 0;
 	border-style: solid;
 	border-bottom-width: 1px;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .app-discussion-status.locked > span:before, .app-night-mode .app-post > .post-layout > .post-content span.icon.locked:before {
+.app-night-mode .app-discussion-status.locked>span:before,
+.app-night-mode .app-post>.post-layout>.post-content span.icon.locked:before {
 	color: #9abbcc;
 }
 
-.app-night-mode .search-container.show .input-group > input {
+.app-night-mode .search-container.show .input-group>input {
 	background-color: #697d88;
 }
 
-.app-night-mode .search-container > .search-results > .title {
+.app-night-mode .search-container>.search-results>.title {
 	background: #48575f;
 	color: #dedede;
 	box-shadow: 0 2px 10px -2px #2d2d2d;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .search-container > .search-results > .scrollable > div, .app-night-mode .search-container > .search-results a {
+.app-night-mode .search-container>.search-results>.scrollable>div,
+.app-night-mode .search-container>.search-results a {
 	background-color: #37474f;
-	border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 	color: #a4bbd8;
 }
 
-.app-night-mode .search-container > .search-results a:hover {
+.app-night-mode .search-container>.search-results a:hover {
 	background-color: #283746;
 }
 
-.app-night-mode .search-container > .search-results a.more-search {
-	background-color: #29353c!important;
+.app-night-mode .search-container>.search-results a.more-search {
+	background-color: #29353c !important;
 	color: #e0e0e0;
 }
 
-.app-night-mode .search-container > .search-results .advanced-search > a:hover {
-	color: #bbbbbb!important;
+.app-night-mode .search-container>.search-results .advanced-search>a:hover {
+	color: #bbbbbb !important;
 }
 
 .app-night-mode .mce-content-body[data-mce-placeholder]:not(.mce-visualblocks):before {
-	color: rgb(170 174 179 / 70%)!important;
+	color: rgb(170 174 179 / 70%) !important;
 }
 
-.app-night-mode .app-post > .post-layout .discussion-post-user a {
-	color: #cecece!important;
+.app-night-mode .app-post>.post-layout .discussion-post-user a {
+	color: #cecece !important;
 }
 
-.app-night-mode .app-post > .post-layout > .post-content .forum {
+.app-night-mode .app-post>.post-layout>.post-content .forum {
 	background: #283746;
 }
 
-.app-night-mode .js-ClickableDivs > div:active, .app-night-mode .js-ClickableDivs > div:hover, .app-night-mode .js-ClickableDivs > div:focus {
-	background-color: #3d4e56!important;
+.app-night-mode .js-ClickableDivs>div:active,
+.app-night-mode .js-ClickableDivs>div:hover,
+.app-night-mode .js-ClickableDivs>div:focus {
+	background-color: #3d4e56 !important;
 }
 
-.app-night-mode .post.highlight > .app-post {
-	background-color: #38324a!important;
+.app-night-mode .post.highlight>.app-post {
+	background-color: #38324a !important;
 }
 
-.app-night-mode .app-post.app-post-create > .hide-editor > .backdrop {
+.app-night-mode .app-post.app-post-create>.hide-editor>.backdrop {
 	background-color: rgb(40 55 70 / 22%);
-    background-image: linear-gradient(315deg,rgb(55 71 79 / 46%) 0%,rgb(105 125 136 / 67%) 74%);
-    color: #e8e8e8;
+	background-image: linear-gradient(315deg, rgb(55 71 79 / 46%) 0%, rgb(105 125 136 / 67%) 74%);
+	color: #e8e8e8;
 }
 
 .app-night-mode .app-post-create .js-appExpandNodes a:hover {
 	color: #e8e8e8;
 }
 
-.app-night-mode .app-discussion > .post-layout > .post-content .post-edit a {
+.app-night-mode .app-discussion>.post-layout>.post-content .post-edit a {
 	color: #8dbcef;
 }
 
@@ -604,7 +636,7 @@
 	border: 1px solid #ff9600;
 }
 
-.app-night-mode .navbar-light .navbar-toggler > .navbar-toggler-icon:before {
+.app-night-mode .navbar-light .navbar-toggler>.navbar-toggler-icon:before {
 	color: #ff9600;
 }
 
@@ -622,65 +654,67 @@
 }
 
 .app-night-mode table-striped tbody tr:nth-of-type(odd) {
-	background-color: rgba(255,255,255,.05);
+	background-color: rgba(255, 255, 255, .05);
 }
 
-.app-night-mode td, .app-night-mode th, .app-night-mode thead th {
+.app-night-mode td,
+.app-night-mode th,
+.app-night-mode thead th {
 	border-color: #454d55;
 }
 
 .app-night-mode .bootstrap-select.dropdown button {
 	background-color: #333c46;
 	border: 1px solid #1a252d;
-	color: #cecece!important;
+	color: #cecece !important;
 }
 
 .app-night-mode .bootstrap-select.dropdown.show button {
-	border: 1px solid transparent!important;
+	border: 1px solid transparent !important;
 }
 
 .app-night-mode .bootstrap-select.dropdown.show button {
-	background-color: #697d88!important;
+	background-color: #697d88 !important;
 }
 
 .app-night-mode .bootstrap-select.dropdown .dropdown-menu {
 	background-color: #697d88;
 }
 
-.app-night-mode .bootstrap-select.dropdown li.active > a {
-	background-color: #2a3338!important;
+.app-night-mode .bootstrap-select.dropdown li.active>a {
+	background-color: #2a3338 !important;
 }
 
-.app-night-mode .bootstrap-select.dropdown > .dropdown-menu li.no-results {
+.app-night-mode .bootstrap-select.dropdown>.dropdown-menu li.no-results {
 	background-color: transparent;
 	font-size: 14px;
 }
 
-.app-night-mode .bootstrap-select.dropdown > .dropdown-menu a {
+.app-night-mode .bootstrap-select.dropdown>.dropdown-menu a {
 	background-color: #697d88;
 }
 
-.app-night-mode .bootstrap-select.dropdown > .dropdown-menu a:hover {
+.app-night-mode .bootstrap-select.dropdown>.dropdown-menu a:hover {
 	background-color: #283746;
 }
 
-.app-night-mode .modal.custom-modal>.modal-dialog > .modal-content > .modal-body small.available {
-	color: #25ce25!important;
+.app-night-mode .modal.custom-modal>.modal-dialog>.modal-content>.modal-body small.available {
+	color: #25ce25 !important;
 }
 
-.app-night-mode .modal.custom-modal>.modal-dialog > .modal-content > .modal-body small.not-available {
-	color: #ff8084!important;
+.app-night-mode .modal.custom-modal>.modal-dialog>.modal-content>.modal-body small.not-available {
+	color: #ff8084 !important;
 }
 
 .app-night-mode .app-stats a {
-	color: #f39206!important;
+	color: #f39206 !important;
 }
 
 .app-night-mode .bbContainer_appCodeBlock {
 	background: #232a31;
 }
 
-.app-night-mode .bbContainer_appCodeBlock > .codeBlockTitle {
+.app-night-mode .bbContainer_appCodeBlock>.codeBlockTitle {
 	color: #ff9600;
 }
 
@@ -703,7 +737,8 @@
 	hyphens: none;
 }
 
-.app-night-mode :not(pre) > code[class*=language-], .app-night-mode pre[class*=language-] {
+.app-night-mode :not(pre)>code[class*=language-],
+.app-night-mode pre[class*=language-] {
 	background: #232a31;
 }
 
@@ -713,12 +748,15 @@
 .app-night-mode .token.cdata {
 	color: #6272a4;
 }
+
 .app-night-mode .token.punctuation {
 	color: #f8f8f2;
 }
+
 .namespace {
 	opacity: 0.7;
 }
+
 .app-night-mode .token.property,
 .app-night-mode .token.tag,
 .app-night-mode .token.constant,
@@ -726,10 +764,12 @@
 .app-night-mode .token.deleted {
 	color: #ff79c6;
 }
+
 .app-night-mode .token.boolean,
 .app-night-mode .token.number {
 	color: #bd93f9;
 }
+
 .app-night-mode .token.selector,
 .app-night-mode .token.attr-name,
 .app-night-mode .token.string,
@@ -738,6 +778,7 @@
 .app-night-mode .token.inserted {
 	color: #50fa7b;
 }
+
 .app-night-mode .token.operator,
 .app-night-mode .token.entity,
 .app-night-mode .token.url,
@@ -746,26 +787,32 @@
 .app-night-mode .token.variable {
 	color: #f8f8f2;
 }
+
 .app-night-mode .token.atrule,
 .app-night-mode .token.attr-value,
 .app-night-mode .token.function,
 .app-night-mode .token.class-name {
 	color: #f1fa8c;
 }
+
 .app-night-mode .token.keyword {
 	color: #8be9fd;
 }
+
 .app-night-mode .token.regex,
 .app-night-mode .token.important {
 	color: #ffb86c;
 }
+
 .app-night-mode .token.important,
 .app-night-mode .token.bold {
 	font-weight: bold;
 }
+
 .app-night-mode .token.italic {
 	font-style: italic;
 }
+
 .app-night-mode .token.entity {
 	cursor: help;
 }
@@ -778,8 +825,8 @@
 	color: #e8e8e8;
 }
 
-.app-night-mode .btn-app-social > i {
-	color: inherit!important;
+.app-night-mode .btn-app-social>i {
+	color: inherit !important;
 }
 
 .app-night-mode .js-appExternalLink {
@@ -787,18 +834,18 @@
 	color: #a2a2a2;
 }
 
-.app-night-mode .js-appExternalLink > .content > h6 > a {
-	color: #bbbbbb!important;
+.app-night-mode .js-appExternalLink>.content>h6>a {
+	color: #bbbbbb !important;
 }
 
 .app-night-mode .custom-file-label {
 	background-color: #697d88;
-	color: #e2e2e2!important;
+	color: #e2e2e2 !important;
 }
 
 .app-night-mode .post-attachments .attachment {
 	background-color: #283746;
-    color: #a2a2a2;
+	color: #a2a2a2;
 }
 
 .app-night-mode .post-attachments .attachment:hover {
@@ -806,7 +853,7 @@
 }
 
 .app-night-mode .post-attachments .attachment a:hover {
-	color: #a2a2a2!important;
+	color: #a2a2a2 !important;
 }
 
 .app-night-mode .tooltip-inner {
@@ -814,86 +861,98 @@
 	color: #000;
 }
 
-.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-auto[x-placement^=top] .arrow::before, .app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-top .arrow::before {
+.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-auto[x-placement^=top] .arrow::before,
+.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-top .arrow::before {
 	border-top-color: #d0e7ff;
 }
 
-.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-auto[x-placement^=bottom] .arrow::before, .app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-bottom .arrow::before {
+.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-bottom .arrow::before {
 	border-bottom-color: #d0e7ff;
 }
 
-.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-auto[x-placement^=right] .arrow::before, .app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-right .arrow::before {
+.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-auto[x-placement^=right] .arrow::before,
+.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-right .arrow::before {
 	border-right-color: #d0e7ff;
 }
 
-.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-auto[x-placement^=left] .arrow::before, .app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-left .arrow::before {
+.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-auto[x-placement^=left] .arrow::before,
+.app-night-mode .tooltip:not(.user-status-online):not(.user-status-offline).bs-tooltip-left .arrow::before {
 	border-left-color: #d0e7ff;
 }
 
-.app-night-mode .bs-popover-auto[x-placement^=right] > .arrow::after, .app-night-mode .bs-popover-right > .arrow::after {
+.app-night-mode .bs-popover-auto[x-placement^=right]>.arrow::after,
+.app-night-mode .bs-popover-right>.arrow::after {
 	border-right-color: #37474f;
 }
 
-.app-night-mode .bs-popover-auto[x-placement^=left] > .arrow::after, .app-night-mode .bs-popover-left > .arrow::after {
+.app-night-mode .bs-popover-auto[x-placement^=left]>.arrow::after,
+.app-night-mode .bs-popover-left>.arrow::after {
 	border-left-color: #37474f;
 }
 
-.app-night-mode .bs-popover-auto[x-placement^=top] > .arrow::after, .app-night-mode .bs-popover-top > .arrow::after {
+.app-night-mode .bs-popover-auto[x-placement^=top]>.arrow::after,
+.app-night-mode .bs-popover-top>.arrow::after {
 	border-top-color: #37474f;
 }
-.app-night-mode .bs-popover-auto[x-placement^=bottom] > .arrow::after, .app-night-mode .bs-popover-bottom > .arrow::after {
+
+.app-night-mode .bs-popover-auto[x-placement^=bottom]>.arrow::after,
+.app-night-mode .bs-popover-bottom>.arrow::after {
 	border-bottom-color: #37474f;
 }
 
 .app-night-mode .tooltip.tooltipEmojiBox .tooltip-inner a.copy {
-    color: #90283c;
+	color: #90283c;
 }
 
 .app-night-mode .input-group-text {
 	background-color: #37474f;
-    border: 1px solid #222731;
+	border: 1px solid #222731;
 	color: #ddd;
 }
 
 .app-night-mode .alert-success {
 	color: #155724;
-    background-color: #235f32;
-    border-color: #478856;
+	background-color: #235f32;
+	border-color: #478856;
 }
 
 .app-night-mode .alert-warning {
-    color: #856404;
-    background-color: #796524;
-    border-color: #b1943e;
+	color: #856404;
+	background-color: #796524;
+	border-color: #b1943e;
 }
 
-.app-night-mode .checkbox.switcher label input+span small, .app-night-mode div.radio.switcher label input+span small {
+.app-night-mode .checkbox.switcher label input+span small,
+.app-night-mode div.radio.switcher label input+span small {
 	background: #99c4ec;
 }
 
-.app-night-mode div.checkbox.switcher label input:checked+span, .app-night-mode div.radio.switcher label input:checked+span {
-    background: #283746;
-    border-color: #283746;
+.app-night-mode div.checkbox.switcher label input:checked+span,
+.app-night-mode div.radio.switcher label input:checked+span {
+	background: #283746;
+	border-color: #283746;
 }
 
-.app-night-mode div.checkbox.switcher label input+span, .app-night-mode div.radio.switcher label input+span {
+.app-night-mode div.checkbox.switcher label input+span,
+.app-night-mode div.radio.switcher label input+span {
 	background: #3c5165;
-    border: 1px solid #3c5165;
+	border: 1px solid #3c5165;
 }
 
 .app-night-mode .app-banning-flag {
-    background-color: #5d6c7a;
+	background-color: #5d6c7a;
 }
 
 .app-night-mode .dropdown-menu.custom-menu .form {
 	background-color: #37474f;
-    border-image: linear-gradient(to right,black 0%,#808080 40%,#7b8390 60%,black 100%) 1 20%;
+	border-image: linear-gradient(to right, black 0%, #808080 40%, #7b8390 60%, black 100%) 1 20%;
 }
 
-.app-night-mode .app-discussion  >.post-layout > .post-content .discuss-info .grey-button:before {
+.app-night-mode .app-discussion>.post-layout>.post-content .discuss-info .grey-button:before {
 	background-color: #4f6570;
 }
 
-.app-night-mode .app-discussion  >.post-layout > .post-content .discuss-info .grey-button:after {
+.app-night-mode .app-discussion>.post-layout>.post-content .discuss-info .grey-button:after {
 	color: #929fa9;
 }

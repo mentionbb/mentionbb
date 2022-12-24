@@ -82,6 +82,9 @@
                     public_dir: "<?php echo $app->public_dir; ?>",
                     ajax_path: "<?php echo $app->ajax_path; ?>",
                 }
+            },
+            phrase: {
+                default_title: "<?php echo $this->getPageTitle(); ?>"
             }
         });
     </script>

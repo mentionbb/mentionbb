@@ -30,7 +30,7 @@ body {
 	padding-right: 15px;
 }
 
-.app-container>.container {
+.app-container > .container {
 	margin-top: 2.2rem;
 }
 
@@ -44,6 +44,7 @@ body {
 #hello-container.fin .path-3 {
 	stroke-dashoffset: 0;
 }
+
 #hello-container .path {
 	fill: none;
 	stroke: #37474F;
@@ -51,16 +52,19 @@ body {
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
+
 #hello-container .path-1 {
 	stroke-dasharray: 1850 2000;
 	stroke-dashoffset: 1851;
 	transition: 2.5s linear;
 }
+
 #hello-container .path-2 {
 	stroke-dasharray: 260 1000;
 	stroke-dashoffset: 261;
 	transition: 1s linear 2.5s;
 }
+
 #hello-container .path-3 {
 	stroke-dasharray: 100 1000;
 	stroke-dashoffset: 101;
@@ -170,7 +174,7 @@ body {
 	border-top: 5px solid #e53935;
 }
 
-.app-install > .layout {
+.app-install >.layout {
 	position: relative;
 	width: 100%;
 	padding: 10px;
@@ -289,8 +293,8 @@ body {
 }
 
 .scrollable::-webkit-scrollbar {
-	background-color:transparent;
-	width:15px;
+	background-color: transparent;
+	width: 15px;
 	height: 5px;
 }
 
@@ -300,25 +304,29 @@ body {
 
 /* background of the scrollbar except button or resizer */
 .scrollable::-webkit-scrollbar-track {
-	background-color:transparent;
+	background-color: transparent;
 	padding-left: 10px;
 }
+
 .scrollable::-webkit-scrollbar-track:hover {
-	background-color:transparent;
+	background-color: transparent;
 }
 
 /* scrollbar itself */
 .scrollable::-webkit-scrollbar-thumb {
-	background-color:#6f8692;
+	background-color: #6f8692;
 	border-left: 10px solid transparent;
 	background-clip: padding-box;
 }
+
 .scrollable::-webkit-scrollbar-thumb:hover {
-	background-color:#37474f;
+	background-color: #37474f;
 }
 
 /* set button(top and bottom of the scrollbar) */
-.scrollable::-webkit-scrollbar-button {display:none}
+.scrollable::-webkit-scrollbar-button {
+	display: none
+}
 
 @keyframes fadeIn {
 	0% {

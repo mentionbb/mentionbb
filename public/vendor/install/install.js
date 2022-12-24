@@ -36,6 +36,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
 						.find('span')
 						.text('Devam et');
 
+					setPercent(5);
+
 					break;
 				case ('1b'):
 					$('.app-install .progress').removeClass('d-none');
@@ -51,6 +53,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
 							$('.app-install .progress').addClass('d-none');
 
 							$('.js-AppInstall-Steps').html(response.template);
+
+							setPercent(15);
 						}
 					}).fail(function (xhr, status, err) {
 						console.log(status, err);
@@ -93,6 +97,14 @@ if (window.jQuery === undefined) jQuery = $ = {};
 			.remove();
 
 		$('.app-install-block .app-install').before(template);
+	}
+
+	function setPercent(percent) {
+		var realPercent = '%' + percent;
+		
+		document.title = app.phrase.default_title + " " + realPercent;
+
+		return realPercent;
 	}
 }
 (window.jQuery, window, document);
