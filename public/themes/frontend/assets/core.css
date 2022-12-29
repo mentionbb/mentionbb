@@ -3430,7 +3430,17 @@ h5.app-title.user:before {
 }
 
 .conversation-area img.user-status {
-	width: 45px
+	width: 40px
+}
+
+.conversation-area .app-post-manage button, .conversation-area button.btn-app-account {
+	height: 30px;
+	line-height: 1;
+	padding: 0 5px;
+}
+
+.conversation-area .app-post-manage button.post-refresh {
+	font-size: 15px;
 }
 
 .conversation-list[data-is-seeing="0"] {
