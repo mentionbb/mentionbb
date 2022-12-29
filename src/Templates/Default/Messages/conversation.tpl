@@ -1,5 +1,5 @@
 <div class="app-box shadow rounded animate slideIn" data-message-id="{{ string.conversation.parent_id }}">
-	<div class="bg-light-transparent border-bottom shadow-sm pl-4 pr-4 pt-3 pb-3">
+	<div class="bg-light-transparent border-bottom shadow-sm pl-4 pr-2 py-1">
 		<div class="d-flex align-items-center">
 			<div class="d-flex align-items-center">
 				{% if string.conversation.sender_id is same as(app.visitor.user_id) %}
@@ -12,7 +12,7 @@
 						{{ app.sub.user.link.getLinkWithProfilePicture()|raw }}
 					</div>
 				{% endautoescape %}
-				<div class="d-flex flex-column ml-3">
+				<div class="d-flex flex-column ml-2">
 					{% autoescape 'html' %}
 						<span>{{ app.sub.user.link.getName()|raw }}</span>
 						<small class="text-muted">{{ app.sub.lang.parse.Parse('messages.conversation.status.last_seen', app.timer.date.toHumanReadable(app.sub.user.link.getLastActivity())) }}</small>
@@ -60,7 +60,7 @@
 			<p class="info bg-dark text-center text-white mb-0">{{ app.timer.date.toHumanReadable(string.conversation.dateline) }}</p>
 			{% for item in string.messages %}
 				{% if item.sender_id is same as(app.visitor.user_id) %}
-					<div class="me shadow mb-lg-3 mb-4" data-time="{{ item.dateline }}">
+					<div class="me shadow mb-lg-3 mb-4 toggle-tooltip" data-time="{{ item.dateline }}" data-title="{{ app.timer.date.toHumanReadable(item.dateline) }}" data-placement="left">
 						{% if item.is_seeing is same as(0) %}
 							<div title="{{ app.sub.lang.string.messages.conversation.status.delivered }}"data-is-seeing="0"></div>
 						{% else %}
@@ -84,7 +84,7 @@
 						<small class="text-muted">{{ app.timer.date.toHumanReadable(item.dateline) }}</small>
 					</div>
 				{% else %}
-					<div class="them shadow mb-lg-3 mb-4" data-time="{{ item.dateline }}">
+					<div class="them shadow mb-lg-3 mb-4 toggle-tooltip" data-time="{{ item.dateline }}" data-title="{{ app.timer.date.toHumanReadable(item.dateline) }}" data-placement="right">
 						{% if item.sender_id is same as(app.visitor.user_id) %}
 							{{ app.sub.user.link.setUser(item.user_id) }}
 						{% else %}
