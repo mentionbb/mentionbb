@@ -13,4 +13,7 @@ public/vendor/compiled.editor.admin.js
 public/vendor/compiled.editor.js
 public/vendor/compiled.gestures.app.js
 public/vendor/compiled.gestures.css
+public/themes/admin/assets/compiled.admin.css
 public/themes/frontend/assets/compiled.core.css
+public/vendor/compiled.gestures.gestures.css
+public/vendor/compiled.install.js
