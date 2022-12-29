@@ -12,6 +12,7 @@ use App\Repository\Config\Schema;
 
 use Doctrine\DBAL\Configuration as DoctrineConfiguration;
 use Doctrine\DBAL\DriverManager as DoctrineDriverManager;
+use Doctrine\DBAL\Logging\Middleware as DoctrineMiddleware;
 
 abstract class Mapper
 {
@@ -42,7 +43,10 @@ abstract class Mapper
 		 */
 		$this->conn = DoctrineDriverManager::getConnection($connectionParams, new DoctrineConfiguration());
 
-		$this->conn->getConfiguration()->setMiddlewares([new \Doctrine\DBAL\Logging\Middleware(new \Psr\Log\NullLogger())]);
+		$this->conn->getConfiguration()
+			->setMiddlewares([
+				new DoctrineMiddleware(new \Psr\Log\NullLogger())
+			]);
 	}
 
 	/**
