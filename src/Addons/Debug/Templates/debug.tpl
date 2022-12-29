@@ -1,6 +1,6 @@
 <div class="debug text-dark col-sm-12 row mx-0 mb-3">
     <div class="col-sm-4">
-        <h5>Mention debugging controls</h5>
+        <h5>Mention standalone debugging console</h5>
         <small class="d-block">Version: {{ app.build.code }}, Build {{ app.build.id }}</small>
         <div>Memory used: {{ debug.memoryUsed }} / {{ debug.memoryLimit }}</div>
         <div>Server: PHP <strong>{{ debug.phpVersion }}</strong>, MySQL <strong>{{ debug.mySQLVersion }}</strong></div>
