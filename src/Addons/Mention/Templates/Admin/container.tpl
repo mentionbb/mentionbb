@@ -243,9 +243,7 @@
 	{% if app.request.getPathInfo == '/admin/addons' or app.request.getPathInfo == '/admin/theme' or app.request.getPathInfo == '/admin/templates' %}
         <script>var require = { paths: { 'vs': '{{ app.public_dir }}/vendor/monaco-editor/min/vs' } };</script>
 
-		<script src="{{ app.public_dir }}/vendor/monaco-editor/min/vs/loader.js"></script>
-        <script src="{{ app.public_dir }}/vendor/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
-        <script src="{{ app.public_dir }}/vendor/monaco-editor/min/vs/editor/editor.main.js"></script>
+		<script type="text/javascript" src="{{ app.sub.theme.compile.makeJs('vendor/app', 'monaco.editor.admin') }}"></script>
 	{% endif %}
 
 	{% for jsitem in app.event.getScripts %}
