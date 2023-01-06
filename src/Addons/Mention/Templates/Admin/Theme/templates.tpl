@@ -39,8 +39,8 @@
                 <div class="d-flex flex-column align-items-center justify-content-center mt-3">
                     <div class="align-self-start col-lg-12 col-sm-12 mb-3">
                         <div class="app-admin-template-selector js-AppAdmin_TemplateSelector position-relative row mx-auto" data-default="{{ string.name }}">
-                            <div class="col-lg-3 col-sm-12">
-                                <ul class="directory-list scrollable shadow-sm rounded-bottom mr-lg-3">
+                            <div class="col-lg-3 col-sm-12 pr-lg-4">
+                                <ul class="directory-list scrollable shadow-sm rounded-bottom">
                                     {% set templates = string.template.getTemplates() %}
                                     {% for item in templates|keys %}
                                         {% if not item is same as('_file') %}

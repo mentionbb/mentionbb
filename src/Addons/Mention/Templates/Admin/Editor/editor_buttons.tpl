@@ -49,13 +49,13 @@
                                             </div>
                                             <div class="head-title with-tabs d-flex flex-column ml-lg-0 ml-2 mr-auto">
                                                 <ul class="nav nav-tabs" id="editorTab" role="tablist">
-                                                    <li class="nav-item">
+                                                    <li class="nav-item mb-0">
                                                         <a class="nav-link active" id="toolbars-tab" data-toggle="tab" href="#toolbars" role="tab" aria-controls="toolbars" aria-selected="true">
                                                             <i class="fas fa-italic mr-2"></i>
                                                             {{ app.sub.lang.string.admin.editor.buttons.head.tabs.toolbars.title }}
                                                         </a>
                                                     </li>
-                                                    <li class="nav-item">
+                                                    <li class="nav-item mb-0">
                                                         <a class="nav-link" id="profile-buttons" data-toggle="tab" href="#buttons" role="tab" aria-controls="buttons" aria-selected="false">
                                                             <i class="fas fa-bars mr-2"></i>
                                                             {{ app.sub.lang.string.admin.editor.buttons.head.tabs.buttons.title }}
