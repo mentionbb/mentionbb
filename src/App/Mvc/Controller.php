@@ -12,14 +12,21 @@ use Symfony\Component\EventDispatcher\Event;
 abstract class Controller
 {
 	protected $routing;
-	protected $settings;
-	protected $datetime;
+	
 	protected $request;
 	protected $user;
 	protected $event;
+	protected $template;
+	protected $phrase;
+	protected $dispatcher;
+
+	protected $settings;
+	protected $datetime;
 	protected $language;
 	protected $default_language;
 	protected $languageInit;
+	
+	private $loader;
 
 	public function __construct($routing)
 	{
