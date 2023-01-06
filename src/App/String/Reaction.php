@@ -18,9 +18,9 @@ class Reaction
 		return $this->reactions->getReactionsByUserId($user_id);
 	}
 
-	public function getReactionCountByUserId($reaction, $user_id)
+	public function getReactionCountByUserId($user_id)
 	{
-		return $this->reactions->getReactionCountByUserId($reaction, $user_id);
+		return $this->reactions->getReactionCountByUserId($user_id);
 	}
 
 	public function getReactionCountByPostId($reaction, $post_id)

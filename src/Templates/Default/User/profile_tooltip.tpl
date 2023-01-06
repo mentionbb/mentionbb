@@ -42,26 +42,27 @@
 </div>
 <hr>
 <div hook-action="{Mention:App-domEvent-profileReactionBox}" class="app-reactions reaction-md d-flex pb-1">
+    {% set profileTooltipReactionsByUserId = string.reaction.getReactionCountByUserId(string.user.user_id) %}
     <div class="reaction like d-flex flex-column align-items-center">
-        <span>{{ string.reaction.getReactionCountByUserId('like', string.user.user_id)|number_format }}</span>
+        <span>{{ profileTooltipReactionsByUserId.like|number_format }}</span>
     </div>
     <div class="reaction love d-flex flex-column align-items-center">
-        <span>{{ string.reaction.getReactionCountByUserId('love', string.user.user_id)|number_format }}</span>
+        <span>{{ profileTooltipReactionsByUserId.love|number_format }}</span>
     </div>
     <div class="reaction haha d-flex flex-column align-items-center">
-        <span>{{ string.reaction.getReactionCountByUserId('haha', string.user.user_id)|number_format }}</span>
+        <span>{{ profileTooltipReactionsByUserId.haha|number_format }}</span>
     </div>
     <div class="reaction wow d-flex flex-column align-items-center">
-        <span>{{ string.reaction.getReactionCountByUserId('wow', string.user.user_id)|number_format }}</span>
+        <span>{{ profileTooltipReactionsByUserId.wow|number_format }}</span>
     </div>
     <div class="reaction sad d-flex flex-column align-items-center">
-        <span>{{ string.reaction.getReactionCountByUserId('sad', string.user.user_id)|number_format }}</span>
+        <span>{{ profileTooltipReactionsByUserId.sad|number_format }}</span>
     </div>
     <div class="reaction angry d-flex flex-column align-items-center">
-        <span>{{ string.reaction.getReactionCountByUserId('angry', string.user.user_id)|number_format }}</span>
+        <span>{{ profileTooltipReactionsByUserId.angry|number_format }}</span>
     </div>
     <div class="reaction dislike d-flex flex-column align-items-center mr-0">
-        <span>{{ string.reaction.getReactionCountByUserId('dislike', string.user.user_id)|number_format }}</span>
+        <span>{{ profileTooltipReactionsByUserId.dislike|number_format }}</span>
     </div>
 </div>
 <div class="d-flex align-items-center mt-3 mb-1">
