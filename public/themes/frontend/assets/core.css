@@ -753,12 +753,13 @@ input:hover, input:focus {
 	margin-right: 3px;
 }
 
-.dropdown-toggle::after {
+.dropdown-toggle:after {
 	font-family: "Font Awesome 5";
 	content: "\f0d7";
 	font-weight: 900;
 	border: none;
-	vertical-align: baseline;
+	line-height: 0.5;
+    vertical-align: baseline;
 }
 
 .dropdown.show .dropdown-toggle:after, .dropdown .dropdown-toggle:hover:after {
