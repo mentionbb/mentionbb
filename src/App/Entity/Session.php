@@ -25,7 +25,7 @@ class Session extends Mapper
 			->from($this->table)
 			->where('session_id = ?')
 			->setParameter(0, $session_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -47,7 +47,7 @@ class Session extends Mapper
 			->setParameter(1, $data['route'])
 			->setParameter(2, $data['session_id'])
 			->setParameter(3, $data['type'])
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -73,7 +73,7 @@ class Session extends Mapper
 			->setParameter(3, $data['ip'])
 			->setParameter(4, $data['route'])
 			->setParameter(5, $data['user_id'])
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -87,7 +87,7 @@ class Session extends Mapper
 	public function clearAll()
 	{
 		$query = $this->conn->createQueryBuilder()->delete($this->table)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 

@@ -29,6 +29,8 @@ abstract class Mapper
 	 */
 	protected $logger;
 
+	protected $conn;
+
 	public function __construct()
 	{
 		$schema = new Schema();
@@ -67,7 +69,7 @@ abstract class Mapper
 		$query = $this->conn->createQueryBuilder()
 			->select('*')
 			->from($this->table)
-			->execute()->fetchAllAssociative();
+			->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -86,7 +88,7 @@ abstract class Mapper
 			->from($this->table)
 			->where('name = ?')
 			->setParameter(0, $name)
-			->execute()->fetchAssociative();
+			->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 

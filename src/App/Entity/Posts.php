@@ -216,7 +216,7 @@ class Posts extends Mapper
 
 				$query->bindValue('is_active', 1, \PDO::PARAM_INT);
 
-				$fetch = $query->execute()->fetchAllAssociative();
+				$fetch = $query->executeQuery()->fetchAllAssociative();
 
 				$this->conn->close();
 
@@ -249,7 +249,7 @@ class Posts extends Mapper
 			->setParameter(4, \App\Entity\DateTime::getTimeStamp())
 			->setParameter(5, random_int(10000000, 99999999))
 			->setParameter(6, $device)
-			->execute();
+			->executeQuery();
 
 		$lastInsertId = $this->conn->lastInsertId();
 
@@ -279,7 +279,7 @@ class Posts extends Mapper
 
 		$query->orderBy('post_id', 'DESC');
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -295,7 +295,7 @@ class Posts extends Mapper
 			->andWhere('is_active = ?')
 			->setParameter(0, $discussion_id)
 			->setParameter(1, 1)
-			->execute();
+			->executeQuery();
 
 		$rowCount = $query->rowCount();
 
@@ -323,7 +323,7 @@ class Posts extends Mapper
 			$query->setParameter(1, $forum_id);
 		}
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -341,7 +341,7 @@ class Posts extends Mapper
 				->andWhere('user_id = ?')
 				->setParameter(0, 1)
 				->setParameter(1, $user_id)
-				->execute()->fetchAllAssociative();
+				->executeQuery()->fetchAllAssociative();
 		}
 		else
 		{
@@ -353,7 +353,7 @@ class Posts extends Mapper
 				->groupBy('discussion_id')
 				->setParameter(0, 1)
 				->setParameter(1, $user_id)
-				->execute()->fetchAllAssociative();
+				->executeQuery()->fetchAllAssociative();
 		}
 
 		$this->conn->close();
@@ -393,7 +393,7 @@ class Posts extends Mapper
 
 			$query->bindValue('is_active', 1, \PDO::PARAM_INT);
 
-			$fetch = $query->execute()->fetchAllAssociative();
+			$fetch = $query->executeQuery()->fetchAllAssociative();
 
 			$this->conn->close();
 
@@ -411,7 +411,7 @@ class Posts extends Mapper
 			->orderBy('post_id', 'DESC')
 			->setParameter(0, $discussion_id)
 			->setParameter(1, 1)
-			->execute();
+			->executeQuery();
 
 		$rowCount = $query->rowCount();
 
@@ -427,7 +427,7 @@ class Posts extends Mapper
 			->from($this->table)
 			->where('discussion_id = ?')
 			->setParameter(0, $discussion_id)
-			->execute()
+			->executeQuery()
 			->fetchAssociative();
 
 		$this->conn->close();
@@ -449,7 +449,7 @@ class Posts extends Mapper
 			->setParameter(1, $user_id)
 			->setParameter(2, $reaction)
 			->setParameter(3, \App\Entity\DateTime::getTimeStamp())
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -464,7 +464,7 @@ class Posts extends Mapper
 			->andWhere('user_id = ?')
 			->setParameter(0, $post_id)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 	}
 
 	public function getPostLikeCount(int $post_id)
@@ -475,7 +475,7 @@ class Posts extends Mapper
 			->where('post_id = ?')
 			->setParameter(0, $post_id)
 			->orderBy('like_id', 'DESC')
-			->execute()
+			->executeQuery()
 			->fetchAllAssociative();
 
 		$this->conn->close();
@@ -497,7 +497,7 @@ class Posts extends Mapper
 			$query->setMaxResults(2);
 		}
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -513,7 +513,7 @@ class Posts extends Mapper
 			->andWhere('user_id = ?')
 			->setParameter(0, $post_id)
 			->setParameter(1, $user_id)
-			->execute()
+			->executeQuery()
 			->fetchAssociative();
 
 		$this->conn->close();
@@ -533,7 +533,7 @@ class Posts extends Mapper
 			->setParameter(0, $post_id)
 			->setParameter(1, $user_id)
 			->setParameter(2, \App\Entity\DateTime::getTimeStamp())
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -548,7 +548,7 @@ class Posts extends Mapper
 			->andWhere('user_id = ?')
 			->setParameter(0, $post_id)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -564,7 +564,7 @@ class Posts extends Mapper
 			->andWhere('user_id = ?')
 			->setParameter(0, $post_id)
 			->setParameter(1, $user_id)
-			->execute()
+			->executeQuery()
 			->fetchAllAssociative();
 
 		$this->conn->close();
@@ -580,7 +580,7 @@ class Posts extends Mapper
 			->where('post_id = ?')
 			->setParameter(0, $post_id);
 
-		$fetch = $query->execute()->fetchAssociative();
+		$fetch = $query->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
@@ -595,7 +595,7 @@ class Posts extends Mapper
 			->where('post_id = ?')
 			->setParameter(0, 0)
 			->setParameter(1, $post_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -610,7 +610,7 @@ class Posts extends Mapper
 			->where('discussion_id = ?')
 			->setParameter(0, 0)
 			->setParameter(1, $discussion_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -623,7 +623,7 @@ class Posts extends Mapper
 			->delete($this->table)
 			->where('forum_id = ?')
 			->setParameter(0, $forum_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -642,7 +642,7 @@ class Posts extends Mapper
 			->setParameter(1, $lastedit_userid)
 			->setParameter(2, \App\Entity\DateTime::getTimeStamp())
 			->setParameter(3, $post_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -657,7 +657,7 @@ class Posts extends Mapper
 			->where('discussion_id = ?')
 			->setParameter(0, $forum_id)
 			->setParameter(1, $discussion_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -673,7 +673,7 @@ class Posts extends Mapper
 			->andWhere('is_active = ?')
 			->setParameter(0, $user_id)
 			->setParameter(1, 1)
-			->execute();
+			->executeQuery();
 
 		$rowCount = $query->rowCount();
 
@@ -700,7 +700,7 @@ class Posts extends Mapper
 		$query->bindValue('user_id', $user_id, \PDO::PARAM_INT);
 		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
 
-		$rowCount = $query->execute()->rowCount();
+		$rowCount = $query->executeQuery()->rowCount();
 
 		$this->conn->close();
 
@@ -715,7 +715,7 @@ class Posts extends Mapper
 			->where('content LIKE ?')
 			->setParameter(0, "%{$keyword}%")
 			->setMaxResults(7)
-			->execute();
+			->executeQuery();
 
 		$fetch = $query->fetchAllAssociative();
 
@@ -751,7 +751,7 @@ class Posts extends Mapper
 
 		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -773,7 +773,7 @@ class Posts extends Mapper
 		$query->bindValue('user_id', intval($user_id));
 		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -807,7 +807,7 @@ class Posts extends Mapper
 
 		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -829,7 +829,7 @@ class Posts extends Mapper
 		$query->bindValue('user_id', intval($user_id));
 		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -845,7 +845,7 @@ class Posts extends Mapper
 			->andWhere('is_active = ?')
 			->setParameter(0, $shortcode)
 			->setParameter(1, 1)
-			->execute();
+			->executeQuery();
 
 		$rowCount = $query->rowCount();
 
@@ -864,7 +864,7 @@ class Posts extends Mapper
 			->setParameter(0, $shortcode)
 			->setParameter(1, 1)
 			->setMaxResults(1)
-			->execute()
+			->executeQuery()
 			->fetchAssociative();
 
 		$this->conn->close();

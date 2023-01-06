@@ -20,7 +20,7 @@ class Attachments extends Mapper
 			->from($this->table)
 			->where('attach_id = ?')
 			->setParameter(0, $attach_id)
-			->execute()->fetchAssociative();
+			->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
@@ -34,7 +34,7 @@ class Attachments extends Mapper
 			->from($this->table)
 			->where('post_id = ?')
 			->setParameter(0, $post_id)
-			->execute()->fetchAllAssociative();
+			->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -55,7 +55,7 @@ class Attachments extends Mapper
             ->setParameter(1, $unique_id)
             ->setParameter(2, $post_id)
             ->setParameter(3, $user_id)
-            ->execute();
+            ->executeQuery();
 
         $this->conn->close();
 
@@ -68,7 +68,7 @@ class Attachments extends Mapper
 			->delete($this->table)
 			->where('attach_id = ?')
 			->setParameter(0, $attach_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 

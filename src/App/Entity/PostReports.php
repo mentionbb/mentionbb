@@ -27,7 +27,7 @@ class PostReports extends Mapper
 			->setParameter(1, $data->user_id)
 			->setParameter(2, $data->content)
 			->setParameter(3, \App\Entity\DateTime::getTimeStamp())
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 

@@ -49,7 +49,7 @@ class Notifications extends Mapper
 			->setParameter(3, $data->sender_id)
 			->setParameter(4, $data->user_id)
 			->setParameter(5, \App\Entity\DateTime::getTimeStamp())
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -86,7 +86,7 @@ class Notifications extends Mapper
 			->setParameter(1, $discussion_id)
 			->setParameter(2, $data->user_id)
 			->setParameter(3, $data->sender_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -101,7 +101,7 @@ class Notifications extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, 1)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -120,7 +120,7 @@ class Notifications extends Mapper
 			->setParameter(0, $user_id)
 			->setParameter(1, 0)
 			->setParameter(2, $user_id)
-			->execute()
+			->executeQuery()
 			->fetchAllAssociative();
 
 		$this->conn->close();
@@ -156,7 +156,7 @@ class Notifications extends Mapper
 
 		$query->bindValue('user_id', $user_id, \PDO::PARAM_INT);
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 

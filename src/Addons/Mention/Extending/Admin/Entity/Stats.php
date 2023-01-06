@@ -27,7 +27,7 @@ class Stats extends Mapper
             ORDER BY dateline ASC
 			");
 
-        $fetch = $query->execute()->fetchAllAssociative();
+        $fetch = $query->executeQuery()->fetchAllAssociative();
 
         $this->conn->close();
 

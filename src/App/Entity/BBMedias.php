@@ -20,7 +20,7 @@ class BBMedias extends Mapper
 			->from($this->table)
 			->where('is_active = ?')
 			->setParameter(0, 1)
-			->execute()->fetchAllAssociative();
+			->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -40,7 +40,7 @@ class BBMedias extends Mapper
 			->setParameter(1, "{$bb_key}={name}")
 			->setParameter(2, "{$bb_key}={number}")
 			->setParameter(3, 1)
-			->execute()->fetchAssociative();
+			->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 

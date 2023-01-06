@@ -18,7 +18,7 @@ class CensorWords extends Mapper
         $query = $this->conn->createQueryBuilder()
             ->select('*')
             ->from($this->table)
-            ->execute()
+            ->executeQuery()
             ->fetchAssociative();
 
         $this->conn->close();
@@ -31,7 +31,7 @@ class CensorWords extends Mapper
 		$query = $this->conn->createQueryBuilder()->update($this->table)
 			->set('word_list', '?')
 			->setParameter(0, $words)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 

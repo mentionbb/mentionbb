@@ -20,7 +20,7 @@ class AttachmentFileTypes extends Mapper
 			->from($this->table)
 			->where('is_active = ?')
 			->setParameter(0, 1)
-			->execute()->fetchAllAssociative();
+			->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -32,7 +32,7 @@ class AttachmentFileTypes extends Mapper
 		$query = $this->conn->createQueryBuilder()
 			->select('*')
 			->from($this->table)
-			->execute()->fetchAllAssociative();
+			->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -48,7 +48,7 @@ class AttachmentFileTypes extends Mapper
 			->andWhere('type_id = ?')
 			->setParameter(0, 1)
 			->setParameter(1, $type_id)
-			->execute()->fetchAssociative();
+			->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
@@ -62,7 +62,7 @@ class AttachmentFileTypes extends Mapper
 			->from($this->table)
 			->where('extension = ?')
 			->setParameter(0, $extension)
-			->execute()->fetchAssociative();
+			->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
@@ -83,7 +83,7 @@ class AttachmentFileTypes extends Mapper
 			->setParameter(1, $mime_type)
 			->setParameter(2, $icon)
 			->setParameter(3, $is_active)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -103,7 +103,7 @@ class AttachmentFileTypes extends Mapper
 			->setParameter(2, $icon)
 			->setParameter(3, $is_active)
 			->setParameter(4, $type_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -117,7 +117,7 @@ class AttachmentFileTypes extends Mapper
 			->where('type_id = ?')
 			->setParameter(0, $active)
 			->setParameter(1, $type_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 

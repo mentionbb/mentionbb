@@ -13,7 +13,9 @@ class Version extends Mapper
 
     public function getVersion()
     {
-        $query = $this->conn->getWrappedConnection()->getServerVersion();
+        $query = $this->conn->prepare("SELECT version()")
+            ->executeQuery()
+            ->fetchOne();
 
         $this->conn->close();
 

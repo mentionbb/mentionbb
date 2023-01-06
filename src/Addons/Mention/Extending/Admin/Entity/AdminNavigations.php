@@ -21,7 +21,7 @@ class AdminNavigations extends Mapper
             ->where('parent_id = ?')
             ->orderBy('navigation_order', 'ASC')
             ->setParameter(0, $parent_id)
-            ->execute()
+            ->executeQuery()
             ->fetchAllAssociative();
 
         $this->conn->close();
@@ -36,7 +36,7 @@ class AdminNavigations extends Mapper
             ->from($this->table)
             ->where('name = ?')
             ->setParameter(0, $name)
-            ->execute()
+            ->executeQuery()
             ->fetchAssociative();
 
         $this->conn->close();
@@ -51,7 +51,7 @@ class AdminNavigations extends Mapper
             ->from($this->table)
             ->where('link = ?')
             ->setParameter(0, $link)
-            ->execute()
+            ->executeQuery()
             ->fetchAssociative();
 
         $this->conn->close();
@@ -66,7 +66,7 @@ class AdminNavigations extends Mapper
             ->from($this->table)
             ->where('nav_id = ?')
             ->setParameter(0, $nav_id)
-            ->execute()
+            ->executeQuery()
             ->fetchAssociative();
 
         $this->conn->close();

@@ -29,18 +29,54 @@ class Reactions extends Mapper
 		return $fetch;
 	}
 
-	public function getReactionCountByUserId(string $reaction, int $user_id)
+	public function getReactionCountByUserId(int $user_id)
 	{
-		$query = $this->conn->createQueryBuilder()
-			->select('*')
-			->from($this->table)
-			->where('user_id = ?')
-			->andWhere('reaction = ?')
-			->setParameter(0, $user_id)
-			->setParameter(1, $reaction)
-			->execute();
+		$query = $this->conn->prepare("SELECT pl.*, p.*
+			FROM {$this->table} pl
 
+			LEFT JOIN
+			( select p.* from posts p where p.user_id = :user_id ) p
+			ON p.post_id = pl.post_id
+
+			WHERE p.is_active = :is_active
+			");
+
+		$query->bindValue('user_id', $user_id, \PDO::PARAM_INT);
+		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+
+		$query = $query->executeQuery();
 		$rowCount = $query->rowCount();
+
+		if ($query->rowCount() > 0)
+		{
+			$fetch = $query->fetchAllAssociative();
+
+			$items = [
+				'like' => [],
+				'love' => [],
+				'haha' => [],
+				'wow' => [],
+				'sad' => [],
+				'angry' => [],
+				'dislike' => []
+			];
+			foreach ($fetch as $item)
+			{
+				$items[$item['reaction']][$item['post_id']] = $item['post_id'];
+			}
+
+			$counts = [
+				'like' => \count($items['like']),
+				'love' => \count($items['love']),
+				'haha' => \count($items['haha']),
+				'wow' => \count($items['wow']),
+				'sad' => \count($items['sad']),
+				'angry' => \count($items['angry']),
+				'dislike' => \count($items['dislike']),
+			];
+
+			$rowCount = $counts;
+		}
 
 		$this->conn->close();
 

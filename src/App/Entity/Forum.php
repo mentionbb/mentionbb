@@ -21,7 +21,7 @@ class Forum extends Mapper
 			->where('parent_id = ?')
 			->orderBy('forum_order', 'ASC')
 			->setParameter(0, $parent_id)
-			->execute()->fetchAllAssociative();
+			->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -35,7 +35,7 @@ class Forum extends Mapper
 			->from($this->table)
 			->where('forum_id = ?')
 			->setParameter(0, $forum_id)
-			->execute()->fetchAssociative();
+			->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
@@ -55,7 +55,7 @@ class Forum extends Mapper
 			->setParameter(2, $order)
 			->setParameter(3, $description)
 			->setParameter(4, $forum_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -78,7 +78,7 @@ class Forum extends Mapper
 			->setParameter(2, $description)
 			->setParameter(3, $order)
 			->setParameter(4, 1)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -91,7 +91,7 @@ class Forum extends Mapper
 			->delete($this->table)
 			->where('forum_id = ?')
 			->setParameter(0, $forum_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 

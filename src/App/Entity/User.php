@@ -30,7 +30,7 @@ class User extends Mapper
 			->setParameter(0, $username)
 			->setMaxResults(1);
 
-		$fetch = $query->execute()->fetchAssociative();
+		$fetch = $query->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
@@ -51,7 +51,7 @@ class User extends Mapper
 			->setParameter(0, $user_id)
 			->setMaxResults(1);
 
-		$fetch = $query->execute()->fetchAssociative();
+		$fetch = $query->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
@@ -99,7 +99,7 @@ class User extends Mapper
 	 */
 	public function validateUsername($username)
 	{
-		$result = $this->findByUserName($username);
+		$result = (object) $this->findByUserName($username);
 		if ($result->rowCount() > 0)
 		{
 			return true;
@@ -122,7 +122,7 @@ class User extends Mapper
 			->setMaxResults(1)
 			->setParameter(0, $username)
 			->setParameter(1, $password)
-			->execute();
+			->executeQuery();
 
 		$rowCount = $query->rowCount();
 
@@ -141,7 +141,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, $data['dateline'])
 			->setParameter(1, $data['user_id'])
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -157,7 +157,7 @@ class User extends Mapper
 		$query = $this->conn->createQueryBuilder()->select("user_id")
 			->from($this->table)
 			->orderBy('user_id')
-			->execute();
+			->executeQuery();
 
 		$rowCount = $query->rowCount();
 
@@ -172,7 +172,7 @@ class User extends Mapper
 			->from($this->table)
 			->setMaxResults(1)
 			->orderBy('user_id', 'DESC')
-			->execute()
+			->executeQuery()
 			->fetchAssociative();
 
 		$this->conn->close();
@@ -208,7 +208,7 @@ class User extends Mapper
 			->setParameter(8, \App\Entity\DateTime::getTimeStamp())
 			->setParameter(9, $title)
 			->setParameter(10, $isAdmin)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -222,7 +222,7 @@ class User extends Mapper
 			->from($this->table)
 			->where('username LIKE ?')
 			->setParameter(0, "%{$keyword}%")
-			->execute();
+			->executeQuery();
 
 		$fetch = $query->fetchAllAssociative();
 
@@ -238,7 +238,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, $new_mail)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -252,7 +252,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, $new_title)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -266,7 +266,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, $new_pp)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -280,7 +280,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, $new_password)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -294,7 +294,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, $definition)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -308,7 +308,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, $new_username)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -322,7 +322,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->setParameter(0, $role)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -341,7 +341,7 @@ class User extends Mapper
 			->setParameter(0, $sender_id)
 			->setParameter(1, $user_id)
 			->setParameter(2, \App\Entity\DateTime::getTimeStamp())
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -357,7 +357,7 @@ class User extends Mapper
 			->setParameter(0, 0)
 			->setParameter(1, $sender_id)
 			->setParameter(2, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -371,7 +371,7 @@ class User extends Mapper
 			->andWhere('user_id = ?')
 			->setParameter(0, $sender_id)
 			->setParameter(1, $user_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -389,7 +389,7 @@ class User extends Mapper
 			->setParameter(0, $user_id)
 			->setParameter(1, $user_id)
 			->setParameter(2, 0)
-			->execute();
+			->executeQuery();
 
 		$fetch = $query->fetchAllAssociative();
 
@@ -409,7 +409,7 @@ class User extends Mapper
 			->setParameter(0, $sender_id)
 			->setParameter(1, $user_id)
 			->setParameter(2, $awaiting)
-			->execute();
+			->executeQuery();
 
 		$rowCount = $query->rowCount();
 
@@ -426,7 +426,7 @@ class User extends Mapper
 				->setParameter(0, $user_id)
 				->setParameter(1, $sender_id)
 				->setParameter(2, $awaiting)
-				->execute();
+				->executeQuery();
 
 			$rowCount = $query->rowCount();
 
@@ -455,7 +455,7 @@ class User extends Mapper
 			->from($this->table)
 			->setMaxResults(5)
 			->orderBy('user_id', 'DESC')
-			->execute()
+			->executeQuery()
 			->fetchAllAssociative();
 
 		$this->conn->close();
@@ -477,7 +477,7 @@ class User extends Mapper
 			->setParameter(1, $text)
 			->setParameter(2, $user_id)
 			->setParameter(3, time())
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -491,7 +491,7 @@ class User extends Mapper
 			->where('ban_id = ?')
 			->setParameter(0, 0)
 			->setParameter(1, $ban_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -505,7 +505,7 @@ class User extends Mapper
 			->where('user_id = ?')
 			->orderBy('dateline', 'DESC')
 			->setParameter(0, $user_id)
-			->execute()
+			->executeQuery()
 			->fetchAllAssociative();
 
 		$this->conn->close();

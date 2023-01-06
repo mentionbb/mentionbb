@@ -37,7 +37,7 @@ class Messages extends Mapper
 			$query->setParameter(4, $parent_id);
 		}
 
-		$query = $query->execute();
+		$query = $query->executeQuery();
 
 		$this->conn->close();
 
@@ -59,7 +59,7 @@ class Messages extends Mapper
 			->setParameter(2, 1)
 			->setParameter(3, 0)
 			->setMaxResults(7)
-			->execute()
+			->executeQuery()
 			->fetchAllAssociative();
 
 		$this->conn->close();
@@ -110,7 +110,7 @@ class Messages extends Mapper
 		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
 		$query->bindValue('is_archived', $is_archived, \PDO::PARAM_INT);
 
-		$fetch = $query->execute()->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -128,7 +128,7 @@ class Messages extends Mapper
 			->setParameter(0, $parent_id)
 			->setParameter(1, 1)
 			->setMaxResults(1)
-			->execute()
+			->executeQuery()
 			->fetchAssociative();
 
 		$this->conn->close();
@@ -147,7 +147,7 @@ class Messages extends Mapper
 			->setParameter(0, $message_id)
 			->setParameter(1, 1)
 			->setMaxResults(1)
-			->execute()
+			->executeQuery()
 			->fetchAssociative();
 
 		$this->conn->close();
@@ -165,7 +165,7 @@ class Messages extends Mapper
 			->orderBy('dateline', 'ASC')
 			->setParameter(0, $message_id)
 			->setParameter(1, 1)
-			->execute()->fetchAllAssociative();
+			->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -182,7 +182,7 @@ class Messages extends Mapper
 			->setParameter(0, $conversation_id)
 			->setParameter(1, 1)
 			->setMaxResults(1)
-			->execute();
+			->executeQuery();
 
 		$rowCount = $query->rowCount();
 
@@ -209,7 +209,7 @@ class Messages extends Mapper
 			->setParameter(3, $user_id)
 			->setParameter(4, $parent_id)
 			->setParameter(5, \App\Entity\DateTime::getTimeStamp())
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -232,7 +232,7 @@ class Messages extends Mapper
 			->setParameter(2, $sender_id)
 			->setParameter(3, $user_id)
 			->setParameter(4, \App\Entity\DateTime::getTimeStamp())
-			->execute();
+			->executeQuery();
 
 		$message_id = $this->conn->lastInsertId();
 
@@ -244,7 +244,7 @@ class Messages extends Mapper
 			->where('message_id = ?')
 			->setParameter(0, $message_id)
 			->setParameter(1, $message_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -259,7 +259,7 @@ class Messages extends Mapper
 			->where('parent_id = ?')
 			->setParameter(0, $operation)
 			->setParameter(1, $message_id)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 

@@ -47,7 +47,7 @@ class Settings extends Mapper
 			->where('name = ?')
 			->setParameter(0, $value)
 			->setParameter(1, $name)
-			->execute();
+			->executeQuery();
 
 		$this->conn->close();
 
@@ -63,7 +63,7 @@ class Settings extends Mapper
 		$query = $this->conn->createQueryBuilder()->select("*")
 			->from($this->table)
 			->groupBy('group_name')
-			->execute()
+			->executeQuery()
 			->fetchAllAssociative();
 
 		$this->conn->close();
@@ -81,7 +81,7 @@ class Settings extends Mapper
 			->from($this->table)
 			->where('group_name = ?')
 			->setParameter(0, $group_name)
-			->execute()
+			->executeQuery()
 			->fetchAllAssociative();
 
 		$this->conn->close();

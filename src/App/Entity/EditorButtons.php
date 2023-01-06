@@ -40,7 +40,7 @@ class EditorButtons extends Mapper
             $query->bindValue('is_active', 1, \PDO::PARAM_INT);
         }
 
-        $fetch = $query->execute()->fetchAllAssociative();
+        $fetch = $query->executeQuery()->fetchAllAssociative();
 
         $this->conn->close();
 
@@ -55,7 +55,7 @@ class EditorButtons extends Mapper
             ->where('is_active = ?')
             ->orderBy('order_by', 'ASC')
             ->setParameter(0, 1)
-            ->execute()->fetchAllAssociative();
+            ->executeQuery()->fetchAllAssociative();
 
         $this->conn->close();
 
@@ -70,7 +70,7 @@ class EditorButtons extends Mapper
             ->where('is_active = ?')
             ->orderBy('order_by', 'ASC')
             ->setParameter(0, 0)
-            ->execute()->fetchAllAssociative();
+            ->executeQuery()->fetchAllAssociative();
 
         $this->conn->close();
 
@@ -91,7 +91,7 @@ class EditorButtons extends Mapper
                     ->setParameter(1, $active)
                     ->setParameter(2, $id);
 
-                $query->execute();
+                $query->executeQuery();
 
                 $this->conn->close();
             }
@@ -113,7 +113,7 @@ class EditorButtons extends Mapper
 
         $query->bindValue('button_id', $button_id, \PDO::PARAM_INT);
 
-        $fetch = $query->execute()->fetchAssociative();
+        $fetch = $query->executeQuery()->fetchAssociative();
 
         $this->conn->close();
 
@@ -136,7 +136,7 @@ class EditorButtons extends Mapper
             ->setParameter(4, $order_by)
             ->setParameter(5, $id);
 
-        $query->execute();
+        $query->executeQuery();
 
         $this->conn->close();
     }
@@ -159,7 +159,7 @@ class EditorButtons extends Mapper
             ->setParameter(5, $is_active)
             ->setParameter(6, $id);
 
-        $query->execute();
+        $query->executeQuery();
 
         $this->conn->close();
     }
@@ -182,7 +182,7 @@ class EditorButtons extends Mapper
             ->setParameter(5, $is_active)
             ->setParameter(6, $button_id);
 
-        $query->execute();
+        $query->executeQuery();
 
         $this->conn->close();
     }
