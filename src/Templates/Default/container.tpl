@@ -3,7 +3,7 @@
     dir="{{ app.sub.lang.default.text_direction }}" 
     hook-action="{Mention:App-domEvent-htmldoc}">
 <head hook-action="{Mention:App-domEvent-head}">
-	{# Metadata is generated automatically. #}
+	{# Metadata is generated automatically. See: App\Renderer\SeoBundle\Meta\MetaBundle #}
 	
 	<!-- CSS -->
 	<link rel="stylesheet" href="{{ app.public_dir }}/vendor/vendor.css?v=1644274312" />
