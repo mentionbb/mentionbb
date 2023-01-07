@@ -25,8 +25,7 @@ abstract class Controller
 	protected $language;
 	protected $default_language;
 	protected $languageInit;
-	
-	private $loader;
+	protected $loader;
 
 	public function __construct($routing)
 	{
