@@ -6,6 +6,13 @@ use App\App;
 
 class ServerEnvironment
 {
+    protected $nativeConnection;
+
+    public function __construct()
+    {
+        $this->nativeConnection = (new \App\Entity\Native())->getNativeConnection();
+    }
+
     public function getPHPVersion()
     {
         return phpversion();
@@ -16,9 +23,14 @@ class ServerEnvironment
         return phpinfo();
     }
 
-    public function getMySQLVersion()
+    public function getServerVersion()
     {
-        return (new \App\Entity\Version)->getVersion();
+        return $this->nativeConnection['server_version'];
+    }
+
+    public function getServerInfo()
+    {
+        return $this->nativeConnection['server_info'];
     }
 
     public function getMemoryLimit()
