@@ -30,20 +30,20 @@ class Native extends Mapper
         }
         else if ($this->conn->getParams()['driver'] == 'sqlite3')
         {
-            $response['server_info'] = '';
+            $response['server_info'] = null;
             $response['server_version'] = \SQLite3::version()['versionString'];
         }
         else if ($this->conn->getParams()['driver'] == 'sqlsrv')
         {
             $sqlsrv_Info = \sqlsrv_server_info($this->conn->getNativeConnection());
 
-            $response['server_info'] = '';
+            $response['server_info'] = null;
             $response['server_version'] = $sqlsrv_Info['SQLServerVersion'];
         }
         else
         {
-            $response['server_info'] = '';
-            $response['server_version'] = '';
+            $response['server_info'] = null;
+            $response['server_version'] = null;
         }
 
         return $response;
