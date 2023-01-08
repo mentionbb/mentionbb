@@ -2367,6 +2367,12 @@ h5.app-title.user:before {
     font-size: 14px;
 }
 
+/* Mozilla fix */
+.scrollable {
+	scrollbar-color: #6f8692 transparent;
+	scrollbar-width: thin;
+}
+
 .scrollable::-webkit-scrollbar {
 	background-color:transparent;
 	width:15px;
