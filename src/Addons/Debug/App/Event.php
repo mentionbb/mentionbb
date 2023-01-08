@@ -35,7 +35,7 @@ class Event extends DispatcherEvent
                     $event->container->dom->prepend('{hook:pagecontent}', function () use ($event)
                     {
                         $server = new \App\SubContainer\ServerEnvironment();
-
+                        
                         return $event->container->template->render(
                             '{addon:debug}/debug.tpl',
                             [
@@ -43,8 +43,9 @@ class Event extends DispatcherEvent
                                     'memoryUsed' => \App\SubContainer\Bytes::formatBytes(memory_get_peak_usage(false)),
                                     'memoryLimit' => $server->getMemoryLimit(),
                                     'phpVersion' => $server->getPHPVersion(),
-                                    'mySQLVersion' => $server->getMySQLVersion(),
-                                    'calculatePageLoadTime' => (number_format(microtime(true) - TIMER_START, 2)),
+                                    'mySQLVersion' => $server->getServerVersion(),
+                                    'calculatePageLoadTime' => (\number_format(\microtime(true) - TIMER_START, 2)),
+                                    'serverInfo' => $server->getServerInfo(),
                                     'page' => [
                                         'self' => $event->container->routing->getSelf(),
                                         'matchingPath' => $event->container->routing->getMatchingPath()
