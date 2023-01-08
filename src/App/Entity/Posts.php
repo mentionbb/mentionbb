@@ -199,22 +199,22 @@ class Posts extends Mapper
 
 				if (!is_null($user_id))
 				{
-					$query->bindValue('user_id', $user_id, \PDO::PARAM_INT);
+					$query->bindValue('user_id', $user_id, $this->getType('integer'));
 				}
 
-				$query->bindValue('wherePage', $wherePage, \PDO::PARAM_INT);
-				$query->bindValue('topicLimit', $topicnumber, \PDO::PARAM_INT);
+				$query->bindValue('wherePage', $wherePage, $this->getType('integer'));
+				$query->bindValue('topicLimit', $topicnumber, $this->getType('integer'));
 
 				if ($onlyStickyDiscussions && !is_null($onlyStickyDiscussions))
 				{
-					$query->bindValue('is_sticky', 1, \PDO::PARAM_INT);
+					$query->bindValue('is_sticky', 1, $this->getType('integer'));
 				}
 				else
 				{
-					$query->bindValue('is_sticky', 0, \PDO::PARAM_INT);
+					$query->bindValue('is_sticky', 0, $this->getType('integer'));
 				}
 
-				$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+				$query->bindValue('is_active', 1, $this->getType('integer'));
 
 				$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -388,10 +388,10 @@ class Posts extends Mapper
 
 			$query->bindValue('discussion_id', intval($discussion_id));
 
-			$query->bindValue('wherePage', $wherePage, \PDO::PARAM_INT);
-			$query->bindValue('topicLimit', $topicnumber, \PDO::PARAM_INT);
+			$query->bindValue('wherePage', $wherePage, $this->getType('integer'));
+			$query->bindValue('topicLimit', $topicnumber, $this->getType('integer'));
 
-			$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+			$query->bindValue('is_active', 1, $this->getType('integer'));
 
 			$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -697,8 +697,8 @@ class Posts extends Mapper
 			GROUP BY d.discussion_id
 			");
 
-		$query->bindValue('user_id', $user_id, \PDO::PARAM_INT);
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+		$query->bindValue('user_id', $user_id, $this->getType('integer'));
+		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$rowCount = $query->executeQuery()->rowCount();
 
@@ -746,10 +746,10 @@ class Posts extends Mapper
 
 		$query->bindValue('user_id', intval($user_id));
 
-		$query->bindValue('wherePage', $wherePage, \PDO::PARAM_INT);
-		$query->bindValue('topicLimit', $topicnumber, \PDO::PARAM_INT);
+		$query->bindValue('wherePage', $wherePage, $this->getType('integer'));
+		$query->bindValue('topicLimit', $topicnumber, $this->getType('integer'));
 
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -771,7 +771,7 @@ class Posts extends Mapper
 			");
 
 		$query->bindValue('user_id', intval($user_id));
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -802,10 +802,10 @@ class Posts extends Mapper
 
 		$query->bindValue('user_id', intval($user_id));
 
-		$query->bindValue('wherePage', $wherePage, \PDO::PARAM_INT);
-		$query->bindValue('topicLimit', $topicnumber, \PDO::PARAM_INT);
+		$query->bindValue('wherePage', $wherePage, $this->getType('integer'));
+		$query->bindValue('topicLimit', $topicnumber, $this->getType('integer'));
 
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -827,7 +827,7 @@ class Posts extends Mapper
 			");
 
 		$query->bindValue('user_id', intval($user_id));
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 

@@ -154,7 +154,7 @@ class Notifications extends Mapper
 			LIMIT 7
 			");
 
-		$query->bindValue('user_id', $user_id, \PDO::PARAM_INT);
+		$query->bindValue('user_id', $user_id, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 

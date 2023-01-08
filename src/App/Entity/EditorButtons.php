@@ -37,7 +37,7 @@ class EditorButtons extends Mapper
 
         if ($is_active)
         {
-            $query->bindValue('is_active', 1, \PDO::PARAM_INT);
+            $query->bindValue('is_active', 1, $this->getType('integer'));
         }
 
         $fetch = $query->executeQuery()->fetchAllAssociative();
@@ -111,7 +111,7 @@ class EditorButtons extends Mapper
 			WHERE b.button_id = :button_id
 			");
 
-        $query->bindValue('button_id', $button_id, \PDO::PARAM_INT);
+        $query->bindValue('button_id', $button_id, $this->getType('integer'));
 
         $fetch = $query->executeQuery()->fetchAssociative();
 

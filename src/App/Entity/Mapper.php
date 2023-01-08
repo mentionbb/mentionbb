@@ -13,6 +13,7 @@ use App\Repository\Config\Schema;
 use Doctrine\DBAL\Configuration as DoctrineConfiguration;
 use Doctrine\DBAL\DriverManager as DoctrineDriverManager;
 use Doctrine\DBAL\Logging\Middleware as DoctrineMiddleware;
+use Doctrine\DBAL\Types\Type as DoctrineTypes;
 
 abstract class Mapper
 {
@@ -93,5 +94,10 @@ abstract class Mapper
 		$this->conn->close();
 
 		return $query;
+	}
+
+	public function getType($type)
+	{
+		return DoctrineTypes::getType($type);
 	}
 }

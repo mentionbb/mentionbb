@@ -106,9 +106,9 @@ class Messages extends Mapper
 			{$limit}
 			");
 
-		$query->bindValue('user_id', $user_id, \PDO::PARAM_INT);
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
-		$query->bindValue('is_archived', $is_archived, \PDO::PARAM_INT);
+		$query->bindValue('user_id', $user_id, $this->getType('integer'));
+		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query->bindValue('is_archived', $is_archived, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 

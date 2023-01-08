@@ -86,7 +86,7 @@ class Discussion extends Mapper
 			");
 
 		$query->bindValue('discussion_id', intval($discussion_id));
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAssociative();
 
@@ -114,7 +114,7 @@ class Discussion extends Mapper
 			ORDER BY p.dateline
 			");
 
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -167,11 +167,11 @@ class Discussion extends Mapper
 
 		if ($forum_id != 0)
 		{
-			$query->bindValue('forum_id', $forum_id, \PDO::PARAM_INT);
+			$query->bindValue('forum_id', $forum_id, $this->getType('integer'));
 		}
 
-		$query->bindValue('is_sticky', 1, \PDO::PARAM_INT);
-		$query->bindValue('is_active', 1, \PDO::PARAM_INT);
+		$query->bindValue('is_sticky', 1, $this->getType('integer'));
+		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$rowCount = $query->executeQuery()->rowCount();
 
