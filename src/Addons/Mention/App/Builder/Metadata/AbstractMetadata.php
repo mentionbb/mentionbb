@@ -7,6 +7,7 @@ use App\Renderer\SeoBundle\Meta\RenderHtml;
 
 abstract class AbstractMetadata
 {
+    protected $app;
     private $metadata;
 
     public function __construct()
