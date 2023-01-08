@@ -143,7 +143,7 @@
 								</tr>
 								<tr>
 									<td>{{ app.sub.lang.string.admin.index.server_environment.table.rows.mysql_version }}</td>
-									<td>{{ string.server.getMySQLVersion() }}</td>
+									<td>{{ string.server.getServerVersion() }}</td>
 								</tr>
 								<tr>
 									<td>{{ app.sub.lang.string.admin.index.server_environment.table.rows.memory_limit }}</td>
