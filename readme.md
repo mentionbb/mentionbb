@@ -18,4 +18,4 @@ And much much more.
 
 ## License
 
-Mention is a open-source project and licensed under the MIT License(MIT). Lütfen (lisans dosyasını)[https://github.com/par274/mentionbb/blob/master/license.md] okuyun.
+Mention is a open-source project and licensed under the MIT License(MIT). Lütfen [lisans dosyasını](https://github.com/par274/mentionbb/blob/master/license.md) okuyun.
