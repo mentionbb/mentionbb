@@ -15,3 +15,7 @@
 - **Advanced template system.** Mention uses an improved Twig 3.0 engine. You can use this engine in plugins and various everywhere. There is quite a detailed area for editing templates in the admin panel.
 
 And much much more.
+
+## License
+
+Mention is a open-source project and licensed under the MIT License(MIT). Lütfen (lisans dosyasını)[https://github.com/par274/mentionbb/blob/master/license.md] okuyun.
