@@ -2,7 +2,7 @@
     <img width="300px" src="https://github.com/par274/mentionbb/blob/master/public/images/logo.svg" />
 </p>
 
-## A classic forum system with next-gen.
+# A classic forum system with next-gen.
 [Mention](https://mentionbb.com/community) is an advanced forum community software. It is based on the balance between the classic forum software and the new generation ones. In this context, it has made it essential to add revolutionary innovations with developing technologies.
 - **Flexible and fast.** Despite using advanced algorithms, Mention is a very lightweight software thanks to its caching technologies. On the other hand, it contains highly complex and previously unseen components.
 
@@ -16,6 +16,6 @@
 
 And much much more.
 
-## License
+# License
 
 Mention is a open-source project and licensed under the MIT License(MIT). Please read the [license file](https://github.com/par274/mentionbb/blob/master/license.md).
