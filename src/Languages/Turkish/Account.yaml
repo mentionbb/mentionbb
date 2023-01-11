@@ -58,3 +58,6 @@ Language:
     posts:
       buttons:
         remove_bookmark: "Koleksiyondan kaldır"
+
+    about:
+      for_issues_and_support: "Sorunlar ve destek için:"

@@ -363,6 +363,9 @@
 							<div class="text-center mt-4">
 								<a target="_blank" href="https://www.r10.net/members/90047-scarecrow.html">https://www.r10.net/members/90047-scarecrow.html</a>
 							</div>
+                            <div class="text-center mt-4">
+                                {{ app.sub.lang.string.account.about.for_issues_and_support }} <a target="_blank" href="https://github.com/par274/mentionbb">https://github.com/par274/mentionbb</a>
+                            </div>
 						</div>
 					</div>
 				</div>
