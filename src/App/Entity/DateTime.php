@@ -67,6 +67,20 @@ class DateTime
 	}
 
 	/**
+	 * [getFullDateTime Get fulldate and time from Locale]
+	 * @param  [int] $timestamp
+	 * @return [mixed]
+	 *
+	 * Style: 9 Ocak Pazartesi 2023, 19:16
+	 */
+	public function getFullDateTime($timestamp)
+	{
+		return Carbon::createFromTimestamp($timestamp)
+			->locale($this->locale->id)
+			->translatedFormat($this->locale->timer->format);
+	}
+
+	/**
 	 * Get now year.
 	 * @template {{ app.timer.date.getYear }}
 	 */
