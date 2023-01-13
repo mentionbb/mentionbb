@@ -66,7 +66,7 @@ We recommend that you turn this setting off. Because with template changes, your
 
 ``` php
 public static $dev = [
-	'_debug' => false,
+	'_devMode' => false,
 ```
 
 # Framework
