@@ -16,6 +16,28 @@
 
 And much much more.
 
+# Packages used in this project
+- [Symfony/Routing](https://symfony.com/doc/5.4/create_framework/routing.html)
+- [Symfony/HttpFoundation](https://symfony.com/doc/5.4/components/http_foundation.html)
+- [Symfony/Yaml](https://symfony.com/doc/5.4/components/yaml.html)
+- [Doctrine/Dbal](https://www.doctrine-project.org/projects/dbal/current.html)
+- [Twig/Twig](https://twig.symfony.com/)
+- [Masterminds/Html5](https://github.com/Masterminds/html5-php)
+- [Symfony/Serializer](https://symfony.com/doc/5.4/components/serializer.html)
+- [Symfony/DomCrawler](https://symfony.com/doc/5.4/components/dom_crawler.html)
+- [Nesbot/Carbon](https://carbon.nesbot.com/)
+- [Laminas/Escaper](https://docs.laminas.dev/laminas-escaper/)
+- [Guzzle/Guzzle](https://github.com/guzzle/guzzle)
+
+- [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [Font Awesome 5](https://fontawesome.com/)
+- [TinyMCE 5](https://www.tiny.cloud/)
+- [Monaco Editor](https://microsoft.github.io/monaco-editor/)
+
+- [jQuery](https://jquery.com/)
+
+These are the main packages that have been used. We used a lot of things to create Mention. Thank you for all.
+
 # License
 
 Mention is a open-source project and licensed under the MIT License(MIT). Please read the [license file](https://github.com/par274/mentionbb/blob/master/license.md).
