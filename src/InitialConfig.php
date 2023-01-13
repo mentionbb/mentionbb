@@ -16,6 +16,8 @@ class InitialConfig
     const Enable_Beta_Updates = 0;
 
     /**
+     * @deprecated
+     * 
      * Disable PHP error reporting.
      */
     const Disable_PHP_Error_Reporting = 0;
