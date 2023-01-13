@@ -28,12 +28,10 @@ And much much more.
 - [Nesbot/Carbon](https://carbon.nesbot.com/)
 - [Laminas/Escaper](https://docs.laminas.dev/laminas-escaper/)
 - [Guzzle/Guzzle](https://github.com/guzzle/guzzle)
-
 - [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 - [Font Awesome 5](https://fontawesome.com/)
 - [TinyMCE 5](https://www.tiny.cloud/)
 - [Monaco Editor](https://microsoft.github.io/monaco-editor/)
-
 - [jQuery](https://jquery.com/)
 
 These are the main packages that have been used. We used a lot of things to create Mention. Thank you for all.
