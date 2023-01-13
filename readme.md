@@ -16,6 +16,58 @@
 
 And much much more.
 
+# Install
+
+You have to do this manually as the Installer isn't ready yet.
+
+## Requirements
+- PHP 7.4+
+- Composer
+- Git (Optional)
+
+### Via Zip
+
+Download the files and extract them from the Zip file.
+
+### Via Git
+
+```
+git clone https://github.com/par274/mentionbb
+```
+
+```
+cd src
+composer update
+```
+
+After that, you need to set the database.
+
+- Create an empty database and import the "db.sql" file located in the main directory.
+
+The column you need to change is:
+> settings > site_url
+
+Enter the full address of your site in this column.
+After that, your site will be up and running.
+
+Default user:pass
+> Test User:123456.,
+
+Admin Panel for more settings.
+
+### Disabled Developer Mode
+
+We recommend that you turn this setting off. Because with template changes, your files are backed up, but not when Dev Mode is on.
+
+``` php
+\App\App::$dev
+```
+
+``` php
+public static $dev = [
+	'_debug' => false,
+```
+
 # Framework
 
 Mention has been developed under an custom application framework called Par2. I have also used it in my previous projects, but this is a much improved version.
