@@ -6,6 +6,10 @@ use App\Mvc\Controller;
 
 abstract class EventController extends Controller
 {
+    protected $event_name;
+    protected $app_template_path;
+    protected $app_template_prefix;
+    
     protected $jokerMethod = 'init';
 
     public function __construct($appRouting, $event)
