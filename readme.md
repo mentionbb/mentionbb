@@ -35,6 +35,7 @@ Download the files and extract them from the Zip file.
 git clone https://github.com/par274/mentionbb
 ```
 
+After this step, we need to perform a composer update.
 ```
 cd src
 composer update
