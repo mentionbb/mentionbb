@@ -459,7 +459,6 @@
 .directory-list .folder,
 .directory-list .folder>a {
     color: #777;
-    font-weight: bold;
 }
 
 .directory-list li>span {
@@ -470,18 +469,25 @@
 }
 
 .directory-list li:not(.folder)>span.active {
-    color: #000;
+    color: #343a40;
+}
+
+.directory-list li>span.active {
+    font-weight: 700;
 }
 
 .directory-list li:not(.folder)>span.active:after {
     font-family: "Font Awesome 5";
     font-weight: 900;
-    content: "\f054";
+    content: "";
     float: right;
+    height: 23px;
+    background-color: #d3d3d3;
+    width: 3px;
 }
 
 .directory-list li>span:hover {
-    color: #000;
+    color: #343a40;
 }
 
 .directory-list li>span:before {
