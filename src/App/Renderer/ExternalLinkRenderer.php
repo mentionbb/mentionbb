@@ -22,6 +22,14 @@ class ExternalLinkRenderer
 		self::$url = $url;
 		$stack = self::addCache();
 
+		if(\Release\InitialConfig::Disable_ExternalLink_Preview)
+		{
+			return [
+				'status' => 'exception',
+				'message' => 'This feature(ExternalLink_Renderer) is disabled by Config File.'
+			];
+		}
+
 		try
 		{
 			$client = new Client([
