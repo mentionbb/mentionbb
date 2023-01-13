@@ -16,6 +16,12 @@
 
 And much much more.
 
+# Framework
+
+Mention has been developed under an custom application framework called Par2. I have also used it in my previous projects, but this is a much improved version.
+
+In general, Symfony Components are used.
+
 # Packages used in this project
 - [Symfony/Routing](https://symfony.com/doc/5.4/create_framework/routing.html)
 - [Symfony/HttpFoundation](https://symfony.com/doc/5.4/components/http_foundation.html)
