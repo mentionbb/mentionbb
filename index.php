@@ -13,8 +13,10 @@
 
 ini_set('max_execution_time', 900);
 
+define('INDEX_DIR', __DIR__);
+
 //Application location.
-define('APPLICATION_SELF', __DIR__ . '/src');
+define('APPLICATION_SELF', INDEX_DIR . '/src');
 
 //Config Dir
 define('CONFIG_DIR', APPLICATION_SELF . '/App/Config');
