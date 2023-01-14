@@ -10,6 +10,12 @@ class Generator
     protected $indexBuilder;
     protected $urlBuilder;
 
+    protected $robotTxtTemplate = [
+        'User-agent: *',
+        'Allow: /',
+        'Sitemap: /sitemap.xml'
+    ];
+
     public function __construct(\App\Repository\Request $request)
     {
         $this->indexBuilder = new IndexBuilder($request);
@@ -24,5 +30,12 @@ class Generator
     public function getUrlBuilder()
     {
         return $this->urlBuilder;
+    }
+
+    public function generateRobotTxt()
+    {
+        $string = implode("\n", $this->robotTxtTemplate);
+
+        return (new \App\Util\File())->dumpFile(INDEX_DIR . '/robots.txt', $string);
     }
 }
