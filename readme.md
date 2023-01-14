@@ -49,6 +49,11 @@ The column you need to change is:
 > settings > site_url
 
 Enter the full address of your site in this column.
+
+Open:
+> src/App/Config/db.yaml
+Make your database settings in this file.
+
 After that, your site will be up and running.
 
 Default user:pass
@@ -67,6 +72,8 @@ We recommend that you turn this setting off. Because with template changes, your
 ``` php
 public static $dev = [
 	'_devMode' => false,
+    ...
+];
 ```
 
 # Framework
