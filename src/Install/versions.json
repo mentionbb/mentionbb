@@ -18,5 +18,15 @@
 			"installable": "true",
 			"upgradable": "true"
 		}
+	},
+	"110141": {
+		"version": "1",
+		"versionId": "1101416",
+		"versionTitle": "1.0 BETA for testers.",
+		"contains": {
+			"status": "beta",
+			"installable": "true",
+			"upgradable": "true"
+		}
 	}
 }
