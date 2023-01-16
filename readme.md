@@ -27,7 +27,7 @@ You have to do this manually as the Installer isn't ready yet.
 
 ### Via Zip
 
-[Download the latest files](https://github.com/par274/mentionbb/releases/tag/mentionbb-1101416) and extract them from the Zip file.
+[Download the latest files](https://github.com/par274/mentionbb/releases/latest) and extract them from the Zip file.
 
 ### Via Git
 
