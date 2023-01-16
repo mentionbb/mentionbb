@@ -181,7 +181,7 @@ input:hover, input:focus {
 	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-[class*="btn-app-"].no-anim-ui:not(.btn-app-dd):hover {
+[class*="btn-app-"].no-anim-ui:not(.btn-app-dd):not(.btn-app-social):hover {
 	background-color: #d6d6d6;
 }
 
@@ -313,7 +313,7 @@ input:hover, input:focus {
 }
 
 .btn.icon:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 400;
 	padding-right: 9px;
 }
@@ -531,7 +531,7 @@ input:hover, input:focus {
 }
 
 .app-forums .list-group-item.icon:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	padding-right: 8px;
 	color: #f39206;
 }
@@ -627,7 +627,7 @@ input:hover, input:focus {
 }
 
 .app-post-manage button.post-refresh:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f2f1";
 	font-weight: 900;
 }
@@ -673,7 +673,7 @@ input:hover, input:focus {
 }
 
 .js-appExpandNodes a:before, .js-appExpandNodes a:after {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	padding: 0 10px;
 	content: "\f077";
@@ -747,14 +747,14 @@ input:hover, input:focus {
 }
 
 .app-post > .post-layout > .new-post > .new-post > span:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 400;
 	content: "\f005";
 	margin-right: 3px;
 }
 
 .dropdown-toggle:after {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f0d7";
 	font-weight: 900;
 	border: none;
@@ -838,7 +838,7 @@ input:hover, input:focus {
 }
 
 .app-post > .post-layout > .post-content span.icon:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	padding-right: 5px;
 }
 
@@ -855,7 +855,7 @@ input:hover, input:focus {
 }
 
 .app-post > .post-layout > .post-content p:before, .app-post > .post-layout > .post-content p span:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-style: normal;
 	padding-right: 5px;
 }
@@ -899,7 +899,7 @@ input:hover, input:focus {
 }
 
 .app-post > .post-layout > .post-content .discuss-info > div.info > span:before, .app-post > .post-layout > .post-content .discuss-info a:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	padding-right: 10px;
 }
 
@@ -1078,7 +1078,7 @@ input:hover, input:focus {
 }
 
 .bootstrap-select.dropdown li > a span.sub:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	content: "\f309";
 	color: #ff9600;
@@ -1130,7 +1130,7 @@ input:hover, input:focus {
 }
 
 .app-title > .app-breadcrumb > div:after {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f105";
 	font-weight: 900;
 	padding: 0 10px;
@@ -1145,7 +1145,7 @@ input:hover, input:focus {
 }
 
 .app-title > .app-breadcrumb > .home:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f015";
 	font-weight: 900;
 	padding-right: 10px;
@@ -1157,7 +1157,7 @@ input:hover, input:focus {
 }
 
 .app-title > span:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-style: normal;
 	padding-right: 5px;
 	content: "\f017";
@@ -1174,7 +1174,7 @@ input:hover, input:focus {
 }
 
 .app-discussion-status > span:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	padding-right: 10px;
 }
 
@@ -1311,7 +1311,7 @@ input:hover, input:focus {
 }
 
 .app-discussion > .post-layout > .post-content > .discussion-text .quote .user:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f3e5";
 	font-weight: 900;
 	padding-right: 10px;
@@ -1350,7 +1350,7 @@ input:hover, input:focus {
 }
 
 .app-discussion > .post-layout > .post-content > .discussion-text .js-Spoiler.spoiler-alert > div.title:after {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f063";
 	font-weight: 900;
 	float: right;
@@ -1387,7 +1387,7 @@ img.js-Twemoji_MentionEditor {
 }
 
 .app-discussion > .post-layout > .post-content .post-edit > span:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f14b";
 	font-weight: 900;
 	padding-right: 5px;
@@ -1455,7 +1455,7 @@ img.js-Twemoji_MentionEditor {
 }
 
 .app-discussion > .post-layout > .post-content .discuss-info .grey-button:after {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
     content: "\f023";
     font-weight: 900;
     font-size: 13px;
@@ -1623,7 +1623,7 @@ img.js-Twemoji_MentionEditor {
 }
 
 .post-timeliner > .first-post:before, .post-timeliner > .last-post:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	padding-right: 5px;
 }
@@ -1701,7 +1701,7 @@ img.js-Twemoji_MentionEditor {
 }
 
 .post-timeliner > .scrollable-parent > .scrollbar-area > .backto-post:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f111";
 	font-weight: 900;
 	padding-right: 5px;
@@ -1728,7 +1728,7 @@ img.js-Twemoji_MentionEditor {
 }
 
 .dropdown-item.active:after {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f00c";
 	font-weight: 900;
 	padding-left: 20px;
@@ -1750,7 +1750,7 @@ h5.app-title {
 }
 
 h5.app-title:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f015";
 	font-weight: 900;
 	padding-right: 10px;
@@ -2011,7 +2011,7 @@ h5.app-title.user:before {
 }
 
 .dropdown-menu.custom-menu .notification.active > .text:after {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f00c";
 	font-weight: 900;
 	padding-right: 10px;
@@ -2087,7 +2087,7 @@ h5.app-title.user:before {
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu > .text > span.icon:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	padding-right: 10px;
 	font-weight: 400;
 }
@@ -2247,7 +2247,7 @@ h5.app-title.user:before {
 }
 
 .dropdown-menu.custom-menu .notification > .text > span.sender:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f064";
 	font-weight: 900;
 	margin-right: 5px;
@@ -2312,7 +2312,7 @@ h5.app-title.user:before {
 }
 
 .dropdown-menu.custom-menu .friendship-request-buttons > button:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	padding-right: 5px;
 }
@@ -2549,7 +2549,7 @@ h5.app-title.user:before {
 }
 
 .modal.custom-modal > .modal-dialog > .modal-content > .modal-body small:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: bold;
 	padding-right: 5px;
 }
@@ -2575,7 +2575,7 @@ h5.app-title.user:before {
 }
 
 .modal.custom-modal > .modal-dialog > .modal-content > .modal-body .big-icon {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f46c";
 	font-weight: 900;
 	font-size: 70px;
@@ -2620,7 +2620,7 @@ h5.app-title.user:before {
 }
 
 .modal.custom-modal .close:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f00d";
 	font-weight: 900;
 }
@@ -2711,7 +2711,7 @@ h5.app-title.user:before {
 }
 
 .popover-body > .share-content > div a.icon:before {
-	font-family: "Font Awesome 5 Brands";
+	font-family: "Font Awesome 6 Free Brands";
 	font-weight: 400;
 }
 
@@ -2903,7 +2903,7 @@ h5.app-title.user:before {
 }
 
 .cookiealert .acceptcookies:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f00d";
 	font-weight: 900;
 }
@@ -3170,7 +3170,7 @@ h5.app-title.user:before {
 }
 
 .app-device-area > span.device-icon:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	padding-right: 7px;
 	font-size: 14px;
@@ -3247,7 +3247,7 @@ h5.app-title.user:before {
 }
 
 .app-alert-container.alert-login span:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	content: "\f06a";
 	padding-right: 7px;
@@ -3342,7 +3342,7 @@ h5.app-title.user:before {
 }
 
 .search-container > .search-results > .title.icon:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	padding-right: 8px;
 	color: #f39206;
 	font-weight: 400;
@@ -3379,7 +3379,7 @@ h5.app-title.user:before {
 }
 
 .search-container > .search-results > .scrollable > div > a > span.icon:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	color: #f39206;
 	font-weight: 400;
 	content: "\f0e0";
@@ -3400,7 +3400,7 @@ h5.app-title.user:before {
 }
 
 .search-container > .search-results a.more-search:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	content: "\f002";
 	font-weight: 900;
 	padding-right: 7px;
@@ -3464,7 +3464,7 @@ h5.app-title.user:before {
 }
 
 .conversation-list > div > span[data-is-seeing]:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	content: "\f00c";
 	padding-right: 5px;
@@ -3561,7 +3561,7 @@ h5.app-title.user:before {
 }
 
 .conversation-area .messages > div.me > div[data-is-seeing]:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	content: "\f00c";
 	position: absolute;
@@ -3589,7 +3589,7 @@ h5.app-title.user:before {
 }
 
 .conversation-area .app-message-create button:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 400;
 	content: "\f1d8";
 	font-size: 24px;
@@ -3777,7 +3777,7 @@ h5.app-title.user:before {
 
 .js-appExternalLink.show > .content > h6 > a:after {
 	display: inline-block;
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	content: "\f35d";
 	margin-left: 5px;
@@ -3793,7 +3793,7 @@ h5.app-title.user:before {
 }
 
 .js-appExternalLink.show > .content > .link:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	content: "\f0c1";
 	margin-right: 5px;
@@ -3950,7 +3950,7 @@ pre[class*="language-"] {
 }
 
 .custom-file-label:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	content: "\f093";
 	color: #ffffff;
@@ -3996,7 +3996,7 @@ pre[class*="language-"] {
 }
 
 .post-attachments.edit-attachments .attachment a:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 400;
 	content: "\f2ed";
 	font-size: 20px;
@@ -4122,7 +4122,7 @@ pre[class*="language-"] {
 }
 
 .tooltip.tooltipEmojiBox .tooltip-inner > div > div > span:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 900;
 	padding-right: 5px;
 }
@@ -4147,13 +4147,13 @@ pre[class*="language-"] {
 }
 
 .tooltip.tooltipEmojiBox .tooltip-inner a.copy:before {
-	font-family: "Font Awesome 5";
+	font-family: "Font Awesome 6 Free";
 	font-weight: 400;
 	content: "\f0c5";
 }
 
 .tox-icon i, .tox-collection__item-icon i {
-	font-family: "Font Awesome 5"!important;
+	font-family: "Font Awesome 6 Free"!important;
 	font-size: 16px!important;
 }
 
@@ -4549,7 +4549,7 @@ code.error {
 	}
 
 	.navbar-light .navbar-toggler > .navbar-toggler-icon:before {
-		font-family: "Font Awesome 5";
+		font-family: "Font Awesome 6 Free";
 		content: "\f0c9";
 		color: #343a40;
 		font-weight: 900;

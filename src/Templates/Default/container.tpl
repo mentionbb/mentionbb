@@ -6,7 +6,7 @@
 	{# Metadata is generated automatically. See: App\Renderer\SeoBundle\Meta\MetaBundle #}
 	
 	<!-- CSS -->
-	<link rel="stylesheet" href="{{ app.public_dir }}/vendor/vendor.css?v=1644274312" />
+	<link rel="stylesheet" href="{{ app.public_dir }}/vendor/vendor.css?v=1673882744" />
 	<link rel="stylesheet" href="{{ app.sub.theme.compile.makeCss('themes/frontend/assets', 'core')}}" />
 
 	{% for styleitem in app.event.getStyles %}

@@ -14,7 +14,7 @@
 	{% endif %}
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="{{ app.public_dir }}/vendor/vendor.css?v=1644274312" />
+	<link rel="stylesheet" href="{{ app.public_dir }}/vendor/vendor.css?v=1673882744" />
 	<link rel="stylesheet" href="{{ app.public_dir }}/vendor/admin-vendor.css?v=1642854267" />
 	<link rel="stylesheet" href="{{ app.sub.theme.compile.makeCss('themes/frontend/assets', 'core')}}" />
     <link rel="stylesheet" href="{{ app.sub.theme.compile.minify('themes/admin/assets', 'admin.css')}}" />

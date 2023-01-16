@@ -19,7 +19,7 @@
 }
 
 .app-forums .card-header h6:after {
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     float: right;
 }
@@ -62,7 +62,7 @@
 }
 
 .app-admin-mini-stats .icon:before {
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     padding-right: 10px;
     font-size: 40px;
@@ -122,7 +122,7 @@
 
 .setting-group>.icon:before,
 .setting-group.list span.icon:before {
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     padding-right: 20px;
     font-size: 30px;
@@ -206,7 +206,7 @@
 }
 
 .app-admin-file-text .input-group>label:before {
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     content: "\f093";
     color: #37474f;
@@ -231,7 +231,7 @@
 }
 
 .service-list-area #servicesAccordion>.app-service>.app-post>.post-layout:after {
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     content: "\f077";
     padding-right: 5px;
@@ -477,7 +477,7 @@
 }
 
 .directory-list li:not(.folder)>span.active:after {
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     content: "";
     float: right;
@@ -491,7 +491,7 @@
 }
 
 .directory-list li>span:before {
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     content: "\f15b";
     margin-right: 10px;
     color: #d3d3d3;
@@ -506,7 +506,7 @@
 }
 
 .directory-list li.folder>span:after {
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     content: "\f0d7";
     float: right;
@@ -702,7 +702,7 @@
     display: flex;
     justify-content: center;
     width: 18px;
-    font-family: "Font Awesome 5";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 12px;
     content: "\f078";
