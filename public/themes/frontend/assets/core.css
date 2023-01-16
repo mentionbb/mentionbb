@@ -4033,6 +4033,7 @@ pre[class*="language-"] {
 .tooltip-inner {
 	background-color: #37474f;
 	color: #fff;
+	border-radius: 0;
 }
 
 .tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before, .tooltip.bs-tooltip-top .arrow::before {
