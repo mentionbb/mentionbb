@@ -70,6 +70,10 @@ class App
 		{
 			throw new \Exception("Mention required a mbstring Extension.");
 		}
+		if (!self::isLoadExtension('iconv'))
+		{
+			throw new \Exception("Mention required a iconv Extension.");
+		}
 
 		self::$collection = new RouteCollection();
 		self::$request = Request::createFromGlobals();
