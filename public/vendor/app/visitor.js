@@ -218,6 +218,9 @@ if (window.jQuery === undefined) jQuery = $ = {};
 				$('body').addClass('app-night-mode');
 				$('.navbar .navbar-brand > img').attr('src', app.config.settings.logo.night);
 
+				$('#login-attempt .logo > img').attr('src', app.config.settings.logo.night);
+				$('#register-attempt .logo > img').attr('src', app.config.settings.logo.night);
+
 				Storages.cookieStorage.set('night_mode', true);
 			} else {
 				$(this).removeClass('active');
@@ -225,6 +228,9 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
 				$('body').removeClass('app-night-mode');
 				$('.navbar .navbar-brand > img').attr('src', app.config.settings.logo.light);
+
+				$('#login-attempt .logo > img').attr('src', app.config.settings.logo.light);
+				$('#register-attempt .logo > img').attr('src', app.config.settings.logo.light);
 
 				Storages.cookieStorage.remove('night_mode');
 			}
