@@ -234,7 +234,7 @@
     		</script>
     		<script class="app_EditorLanguage" type="application/json">
     		{% autoescape false %}
-    		    {{ app.sub.lang.string.editor|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES') b-or constant('JSON_PRETTY_PRINT')) }}
+    		    {{ app.sub.lang.string.editor|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES')) }}
     		{% endautoescape %}
     		</script>
     	{% endif %}
