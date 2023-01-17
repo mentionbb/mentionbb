@@ -11,9 +11,13 @@ if (window.jQuery === undefined) jQuery = $ = {};
 					var elem = $(this);
 					$(this).closest('.app-post').find('.progress').removeClass('d-none');
 
-					$($(this).find('iframe')).on('load', function() {
+					$(this).find('iframe').on('load', function() {
 						elem.closest('.app-post').find('.progress').addClass('d-none');
 					});
+
+					setTimeout(function () {
+						elem.closest('.app-post').find('.progress').addClass('d-none');
+					}, 5000);
 				});
 			}
 		}
