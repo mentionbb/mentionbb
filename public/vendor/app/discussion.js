@@ -17,7 +17,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
 					setTimeout(function () {
 						elem.closest('.app-post').find('.progress').addClass('d-none');
-					}, 5000);
+					}, 3000);
 				});
 			}
 		}
