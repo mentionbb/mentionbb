@@ -19,17 +19,11 @@ class Parser
     protected $language;
     protected $phrase;
 
-    private $tagList;
-
     public function __construct($settings, $language, $phrase)
     {
         $this->settings = $settings;
         $this->language = $language;
         $this->phrase = $phrase;
-
-        $this->tagList = $this->prepareToRegex(
-            (new ProcessTags())->getItems()
-        );
     }
 
     public function Parse($string, $quoteContainer = true)
@@ -54,7 +48,9 @@ class Parser
         $s = LineBreaks::addBreak($s);
         $s = LineBreaks::needToAddLineBreaks($s);
 
-        foreach ($this->tagList as $finalList)
+        $tagList = new ProcessTags();
+        
+        foreach ($tagList->getTagList() as $finalList)
         {
             if (!$finalList['callback'])
             {
@@ -62,14 +58,14 @@ class Parser
             }
         }
 
-        $s = $this->addTagCallback([
+        $s = $tagList->addTagCallback([
             'name' => 'list',
-            'callback' => ['listTag', $s]
+            'callback' => [$this, 'listTag', $s]
         ]);
 
-        $s = $this->addTagCallback([
+        $s = $tagList->addTagCallback([
             'name' => 'spoiler',
-            'callback' => ['spoilerTag', $s]
+            'callback' => [$this, 'spoilerTag', $s]
         ]);
 
         $s = $this->emoticon($s);
@@ -96,7 +92,7 @@ class Parser
         return ClearBBCode::Process($string, $nl2br, $html);
     }
 
-    protected function listTag($options, $string)
+    public function listTag($options, $string)
     {
         return preg_replace_callback("/{$options['bbCode']}/si", function ($matches)
         {
@@ -141,7 +137,7 @@ class Parser
         }, $string);
     }
 
-    protected function spoilerTag($options, $string)
+    public function spoilerTag($options, $string)
     {
         return preg_replace_callback("/{$options['bbCode']}/is", function ($matches)
         {
@@ -286,87 +282,5 @@ class Parser
                 return "";
             }
         }, $string);
-    }
-
-    protected function prepareToRegex($tagList)
-    {
-        foreach ($tagList as $name => $val)
-        {
-            $modification = $val['modification'];
-            $paramCount = 0;
-            if (preg_match('/\{\d\}/', $modification, $matchParam))
-            {
-                preg_match_all('/\{\d\}/', $modification, $matchParams);
-                $paramCount = count($matchParams[0]);
-                $modification = preg_replace('/\{(\d)\}/', '$$1', $modification);
-            }
-
-            if (preg_match_all('/\$(\d)/', $modification, $matchSameParams))
-            {
-                foreach ($matchSameParams[1] as $modificationCount)
-                {
-                    $paramCount = $modificationCount;
-                }
-            }
-
-            if ($paramCount > 0)
-            {
-                $modification = str_replace('{string}', "\$" . ($paramCount + 1), $modification);
-            }
-            else
-            {
-                $modification = str_replace('{string}', "\$1", $modification);
-            }
-
-            $bbCode = preg_replace('/\{param\}/', '(.*?)', $val['bbCode']);
-
-            if (preg_match('/|/', $val['bbCode'], $matchDelimiter))
-            {
-                $bbCode = preg_replace('/\{param:(.*?)\}/', '($1)', $bbCode);
-            }
-            else
-            {
-                $bbCode = preg_replace('/\{param:(.*?)\}/', '(.*?)', $bbCode);
-            }
-
-            $bbCode = preg_replace('/\{string\}/', '(.*?)', $bbCode);
-
-            $tagList[$name] = [
-                'bbCode' => str_replace(['[', ']', '/', '='], ['\[', '\]', '\/', '\='], $bbCode),
-                'modification' => $modification,
-                'callback' => $val['callback']
-            ];
-        }
-
-        return $tagList;
-    }
-
-    protected function addTagCallback(array $callbackOptions)
-    {
-        foreach ($this->tagList as $name => $options)
-        {
-            if (preg_match('/=/', $name, $matchParams))
-            {
-                $tagName = explode('=', $name);
-                $tag = $this->tagList["{$tagName[0]}={$tagName[1]}"];
-                $tagName = $tagName[0];
-            }
-            else
-            {
-                $tagName = $name;
-                $tag = $this->tagList[$name];
-            }
-
-            if ($tagName == $callbackOptions['name'])
-            {
-                if ($tag['callback'] && method_exists($this, $callbackOptions['callback'][0]))
-                {
-                    return $this->{$callbackOptions['callback'][0]}(
-                        $tag,
-                        $callbackOptions['callback'][1]
-                    );
-                }
-            }
-        }
     }
 }

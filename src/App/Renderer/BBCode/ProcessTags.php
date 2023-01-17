@@ -5,6 +5,7 @@ namespace App\Renderer\BBCode;
 class ProcessTags
 {
 	protected $_item;
+	protected $tagList;
 
 	public function __construct()
 	{
@@ -23,6 +24,8 @@ class ProcessTags
 				}
 			}
 		}
+
+		$this->tagList = $this->prepareToRegex();
 	}
 
 	protected function addItem($tag)
@@ -83,8 +86,107 @@ class ProcessTags
 		}
 	}
 
-	public function getItems()
+	public function prepareToRegex()
 	{
-		return $this->_item;
+		foreach ($this->_item as $name => $val)
+		{
+			$modification = $val['modification'];
+			$paramCount = 0;
+			if (preg_match('/\{\d\}/', $modification, $matchParam))
+			{
+				preg_match_all('/\{\d\}/', $modification, $matchParams);
+				$paramCount = count($matchParams[0]);
+				$modification = preg_replace('/\{(\d)\}/', '$$1', $modification);
+			}
+
+			if (preg_match_all('/\$(\d)/', $modification, $matchSameParams))
+			{
+				foreach ($matchSameParams[1] as $modificationCount)
+				{
+					$paramCount = $modificationCount;
+				}
+			}
+
+			if ($paramCount > 0)
+			{
+				$modification = str_replace('{string}', "\$" . ($paramCount + 1), $modification);
+			}
+			else
+			{
+				$modification = str_replace('{string}', "\$1", $modification);
+			}
+
+			$bbCode = preg_replace('/\{param\}/', '(.*?)', $val['bbCode']);
+
+			if (preg_match('/|/', $val['bbCode'], $matchDelimiter))
+			{
+				$bbCode = preg_replace('/\{param:(.*?)\}/', '($1)', $bbCode);
+			}
+			else
+			{
+				$bbCode = preg_replace('/\{param:(.*?)\}/', '(.*?)', $bbCode);
+			}
+
+			$bbCode = preg_replace('/\{string\}/', '(.*?)', $bbCode);
+
+			$tagName = $name;
+			if (preg_match('/=/', $name, $matchString))
+			{
+				$tagName = explode('=', $name)[0];
+			}
+
+			$tagList[$tagName] = [
+				'pureCode' => $name,
+				'bbCode' => str_replace(['[', ']', '/', '='], ['\[', '\]', '\/', '\='], $bbCode),
+				'modification' => $modification,
+				'callback' => $val['callback']
+			];
+		}
+
+		return $tagList;
+	}
+
+	public function addTagCallback(array $callbackOptions)
+	{
+		foreach ($this->tagList as $name => $options)
+		{
+			if (preg_match('/=/', $name, $matchParams))
+			{
+				$tagName = explode('=', $name);
+				$tag = $this->tagList["{$tagName[0]}={$tagName[1]}"];
+				$tagName = $tagName[0];
+			}
+			else
+			{
+				$tagName = $name;
+				$tag = $this->tagList[$name];
+			}
+
+			if ($tagName == $callbackOptions['name'])
+			{
+				if ($tag['callback'] && method_exists($callbackOptions['callback'][0], $callbackOptions['callback'][1]))
+				{
+					return $callbackOptions['callback'][0]->{$callbackOptions['callback'][1]}(
+						$tag,
+						$callbackOptions['callback'][2]
+					);
+				}
+			}
+		}
+	}
+
+	public function getTagList()
+	{
+		return $this->tagList;
+	}
+
+	public function getTag($tag)
+	{
+		return $this->tagList[$tag];
+	}
+
+	public function setCallback($tag)
+	{
+		$this->tagList[$tag]['callback'] = true;
 	}
 }

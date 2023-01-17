@@ -711,7 +711,7 @@ class Post extends Controller implements Pub
 			]
 		);
 
-		$content = \App\Renderer\BBCode\Helper\CodeBlock::Render(
+		$content = \App\Renderer\BBCode\Editor\Editor::Render(
 			$postString['content']
 		);
 

@@ -24,7 +24,7 @@
  		};
 
  		return (
- 			o(/\n/gi, "<br />"),
+ 			o(/\r\n/gi, "<br />"),
  			o(/\[b\]/gi, "<strong>"),
  			o(/\[\/b\]/gi, "</strong>"),
  			o(/\[i\]/gi, "<em>"),
@@ -41,9 +41,9 @@
  			o(/\[heading=(.*?)\](.*?)\[\/heading\]/gi, '<h$1>$2</h$1>'),
  			o(/\[background=(.*?)\](.*?)\[\/background\]/gi, '<span style="background-color: $1;">$2</span>'),
  			o(/\[align=(.*?)\](.*?)\[\/align\]/gi, '<p style="text-align: $1;">$2</p>'),
- 			o(/\[list=disc\](.*?)\[\/list\](<br \/>)?/gi, '<ul>$1</ul>'),
- 			o(/\[list=decimal\](.*?)\[\/list\](<br \/>)?/gi, '<ol>$1</ol>'),
- 			o(/\[li\](.*?)\[\/li](<br \/>)?/gi, '<li>$1</li>'),
+ 			//o(/\[list=disc\](.*?)\[\/list\](<br \/>)?/gi, '<ul>$1</ul>'),
+ 			//o(/\[list=decimal\](.*?)\[\/list\](<br \/>)?/gi, '<ol>$1</ol>'),
+ 			//o(/\[li\](.*?)\[\/li](<br \/>)?/gi, '<li>$1</li>'),
  			o(/\[table=(.*?);border=(.*?)\](.*?)\[\/table\](<br \/>)?/gi, '<table style="$1" border="$2">$3</table>'),
  			o(/\[tr\](.*?)\[\/tr\](<br \/>)?/gi, '<tr>$1</tr>'),
  			o(/\[td=(.*?)\](.*?)\[\/td\](<br \/>)?/gi, '<td style="$1">$2</td>'),
