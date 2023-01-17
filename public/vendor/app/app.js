@@ -12,6 +12,7 @@ var app = {};
             contentType: contentType
         }).done(function (responseData, status, xhr) {
         }).fail(function (xhr, status, err) {
+            app.flashMessage('Error: json response', 'danger');
         });
 
         return promise;
@@ -245,8 +246,11 @@ var app = {};
             $('.app-alert-container').removeClass('alert-login');
             var time = 3000;
         } else if (type === 'warning') {
-            $('.app-alert-container').addClass('alert-login');
+            $('.app-alert-container').addClass('warning');
             var time = 5000;
+        } else if (type === 'danger') {
+            $('.app-alert-container').addClass('danger');
+            var time = 50000;
         }
 
         $('.app-alert-container > .app-alert > span').html(text);

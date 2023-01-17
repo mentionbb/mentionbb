@@ -3237,6 +3237,14 @@ h5.app-title.user:before {
 	display: none;
 }
 
+.app-alert-container.danger .app-alert {
+	background-color: #e25050;
+}
+
+.app-alert-container.warning .app-alert {
+	background-color: #e39b14;
+}
+
 .app-alert-container.alert-login {
 	z-index: 2000;
 }
