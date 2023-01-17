@@ -3806,6 +3806,11 @@ h5.app-title.user:before {
 	margin-right: 5px;
 }
 
+.js-appExternalLink h6 {
+	line-height: 1;
+	margin: 0;
+}
+
 .app-banning-flag {
 	background-color: #fde6a2;
 }
@@ -4264,6 +4269,11 @@ code.error {
 .app-bbcode-content [class^="bbWrapper_"] {
 	display: flex;
 	justify-content: flex-start;
+}
+
+.app-bbcode-content h1, h2, h3, h4, h5, h6 {
+	margin: 20px 0;
+	line-height: 1.4;
 }
 
 @-webkit-keyframes indeterminate {
