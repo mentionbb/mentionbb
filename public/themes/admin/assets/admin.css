@@ -495,7 +495,7 @@
     content: "\f15b";
     margin-right: 10px;
     color: #d3d3d3;
-    font-weight: 900;
+    font-weight: 400;
     margin-left: 5px;
 }
 
@@ -510,6 +510,15 @@
     font-weight: 900;
     content: "\f0d7";
     float: right;
+}
+
+.directory-list li.folder>span.active:before {
+    font-weight: 400;
+    content: "\f07c";
+}
+
+.directory-list li>span.active:before {
+    font-weight: 900;
 }
 
 .directory-list li.folder>span.active:after {
