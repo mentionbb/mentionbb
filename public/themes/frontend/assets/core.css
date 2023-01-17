@@ -4253,6 +4253,11 @@ code.error {
     right: 80px;
 }
 
+.app-bbcode-content [class^="bbWrapper_"] {
+	display: flex;
+	justify-content: flex-start;
+}
+
 @-webkit-keyframes indeterminate {
 	0% {
 		left: -35%;
