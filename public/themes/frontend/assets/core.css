@@ -4271,7 +4271,12 @@ code.error {
 	justify-content: flex-start;
 }
 
-.app-bbcode-content h1, h2, h3, h4, h5, h6 {
+.app-bbcode-content h1,
+.app-bbcode-content h2,
+.app-bbcode-content h3,
+.app-bbcode-content h4,
+.app-bbcode-content h5,
+.app-bbcode-content h6 {
 	margin: 20px 0;
 	line-height: 1.4;
 }
