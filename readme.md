@@ -95,7 +95,7 @@ In general, Symfony Components are used.
 - [Laminas/Escaper](https://docs.laminas.dev/laminas-escaper/)
 - [Guzzle/Guzzle](https://github.com/guzzle/guzzle)
 - [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
-- [Font Awesome 5](https://fontawesome.com/)
+- [Font Awesome 6](https://fontawesome.com/)
 - [TinyMCE 5](https://www.tiny.cloud/)
 - [Monaco Editor](https://microsoft.github.io/monaco-editor/)
 - [jQuery](https://jquery.com/)
