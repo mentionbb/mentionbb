@@ -28,7 +28,7 @@ class Media
 				}
 				else
 				{
-					$matchingUrl = str_replace(['{id}', '{number}', '/', '.', '?', '*', '\//'], ['([a-zA-Z0-9_/?=-]+)', '([0-9]+)', '\/', '\.', '\?', '(?:.*)', '\/'], $matchingUrl);
+					$matchingUrl = self::replaceGlobalVariables($matchingUrl);
 					$string = preg_replace_callback("/(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?{$matchingUrl}/", function ($matches) use ($media)
 					{
 						$bbcode_Key = preg_replace('/([a-zA-Z0-9]+)\=\{([a-zA-Z0-9]+)\}/', '$1', $media['bb_key']);
@@ -66,5 +66,10 @@ class Media
 			[$id, \App\SubContainer\AppSub::getPublicDir(), (new \App\Repository\Request())->getServerName()],
 			$embedHtml
 		);
+	}
+
+	public static function replaceGlobalVariables($url)
+	{
+		return \str_replace(['{id}', '{number}', '/', '.', '?', '*', '\//'], ['([a-zA-Z0-9_/?=-]+)', '([0-9]+)', '\/', '\.', '\?', '(?:.*)', '\/'], $url);
 	}
 }

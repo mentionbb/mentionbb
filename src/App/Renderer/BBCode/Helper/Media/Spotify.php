@@ -6,7 +6,7 @@ class Spotify
 {
     public static function Render($url, $media, $string)
     {
-        $url = str_replace(['{id}', '/', '.', '?', '*', '\//'], ['([a-zA-Z0-9]+)', '\/', '\.', '\?', '(?:.*)', '\/'], $url);
+        $url = \App\Renderer\BBCode\Helper\Media::replaceGlobalVariables($url);
         return preg_replace_callback("/(?:http(?:s)?:\/\/)?(?:www\.)?{$url}(?:\?si=([a-zA-Z0-9]+))?/", function ($matches) use ($media)
         {
             $type = str_replace('{name}', 'playlist', $media['bb_key']);
