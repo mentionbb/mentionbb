@@ -6,7 +6,6 @@ src/Cache
 src/Backups/Modification
 src/Dev
 src/Logs
-composer.lock
 public/vendor/compiled.admin.js
 public/vendor/compiled.core.js
 public/vendor/compiled.editor.admin.js
@@ -18,3 +17,4 @@ public/themes/frontend/assets/compiled.core.css
 public/vendor/compiled.gestures.gestures.css
 public/vendor/compiled.install.js
 public/vendor/compiled.monaco.editor.admin.js
+composer.lock
