@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td>MySQL sürümü:</td>
-                        <td><?php echo $string['server']->getMySQLVersion(); ?></td>
+                        <td><?php echo $string['server']->getServerVersion(); ?></td>
                     </tr>
                     <tr>
                         <td>memory_limit</td>
