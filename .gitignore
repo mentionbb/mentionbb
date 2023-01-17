@@ -6,7 +6,7 @@ src/Cache
 src/Backups/Modification
 src/Dev
 src/Logs
-src/composer.lock
+composer.lock
 public/vendor/compiled.admin.js
 public/vendor/compiled.core.js
 public/vendor/compiled.editor.admin.js
