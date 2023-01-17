@@ -1165,56 +1165,58 @@ if (window.jQuery === undefined) jQuery = $ = {};
 		if($('body[data-template="discussion"]').length) {
 			if($('.discussion-text > article > a:not(.no-unfurl)').length) {
 				$('.discussion-text > article > a:not(.no-unfurl)').each(function(i, elem) {
-					var matchingUrl = $(this).attr('href').match(/\b(http|https)?(:\/\/)?(\S*)\.?(\w{2,4})(.*)/g)
+					if ($(this).attr('href') === $(this).text()) {
+						var matchingUrl = $(this).attr('href').match(/\b(http|https)?(:\/\/)?(\S*)\.?(\w{2,4})(.*)/g)
 
-					if(matchingUrl) {
-						var elem = $(this);
-						elem.addClass('d-none');
+						if (matchingUrl) {
+							var elem = $(this);
+							elem.addClass('d-none');
 
-						var elem_id = Math.floor(Math.random() * 1000);
+							var elem_id = Math.floor(Math.random() * 1000);
 
-						elem.closest('.app-discussion').find('.progress').removeClass('d-none');
+							elem.closest('.app-discussion').find('.progress').removeClass('d-none');
 
-						var dataString = {
-							url: matchingUrl[0]
-						}
-
-						var html = "<div class=\"js-appExternalLink d-flex shadow-sm rounded mb-3\" data-id=\"" + elem_id + "\"><div class=\"image mr-2\"><div class=\"post-loader-spin m-0 d-block\"></div></div><div class=\"content\"><h6 class=\"font-weight-bold mb-1\"><a class=\"text-dark\" href=\"#\" target=\"blank\">" + app.phrases.proceed + "</a></h6><div class=\"description\"></div><div class=\"link\"></div></div></div>";
-						elem.after(html);
-						var replacedHtml = elem.next();
-
-						app.post("post/external-link-renderer", dataString).done(function(response) {
-							if(response.status === "ok") {
-								if (response.data.image !== null) {
-									replacedHtml.find('.image').html('<img src=' + response.data.image + ' />');
-								} else {
-									replacedHtml.find('.image').addClass('d-none');
-									replacedHtml.find('.content').addClass('pl-2');
-								}
-								replacedHtml.find('.content > h6 > a').attr('href', response.data.url);
-								replacedHtml.find('.content > h6 > a').text(response.data.title);
-								replacedHtml.find('.content > .description').text(response.data.description);
-								replacedHtml.find('.content > .link').text(response.data.site);
-
-								replacedHtml.addClass('show');
-
-								elem.closest('.app-discussion').find('.progress').addClass('d-none');
-
-								elem.remove();
-							} else if(response.status === "fail" || response.status === "timeout" || response.status === "exception") {
-								if (typeof response.message !== "undefined") {
-									console.log(response.message);
-								}
-
-								elem.closest('.app-discussion').find('.progress').addClass('d-none');
-
-								replacedHtml.remove();
-								elem.addClass('no-unfurl');
-								elem.removeClass('d-none');
+							var dataString = {
+								url: matchingUrl[0]
 							}
-						}).fail(function(xhr, status, err) {
-							console.log(status, err);
-						});
+
+							var html = "<div class=\"js-appExternalLink d-flex shadow-sm rounded mb-3\" data-id=\"" + elem_id + "\"><div class=\"image mr-2\"><div class=\"post-loader-spin m-0 d-block\"></div></div><div class=\"content\"><h6 class=\"font-weight-bold mb-1\"><a class=\"text-dark\" href=\"#\" target=\"blank\">" + app.phrases.proceed + "</a></h6><div class=\"description\"></div><div class=\"link\"></div></div></div>";
+							elem.after(html);
+							var replacedHtml = elem.next();
+
+							app.post("post/external-link-renderer", dataString).done(function (response) {
+								if (response.status === "ok") {
+									if (response.data.image !== null) {
+										replacedHtml.find('.image').html('<img src=' + response.data.image + ' />');
+									} else {
+										replacedHtml.find('.image').addClass('d-none');
+										replacedHtml.find('.content').addClass('pl-2');
+									}
+									replacedHtml.find('.content > h6 > a').attr('href', response.data.url);
+									replacedHtml.find('.content > h6 > a').text(response.data.title);
+									replacedHtml.find('.content > .description').text(response.data.description);
+									replacedHtml.find('.content > .link').text(response.data.site);
+
+									replacedHtml.addClass('show');
+
+									elem.closest('.app-discussion').find('.progress').addClass('d-none');
+
+									elem.remove();
+								} else if (response.status === "fail" || response.status === "timeout" || response.status === "exception") {
+									if (typeof response.message !== "undefined") {
+										console.log(response.message);
+									}
+
+									elem.closest('.app-discussion').find('.progress').addClass('d-none');
+
+									replacedHtml.remove();
+									elem.addClass('no-unfurl');
+									elem.removeClass('d-none');
+								}
+							}).fail(function (xhr, status, err) {
+								console.log(status, err);
+							});
+						}
 					}
 				});
 			}
