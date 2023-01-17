@@ -208,17 +208,11 @@
 				</div>
 				<hr>
 				<div hook-action="{Mention:App-domEvent-discussionpost-text}" class="discussion-text">
-					{% if firstpost %}
-					    <article class="discussion-body app-bbcode-content">
-					        {% autoescape false %}
-						        {{ app.sub.renderer.bbcode.Parse(item.content)|raw }}
-					        {% endautoescape %}
-						</article>
-					{% else %}
+					<article class="discussion-body app-bbcode-content">
 					    {% autoescape false %}
-					        {{ app.sub.renderer.bbcode.Parse(item.content)|raw }}
-				        {% endautoescape %}
-					{% endif %}
+						    {{ app.sub.renderer.bbcode.Parse(item.content)|raw }}
+					    {% endautoescape %}
+					</article>
 				</div>
 				<div class="post-attachment-area">
 				    {% include 'updateAttachments.tpl' %}
