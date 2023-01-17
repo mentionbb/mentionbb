@@ -9,7 +9,6 @@ class Twitch
 		$url = str_replace(['{id}', '/', '.', '?', '*', '\//'], ['([a-zA-Z0-9]+)', '\/', '\.', '\?', '(?:.*)', '\/'], $url);
 		return preg_replace_callback("/(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:clips\.)?{$url}/", function ($matches) use ($media)
 		{
-
 			$type = str_replace('{name}', 'channel', $media['bb_key']);
 
 			if (preg_match('/(clips|videos)/', $matches[0], $matchType))
