@@ -767,10 +767,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
 			}
 		}
 
-		var hiddenPagingOnPost = function() {
-			var scrollHeight = $(document).height();
-			var scrollPosition = $(window).height() + $(window).scrollTop();
-			if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+		var hiddenPagingOnPost = function () {
+			if ($(window).scrollTop() >= $(document).height() - $(window).height() - 300) {
 				hiddenPagingOnPost_Fire();
 			}
 		};
