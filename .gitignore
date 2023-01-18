@@ -17,3 +17,4 @@ public/themes/frontend/assets/compiled.core.css
 public/vendor/compiled.gestures.gestures.css
 public/vendor/compiled.install.js
 public/vendor/compiled.monaco.editor.admin.js
+composer.lock
