@@ -15,6 +15,7 @@ class Html
     public $name;
     public $dom;
 
+    protected $html5;
     protected $html;
     protected $feature;
 
