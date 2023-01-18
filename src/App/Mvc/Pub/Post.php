@@ -847,7 +847,7 @@ class Post extends Controller implements Pub
 
 		if ($postString->isUserLikePost($post->get('post_id'), $this->user->visitor()->user_id))
 		{
-			return false;
+			return $this->phrase->render('json')->serialize([])->render();
 		}
 
 		\App\SubContainer\Post\Like::Like([
@@ -897,9 +897,11 @@ class Post extends Controller implements Pub
 
 		$post = new PostRepo();
 
-		if (!(new PostString())->isUserLikePost($post->get('post_id'), $this->user->visitor()->user_id))
+		$postString = new PostString();
+
+		if (!$postString->isUserLikePost($post->get('post_id'), $this->user->visitor()->user_id))
 		{
-			return false;
+			return $this->phrase->render('json')->serialize([])->render();
 		}
 
 		\App\SubContainer\Post\Like::UnLike([
@@ -925,7 +927,7 @@ class Post extends Controller implements Pub
 					'post_id' => $post->get('post_id')
 				],
 				'string' => [
-					'post' => new PostString()
+					'post' => $postString
 				]
 			]
 		);
