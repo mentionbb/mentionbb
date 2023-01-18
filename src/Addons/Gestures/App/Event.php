@@ -26,36 +26,32 @@ class Event extends DispatcherEvent
      */
     public function initTemplateModification($event)
     {
-        /** First, we need to know that we are on the right page. */
-        if ($event->container->dom->isTemplate('discussion'))
+        /**
+         * This adds space from left to button added to disable Gesture.
+         */
+        $event->container->dom->addClass('.discuss-info:first-child > div:first-child', 'ml-lg-4');
+        $event->container->dom->addClass('.discuss-info:first-child > div:first-child', 'pl-lg-1');
+
+        /**
+         * This simply adds the button itself to disable Gesture.
+         */
+        $event->container->dom->insertBefore('.discuss-info:first-child > div:first-child', function () use ($event)
         {
-            /**
-             * This adds space from left to button added to disable Gesture.
-             */
-            $event->container->dom->addClass('.discuss-info:first-child > div:first-child', 'ml-lg-4');
-            $event->container->dom->addClass('.discuss-info:first-child > div:first-child', 'pl-lg-1');
+            return $event->container->template->render(
+                '{addon:gestures}/gesture.tpl',
+                []
+            );
+        });
 
-            /**
-             * This simply adds the button itself to disable Gesture.
-             */
-            $event->container->dom->insertBefore('.discuss-info:first-child > div:first-child', function () use ($event)
-            {
-                return $event->container->template->render(
-                    '{addon:gestures}/gesture.tpl',
-                    []
-                );
-            });
-
-            /**
-             * This is necessary. Because when the gesture action is performed, the reaction specified in the message appears for a short time.
-             */
-            $event->container->dom->prepend('{hook:discussionpost-text}', function () use ($event)
-            {
-                return $event->container->template->render(
-                    '{addon:gestures}/doubletap_reactions.tpl',
-                    []
-                );
-            });
-        }
+        /**
+         * This is necessary. Because when the gesture action is performed, the reaction specified in the message appears for a short time.
+         */
+        $event->container->dom->prepend('{hook:discussionpost-text}', function () use ($event)
+        {
+            return $event->container->template->render(
+                '{addon:gestures}/doubletap_reactions.tpl',
+                []
+            );
+        });
     }
 }
