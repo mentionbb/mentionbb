@@ -992,7 +992,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
 	$(function() {
 		$('[data-ui="share"]').popover({
-			trigger: 'click',
+			trigger: 'focus',
 			placement: 'bottom',
 			animation: true,
 			title: $('.share-popover-container').data('title'),
@@ -1009,15 +1009,6 @@ if (window.jQuery === undefined) jQuery = $ = {};
 			window.open(this.href,'popUpWindow','height=400,width=600,left=10,top=10,,scrollbars=yes,menubar=no');
 			$('[data-ui="share"]').popover('hide');
 		});
-	});
-
-	$("html").on("mouseup", function (e) {
-		var l = $(e.target);
-		if (l[0].className.indexOf("popover") == -1) {
-			$(".popover").each(function () {
-				$(this).popover("hide");
-			});
-		}
 	});
 
 	$(document).on('click', '[data-ui="subscribe-discussion"]', function (e) {
