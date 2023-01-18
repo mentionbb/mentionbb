@@ -4281,6 +4281,11 @@ code.error {
 	line-height: 1.4;
 }
 
+.js-appExternalLink h6 {
+	margin: 0;
+	line-height: 1;
+}
+
 @-webkit-keyframes indeterminate {
 	0% {
 		left: -35%;
