@@ -13,29 +13,47 @@ class Text extends \App\Renderer\BBCode\Tag\AbstractTag
 		 * This is Bold text.
 		 * [b]{string}[/b]
 		 * <b>{string}</b>
+		 * <strong>{string}</strong>
 		 */
-		$this->addTag('b', ['<b>', '</b>']);
+		$this->addTag(
+			'b',
+			['<b>', '</b>'],
+			['<strong>', '</strong>']
+		);
 
 		/**
 		 * This is Italic text.
 		 * [i]{string}[/i]
-		 * <i>{string}</i>
+		 * <em>{string}</em>
 		 */
-		$this->addTag('i', ['<em>', '</em>']);
+		$this->addTag(
+			'i',
+			['<em>', '</em>'],
+			['<em>', '</em>']
+		);
 
 		/**
 		 * This is Underline text.
 		 * [u]{string}[/u]
 		 * <u>{string}</string>
 		 */
-		$this->addTag('u', ['<u>', '</u>']);
+		$this->addTag(
+			'u',
+			['<u>', '</u>'],
+			['<u>', '</u>']
+		);
 
 		/**
 		 * This is Strike text.
 		 * [s]{string}[/s]
 		 * <del>{string}</del>
+		 * <s>{string}</s>
 		 */
-		$this->addTag('s', ['<del>', '</del>']);
+		$this->addTag(
+			's',
+			['<del>', '</del>'],
+			['<s>', '</s>']
+		);
 
 		/**
 		 * This is Sub text.
@@ -63,21 +81,35 @@ class Text extends \App\Renderer\BBCode\Tag\AbstractTag
 		 * [heading={param}]{string}[/heading]
 		 * <h{1}>{string}</h{1}>
 		 */
-		$this->addTag('heading={param}', ['<h{1}>', '</h{1}>']);
+		$this->addTag(
+			'heading={param}',
+			['<h{1}>', '</h{1}>'],
+			['<h{1}>', '</h{1}>']
+		);
 
 		/**
 		 * This is text size.
 		 * [size={param}]{string}[/size]
 		 * <font size="{1}">{string}</font>
+		 * <span style="font-size: {1}">{string}</span>
 		 */
-		$this->addTag('size={param}', ['<font size="{1}">', '</font>']);
+		$this->addTag(
+			'size={param}',
+			['<font size="{1}">', '</font>'],
+			['<span style="font-size: {1}">', '</span>']
+		);
 
 		/**
 		 * This is text color.
 		 * [color={param}]{string}[/color]
+		 * <font style="color: {1};">{string}</font>
 		 * <font color="{1}">{string}</font>
 		 */
-		$this->addTag('color={param}', ['<font style="color: {1}">', '</font>']);
+		$this->addTag(
+			'color={param}',
+			['<font style="color: {1};">', '</font>'],
+			['<font color="{1}">', '</font>']
+		);
 
 		/**
 		 * This is text font.
@@ -91,7 +123,11 @@ class Text extends \App\Renderer\BBCode\Tag\AbstractTag
 		 * [background={param}]{string}[/background]
 		 * <span style="background-color: {1}">{string}</span>
 		 */
-		$this->addTag('background={param}', ['<span style="background-color: {1};">', '</span>']);
+		$this->addTag(
+			'background={param}',
+			['<span style="background-color: {1};">', '</span>'],
+			['<span style="background-color: {1};">', '</span>']
+		);
 
 		$this->addTag('bull', ['&bull;']);
 		$this->addTag('copy', ['&copy;']);

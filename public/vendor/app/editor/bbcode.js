@@ -23,33 +23,7 @@
  			t = t.replace(o, e);
  		};
 
- 		return (
- 			o(/\r\n/gi, "<br />"),
- 			o(/\[b\]/gi, "<strong>"),
- 			o(/\[\/b\]/gi, "</strong>"),
- 			o(/\[i\]/gi, "<em>"),
- 			o(/\[\/i\]/gi, "</em>"),
- 			o(/\[u\]/gi, "<u>"),
- 			o(/\[\/u\]/gi, "</u>"),
- 			o(/\[s\]/gi, "<s>"),
- 			o(/\[\/s\]/gi, "</s>"),
- 			o(/\[url=([^\]]+)\](.*?)\[\/url\]/gi, '<a href="$1">$2</a>'),
- 			o(/\[url\](.*?)\[\/url\]/gi, '<a href="$1">$1</a>'),
-            o(/\[img=(.*?)\](.*?)\[\/img\]/gi, '<img src="$2" alt="$1" />'),
- 			o(/\[color=(.*?)\](.*?)\[\/color\]/gi, '<font color="$1">$2</font>'),
- 			o(/\[size=(.*?)\](.*?)\[\/size\]/gi, '<span style="font-size: $1">$2</span>'),
- 			o(/\[heading=(.*?)\](.*?)\[\/heading\]/gi, '<h$1>$2</h$1>'),
- 			o(/\[background=(.*?)\](.*?)\[\/background\]/gi, '<span style="background-color: $1;">$2</span>'),
- 			o(/\[align=(.*?)\](.*?)\[\/align\]/gi, '<p style="text-align: $1;">$2</p>'),
- 			//o(/\[list=disc\](.*?)\[\/list\](<br \/>)?/gi, '<ul>$1</ul>'),
- 			//o(/\[list=decimal\](.*?)\[\/list\](<br \/>)?/gi, '<ol>$1</ol>'),
- 			//o(/\[li\](.*?)\[\/li](<br \/>)?/gi, '<li>$1</li>'),
- 			o(/\[table=(.*?);border=(.*?)\](.*?)\[\/table\](<br \/>)?/gi, '<table style="$1" border="$2">$3</table>'),
- 			o(/\[tr\](.*?)\[\/tr\](<br \/>)?/gi, '<tr>$1</tr>'),
- 			o(/\[td=(.*?)\](.*?)\[\/td\](<br \/>)?/gi, '<td style="$1">$2</td>'),
- 			o(/\[code=(.*?)\](.*?)\[\/code\]/gi, '<pre class="language-$1"><code class="language-$1">$2</code></pre>'),
- 			t
- 		);
+ 		return t;
  	};
 
  	!(function i() {
@@ -99,9 +73,9 @@
  						o(/<u>/gi, "[u]"),
  						o(/<blockquote[^>]*>/gi, "[quote]"),
  						o(/<\/blockquote>/gi, "[/quote]"),
- 						o(/<br \/>/gi, "\n"),
- 						o(/<br\/>/gi, "\n"),
- 						o(/<br>/gi, "\n"),
+ 						o(/<br \/>/gi, "\r\n"),
+ 						o(/<br\/>/gi, "\r\n"),
+ 						o(/<br>/gi, "\r\n"),
  						
  						o(/&nbsp;|\u00a0/gi, " "),
  						o(/&quot;/gi, '"'),

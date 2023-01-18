@@ -49,7 +49,7 @@ class Parser
         $s = LineBreaks::needToAddLineBreaks($s);
 
         $tagList = new ProcessTags();
-        
+
         foreach ($tagList->getTagList() as $finalList)
         {
             if (!$finalList['callback'])
@@ -81,6 +81,8 @@ class Parser
         }, $s);
 
         $s = $this->userTagging($s);
+
+        $s = preg_replace('/<\/(ol|ul|code|pre|p)>\s*<br\s?(\/)?>/si', '</$1>', $s);
 
         return $s;
     }

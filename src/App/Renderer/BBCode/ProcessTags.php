@@ -2,6 +2,8 @@
 
 namespace App\Renderer\BBCode;
 
+use App\Renderer\BBCode\TagModification;
+
 class ProcessTags
 {
 	protected $_item;
@@ -83,6 +85,39 @@ class ProcessTags
 					}
 				}
 			}
+
+			if (isset($options['editorModification']))
+			{
+				if (isset($options['editorModification'][1]))
+				{
+					if (isset($options['string']))
+					{
+						$this->_item[$name]['editorModification'] = "{$options['editorModification'][0]}{string}{$options['editorModification'][1]}";
+					}
+					else
+					{
+						$this->_item[$name]['editorModification'] = "{$options['editorModification'][0]}{string}{$options['editorModification'][1]}";
+					}
+				}
+				else
+				{
+					if (isset($options['single']))
+					{
+						$this->_item[$name]['editorModification'] = $options['editorModification'][0];
+					}
+					else
+					{
+						if (isset($options['string']))
+						{
+							$this->_item[$name]['editorModification'] = $options['editorModification'][0];
+						}
+						else
+						{
+							$this->_item[$name]['editorModification'] = $options['editorModification'][0];
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -90,30 +125,12 @@ class ProcessTags
 	{
 		foreach ($this->_item as $name => $val)
 		{
-			$modification = $val['modification'];
-			$paramCount = 0;
-			if (preg_match('/\{\d\}/', $modification, $matchParam))
-			{
-				preg_match_all('/\{\d\}/', $modification, $matchParams);
-				$paramCount = count($matchParams[0]);
-				$modification = preg_replace('/\{(\d)\}/', '$$1', $modification);
-			}
+			$modification = TagModification::Parse($val['modification']);
 
-			if (preg_match_all('/\$(\d)/', $modification, $matchSameParams))
+			$editorModification = null;
+			if (isset($val['editorModification']))
 			{
-				foreach ($matchSameParams[1] as $modificationCount)
-				{
-					$paramCount = $modificationCount;
-				}
-			}
-
-			if ($paramCount > 0)
-			{
-				$modification = str_replace('{string}', "\$" . ($paramCount + 1), $modification);
-			}
-			else
-			{
-				$modification = str_replace('{string}', "\$1", $modification);
+				$editorModification = TagModification::Parse($val['editorModification']);
 			}
 
 			$bbCode = preg_replace('/\{param\}/', '(.*?)', $val['bbCode']);
@@ -139,6 +156,7 @@ class ProcessTags
 				'pureCode' => $name,
 				'bbCode' => str_replace(['[', ']', '/', '='], ['\[', '\]', '\/', '\='], $bbCode),
 				'modification' => $modification,
+				'editorModification' => $editorModification,
 				'callback' => $val['callback']
 			];
 		}

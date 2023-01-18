@@ -13,15 +13,25 @@ class Link extends \App\Renderer\BBCode\Tag\AbstractTag
 		 * This is Url.
 		 * [url]{string}[/url]
 		 * <a target="_blank" href="{string}">{string}</a>
+		 * <a href="{string}">{string}</a>
 		 */
-		$this->addTag('url', ['<a target="_blank" href="{string}">', '</a>']);
+		$this->addTag(
+			'url',
+			['<a target="_blank" href="{string}">', '</a>'],
+			['<a href="{string}">', '</a>']
+		);
 
 		/**
 		 * This is Url.
 		 * [url={param}]{string}[/url]
 		 * <a target="_blank" href="{1}">{string}</a>
+		 * <a href="{1}">{string}</a>
 		 */
-		$this->addTag('url={param}', ['<a target="_blank" href="{1}">', '</a>']);
+		$this->addTag(
+			'url={param}',
+			['<a target="_blank" href="{1}">', '</a>'],
+			['<a href="{1}">', '</a>']
+		);
 
 		/**
 		 * This is Mail.

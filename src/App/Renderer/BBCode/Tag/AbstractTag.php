@@ -14,14 +14,20 @@ abstract class AbstractTag
 	 * [addTag Add tag to collection]
 	 * @param string  $name
 	 * @param array   $modification
+	 * @param array   $editorModification
 	 * @param boolean $tagString
 	 */
-	protected function addTag($name, array $modification, $tagString = false)
+	protected function addTag($name, array $modification, $editorModification = null)
 	{
 		$this->_tag[$name] = [
 			'name' => $name,
 			'modification' => $modification
 		];
+
+		if (!is_null($editorModification))
+		{
+			$this->_tag[$name]['editorModification'] = $editorModification;
+		}
 	}
 
 	/**

@@ -12,9 +12,14 @@ class Image extends \App\Renderer\BBCode\Tag\AbstractTag
 		/**
 		 * This is Image.
 		 * [img={param}]{string}[/img]
-		 * <img class="app-AttachmentImage" src="{string}" alt="{1}" />
+		 * <img class="app-AttachmentImage" src="{string}" alt="{1}" title="{1}" />
+		 * <img src="{string}" alt="{1}" title="{1}" />
 		 */
-		$this->addTag('img={param}', ['<a class="no-unfurl" href="{string}" data-fancybox="images" data-caption="{1}"><img class="app-AttachmentImage" src="{string}" alt="{1}" title="{1}" /></a>']);
+		$this->addTag(
+			'img={param}',
+			['<a class="no-unfurl" href="{string}" data-fancybox="images" data-caption="{1}"><img class="app-AttachmentImage" src="{string}" alt="{1}" title="{1}" /></a>'],
+			['<img src="{string}" alt="{1}" title="{1}" />']
+		);
 
 		/**
 		 * Adding "string" information to the following tags: img
