@@ -317,6 +317,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
 					var elem = $('#post-edit[data-post-id="'+post_id+'"]');
 
+					elem.find('.progress').removeClass('d-none');
+
 					elem.find('button').attr('disabled', true);
 
 					var post_title = false;
@@ -408,6 +410,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
 							app.editorConfig('#post-editor');
 
 							app.flashMessage(app.phrases.alert_messages.edit_post);
+
+							elem.find('.progress').addClass('d-none');
 
 							if(redirect) {
 								window.location.reload();
