@@ -4,6 +4,7 @@ namespace App\Mvc\Pub;
 
 use App\Mvc\Controller;
 use App\Rule\Pub;
+use App\Repository\Post as PostRepo;
 use App\Repository\Get as GetRepo;
 
 class Editor extends Controller implements Pub
@@ -25,6 +26,14 @@ class Editor extends Controller implements Pub
 
                     return $this->phrase->render('json')->serialize([
                         'list' => $string
+                    ])->render();
+                }
+                else if ($query->has('parsePostProcess'))
+                {
+                    $post = new PostRepo();
+
+                    return $this->phrase->render('json')->serialize([
+                        'content' => (new \App\Renderer\BBCode\Editor\Editor())->Render($post->get('content'), 'brToN')
                     ])->render();
                 }
             }

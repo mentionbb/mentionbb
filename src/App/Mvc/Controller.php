@@ -164,7 +164,8 @@ abstract class Controller
 					'editor' => [
 						'attachments' => new \App\SubContainer\Attachment\Attachment(),
 						'emoticons' => new \App\Renderer\BBCode\Str\Emoticons(),
-						'buttons' => new \App\SubContainer\Editor\Buttons()
+						'buttons' => new \App\SubContainer\Editor\Buttons(),
+						'postProcess' => (new \App\Renderer\BBCode\Editor\PostProcess())->getModifications()
 					],
 					'renderer' => [
 						'bbcode' => new \App\Renderer\BBCode\Parser($this->settings, $this->languageInit, $this->phrase)

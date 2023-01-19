@@ -237,6 +237,11 @@
     		    {{ app.sub.lang.string.editor|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES')) }}
     		{% endautoescape %}
     		</script>
+			<script class="app_EditorPostProcess" type="application/json">
+    		{% autoescape false %}
+    		    {{ app.sub.editor.postProcess|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES')) }}
+    		{% endautoescape %}
+    		</script>
     	{% endif %}
     {% endif %}
 

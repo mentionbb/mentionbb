@@ -48,4 +48,11 @@ class LineBreaks
     {
         return nl2br($string);
     }
+
+    public static function brToN($string)
+    {
+        $source = preg_replace('/<br\s?(\/)?>/si', "\r\n", $string);
+
+        return $source;
+    }
 }

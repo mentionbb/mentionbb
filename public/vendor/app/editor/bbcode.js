@@ -8,113 +8,50 @@
  *
  * Edited for Mention
  */
- if (window.jQuery === undefined) jQuery = $ = {};
+if (window.jQuery === undefined) jQuery = $ = {};
 
- !function($, window, document)
- {
- 	"use strict";
+!function ($, window, document) {
+	"use strict";
 
- 	var o = tinymce.util.Tools.resolve("tinymce.PluginManager"),
- 	e = tinymce.util.Tools.resolve("tinymce.util.Tools"),
- 	t = function (t) {
- 		t = e.trim(t);
+	var o = tinymce.util.Tools.resolve("tinymce.PluginManager"),
+		e = tinymce.util.Tools.resolve("tinymce.util.Tools"),
+		t = function (t) {
+			t = e.trim(t);
 
- 		var o = function (o, e) {
- 			t = t.replace(o, e);
- 		};
+			var o = function (o, e) {
+				t = t.replace(o, e);
+			};
 
- 		return t;
- 	};
+			return t;
+		};
 
- 	!(function i() {
- 		o.add("bbcodeCustom", function (o) {
- 			o.on("BeforeSetContent", function (o) {
- 				o.content = t(o.content);
- 			}),
- 			o.on("PostProcess", function (o) {
- 				o.set && (o.content = t(o.content)),
- 				o.get &&
- 				(o.content = (function (t) {
- 					t = e.trim(t);
- 					var o = function (o, e) {
- 						t = t.replace(o, e);
- 					};
- 					return (
-						o(/<a.*?href=\"(.*?)\".*?>(.*?)<\/a>/gi, "[url=$1]$2[/url]"),
- 						o(/<font.*?color=\"(.*?)\".*?class=\"codeStyle\".*?>(.*?)<\/font>/gi, "[code][color=$1]$2[/color][/code]"),
- 						o(/<font.*?color=\"(.*?)\".*?class=\"quoteStyle\".*?>(.*?)<\/font>/gi, "[quote][color=$1]$2[/color][/quote]"),
- 						o(/<font.*?class=\"codeStyle\".*?color=\"(.*?)\".*?>(.*?)<\/font>/gi, "[code][color=$1]$2[/color][/code]"),
- 						o(/<font.*?class=\"quoteStyle\".*?color=\"(.*?)\".*?>(.*?)<\/font>/gi, "[quote][color=$1]$2[/color][/quote]"),
- 						o(/<span style=\"color: ?(.*?);\">(.*?)<\/span>/gi, "[color=$1]$2[/color]"),
- 						o(/<font.*?color=\"(.*?)\".*?>(.*?)<\/font>/gi, "[color=$1]$2[/color]"),
- 						o(/<span style=\"font-size:(.*?);\">(.*?)<\/span>/gi, "[size=$1]$2[/size]"),
- 						o(/<font>(.*?)<\/font>/gi, "$1"),
+	!(function i() {
+		o.add("bbcodeCustom", function (o) {
+			o.on("BeforeSetContent", function (o) {
+				o.content = t(o.content);
+			}), o.on("PostProcess", function (o) {
+				o.set && (o.content = t(o.content)), o.get && (o.content = (function (t) {
+					t = e.trim(t);
+					var o = function (o, e) {
+						t = t.replace(o, e);
+					};
 
- 						o(/<img class="js-Twemoji_MentionEditor"(?:.*?)alt="(.*?)" \/>/gi, '$1'),
+					var blkstr = [];
+					$.each(app.setupEditorPostProcess(), function (idx2, val2) {
+						var str = idx2 + ", " + val2;
+						blkstr.push(str);
+					});
 
-                        o(/<img.*?src=\"(.*?)\" alt=\"(.*?)\".*?\/>/gi, "[img=$2]$1[/img]"),
- 						o(/<span class=\"codeStyle\">(.*?)<\/span>/gi, "[code]$1[/code]"),
- 						o(/<span class=\"quoteStyle\">(.*?)<\/span>/gi, "[quote]$1[/quote]"),
- 						o(/<strong class=\"codeStyle\">(.*?)<\/strong>/gi, "[code][b]$1[/b][/code]"),
- 						o(/<strong class=\"quoteStyle\">(.*?)<\/strong>/gi, "[quote][b]$1[/b][/quote]"),
- 						o(/<em class=\"codeStyle\">(.*?)<\/em>/gi, "[code][i]$1[/i][/code]"),
- 						o(/<em class=\"quoteStyle\">(.*?)<\/em>/gi, "[quote][i]$1[/i][/quote]"),
- 						o(/<u class=\"codeStyle\">(.*?)<\/u>/gi, "[code][u]$1[/u][/code]"),
- 						o(/<u class=\"quoteStyle\">(.*?)<\/u>/gi, "[quote][u]$1[/u][/quote]"),
- 						o(/<\/(strong|b)>/gi, "[/b]"),
- 						o(/<(strong|b)>/gi, "[b]"),
- 						o(/<(s|b)>/gi, "[s]"),
- 						o(/<\/(em|i)>/gi, "[/i]"),
- 						o(/<(em|i)>/gi, "[i]"),
- 						o(/<\/u>/gi, "[/u]"),
- 						o(/<\/s>/gi, "[/s]"),
- 						o(/<span style=\"text-decoration: ?underline;\">(.*?)<\/span>/gi, "[u]$1[/u]"),
- 						o(/<span style=\"text-decoration: ?line-through;\">(.*?)<\/span>/gi, "[s]$1[/s]"),
- 						o(/<u>/gi, "[u]"),
- 						o(/<blockquote[^>]*>/gi, "[quote]"),
- 						o(/<\/blockquote>/gi, "[/quote]"),
- 						o(/<br \/>/gi, "\r\n"),
- 						o(/<br\/>/gi, "\r\n"),
- 						o(/<br>/gi, "\r\n"),
- 						
- 						o(/&nbsp;|\u00a0/gi, " "),
- 						o(/&quot;/gi, '"'),
- 						o(/&lt;/gi, "<"),
- 						o(/&gt;/gi, ">"),
- 						o(/&amp;/gi, "&"),
-
- 						o(/<ul>/gi, "[list=disc]"),
- 						o(/<\/ul>/gi, "[/list]"),
- 						o(/<ol>/gi, "[list=decimal]"),
- 						o(/<\/ol>/gi, "[/list]"),
- 						o(/<li>(.*?)<\/li>/gi, "[li]$1[/li]"),
-
- 						o(/<p style="text-align: (.*?);">(.*?)<\/p>/gi, "[align=$1]$2[/align]"),
- 						o(/<p>/gi, ""),
- 						o(/<\/p>/gi, ""),
-
- 						o(/<span style="font-size: (.*?);">(.*?)<\/span>/gi, "[size=$1]$2[/size]"),
-
- 						o(/<span style="background-color: (.*?);">(.*?)<\/span>/gi, "[background=$1]$2[/background]"),
-
- 						o(/<pre class="language-(.*?)"><code>(.*?)<\/code><\/pre>/gi, "[code=$1]$2[/code]"),
-
- 						o(/<h(1|2|3|4|5|6)>(.*?)<\/h(1|2|3|4|5|6)>/gi, '[heading=$1]$2[/heading]'),
- 						o(/<pre>(.*?)<\/pre>/gi, '[pre]$1[/pre]'),
- 						o(/<span style="font-family: (.*?);">(.*?)<\/span>/gi, '[font=$1]$2[/font]'),
-
- 						o(/<table style="(.*?);" border="(.*?)">/gi, '[table=$1;border=$2]'),
- 						o(/<tbody>/gi, ''),
- 						o(/<tr( style=".*?")?>/gi, '[tr]'),
- 						o(/<td style="(.*?)">(.*?)<\/td>/gi, '[td=$1]$2[/td]'),
- 						o(/<\/tbody>/gi, ''),
- 						o(/<\/tr>/gi, '[/tr]'),
- 						o(/<\/table>/gi, '[/table]'),
- 						t
- 					);
- 				})(o.content));
- 			});
- 		});
- 	})();
+					return (
+						$.each(app.setupEditorPostProcess(), function (idx2, val2) {
+							(o(new RegExp(`${idx2}`, 'gi'), val2), t)
+						}),
+						o(/\n/gi, '<br />'),
+						t
+					);
+				})(o.content));
+			});
+		});
+	})();
 }
 (window.jQuery, window, document);
