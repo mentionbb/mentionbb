@@ -15,6 +15,7 @@
 		"12": "editor/user-tagging.js",
 		"13": "editor/spoiler.js",
 		"14": "editor/emoticons.js",
-		"15": "editor/quote-message.js"
+		"15": "editor/quote-message.js",
+		"16": "editor/code.js"
 	}
 }

@@ -184,6 +184,16 @@ var app = {};
         return icons;
     };
 
+    context.setupEditorPostProcess = function () {
+        try {
+            var mod = $.parseJSON($('.app_EditorPostProcess').first().html()) || {};
+        } catch (e) {
+            var mod = {};
+        }
+
+        return mod;
+    };
+
     context.editorFilePickerCallback = function () {
         return function (cb, value, meta) {
             var input = document.createElement('input');
