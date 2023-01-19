@@ -4286,6 +4286,15 @@ code.error {
 	line-height: 1;
 }
 
+.modal-body {
+	position: relative;
+}
+
+.modal-body .progress {
+	left: 0;
+	top: 0;
+}
+
 @-webkit-keyframes indeterminate {
 	0% {
 		left: -35%;
