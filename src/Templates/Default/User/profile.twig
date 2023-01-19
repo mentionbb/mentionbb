@@ -1,4 +1,4 @@
-{% extends 'container.tpl' %}
+{% extends 'container.twig' %}
 
 {% block app_template_name 'profile' %}
 
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="ml-lg-auto">
-			{% include 'usermenu_member.tpl' %}
+			{% include 'usermenu_member.twig' %}
 		</div>
 	</div>
 	<aside class="col-sm-3 mb-4 pr-4">
@@ -169,7 +169,7 @@
 			</div>
 		</div>
 		<div class="app-post-container animate slideIn">
-			{% include 'profile_posts.tpl' %}
+			{% include 'profile_posts.twig' %}
 		</div>
 		<div class="post-loader-spin"></div>
 	</aside>

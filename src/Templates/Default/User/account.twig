@@ -1,4 +1,4 @@
-{% extends 'container.tpl' %}
+{% extends 'container.twig' %}
 
 {% block app_template_name 'account' %}
 
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="ml-lg-auto">
-			{% include 'usermenu_member.tpl' %}
+			{% include 'usermenu_member.twig' %}
 		</div>
 	</div>
 	<aside class="col-sm-3 mb-4 pr-4">
@@ -286,7 +286,7 @@
 					</div>
 					<div class="pl-4 pr-4 pt-3 pb-3">
 						<h5 class="mb-3">{{ app.sub.lang.string.account.tab.reactions }}</h5>
-						{% include 'account_likes_posts.tpl' %}
+						{% include 'account_likes_posts.twig' %}
 						<div class="post-loader-spin"></div>
 					</div>
 				</div>
@@ -298,7 +298,7 @@
 					</div>
 					<div class="pl-4 pr-4 pt-3 pb-3">
 						<h5 class="mb-3">{{ app.sub.lang.string.account.tab.bookmarks }}</h5>
-						{% include 'account_bookmarks_posts.tpl' %}
+						{% include 'account_bookmarks_posts.twig' %}
 						<div class="post-loader-spin"></div>
 					</div>
 				</div>
@@ -354,7 +354,7 @@
 						<h5 class="mb-3">{{ app.sub.lang.string.account.tab.about }}</h5>
 						<div class="d-flex flex-column justify-content-center align-items-center copyright">
 							<div class="logo text-center mb-3">
-								{% include 'logo.tpl' %}
+								{% include 'logo.twig' %}
 							</div>
 							<p class="mb-0">Software by Mention </p>
 							<span>© {{ app.timer.date.getYear }} ParantezTech.</span>
