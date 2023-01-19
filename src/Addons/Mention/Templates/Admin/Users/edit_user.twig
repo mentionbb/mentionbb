@@ -1,4 +1,4 @@
-{% extends '@ComponentBundle_Admin/container.tpl' %}
+{% extends '@ComponentBundle_Admin/container.twig' %}
 
 {% block app_template_name '@ComponentBundle/admin/edit_user' %}
 
@@ -17,10 +17,10 @@
 			</div>
 		</div>
 		<div class="ml-lg-auto">
-			{% include 'usermenu_member.tpl' %}
+			{% include 'usermenu_member.twig' %}
 		</div>
 	</div>
-	{% include '@ComponentBundle_Admin/Layout/sidebar.tpl' %}
+	{% include '@ComponentBundle_Admin/Layout/sidebar.twig' %}
 	
 	<aside class="col-sm-9">
 		<div class="app-box shadow rounded" data-tab="users">
