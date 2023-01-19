@@ -17,7 +17,7 @@ class Index extends Controller implements Pub
 		if ($this->request->getRequestMethod() == "GET")
 		{
 			echo $this->template->render(
-				'index.tpl',
+				'index.twig',
 				[
 					'option' => $option,
 					'string' => [

@@ -18,7 +18,7 @@ class Account extends Controller implements Pub
 			if ($this->user->loggedIn())
 			{
 				echo $this->template->render(
-					'account.tpl',
+					'account.twig',
 					[
 						'option' => $option,
 						'string' => [
@@ -113,7 +113,7 @@ class Account extends Controller implements Pub
 		if ($this->user->loggedIn())
 		{
 			$template = $this->template->render(
-				'usermenu_notification.tpl',
+				'usermenu_notification.twig',
 				[]
 			);
 
@@ -128,7 +128,7 @@ class Account extends Controller implements Pub
 		if ($this->user->loggedIn())
 		{
 			$template = $this->template->render(
-				'usermenu_messages.tpl',
+				'usermenu_messages.twig',
 				[]
 			);
 
@@ -406,7 +406,7 @@ class Account extends Controller implements Pub
 		if ($post->has('user_id'))
 		{
 			$template = $this->template->render(
-				'profile_tooltip.tpl',
+				'profile_tooltip.twig',
 				[
 					'string' => [
 						'user' => $userString,

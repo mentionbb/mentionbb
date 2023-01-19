@@ -1142,13 +1142,13 @@ if (window.jQuery === undefined) jQuery = $ = {};
                 }
             });
     
-            var templateName_regex = /path=\[(.*?)\.tpl\]$/g;
+            var templateName_regex = /path=\[(.*?)\.twig\]$/g;
     
             if (window.location.href.match(templateName_regex)) {
                 var templateName_id = templateName_regex.exec(window.location.href);
     
-                $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + templateName_id[1] + '.tpl"]').click();
-                $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + templateName_id[1] + '.tpl"]').closest('ul').prev('span').click();
+                $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + templateName_id[1] + '.twig"]').click();
+                $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + templateName_id[1] + '.twig"]').closest('ul').prev('span').click();
             } else {
                 $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + $('.js-AppAdmin_TemplateSelector').data('default') + '"]').click();
                 $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + $('.js-AppAdmin_TemplateSelector').data('default') + '"]').closest('ul').prev('span').click();

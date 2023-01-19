@@ -37,7 +37,7 @@ class Event extends DispatcherEvent
                         $server = new \App\SubContainer\ServerEnvironment();
                         
                         return $event->container->template->render(
-                            '{addon:debug}/debug.tpl',
+                            '{addon:debug}/debug.twig',
                             [
                                 'debug' => [
                                     'memoryUsed' => \App\SubContainer\Bytes::formatBytes(memory_get_peak_usage(false)),

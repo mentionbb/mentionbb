@@ -6,6 +6,8 @@ use Symfony\Contracts\EventDispatcher\Event as SymfonyEvent;
 
 class Event extends SymfonyEvent
 {
+    protected $container;
+    
     /**
      * __construct
      *

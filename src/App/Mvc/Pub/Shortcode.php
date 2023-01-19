@@ -28,7 +28,7 @@ class Shortcode extends Controller implements Pub
 					$discussion->addDiscussionView($discussion_id);
 
 					echo $this->template->render(
-						'discussion.tpl',
+						'discussion.twig',
 						[
 							'option' => $option,
 							'string' => [
@@ -43,7 +43,7 @@ class Shortcode extends Controller implements Pub
 				else
 				{
 					echo $this->template->render(
-						'404.tpl',
+						'404.twig',
 						[
 							'option' => $option,
 						]
@@ -53,7 +53,7 @@ class Shortcode extends Controller implements Pub
 			else
 			{
 				echo $this->template->render(
-					'404.tpl',
+					'404.twig',
 					[
 						'option' => $option,
 					]

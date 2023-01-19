@@ -27,7 +27,7 @@ class Forums extends ApplicationDefinitions implements Pub
             if ($query->has('addNode'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Forums/add_forums.tpl'),
+                    $this->getTemplate('Forums/add_forums.twig'),
                     [
                         'option' => $option
                     ]
@@ -36,7 +36,7 @@ class Forums extends ApplicationDefinitions implements Pub
             else
             {
                 echo $this->template->render(
-                    $this->getTemplate('Forums/forums.tpl'),
+                    $this->getTemplate('Forums/forums.twig'),
                     [
                         'option' => $option
                     ]
@@ -77,7 +77,7 @@ class Forums extends ApplicationDefinitions implements Pub
 
         return $this->phrase->render('json')->serialize([
             'template' => $this->template->render(
-                $this->getTemplate('Forums/edit_forum_accordion.tpl'),
+                $this->getTemplate('Forums/edit_forum_accordion.twig'),
                 [
                     'string' => [
                         'forum' => $this->forumsEntity->getForum(
@@ -134,7 +134,7 @@ class Forums extends ApplicationDefinitions implements Pub
 
         return $this->phrase->render('json')->serialize([
             'template' => $this->template->render(
-                $this->getTemplate('Forums/remove_forum_modal.tpl'),
+                $this->getTemplate('Forums/remove_forum_modal.twig'),
                 [
                     'string' => [
                         'forum_id' => $post->get('forum_id')

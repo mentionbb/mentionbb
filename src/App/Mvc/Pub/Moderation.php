@@ -63,7 +63,7 @@ class Moderation extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'move.tpl',
+			'move.twig',
 			[
 				'string' => [
 					'forum' => new ForumString,

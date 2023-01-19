@@ -19,7 +19,7 @@ class Messages extends Controller implements Pub
 					if ($this->request->getPathInfo() == '/messages')
 					{
 						echo $this->template->render(
-							'messages.tpl',
+							'messages.twig',
 							[
 								'option' => $option,
 								'string' => []
@@ -32,7 +32,7 @@ class Messages extends Controller implements Pub
 						$conversation = $messages->getFirstMessage($option['id']);
 
 						echo $this->template->render(
-							'messages.tpl',
+							'messages.twig',
 							[
 								'option' => $option,
 								'string' => [
@@ -45,7 +45,7 @@ class Messages extends Controller implements Pub
 				else
 				{
 					echo $this->template->render(
-						'messages.tpl',
+						'messages.twig',
 						[
 							'option' => $option,
 							'string' => []
@@ -103,7 +103,7 @@ class Messages extends Controller implements Pub
 			$messages->seeingMessages($this->user->visitor()->user_id, $conversation['parent_id']);
 
 			$template = $this->template->render(
-				'conversation.tpl',
+				'conversation.twig',
 				[
 					'string' => [
 						'conversation' => $conversation,
@@ -191,7 +191,7 @@ class Messages extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'new.tpl',
+			'new.twig',
 			[
 				'string' => [
 					'target_user' => $target_user
@@ -234,7 +234,7 @@ class Messages extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'new_users.tpl',
+			'new_users.twig',
 			[
 				'string' => [
 					'users' => (new \App\Entity\User())->search($post->get('keyword'))

@@ -338,7 +338,7 @@ class Post extends Controller implements Pub
 	private function refreshIndexPosts()
 	{
 		$template = $this->template->render(
-			'index_posts.tpl',
+			'index_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -357,7 +357,7 @@ class Post extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'index_posts.tpl',
+			'index_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -382,7 +382,7 @@ class Post extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'index_posts.tpl',
+			'index_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -404,7 +404,7 @@ class Post extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'index_posts.tpl',
+			'index_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -440,7 +440,7 @@ class Post extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'discussion_posts.tpl',
+			'discussion_posts.twig',
 			[
 				'string' => [
 					'post' => $postString,
@@ -474,7 +474,7 @@ class Post extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'discussion_posts.tpl',
+			'discussion_posts.twig',
 			[
 				'string' => [
 					'post' => $postString,
@@ -517,7 +517,7 @@ class Post extends Controller implements Pub
 		);
 
 		$template = $this->template->render(
-			'discussion_posts.tpl',
+			'discussion_posts.twig',
 			[
 				'string' => [
 					'post' => $postString,
@@ -543,7 +543,7 @@ class Post extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'index_posts.tpl',
+			'index_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -565,7 +565,7 @@ class Post extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'report.tpl',
+			'report.twig',
 			[
 				'string' => [
 					'post_id' => $post->get('post_id')
@@ -614,7 +614,7 @@ class Post extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'delete.tpl',
+			'delete.twig',
 			[
 				'string' => [
 					'post_id' => $post->get('post_id')
@@ -700,7 +700,7 @@ class Post extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'edit.tpl',
+			'edit.twig',
 			[
 				'string' => [
 					'post_id' => $post->get('post_id'),
@@ -808,7 +808,7 @@ class Post extends Controller implements Pub
 		]);
 
 		$template = $this->template->render(
-			'updateContent.tpl',
+			'updateContent.twig',
 			[
 				'string' => [
 					'post' => [
@@ -819,7 +819,7 @@ class Post extends Controller implements Pub
 		);
 
 		$attachmentTemplate = $this->template->render(
-			'updateAttachments.tpl',
+			'updateAttachments.twig',
 			[
 				'item' => [
 					'post_id' => $post->get('post_id')
@@ -871,7 +871,7 @@ class Post extends Controller implements Pub
 		\App\SubContainer\Notification\Create::Add($createReactionNotification);
 
 		$template = $this->template->render(
-			'updateLike.tpl',
+			'updateLike.twig',
 			[
 				'item' => [
 					'post_id' => $post->get('post_id')
@@ -921,7 +921,7 @@ class Post extends Controller implements Pub
 		\App\SubContainer\Notification\Remove::Operation($removeNotification);
 
 		$template = $this->template->render(
-			'updateLike.tpl',
+			'updateLike.twig',
 			[
 				'item' => [
 					'post_id' => $post->get('post_id')
@@ -1033,7 +1033,7 @@ class Post extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'profile_posts.tpl',
+			'profile_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -1069,7 +1069,7 @@ class Post extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'profile_posts.tpl',
+			'profile_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -1102,7 +1102,7 @@ class Post extends Controller implements Pub
 		}
 
 		$template = $this->template->render(
-			'profile_posts.tpl',
+			'profile_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -1188,7 +1188,7 @@ class Post extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'account_likes_posts.tpl',
+			'account_likes_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,
@@ -1210,7 +1210,7 @@ class Post extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'account_bookmarks_posts.tpl',
+			'account_bookmarks_posts.twig',
 			[
 				'string' => [
 					'post' => new PostString,

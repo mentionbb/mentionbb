@@ -33,7 +33,7 @@ class Users extends ApplicationDefinitions implements Pub
                     $user = $this->userEntity->findByUserId($userId);
 
                     echo $this->template->render(
-                        $this->getTemplate('Users/edit_user.tpl'),
+                        $this->getTemplate('Users/edit_user.twig'),
                         [
                             'option' => $option,
                             'string' => [
@@ -46,7 +46,7 @@ class Users extends ApplicationDefinitions implements Pub
             else if ($query->has('addUser'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Users/add_user.tpl'),
+                    $this->getTemplate('Users/add_user.twig'),
                     [
                         'option' => $option
                     ]
@@ -61,7 +61,7 @@ class Users extends ApplicationDefinitions implements Pub
                     $user = $this->userEntity->findByUserId($userId);
 
                     echo $this->template->render(
-                        $this->getTemplate('Users/ban_user.tpl'),
+                        $this->getTemplate('Users/ban_user.twig'),
                         [
                             'option' => $option,
                             'string' => [
@@ -74,7 +74,7 @@ class Users extends ApplicationDefinitions implements Pub
             else
             {
                 echo $this->template->render(
-                    $this->getTemplate('Users/users.tpl'),
+                    $this->getTemplate('Users/users.twig'),
                     [
                         'option' => $option,
                         'string' => [

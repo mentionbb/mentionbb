@@ -22,7 +22,7 @@ class Attachment extends Controller implements Pub
 				if (Phrase::buildSeoLink($attachment['filename']) !== $option['section'])
 				{
 					echo $this->template->render(
-						'404.tpl',
+						'404.twig',
 						[
 							'option' => $option,
 						]
@@ -46,7 +46,7 @@ class Attachment extends Controller implements Pub
 				else
 				{
 					echo $this->template->render(
-						'404.tpl',
+						'404.twig',
 						[
 							'option' => $option,
 						]

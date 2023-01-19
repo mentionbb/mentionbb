@@ -28,7 +28,7 @@ class Editor extends ApplicationDefinitions implements Pub
             if ($query->has('editorButtons'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Editor/editor_buttons.tpl'),
+                    $this->getTemplate('Editor/editor_buttons.twig'),
                     [
                         'option' => $option
                     ]
@@ -37,7 +37,7 @@ class Editor extends ApplicationDefinitions implements Pub
             else if ($query->has('buttonId'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Editor/edit_buttons.tpl'),
+                    $this->getTemplate('Editor/edit_buttons.twig'),
                     [
                         'option' => $option,
                         'string' => [
@@ -49,7 +49,7 @@ class Editor extends ApplicationDefinitions implements Pub
             else
             {
                 echo $this->template->render(
-                    $this->getTemplate('Editor/editor_buttons.tpl'),
+                    $this->getTemplate('Editor/editor_buttons.twig'),
                     [
                         'option' => $option
                     ]

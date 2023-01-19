@@ -22,7 +22,7 @@ class Profile extends Controller implements Pub
 				if ($profile->getUserByUserId($option['user_id']))
 				{
 					echo $this->template->render(
-						'profile.tpl',
+						'profile.twig',
 						[
 							'option' => $option,
 							'string' => [
@@ -38,7 +38,7 @@ class Profile extends Controller implements Pub
 				else
 				{
 					echo $this->template->render(
-						'404.tpl',
+						'404.twig',
 						[
 							'option' => $option,
 						]
@@ -48,7 +48,7 @@ class Profile extends Controller implements Pub
 			else
 			{
 				echo $this->template->render(
-					'404.tpl',
+					'404.twig',
 					[
 						'option' => $option,
 					]

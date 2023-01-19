@@ -24,7 +24,7 @@ class Environment extends TwigEnvironment
         $template = $this->load($name)->render($context);
 
         $disallowTemplates = [
-            'updateContent.tpl'
+            'updateContent.twig'
         ];
 
         $disallowTemplates = array_merge($disallowTemplates, $disallowTemplatesExtra);

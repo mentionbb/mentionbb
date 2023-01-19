@@ -22,7 +22,7 @@ class CensorWords extends ApplicationDefinitions implements Pub
             }
 
             echo $this->template->render(
-                $this->getTemplate('CensorWords/censor_words.tpl'),
+                $this->getTemplate('CensorWords/censor_words.twig'),
                 [
                     'option' => $option,
                     'string' => [

@@ -39,7 +39,7 @@ class Addons extends ApplicationDefinitions implements Pub
 
                 $content = file_get_contents((new \App\Util\ClassFinder())->getFilenameFromNamespace($app));
                 echo $this->template->render(
-                    $this->getTemplate('Addons/app.tpl'),
+                    $this->getTemplate('Addons/app.twig'),
                     [
                         'option' => $option,
                         'string' => [
@@ -53,7 +53,7 @@ class Addons extends ApplicationDefinitions implements Pub
             else if ($query->has('install'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Addons/install.tpl'),
+                    $this->getTemplate('Addons/install.twig'),
                     [
                         'option' => $option
                     ]
@@ -64,7 +64,7 @@ class Addons extends ApplicationDefinitions implements Pub
                 $addons = (new AddonsString())->getAddons();
 
                 echo $this->template->render(
-                    $this->getTemplate('Addons/list.tpl'),
+                    $this->getTemplate('Addons/list.twig'),
                     [
                         'option' => $option,
                         'string' => [

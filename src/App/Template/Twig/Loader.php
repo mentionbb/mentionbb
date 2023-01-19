@@ -42,7 +42,7 @@ class Loader
     {
         $directory  = $path;
         $all_files  = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($directory));
-        $all_files = new \RegexIterator($all_files, '/\.tpl$/', \RegexIterator::MATCH);
+        $all_files = new \RegexIterator($all_files, '/\.twig$/', \RegexIterator::MATCH);
 
         foreach ($all_files as $file)
         {

@@ -36,13 +36,13 @@ class Templates extends ApplicationDefinitions implements Pub
             if (!isset($templateName['path']))
             {
                 $templateName = [
-                    'path' => '[Templates/Default/container.tpl]'
+                    'path' => '[Templates/Default/container.twig]'
                 ];
             }
             $templateName = $this->getQueryItem($templateName['path']);
 
             echo $this->template->render(
-                $this->getTemplate('Theme/templates.tpl'),
+                $this->getTemplate('Theme/templates.twig'),
                 [
                     'option' => $option,
                     'string' => [

@@ -37,7 +37,7 @@ class Discussion extends Controller implements Pub
 				}
 
 				echo $this->template->render(
-					'discussion.tpl',
+					'discussion.twig',
 					[
 						'option' => $option,
 						'string' => [
@@ -52,7 +52,7 @@ class Discussion extends Controller implements Pub
 			else
 			{
 				echo $this->template->render(
-					'404.tpl',
+					'404.twig',
 					[
 						'option' => $option,
 					]

@@ -15,7 +15,7 @@ class Pages extends Controller implements Pub
 			if ($this->request->getPathInfo() == '/pages/faq')
 			{
 				echo $this->template->render(
-					'faq.tpl',
+					'faq.twig',
 					[
 						'option' => $option,
 						'string' => []
@@ -25,7 +25,7 @@ class Pages extends Controller implements Pub
 			elseif ($this->request->getPathInfo() == '/pages/privacy')
 			{
 				echo $this->template->render(
-					'privacy.tpl',
+					'privacy.twig',
 					[
 						'option' => $option,
 						'string' => []
@@ -35,7 +35,7 @@ class Pages extends Controller implements Pub
 			elseif ($this->request->getPathInfo() == '/pages/contact')
 			{
 				echo $this->template->render(
-					'contact.tpl',
+					'contact.twig',
 					[
 						'option' => $option,
 						'string' => []

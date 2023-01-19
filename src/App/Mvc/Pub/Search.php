@@ -28,7 +28,7 @@ class Search extends Controller implements Pub
 		$post = new PostRepo();
 
 		$template = $this->template->render(
-			'quick_search.tpl',
+			'quick_search.twig',
 			[
 				'string' => [
 					'keyword' => $post->get('keyword'),

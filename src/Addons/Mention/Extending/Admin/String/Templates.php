@@ -7,7 +7,7 @@ class Templates
     public function getTemplates(): array
     {
         $all_files  = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(APPLICATION_SELF));
-        $all_files = new \RegexIterator($all_files, '/\.tpl$/', \RegexIterator::MATCH);
+        $all_files = new \RegexIterator($all_files, '/\.twig$/', \RegexIterator::MATCH);
         $all_files = new \App\Util\FileSortedIterator($all_files);
 
         $files = [];
@@ -55,7 +55,7 @@ class Templates
                     }
                     $explode = explode('/', $child);
 
-                    if (!preg_match('/\.tpl/', $explode[1], $matchTpl))
+                    if (!preg_match('/\.twig/', $explode[1], $matchTpl))
                     {
                         $files[$explode[0]][$explode[1]][$file->getFileName()] = [
                             'name' => $file->getFileName(),
@@ -78,7 +78,7 @@ class Templates
 
     public function getTemplate($path)
     {
-        if (pathinfo($path, PATHINFO_EXTENSION) !== 'tpl')
+        if (pathinfo($path, PATHINFO_EXTENSION) !== 'twig')
         {
             return false;
         }

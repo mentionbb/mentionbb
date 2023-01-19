@@ -77,7 +77,7 @@ class Common extends ApplicationDefinitions implements Pub
         $post = new PostRepo();
 
         $template = $this->template->render(
-            $this->getTemplate('Layout/user_quick_search.tpl'),
+            $this->getTemplate('Layout/user_quick_search.twig'),
             [
                 'string' => [
                     'keyword' => $post->get('keyword'),

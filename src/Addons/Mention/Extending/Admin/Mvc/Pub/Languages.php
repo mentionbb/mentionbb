@@ -30,7 +30,7 @@ class Languages extends ApplicationDefinitions implements Pub
                 if ($this->languageString->isLanguageExist($query->get('l')))
                 {
                     echo $this->template->render(
-                        $this->getTemplate('Languages/edit.tpl'),
+                        $this->getTemplate('Languages/edit.twig'),
                         [
                             'option' => $option,
                             'string' => [
@@ -44,7 +44,7 @@ class Languages extends ApplicationDefinitions implements Pub
             else if ($query->has('sentences'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Languages/sentences.tpl'),
+                    $this->getTemplate('Languages/sentences.twig'),
                     [
                         'option' => $option,
                         'string' => [
@@ -87,7 +87,7 @@ class Languages extends ApplicationDefinitions implements Pub
                     }
 
                     echo $this->template->render(
-                        $this->getTemplate('Languages/phrase.tpl'),
+                        $this->getTemplate('Languages/phrase.twig'),
                         [
                             'option' => $option,
                             'string' => [
@@ -109,7 +109,7 @@ class Languages extends ApplicationDefinitions implements Pub
             else if ($query->has('searchSentences'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Languages/search_sentences.tpl'),
+                    $this->getTemplate('Languages/search_sentences.twig'),
                     [
                         'option' => $option,
                         'string' => [
@@ -121,7 +121,7 @@ class Languages extends ApplicationDefinitions implements Pub
             else if ($query->has('new'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Languages/new.tpl'),
+                    $this->getTemplate('Languages/new.twig'),
                     [
                         'option' => $option,
                         'string' => [
@@ -144,7 +144,7 @@ class Languages extends ApplicationDefinitions implements Pub
             else if ($query->has('import'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Languages/import.tpl'),
+                    $this->getTemplate('Languages/import.twig'),
                     [
                         'option' => $option
                     ]
@@ -153,7 +153,7 @@ class Languages extends ApplicationDefinitions implements Pub
             else
             {
                 echo $this->template->render(
-                    $this->getTemplate('Languages/list.tpl'),
+                    $this->getTemplate('Languages/list.twig'),
                     [
                         'option' => $option,
                         'string' => [
@@ -278,7 +278,7 @@ class Languages extends ApplicationDefinitions implements Pub
         }
 
         $template = $this->template->render(
-            $this->getTemplate('Languages/sentence_list.tpl'),
+            $this->getTemplate('Languages/sentence_list.twig'),
             [
                 'string' => [
                     'phrasePath' => $phrasePathWithPhrase,
@@ -355,7 +355,7 @@ class Languages extends ApplicationDefinitions implements Pub
         }
 
         $template = $this->template->render(
-            $this->getTemplate('Languages/sentence_list.tpl'),
+            $this->getTemplate('Languages/sentence_list.twig'),
             [
                 'string' => [
                     'sentences' => $sentences
@@ -406,7 +406,7 @@ class Languages extends ApplicationDefinitions implements Pub
 
         return $this->phrase->render('json')->serialize([
             'template' => $this->template->render(
-                $this->getTemplate('Languages/remove_language_modal.tpl'),
+                $this->getTemplate('Languages/remove_language_modal.twig'),
                 [
                     'string' => [
                         'language' => $post->get('language')
@@ -432,7 +432,7 @@ class Languages extends ApplicationDefinitions implements Pub
 
         return $this->phrase->render('json')->serialize([
             'template' => $this->template->render(
-                $this->getTemplate('Languages/remove_language_modal.tpl'),
+                $this->getTemplate('Languages/remove_language_modal.twig'),
                 [
                     'string' => [
                         'language' => $post->get('language')

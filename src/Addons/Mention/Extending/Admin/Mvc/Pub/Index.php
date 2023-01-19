@@ -25,7 +25,7 @@ class Index extends ApplicationDefinitions implements Pub
             }
 
             echo $this->template->render(
-                $this->getTemplate('Index/index.tpl'),
+                $this->getTemplate('Index/index.twig'),
                 [
                     'option' => $option,
                     'string' => [

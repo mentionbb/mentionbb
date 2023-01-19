@@ -1,0 +1,29 @@
+{% import 'macro.posts.twig' as macros %}
+
+{% if string.pagination is defined %}
+	{% set page_id = string.current_page %}
+	{% set wherePage = string.pagination.where %}
+{% else %}
+	{% set page_id = 1 %}
+	{% set wherePage = 0 %}
+{% endif %}
+
+{% if string.per_page is defined %}
+	{% set per_page = string.per_page %}
+{% else %}
+	{% set per_page = app.settings.per_page %}
+{% endif %}
+
+{% for key, item in string.post.getPostByDiscussionId(wherePage, per_page, string.order) %}
+	{% if not item.post_id is same as(string.discussion.firstpost_id) %}
+		{{ macros.posts(item, loop, false, string) }}
+	{% endif %}
+{% endfor %}
+
+{% if page_id == string.post.getLastPage() %}
+{% else %}
+    <div class="d-none" data-feature="hidden-paging" data-current-page="{{ page_id }}" data-next-id="{{ app.sub.post.pagination.encodePageData(app.settings.per_page, (page_id + 1)) }}"></div>
+    <div class="text-center">
+		<button type="button" class="btn btn-app-load-more mb-3 d-none" data-ui="load-more-dposts-mobile">{{ app.sub.lang.string.container.buttons.more }}</button>
+	</div>
+{% endif %}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="{{ app.sub.lang.default.id }}">
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="robots" content="noindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	{% if app.cookie.night_mode is same as('true') %}
+	    <meta name="theme-color" content="#37474f" />
+	{% else %}
+		<meta name="theme-color" content="#fff" />
+	{% endif %}
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{{ app.public_dir }}/vendor/vendor.css?v=1673882744" />
+	<link rel="stylesheet" href="{{ app.public_dir }}/vendor/admin-vendor.css?v=1642854267" />
+	<link rel="stylesheet" href="{{ app.sub.theme.compile.makeCss('themes/frontend/assets', 'core')}}" />
+    <link rel="stylesheet" href="{{ app.sub.theme.compile.minify('themes/admin/assets', 'admin.css')}}" />
+
+	<link rel="stylesheet" data-name="vs/editor/editor.main" href="{{ app.public_dir }}/vendor/monaco-editor/min/vs/editor/editor.main.css" />
+
+	{% for styleitem in app.event.getStyles %}
+		<!-- Extra CSS -->
+		<link rel="stylesheet" href="{{ app.public_dir }}/vendor/{{ styleitem.file }}">
+	{% endfor %}
+	{% block extra_styles %}{% endblock %}
+
+	<link rel="icon" type="image/png" href="{{ app.public_dir }}/images/logo-favicon.png" sizes="32x32" />
+</head>
+
+{% if app.cookie.night_mode is same as('true') %}
+	{% set night_mode_class = ' app-night-mode' %}
+{% endif %}
+
+<body class="app-container{{ night_mode_class }} app-admin" data-template="{% block app_template_name %}{% endblock %}">
+	{% include 'navbar.twig' %}
+	<div class="app-page-content app-admin-content container mb-4 row">
+		{% block content %}{% endblock %}
+	</div>
+
+    {% if not app.user.loggedIn() %}
+		<div class="modal custom-modal animate slideIn" id="login-attempt" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content shadow-lg rounded">
+					<div class="modal-header justify-content-lg-center d-flex">
+						<span class="font-weight-bold h5 mb-0 ml-lg-auto mr-lg-auto">{{ app.sub.lang.string.container.visitor.login.title }}</span>
+						<span class="close d-lg-none ml-auto" data-dismiss="modal" aria-label="{{ app.sub.lang.string.container.buttons.close }}"></span>
+					</div>
+					<div class="modal-body">
+						<div class="logo text-center mb-3">
+							{% include 'logo.twig' %}
+						</div>
+						<form method="post" action="{{ app.settings.site_url }}/auth/login">
+							<input type="hidden" name="csrf_token" value="{{ app.csrf_token }}" />
+							<div class="form-group">
+								<input type="text" name="username" class="form-control" placeholder="{{ app.sub.lang.string.container.visitor.placeholder.username }}" required="required">
+							</div>
+							<div class="form-group">
+								<input type="password" name="password" class="form-control" placeholder="{{ app.sub.lang.string.container.visitor.placeholder.password }}" required="required">
+							</div>
+							<div class="form-check">
+								<input name="keep-login" type="checkbox" class="form-check-input" id="exampleCheck1" checked="checked">
+								<label class="form-check-label" for="exampleCheck1">{{ app.sub.lang.string.container.visitor.login.remember_me }}</label>
+							</div>
+							<button name="login-submit" type="submit" class="btn btn-app-login no-anim-ui">{{ app.sub.lang.string.container.visitor.buttons.login }}</button>
+						</form>
+					</div>
+					<div class="modal-body pl-2 pr-2 bg-light text-center">
+						<div class="d-flex justify-content-center">
+							<div class="legend">{{ app.sub.lang.string.container.generic.or }}</div>
+						</div>
+						{% include 'social_login_buttons.twig' %}
+					</div>
+					<div class="modal-body bg-white text-center text-dark">
+						{{ app.sub.lang.string.container.visitor.login.none|raw }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	    <div class="modal custom-modal animate slideIn" id="register-attempt" tabindex="-1" role="dialog">
+	    	<div class="modal-dialog" role="document">
+	    		<div class="modal-content shadow-lg rounded">
+	    			<div class="modal-header justify-content-lg-center d-flex">
+	    				<span class="font-weight-bold h5 mb-0 ml-lg-auto mr-lg-auto">{{ app.sub.lang.string.container.visitor.register.title }}</span>
+	    				<span class="close d-lg-none ml-auto" data-dismiss="modal" aria-label="{{ app.sub.lang.string.container.buttons.close }}"></span>
+	    			</div>
+	    			<div class="modal-body">
+	    				<div class="logo text-center mb-3">
+	    					{% include 'logo.twig' %}
+	    				</div>
+	    				<span class="close d-none" data-dismiss="modal" aria-label="Close"></span>
+	    				<form method="post" action="{{ app.settings.site_url }}/auth/register">
+	    					<input type="hidden" name="csrf_token" value="{{ app.csrf_token }}" />
+	    					<div class="form-group">
+	    						<input type="email" name="mail" class="form-control" placeholder="E-Posta" required="required">
+	    						<small id="emailHelp" class="form-text mt-2">{{ app.sub.lang.string.container.visitor.register.mail_small }}</small>
+	    					</div>
+	    					<div class="form-group">
+	    						<input type="text" name="username" class="form-control" placeholder="{{ app.sub.lang.string.container.visitor.placeholder.username }}" required="required">
+	    						<div class="post-loader-spin"></div>
+	    						<small id="username-control" class="form-text mt-2"></small>
+	    					</div>
+	    					<div class="form-group">
+	    						<input type="password" name="password" class="form-control" placeholder="{{ app.sub.lang.string.container.visitor.placeholder.password }}" required="required">
+	    					</div>
+	    					<div class="form-check">
+	    						<input name="quick-login" type="checkbox" class="form-check-input" id="quickLogin" checked="checked">
+	    						<label title="{{ app.sub.lang.string.container.visitor.register.quick_login }}" class="form-check-label" for="quickLogin">{{ app.sub.lang.string.container.visitor.register.quick_login_title }}</label>
+	    					</div>
+	    					<div class="form-check">
+	    						<input name="quick-login" type="checkbox" class="form-check-input" id="agreement" required="required">
+	    						<label class="form-check-label" for="agreement">{{ app.sub.lang.parse.Parse('container.visitor.register.agreement', app.phrase.buildLink('pages', {}))|raw }}</label>
+	    					</div>
+	    					<div>
+	    						<div class="g-recaptcha" data-sitekey="{{ app.settings.gr_site_key }}" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+	    						 <input class="form-control d-none" data-recaptcha="true" required />
+	    						 <small id="g-recaptcha-error" class="form-text mt-2 not-available d-none">{{ app.sub.lang.string.container.visitor.register.please_verify_captcha }}</small>
+	    					</div>
+	    					<button name="login-submit" type="submit" class="btn btn-app-login no-anim-ui">{{ app.sub.lang.string.container.buttons.complete }}</button>
+	    				</form>
+	    				<p class="text-muted font-weight-normal mt-3 mb-0 desc">{{ app.sub.lang.string.container.visitor.register.desc }}</p>
+	    			</div>
+	    			<div class="modal-body pl-2 pr-2 bg-light text-center">
+	    				<div class="d-flex justify-content-center">
+	    					<div class="legend">{{ app.sub.lang.string.container.generic.or }}</div>
+	    				</div>
+	    				{% include 'social_login_buttons.twig' %}
+	    			</div>
+	    			<div class="modal-body bg-white text-center text-dark">
+	    				<p>{{ app.sub.lang.string.container.visitor.register.or_login|raw }}</p>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+
+	    <div class="modal custom-modal animate slideIn" id="forgot-password-attempt" tabindex="-1" role="dialog">
+	    	<div class="modal-dialog" role="document">
+	    		<div class="modal-content shadow-lg rounded">
+	    			<div class="modal-header justify-content-lg-center d-flex">
+	    				<span class="font-weight-bold h5 mb-0 ml-lg-auto mr-lg-auto">{{ app.sub.lang.string.container.visitor.forgot.title }}</span>
+	    				<span class="close d-lg-none ml-auto" data-dismiss="modal" aria-label="{{ app.sub.lang.string.container.buttons.close }}"></span>
+	    			</div>
+	    			<div class="modal-body">
+	    				<form method="post" action="{{ app.settings.site_url }}/account/forgot">
+	    					<div class="form-group">
+	    						<input type="email" name="mail" class="form-control" placeholder="{{ app.sub.lang.string.container.visitor.placeholder.mail }}" required="required" autocomplete="off">
+	    						<small id="username-control" class="form-text mt-2">{{ app.sub.lang.string.container.visitor.forgot.text }}</small>
+	    					</div>
+	    					<button type="submit" class="btn btn-app-complete no-anim-ui">{{ app.sub.lang.string.container.buttons.submit }}</button>
+	    				</form>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </div>
+    {% endif %}
+
+    <div class="alert alert-dismissible text-center cookiealert" role="alert">
+		<div class="cookiealert-container d-flex justify-content-center align-items-center">
+			<span class="flex-grow-1">{{ app.sub.lang.parse.Parse('container.cookie_text', app.phrase.buildLink('pages', {}))|raw }}</span>
+			<button type="button" class="acceptcookies" aria-label="{{ app.sub.lang.string.container.buttons.close }}"></button>
+		</div>
+	</div>
+
+    {% if app.user.loggedIn() %}
+		<div class="modal custom-modal animate slideIn" id="sign-out-confirmation" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content shadow-lg rounded">
+					<div class="modal-header justify-content-lg-center d-flex">
+						<span class="font-weight-bold h5 mb-0 ml-lg-auto mr-lg-auto">{{ app.sub.lang.string.container.visitor.sign_out.title }}</span>
+						<span class="close d-lg-none ml-auto" data-dismiss="modal" aria-label="{{ app.sub.lang.string.container.buttons.close }}"></span>
+					</div>
+					<div class="modal-body">
+						<div class="big-icon sign-out text-center mb-3"></div>
+						<p class="font-weight-normal text-center">{{ app.sub.lang.string.container.visitor.sign_out.text }}</p>
+						<form method="post" action="{{ app.settings.site_url }}/account/sign-out">
+							<div class="d-flex">
+								<button type="submit" class="btn btn-app-complete no-anim-ui">{{ app.sub.lang.string.container.buttons.approve }}</button>
+								<button type="button" class="btn btn-app-complete cancel no-anim-ui ml-4" data-dismiss="modal">{{ app.sub.lang.string.container.buttons.cancel }}</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	<div class="app-alert-container">
+    	<div class="app-alert text-center shadow">
+    		<span></span>
+    	</div>
+    </div>
+
+    {% if app.session.has('session_alert_message') %}
+	    <div class="app-alert-container alert-login">
+	    	<div class="app-alert text-center shadow animate slideIn d-block">
+	    		<span>{{ app.session.get('session_alert_message') }}</span>
+	    	</div>
+	    </div>
+	    {{ app.session.remove('session_alert_message') }}
+    {% endif %}
+
+	<!-- Main bundle -->
+	<script type="text/javascript" src="{{ app.public_dir }}/vendor/vendor.js?v=1618502963"></script>
+
+	<!-- Admin main bundle -->
+	<script type="text/javascript" src="{{ app.public_dir }}/vendor/app/admin/vendor.js?v=1645360034"></script>
+
+	{% if app.request.getPathInfo == '/admin/editor' %}
+	    <script class="app_EditorToolbars" type="application/json">
+    	    {% autoescape false %}
+    		    {{ app.sub.editor.buttons.getToolbars()|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES')) }}
+    	    {% endautoescape %}
+    	</script>
+		<script class="app_EditorToolbarIcons" type="application/json">
+    	    {% autoescape false %}
+    		    {{ app.sub.editor.buttons.getToolbarIcons()|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES')) }}
+    		{% endautoescape %}
+    	</script>
+		<script class="app_EditorButtons" type="application/json">
+    		{% autoescape false %}
+    		    {{ app.sub.editor.buttons.getButtons()|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES')) }}
+    		{% endautoescape %}
+    	</script>
+    	<script class="app_EditorLanguage" type="application/json">
+    		{% autoescape false %}
+    		    {{ app.sub.lang.string.editor|json_encode(constant('JSON_UNESCAPED_UNICODE') b-or constant('JSON_UNESCAPED_SLASHES') b-or constant('JSON_PRETTY_PRINT')) }}
+    		{% endautoescape %}
+    	</script>
+	    <script type="text/javascript" src="{{ app.sub.theme.compile.makeJs('vendor/app', 'editor') }}"></script>
+		<script type="text/javascript" src="{{ app.sub.theme.compile.makeJs('vendor/app', 'editor.admin') }}"></script>
+	{% endif %}
+
+	<!-- App Core -->
+	<script type="text/javascript" src="{{ app.sub.theme.compile.makeJs('vendor/app', 'admin') }}"></script>
+
+	{% if not app.user.loggedIn() or app.request.getPathInfo == '/admin/users' %}
+		<script type="text/javascript" src="{{ app.public_dir }}/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.{{ app.sub.lang.default.id }}.js"></script>
+	{% endif %}
+
+	{% if app.request.getPathInfo == '/admin/addons' or app.request.getPathInfo == '/admin/theme' or app.request.getPathInfo == '/admin/templates' %}
+        <script>var require = { paths: { 'vs': '{{ app.public_dir }}/vendor/monaco-editor/min/vs' } };</script>
+
+		<script type="text/javascript" src="{{ app.sub.theme.compile.makeJs('vendor/app', 'monaco.editor.admin') }}"></script>
+	{% endif %}
+
+	{% for jsitem in app.event.getScripts %}
+		<!-- Extra JS -->
+		<script type="text/javascript" src="{{ app.public_dir }}/vendor/{{ jsitem.file }}"></script>
+	{% endfor %}
+
+	<script>
+	jQuery.extend(true, app, {
+		config: {
+			settings: {
+				site_url: "{{ app.settings.site_url }}",
+				admin_url: "{{ app.settings.site_url }}/admin",
+				public_dir: "{{ app.public_dir }}",
+				ajax_path: "{{ app.ajax_path }}",
+
+				site_title: "{{ app.settings.site_title }}",
+
+				logo: {
+					light: "{{ app.public_dir }}/images/{{ app.settings.site_logo }}",
+					night: "{{ app.public_dir }}/images/{{ app.settings.site_logo_night }}",
+				},
+
+				emoticon_database: "{{ app.settings.emoticon_database }}",
+
+				admin: {
+					max_site_logo_size: "{{ app.phrase.getGlobals().admin.max_site_logo_size|toByte }}"
+				}
+			}
+		},
+		{% if app.user.loggedIn() %}
+
+		visitor: {
+			user_id: "{{ app.visitor.user_id }}",
+			username: "{{ app.visitor.username }}"
+ 		},
+ 		{% endif %}
+
+		phrases: {
+			copy: "{{ app.sub.lang.string.container.buttons.copy }}",
+			proceed: "{{ app.sub.lang.string.container.proceed }}",
+			{% if app.user.loggedIn() %}
+
+			alert_messages: {
+				form_input_empty: "{{ app.sub.lang.string.admin.container.flash_message.form_input_empty }}",
+
+				wait_a_while: "{{ app.sub.lang.string.container.flash_message.wait_a_while }}",
+
+				not_saving_content: "{{ app.sub.lang.string.container.flash_message.not_saving_content }}",
+
+				saved_successfull: "{{ app.sub.lang.string.admin.container.flash_message.saved_successfull }}",
+
+				upload_file_is_blank: "{{ app.sub.lang.string.admin.container.flash_message.upload_file_is_blank }}",
+				upload_file_is_too_big: "{{ app.sub.lang.string.admin.container.flash_message.upload_file_is_too_big }}",
+
+				service_added_successfull: "{{ app.sub.lang.string.admin.container.flash_message.service_added_successfull }}",
+				there_is_same_service_exist: "{{ app.sub.lang.string.admin.container.flash_message.there_is_same_service_exist }}",
+
+				forum_added_successfull: "{{ app.sub.lang.string.admin.container.flash_message.forum_added_successfull }}",
+				forum_delete_successfull: "{{ app.sub.lang.string.admin.container.flash_message.forum_delete_successfull }}",
+
+				user_added_successfull: "{{ app.sub.lang.string.admin.container.flash_message.user_added_successfull }}",
+				user_delete_successfull: "{{ app.sub.lang.string.admin.container.flash_message.user_delete_successfull }}",
+				user_edit_successfull: "{{ app.sub.lang.string.admin.container.flash_message.user_edit_successfull }}",
+				user_is_exist: "{{ app.sub.lang.string.admin.container.flash_message.user_is_exist }}",
+
+				user_banned_successfull: "{{ app.sub.lang.string.admin.container.flash_message.user_banned_successfull }}",
+				user_unban_successfull: "{{ app.sub.lang.string.admin.container.flash_message.user_unban_successfull }}",
+
+				addon_disabled_successfull: "{{ app.sub.lang.string.admin.container.flash_message.addon_disabled_successfull }}",
+				addon_activated_successfull: "{{ app.sub.lang.string.admin.container.flash_message.addon_activated_successfull }}",
+				addon_installed_successfull: "{{ app.sub.lang.string.admin.container.flash_message.addon_installed_successfull }}",
+
+				language_remove_default_error: "{{ app.sub.lang.string.admin.container.flash_message.language_remove_default_error }}",
+				language_is_exist: "{{ app.sub.lang.string.admin.container.flash_message.language_is_exist }}",
+			}
+			{% endif %}
+
+		}
+	});
+	</script>
+</body>
+</html>

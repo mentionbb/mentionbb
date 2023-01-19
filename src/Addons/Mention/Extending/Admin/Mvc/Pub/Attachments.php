@@ -24,7 +24,7 @@ class Attachments extends ApplicationDefinitions implements Pub
             if ($query->has('types'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Attachments/file_types.tpl'),
+                    $this->getTemplate('Attachments/file_types.twig'),
                     [
                         'option' => $option,
                         'string' => [
@@ -36,7 +36,7 @@ class Attachments extends ApplicationDefinitions implements Pub
             else if ($query->has('createFileType'))
             {
                 echo $this->template->render(
-                    $this->getTemplate('Attachments/new_file_type.tpl'),
+                    $this->getTemplate('Attachments/new_file_type.twig'),
                     [
                         'option' => $option
                     ]

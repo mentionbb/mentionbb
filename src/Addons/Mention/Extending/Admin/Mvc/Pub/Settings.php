@@ -34,7 +34,7 @@ class Settings extends ApplicationDefinitions implements Pub
                 if ($this->settingsEntity->getSettingsFromGroupName($groupName))
                 {
                     echo $this->template->render(
-                        $this->getTemplate('Settings/setting.tpl'),
+                        $this->getTemplate('Settings/setting.twig'),
                         [
                             'option' => $option,
                             'string' => [
@@ -48,7 +48,7 @@ class Settings extends ApplicationDefinitions implements Pub
             else
             {
                 echo $this->template->render(
-                    $this->getTemplate('Settings/groups.tpl'),
+                    $this->getTemplate('Settings/groups.twig'),
                     [
                         'option' => $option,
                         'string' => [

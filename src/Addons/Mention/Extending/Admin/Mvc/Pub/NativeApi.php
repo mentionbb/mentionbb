@@ -21,7 +21,7 @@ class NativeApi extends ApplicationDefinitions implements Pub
             }
 
             echo $this->template->render(
-                $this->getTemplate('Api/native_api.tpl'),
+                $this->getTemplate('Api/native_api.twig'),
                 [
                     'option' => $option
                 ]

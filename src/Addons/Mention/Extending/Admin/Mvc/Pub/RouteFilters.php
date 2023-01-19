@@ -22,7 +22,7 @@ class RouteFilters extends ApplicationDefinitions implements Pub
             }
 
             echo $this->template->render(
-                $this->getTemplate('RouteFilters/route_filters.tpl'),
+                $this->getTemplate('RouteFilters/route_filters.twig'),
                 [
                     'option' => $option,
                     'string' => [

@@ -17,7 +17,7 @@ class TwoStepVerification extends Controller implements Pub
 				if ($this->verifyTwoStep())
 				{
 					echo $this->template->render(
-						'two_step_verification.tpl',
+						'two_step_verification.twig',
 						[]
 					);
 				}

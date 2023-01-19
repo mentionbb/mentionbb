@@ -35,7 +35,7 @@ class OAuth extends ApplicationDefinitions implements Pub
                 if ($optionName = 'addService')
                 {
                     echo $this->template->render(
-                        $this->getTemplate('OAuth/add_service.tpl'),
+                        $this->getTemplate('OAuth/add_service.twig'),
                         [
                             'option' => $option,
                             'string' => [
@@ -48,7 +48,7 @@ class OAuth extends ApplicationDefinitions implements Pub
             else
             {
                 echo $this->template->render(
-                    $this->getTemplate('OAuth/oauth_services.tpl'),
+                    $this->getTemplate('OAuth/oauth_services.twig'),
                     [
                         'option' => $option,
                         'string' => [

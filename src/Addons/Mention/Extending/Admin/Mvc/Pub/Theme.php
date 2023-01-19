@@ -31,7 +31,7 @@ class Theme extends ApplicationDefinitions implements Pub
             else
             {
                 echo $this->template->render(
-                    $this->getTemplate('Theme/theme.tpl'),
+                    $this->getTemplate('Theme/theme.twig'),
                     [
                         'option' => $option,
                         'string' => [
