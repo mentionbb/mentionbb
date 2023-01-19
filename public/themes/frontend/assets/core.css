@@ -4286,13 +4286,11 @@ code.error {
 	line-height: 1;
 }
 
-.modal-body {
-	position: relative;
-}
-
-.modal-body .progress {
+.modal-header .progress {
 	left: 0;
-	top: 0;
+	bottom: 0;
+	top: inherit;
+	border-radius: 0;
 }
 
 @-webkit-keyframes indeterminate {
