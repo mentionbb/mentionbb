@@ -5,7 +5,7 @@
 {% block content %}
 	<aside class="col-sm-10 pr-4">
 		<div class="app-discuss-sub-menu d-flex flex-column flex-lg-row mb-lg-3 mb-sm-0 w-100">
-			{% if string.discussion.is_open is same as('1') %}
+			{% if string.discussion.is_open is same as(1) %}
 				<div class="order-2 order-sm-1">
 					{% if app.user.loggedIn() %}
 					    <button type="button" class="btn btn-app-discussion icon reply d-lg-block d-none" data-ui="show-editor" data-scroll="true">{{ app.sub.lang.string.container.buttons.reply }}</button>
