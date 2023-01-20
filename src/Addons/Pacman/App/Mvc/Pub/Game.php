@@ -16,7 +16,7 @@ class Game extends ApplicationDefinitions implements Pub
         elseif ($this->request->getRequestMethod() == "POST")
         {
             $template = $this->template->render(
-                $this->getTemplate('pacman.tpl'),
+                $this->getTemplate('pacman.twig'),
                 [
                     'option' => $option
                 ]
