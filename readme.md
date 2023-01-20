@@ -1,7 +1,7 @@
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)"
-            srcset="https://github.com/par274/mentionbb/blob/master/public/images/logo-nightmode.svg">
+            srcset="https://github.com/par274/mentionbb/blob/master/public/images/logo.svg">
         <source media="(prefers-color-scheme: light)"
             srcset="https://github.com/par274/mentionbb/blob/master/public/images/logo.svg#gh-dark-mode-only">
         <img alt="Mention logo" src="https://github.com/par274/mentionbb/blob/master/public/images/logo.svg"
