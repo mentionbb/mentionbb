@@ -50,18 +50,13 @@ if (window.jQuery === undefined) jQuery = $ = {};
 		}
 	};
 
-	function testAjax(editor, callback) {
+	var parseContent = function(editor, callback) {
 		$('#post-edit').find('.progress').removeClass('d-none');
 
-		$.ajax({
-			url: app.config.settings.ajax_path + "/editor?parseBbcode",
-			type: "post",
-			data: { content: editor.getContent() },
-			dataType: "JSON",
-			processData: true,
-			contentType: "application/x-www-form-urlencoded",
-		}).done(function (response) {
-			callback(response.content);
+		app.post("editor?parseBbcode", {content: editor.getContent()}).done(function(response) {
+			if(response.status === "ok") {
+				callback(response.content);
+			}
 		});
 	}
 
@@ -89,7 +84,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 	};
 
 	var open = function (editor) {
-		testAjax(editor, function (content) {
+		parseContent(editor, function (content) {
 			var content = content.replace(/&lt;br\s?(\/)?&gt;/gi, "<br />");
 			var content = getPreviewHtml(editor, content);
 
