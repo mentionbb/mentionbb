@@ -5,6 +5,8 @@
  * For commercial licenses see https://www.tiny.cloud/
  *
  * Version: 5.6.2 (2020-12-08)
+ * 
+ * Edited for Mention
  */
 if (window.jQuery === undefined) jQuery = $ = {};
 
