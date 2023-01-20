@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 17 Oca 2023, 13:54:22
+-- Üretim Zamanı: 20 Oca 2023, 22:47:18
 -- Sunucu sürümü: 10.4.13-MariaDB
 -- PHP Sürümü: 8.2.1
 
@@ -272,7 +272,7 @@ INSERT INTO `discussions` (`discussion_id`, `title`, `is_open`, `is_sticky`, `fi
 (40, 'awdwadawdawd', 1, 0, 99, 1, 0, 0, ''),
 (41, 'awdawdawdawdawdawdaw', 1, 0, 101, 1, 0, 0, ''),
 (42, 'esfsefsefsefse', 1, 0, 102, 1, 0, 0, ''),
-(43, 'BBCode yeni', 1, 0, 106, 1, 0, 1, ''),
+(43, 'BBCode yeni', 1, 0, 106, 1, 0, 0, ''),
 (44, 'Etiket test', 1, 0, 107, 1, 0, 0, '[\"Etiket\",\"test\"]'),
 (45, 'deneme', 1, 0, 108, 1, 0, 0, NULL),
 (46, 'Resim upload test', 1, 0, 109, 1, 0, 0, NULL),
@@ -397,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `discussion_views` (
   `ip` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
   `discussion_id` int(11) NOT NULL,
   PRIMARY KEY (`view_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=139 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=143 DEFAULT CHARSET=utf8;
 
 --
 -- Tablo döküm verisi `discussion_views`
@@ -541,7 +541,11 @@ INSERT INTO `discussion_views` (`view_id`, `ip`, `discussion_id`) VALUES
 (135, '127.0.0.1', 28),
 (136, '127.0.0.1', 27),
 (137, '127.0.0.1', 26),
-(138, '127.0.0.1', 133);
+(138, '127.0.0.1', 133),
+(139, '127.0.0.1', 13),
+(140, '127.0.0.1', 4),
+(141, '127.0.0.1', 12),
+(142, '127.0.0.1', 32);
 
 -- --------------------------------------------------------
 
@@ -587,7 +591,7 @@ CREATE TABLE IF NOT EXISTS `editor_toolbars` (
   `order_by` int(11) NOT NULL,
   `is_active` int(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`toolbar_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `editor_toolbars`
@@ -619,7 +623,8 @@ INSERT INTO `editor_toolbars` (`toolbar_id`, `toolbar`, `alias`, `button`, `icon
 (24, 'code', 'sourcecode', 'code', '<i class=\"far fa-file-code\"></i>', 0, 23, 1),
 (25, 'spoiler', 'spoiler', 'extra', '<i class=\"far fa-eye-slash\"></i>', 1, 24, 1),
 (26, 'quoteMessage', 'quoteMessage', 'extra', '<i class=\"fas fa-quote-right\"></i>', 1, 25, 1),
-(27, 'Example', 'example', 'example', '<i class=\"fas fa-external-link-alt\"></i>', 1, 1, 0);
+(27, 'Example', 'example', 'example', '<i class=\"fas fa-external-link-alt\"></i>', 1, 1, 0),
+(28, 'preview', 'preview', 'preview', '<i class=\"fas fa-search-plus\"></i>', 0, 26, 1);
 
 -- --------------------------------------------------------
 
@@ -685,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `is_active` int(1) NOT NULL DEFAULT 1,
   `device` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`device`)),
   PRIMARY KEY (`post_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=250 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=254 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `posts`
@@ -698,7 +703,7 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (3, 13398520, 'awdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawd', 1, 1, 1, 0, 0, 0, 0, 1594065216, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (4, 56550115, '123123123123123123123123123123123123123123123123', 1, 1, 1, 0, 1654620992, 1, 0, 1594065933, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (6, 14095476, 'deneme mesaj 20karakter20karakter1245678910111213141567', 2, 3, 1, 0, 1597151356, 1, 0, 1594128321, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
-(7, 18270040, 'Bu konu bb kod deneme konusudur.\n[heading=2]Başlık[/heading]\n \n[align=left][size= 36pt][b]Sol[/b][/size][/align]\n\n\n\n\n\n[align=center][size= 36pt][b]Orta[/b][/size][/align]\n\n\n\n\n\n[align=right][size= 36pt][b]Sağ[/b][/size][/align]\n\n\n\n\n[b]Kalın[/b] \n\n[i]İtalik[/i] \n\n[u]Altı çizili[/u] \n\n[b][u][i]Hepsi[/i][/u][/b] \n\n[color=#e67e23]Renkli[/color] \n\n[u][i][b][color=#e67e23; text-decoration: underline]Renkli hepsi[/color][/b][/i][/u] \n\n[url=http://localhost/mention/]Link[/url] \n\n😄😎\n\n[youtube]0HVet3RH-6Q[/youtube]\n[list=disc]\n[li]a[/li]\n[li]b[/li]\n[li]c[/li]\n[/list]\n[list=decimal]\n[li]a[/li]\n[li]b[/li]\n[li]c[/li]\n[/list]', 1, 4, 1, 0, 1623812599, 1, 0, 1594303282, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
+(7, 18270040, 'Bu konu bb kod deneme konusudur. [heading=2]Başlık[/heading]\r\n[align=left][size= 36pt][b]Sol[/b][/size][/align]\r\n\r\n\r\n\r\n\r\n\r\n[align=center][size= 36pt][b]Orta[/b][/size][/align]\r\n\r\n\r\n\r\n\r\n\r\n[align=right][size= 36pt][b]Sağ[/b][/size][/align]\r\n\r\n\r\n\r\n[b]Kalın[/b] [i]İtalik[/i] [u]Altı çizili[/u] [b][u][i]Hepsi[/i][/u][/b] [color=#e67e23]Renkli[/color] [u][i][b][color=#e67e23; text-decoration: underline]Renkli hepsi[/color][/b][/i][/u] [url=http://localhost/mention/]Link[/url] 😄😎\r\n\r\n[youtube]0HVet3RH-6Q[/youtube]\r\n[list=disc]\r\n[li]a[/li]\r\n[li]b[/li]\r\n[li]c[/li]\r\n[/list]\r\n[list=decimal]\r\n[li]a[/li]\r\n[li]b[/li]\r\n[li]c[/li]\r\n[/list]', 1, 4, 1, 0, 1674053359, 1, 0, 1594303282, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (14, 39081011, 'Bu mesaj editör ile konu içinden yazılmıştır.', 1, 2, 1, 0, 0, 0, 0, 1594646916, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (15, 97580400, 'Bol mesajlı konudur.(20)', 1, 12, 1, 0, 0, 0, 0, 1594853457, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (16, 42029579, '1\n \n(20202020202020)', 1, 12, 1, 0, 0, 0, 0, 1594853482, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
@@ -716,7 +721,7 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (28, 42029579, '13\r\n \r\n(20202020202020)', 1, 12, 1, 0, 0, 0, 0, 1594853482, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (29, 42029579, '14\r\n \r\n(20202020202020)', 1, 12, 1, 0, 0, 0, 0, 1594853482, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (36, 76523589, 'Bildirim test. (20 karakter)', 2, 3, 2, 0, 0, 0, 0, 1595778641, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
-(37, 91616907, 'Mesaja alıntı deneme konusu.', 1, 13, 1, 1, 1618439799, 1, 0, 1597138008, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
+(37, 91616907, 'Mesaja alıntı deneme konusu.', 1, 13, 1, 1, 1673963930, 1, 0, 1597138008, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (38, 90744793, '[post-quote]37[/post-quote]\nDeneme cevap.', 1, 13, 1, 1, 0, 0, 0, 1597138027, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (39, 67463511, '[post-quote]37[/post-quote]\nDeneme cevap.', 1, 13, 1, 1, 0, 0, 0, 1597138138, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (40, 28734446, 'awdawdawdawdawdawdawdawd', 1, 13, 1, 1, 0, 0, 0, 1597140831, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"85.0.4183.83\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
@@ -762,7 +767,7 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (81, 13029363, '[table=border-collapse: collapse; width: 99.811%; height: 84px;border=1]\n\n[tr]\n[td=width: 9.77453%; height: 21px;][background=#ba372a; color: #f1c40f]awdawdaw[/background][/td]\n[td=width: 9.77453%; height: 21px;]dawda[/td]\n[td=width: 9.77453%; height: 21px;]wdawd[/td]\n[td=width: 9.77453%; height: 21px;]awdawda[/td]\n[td=width: 9.77453%; height: 21px;]wdawd[/td]\n[td=width: 9.77453%; height: 21px;]awda[/td]\n[td=width: 9.77453%; height: 21px;]wdaw[/td]\n[td=width: 9.86922%; height: 21px;]dawdawda[/td]\n[td=width: 9.86922%; height: 21px;]wadawd[/td]\n[/tr]\n[tr]\n[td=width: 9.77453%; height: 21px;]awd[/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.86922%; height: 21px;] [/td]\n[td=width: 9.86922%; height: 21px;] [/td]\n[/tr]\n[tr]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.86922%; height: 21px;] [/td]\n[td=width: 9.86922%; height: 21px;] [/td]\n[/tr]\n[tr]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.77453%; height: 21px;] [/td]\n[td=width: 9.86922%; height: 21px;] [/td]\n[td=width: 9.86922%; height: 21px;] [/td]\n[/tr]\n\n[/table]', 1, 32, 1, 1, 1616462980, 1, 0, 1614383450, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"88.0.4324.190\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (82, 30942858, '[spoiler=BB spoiler test]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla erat ex, lacinia in cursus sed, venenatis sit amet mi. Fusce lacus tortor, eleifend lobortis diam ac, interdum hendrerit dolor. Suspendisse potenti. Praesent rhoncus ullamcorper massa, placerat rhoncus tellus convallis sit amet. Praesent volutpat orci ac nunc vehicula, tempor posuere justo ornare. Phasellus risus urna, imperdiet sit amet hendrerit a, maximus eu nulla. Pellentesque ac libero luctus, molestie urna ac, molestie urna. Vestibulum et libero eu neque varius molestie. Pellentesque ornare eget magna eget euismod. Cras et lobortis risus. In libero erat, tincidunt ac leo a, mollis vestibulum ipsum. Fusce tristique arcu nec dignissim tristique. Ut gravida ante at dignissim sollicitudin. Fusce eget mi rutrum, tincidunt eros vel, scelerisque quam. Sed pellentesque convallis quam sed gravida. Ut sollicitudin nisl enim, id elementum ipsum interdum sit amet.[/spoiler]', 1, 33, 1, 1, 1614862394, 1, 0, 1614604841, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"88.0.4324.190\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (83, 22200783, 'Mauris accumsan tempor posuere. Maecenas iaculis dictum nisl, sed feugiat nisl aliquam et. In rutrum metus mauris, ut aliquet mauris eleifend ac. Etiam rhoncus ligula nec convallis venenatis. Fusce vestibulum diam non elit volutpat, quis efficitur leo dapibus. Proin vel augue eu turpis malesuada commodo. Vivamus egestas nisi quis leo facilisis ornare ac ut ex. Sed a sodales nunc. Nullam sagittis fermentum augue tristique gravida. Nunc metus eros, feugiat quis hendrerit et, rhoncus vel augue. Vivamus tincidunt elit sed nisi vestibulum, sed luctus enim laoreet. Duis faucibus congue est et laoreet.\n\nFusce a libero a eros sagittis ornare. In hac habitasse platea dictumst. Donec sit amet metus vitae libero tincidunt tempus. Quisque vitae elit feugiat urna porta rhoncus. Nulla elit justo, fermentum vel pharetra id, tristique imperdiet diam. Pellentesque sollicitudin, quam id sagittis iaculis, justo ipsum ullamcorper urna, sit amet maximus ligula dolor a lacus. Fusce quis luctus nisi, nec condimentum urna. Maecenas a est et metus accumsan bibendum. Ut in massa non elit bibendum sollicitudin vel id libero. Ut vel nunc cursus, mattis tellus eget, feugiat nibh. Nam maximus purus faucibus, luctus sapien ac, efficitur nulla. Aenean non leo convallis sem sollicitudin consectetur finibus non erat. Donec aliquam non ipsum efficitur mattis. Donec fringilla ac erat sit amet tincidunt. Mauris tristique felis vel laoreet eleifend. Pellentesque ac eros mauris.', 1, 1, 1, 1, 0, 0, 0, 1614623260, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"88.0.4324.190\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
-(84, 12955984, '💯 😋 🤩 🙄 🤭 🤮 😍 😜 😃 😄\n\nİfade test. \nMerhaba 🙂', 1, 34, 1, 1, 1618337239, 1, 0, 1614729991, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"88.0.4324.190\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
+(84, 12955984, '💯 😋 🤩 🙄 🤭 🤮 😍 😜 😃 😄 İfade test. Merhaba 🙂', 1, 34, 1, 1, 1674054609, 1, 0, 1614729991, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"88.0.4324.190\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (85, 47283999, ' 🙂 😛 😉 🙂', 1, 35, 1, 1, 0, 0, 0, 1614862164, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"88.0.4324.190\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (86, 68026757, '[post-quote]71[/post-quote]\nawdawdawdawdawd', 1, 23, 1, 1, 0, 0, 0, 1615120490, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"88.0.4324.190\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (87, 34013621, '[post-quote]71[/post-quote]', 1, 23, 1, 1, 0, 0, 0, 1615160134, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"88.0.4324.190\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
@@ -784,7 +789,7 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (103, 34353939, 'awdawdawdawdawd', 1, 42, 1, 1, 0, 0, 0, 1616071854, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"89.0.4389.90\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (104, 88821998, 'zsczsczsczsczsczsczs', 1, 37, 1, 1, 0, 0, 0, 1616157541, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"89.0.4389.90\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (105, 59067419, 'awdawdawdawdawdawdawd', 1, 37, 2, 1, 0, 0, 0, 1616158041, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"89.0.4389.90\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
-(106, 28879656, '[background=#34495e; color: #fbeeb8][b][i][s][u]awdawdawdawdawdawdawdaw23245678910234567981112[/u][/s][/i][/b][/background]', 1, 43, 1, 1, 1623812556, 1, 0, 1616445288, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"89.0.4389.90\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
+(106, 28879656, '[background=#34495e; color: #fbeeb8][b][i][s][u]awdawdawdawdawdawdawdaw23245678910234567981112[/u][/s][/i][/b][/background]', 1, 43, 1, 1, 1623812556, 1, 0, 1616445288, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"89.0.4389.90\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (107, 26544170, 'awdawdawdawdawd', 1, 44, 1, 1, 0, 0, 0, 1616767201, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"89.0.4389.90\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (108, 29029570, 'awdawdawdawdawdawd', 1, 45, 1, 1, 0, 0, 0, 1616768875, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"89.0.4389.90\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (109, 62964396, 'awdawdawdawdawdawdwad\n \n[img=]http://localhost/mention/public/editor/1617031805_47512297.gif[/img]\n\n[img=asd]http://localhost/mention/public/editor/1617029813_33475735.jpg[/img]', 1, 46, 1, 1, 1617031808, 1, 0, 1617029831, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"89.0.4389.90\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
@@ -900,7 +905,7 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (219, 58908994, 'awdawd22222222222222', 1, 37, 1, 1, 0, 0, 0, 1633975620, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"94.0.4606.81\",\"engine\":\"Blink\",\"engine_version\":\"\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (220, 12895789, 'awdawdawdawdawdawd', 1, 128, 1, 1, 0, 0, 0, 1638470669, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"96.0.4664.45\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (221, 16668653, '[youtube]Yx-ZbRrC-cw[/youtube]', 1, 128, 1, 1, 0, 0, 0, 1638470718, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"96.0.4664.45\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
-(222, 38788971, '[color=#3598db][b]@Demo;[/b][/color]\n \n10101010101010101', 1, 43, 1, 1, 0, 0, 0, 1639601785, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"96.0.4664.93\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
+(222, 38788971, '[color=#3598db][b]@Demo;[/b][/color]\n \n10101010101010101', 1, 43, 1, 1, 0, 0, 0, 1639601785, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"96.0.4664.93\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (223, 55266208, '[url=https://www.hacettepe.edu.tr/]https://www.hacettepe.edu.tr/[/url]', 1, 43, 1, 1, 0, 0, 0, 1639746171, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"96.0.4664.110\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (224, 43757941, '[url=https://tr.wikipedia.org/wiki/Hacettepe_%C3%9Cniversitesi]https://tr.wikipedia.org/wiki/Hacettepe_%C3%9Cniversitesi[/url]', 1, 43, 1, 1, 0, 0, 0, 1639746252, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"96.0.4664.110\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (225, 20226521, '[url=https://r10.net]https://r10.net[/url]', 1, 43, 1, 1, 0, 0, 0, 1639746389, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"96.0.4664.110\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
@@ -918,7 +923,7 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (236, 20430989, '[url=http://localhost/mention/d/1-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit/4]http://localhost/mention/d/1-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit/4[/url]', 1, 43, 1, 1, 0, 0, 0, 1642337150, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"97.0.4692.71\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (237, 60285828, '[url=https://www.instagram.com/ayc4b/]https://www.instagram.com/ayc4b/[/url]', 1, 39, 1, 1, 0, 0, 0, 1644021290, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"98.0.4758.81\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (238, 14497668, 'awdawdawdawd', 1, 43, 1, 1, 0, 0, 0, 1652840993, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"101.0.4951.67\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
-(239, 74752519, 'Mention BETA, henüz bazı fonksiyonları tam olmayan, [u]site üzerine kurulabilir, yönetilebilir ve yayınlanabilir[/u] olan versiondur ve satışa çıkarılmıştır.\r\n \r\nBETA programına dahil olarak:\r\n[list=decimal]\r\n[li]Güncellemeleri sık alırsınız.[/li]\r\n[li]Hataları direkt yapımcıya bildirebilirsiniz.[/li]\r\n[li]Yazılımda aklınıza gelen özelliği bildirebilirsiniz.[/li]\r\n[li][b][u]BETA programı kapsamında lisans aktarımı kesinlikle yasaktır.[/u][/b][/li]\r\n[li]Dosyalar açık edilemez, kaynak kodları sunulamaz.[/li]\r\n[li]Eklenti, tema oluşturup bunları ücretli/ücretsiz paylaşabilirsiniz.[/li]\r\n[li][u]Şablon düzenleme, kullanıcı yönetimi, eklenti yönetimi, genel site ayarları vs. bütün ana fonksiyonlar çalışır durumdadır![/u][/li]\r\n[/list]\r\n \r\nBETA yazılımında eksik olan bazı temel özellikler:\r\n[list=decimal]\r\n[li]E-Posta fonksiyonları[/li]\r\n[li]Admin panelde, iletişim, araçlar ve kayıtlar kullanılamaz. [u]Bu fonksiyonlar sitenin kullanılmasında önemli yer teşkil etmez![/u][/li]\r\n[li][u]Install arayüzü yoktur.[/u][/li]\r\n[/list]\r\n \r\nSistemi kullanabileceğiniz hosting/server gereksinimleri:\r\n[list=decimal]\r\n[li]En az PHP 7.4+ veya 8.1+.[/li]\r\n[li]MySQL 5.5+[/li]\r\n[li]Gerekli PHP eklentileri: cURL, Iconv, DOM, JSON, SimpleXML, PDO[/li]\r\n[/list]', 1, 129, 1, 1, 0, 0, 0, 1654564509, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.5005.63\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}');
+(239, 74752519, 'Mention BETA, henüz bazı fonksiyonları tam olmayan, [u]site üzerine kurulabilir, yönetilebilir ve yayınlanabilir[/u] olan versiondur ve satışa çıkarılmıştır.\r\n\r\nBETA programına dahil olarak:\r\n[list=decimal]\r\n[li]Güncellemeleri sık alırsınız.[/li]\r\n[li]Hataları direkt yapımcıya bildirebilirsiniz.[/li]\r\n[li]Yazılımda aklınıza gelen özelliği bildirebilirsiniz.[/li]\r\n[li][b][u]BETA programı kapsamında lisans aktarımı kesinlikle yasaktır.[/u][/b][/li]\r\n[li]Dosyalar açık edilemez, kaynak kodları sunulamaz.[/li]\r\n[li]Eklenti, tema oluşturup bunları ücretli/ücretsiz paylaşabilirsiniz.[/li]\r\n[li][u]Şablon düzenleme, kullanıcı yönetimi, eklenti yönetimi, genel site ayarları vs. bütün ana fonksiyonlar çalışır durumdadır![/u][/li]\r\n[/list]\r\nBETA yazılımında eksik olan bazı temel özellikler:\r\n[list=decimal]\r\n[li]E-Posta fonksiyonları[/li]\r\n[li]Admin panelde, iletişim, araçlar ve kayıtlar kullanılamaz. [u]Bu fonksiyonlar sitenin kullanılmasında önemli yer teşkil etmez![/u][/li]\r\n[li][u]Install arayüzü yoktur.[/u][/li]\r\n[/list]\r\nSistemi kullanabileceğiniz hosting/server gereksinimleri:\r\n[list=decimal]\r\n[li]En az PHP 7.4+ veya 8.1+.[/li]\r\n[li]MySQL 5.5+[/li]\r\n[li]Gerekli PHP eklentileri: cURL, Iconv, DOM, JSON, SimpleXML, PDO[/li]\r\n[/list]', 1, 129, 1, 1, 1674216212, 1, 0, 1654564509, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.5005.63\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}');
 INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_id`, `user_id`, `parent_id`, `lastedit_date`, `lastedit_userid`, `rating_count`, `dateline`, `is_active`, `device`) VALUES
 (240, 97732787, 'awdawdawdawdawdd', 1, 129, 1, 1, 1654620383, 1, 0, 1654615570, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.5005.63\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (241, 87580851, '[post-quote]239[/post-quote]\r\nawdawdawdawdawdaw', 1, 129, 1, 1, 0, 0, 0, 1655983805, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
@@ -928,7 +933,11 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (245, 92373066, '[b]22.07.2022[/b] itibarıyla, [b]1.0.13[/b] sürümüne geçiş yapılmıştır. \r\n\r\n\r\n\r\n\r\n\r\n[heading=3]Yenilikler[/heading]\r\n\r\n\r\n\r\n[list=decimal] \r\n[list=disc] \r\n[list=disc] \r\n[list=disc]\r\n[li]SVG resim yükleme güvenlik nedeniyle kaldırıldı, SVG to PNG özelliği bütün sunucularda işlev göstermeyeceği için eklenmedi.[/li]\r\n[/list]\r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\n[list=disc] \r\n[list=disc] \r\n[list=disc]\r\n[li]Editörden resim yükleme görünümü ve fonksiyonları tamamen değiştirildi.[/li]\r\n[/list]\r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\n[list=disc] \r\n[list=disc] \r\n[list=disc]\r\n[li]Sitemap fonksiyonları geliştirildi, sayfalama yapıldı. Ayrıca Github paketi kullanıyordu kaldırıldı, sıfırdan XML Render oluşturuldu. İlgili link: [url=https://mentionbb.com/community/sitemap.xml]https://mentionbb.com/community/sitemap.xml[/url][/li]\r\n[/list]\r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\n[list=disc] \r\n[list=disc] \r\n[list=disc]\r\n[li]Güvenlik ve Cache geliştirilmeleri.[/li]\r\n[/list]\r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\nAyrıca Install yapımına başlandı.', 1, 132, 1, 1, 1658505992, 1, 0, 1658505300, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"103.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (247, 64094565, '[spotify]track/05UMQXFCsa9oPnLgfJHVyF?si=be725278ec4d4ec2[/spotify]', 1, 27, 1, 1, 1673961986, 1, 0, 1673961776, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (248, 25875996, 'testtesttest12\r\n \r\n[reddit]Amd/comments/x3bzoy/what_is_the_correct_value_for_using_pbo_with/[/reddit]', 1, 37, 1, 1, 1673962295, 1, 0, 1673962022, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
-(249, 74028141, '[spotify=track]05UMQXFCsa9oPnLgfJHVyF[/spotify]', 1, 27, 1, 1, 0, 0, 0, 1673963139, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}');
+(249, 74028141, '[spotify=track]05UMQXFCsa9oPnLgfJHVyF[/spotify]', 1, 27, 1, 1, 0, 0, 0, 1673963139, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(250, 86741597, '[reddit]Amd/comments/swzne5/ryzen_5600x_low_performance_with_pbo_and_curve/[/reddit]', 1, 133, 1, 1, 0, 0, 0, 1673964481, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(251, 55518027, '[spotify=playlist]0x1rlDOobe9ITkiiPburca[/spotify]', 1, 27, 1, 1, 0, 0, 0, 1673964581, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(252, 42074938, '[list=decimal]\r\n[li]awdaw[/li]\r\n[li]da[/li]\r\n[li]wd[/li]\r\n[li]a[/li]\r\n[li]dw[/li]\r\n[li]k[/li]\r\n[/list]\r\n \r\n[list=disc]\r\n[li]awdaw[/li]\r\n[li]da[/li]\r\n[li]w[/li]\r\n[li]daw[/li]\r\n[li]da[/li]\r\n[/list]', 1, 129, 1, 1, 1673993122, 1, 0, 1673972463, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(253, 88926282, 'awdawd\r\n\r\nawdawd\r\n\r\n\r\n \r\n \r\n \r\n \r\n \r\n\r\n\r\nawdawdaw', 1, 129, 1, 1, 1673993085, 1, 0, 1673992852, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -966,7 +975,7 @@ CREATE TABLE IF NOT EXISTS `post_likes` (
   `reaction` varchar(15) NOT NULL,
   `dateline` int(10) NOT NULL,
   PRIMARY KEY (`like_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=401 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=445 DEFAULT CHARSET=utf8;
 
 --
 -- Tablo döküm verisi `post_likes`
@@ -1047,7 +1056,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `user_id` int(11) NOT NULL,
   `ip` varchar(24) NOT NULL,
   PRIMARY KEY (`sessions_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4126 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4216 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `sessions`
@@ -5184,8 +5193,98 @@ INSERT INTO `sessions` (`sessions_id`, `dateline`, `session_id`, `type`, `route`
 (4121, 1673915450, 'hkf01l8na3pqpsdg9d9ibod45g', 'user', '/', 1, '127.0.0.1'),
 (4122, 1673909834, 'pfo6fudgqs809knoqsqbp20iq4', 'guest', '/d/133-reddit-test/246', 0, '127.0.0.1'),
 (4123, 1673922659, '9941upha92nt1umpinago4ie28', 'user', '/', 1, '127.0.0.1'),
-(4124, 1673963464, 'rll0sjkar9l8m1pacfljuj7j6i', 'user', '/', 1, '127.0.0.1'),
-(4125, 1673962024, 't9nfgd01dbim39qtob35183btb', 'guest', '/d/37-forum-disi-alinti/90', 0, '127.0.0.1');
+(4124, 1673975131, 'rll0sjkar9l8m1pacfljuj7j6i', 'user', '/post/edit', 1, '127.0.0.1'),
+(4125, 1673962024, 't9nfgd01dbim39qtob35183btb', 'guest', '/d/37-forum-disi-alinti/90', 0, '127.0.0.1'),
+(4126, 1673966597, 'duih77ot40go3miv2s1jqi902g', 'guest', '/', 0, '::1'),
+(4127, 1673966594, 'sedak56bc83ulvi1h3rgklnm7n', 'guest', '/webmanifest.json', 0, '::1'),
+(4128, 1673966599, '85h53md9i2o0ndk9d82qf8fn6c', 'guest', '/webmanifest.json', 0, '::1'),
+(4129, 1673968132, '5dgqs7doki9vvhubp2rfnv8gn0', 'guest', '/', 0, '::1'),
+(4130, 1673968128, 'nadaqcaeog08rtr4ia5brkl7mg', 'guest', '/webmanifest.json', 0, '::1'),
+(4131, 1673968134, 'b959p7eoulua8qa8m4qkgd7o9s', 'guest', '/webmanifest.json', 0, '::1'),
+(4133, 1673994720, 'ari94oj3a83ato3rhjsoco7rso', 'user', '/d/4-bb-kod-deneme/7', 1, '127.0.0.1'),
+(4132, 1673968414, '4370kjj23mi2231alpusbmk2oc', 'guest', '/d/129-mention-beta-programi/239', 0, '127.0.0.1'),
+(4134, 1673991784, '1pdrdjn85oms6gteb8kqn7tf70', 'guest', '/d/129-mention-beta-programi/252', 0, '127.0.0.1'),
+(4135, 1673993986, 'n5d88br0kvsptsp2tt3ukl8brl', 'guest', '/', 0, '127.0.0.1'),
+(4136, 1673994009, '0uce42mpj1qaa6u7lsrigjh4i1', 'guest', '/', 0, '127.0.0.1'),
+(4137, 1673994050, 'gu3a77240h5jiks3f4kd8j2u6k', 'guest', '/d/4-bb-kod-deneme/7', 0, '127.0.0.1'),
+(4138, 1673994100, '5etuk3v9uehct9not0ukdu32jj', 'guest', '/', 0, '127.0.0.1'),
+(4139, 1673994201, 'leqj5s9u2nurf2v92upvrmf231', 'guest', '/', 0, '127.0.0.1'),
+(4140, 1673994234, 'sf9h84ciiij1s34mvsd15dhfo3', 'guest', '/', 0, '127.0.0.1'),
+(4141, 1673994251, '5gopf26ecicfem2c0bkph4sft3', 'guest', '/', 0, '127.0.0.1'),
+(4142, 1673994280, 'sp0297f2ccdqtkmh869qagt5gp', 'guest', '/', 0, '127.0.0.1'),
+(4143, 1673994314, 'gv9gog5fsuin4u8jd9vdpk5k96', 'guest', '/', 0, '127.0.0.1'),
+(4144, 1673994345, '5b87sns6b1t98stjipg6ntvf1c', 'guest', '/', 0, '127.0.0.1'),
+(4145, 1673994665, '1k6ht0e1135dn6hem1cu6e6bna', 'guest', '/', 0, '127.0.0.1'),
+(4146, 1673994986, '6b4cjiginul1tttalvtr8v469h', 'user', '/', 1, '127.0.0.1'),
+(4147, 1673997055, 'ppuabsge7gu6ged72safnq9cn4', 'user', '/', 1, '127.0.0.1'),
+(4148, 1673997224, 'edsqs9g7grrnmldlcm92p14rf5', 'user', '/', 1, '127.0.0.1'),
+(4149, 1674000124, '1e343j8mougpsu899t2gpremp2', 'user', '/', 1, '127.0.0.1'),
+(4150, 1674008452, 'v923qodoo2421nvf74869c4u9k', 'user', '/d/12-bol-mesajli-konu/29', 1, '127.0.0.1'),
+(4151, 1674005914, 'pal26bk2caf7jsbje1aqkh72o3', 'guest', '/d/129-mention-beta-programi/239', 0, '::1'),
+(4152, 1674005909, '0ulrg0auchq64nggjsckmr6po6', 'guest', '/webmanifest.json', 0, '::1'),
+(4153, 1674005914, 'l8i8lrai1ljvhvr8r7c556pa1s', 'guest', '/webmanifest.json', 0, '::1'),
+(4154, 1674008010, 'l0a3g4412lu7dld9gglkkluh38', 'guest', '/d/12-bol-mesajli-konu/29', 0, '127.0.0.1'),
+(4155, 1674008055, 'frvinl3j7888bh076m4m5r97jg', 'guest', '/auth/login', 0, '::1'),
+(4156, 1674008031, 'fajq3o1km2f9aohfr3tabjo35o', 'guest', '/webmanifest.json', 0, '::1'),
+(4157, 1674008057, 'c6juha1rjhf3brr7ugol1tna7i', 'guest', '/webmanifest.json', 0, '::1'),
+(4158, 1674008070, '091u42e5nc06qplg6c3bfehdh7', 'guest', '/webmanifest.json', 0, '::1'),
+(4159, 1674008097, '2b1ikdib6au0anpf6785kobese', 'guest', '/webmanifest.json', 0, '::1'),
+(4160, 1674008189, 'u3i2curk2jkgb7e1q25sggiak7', 'guest', '/webmanifest.json', 0, '::1'),
+(4161, 1674008236, '470h91g7tau44aqm2gks063n6v', 'guest', '/webmanifest.json', 0, '::1'),
+(4162, 1674008341, 'v1pjqh4blb8vabavcfblitanhm', 'guest', '/webmanifest.json', 0, '::1'),
+(4163, 1674008460, 'og70khpafslfq8dacllm7dib0s', 'guest', '/webmanifest.json', 0, '::1'),
+(4164, 1674010645, '818aj9leqqq56u7l4ge9sjg0ch', 'user', '/post/next-discussion-page', 1, '::1'),
+(4165, 1674008612, 'n3ar30domm4fsk3dhtg620nt9j', 'guest', '/webmanifest.json', 0, '::1'),
+(4166, 1674011349, '4ngbcaqk8d1grs8jjph83ngia1', 'user', '/', 1, '127.0.0.1'),
+(4167, 1674008641, 'c7eh08o4992urkunebs53q0g8e', 'guest', '/webmanifest.json', 0, '::1'),
+(4168, 1674008679, '0d4ovq610pmgft9fv7dgp80kq9', 'guest', '/webmanifest.json', 0, '::1'),
+(4169, 1674008694, 'tv6ob14pj03thqvg3il9hs8jel', 'guest', '/webmanifest.json', 0, '::1'),
+(4170, 1674008833, 'qj4fifslp30vqfo8co5ft4qq2f', 'guest', '/webmanifest.json', 0, '::1'),
+(4171, 1674008885, 'b6e81n8i6ulrhjfkaj0lvfkofe', 'guest', '/webmanifest.json', 0, '::1'),
+(4172, 1674008941, '5vkmi14qsgsso7h8dbqo14u9ia', 'guest', '/webmanifest.json', 0, '::1'),
+(4173, 1674008999, '9vn3vsda7klcsh79cbju3vrhaj', 'guest', '/webmanifest.json', 0, '::1'),
+(4174, 1674009009, 'r6voa4hfov4g46nhn5uv6pme9e', 'guest', '/webmanifest.json', 0, '::1'),
+(4175, 1674009012, 'rge7ed92g682q652gt36i520ik', 'guest', '/webmanifest.json', 0, '::1'),
+(4178, 1674009022, 'ogoq70gur7uj18ot9nuq7f99u8', 'guest', '/webmanifest.json', 0, '::1'),
+(4176, 1674009015, 'uk0j01p3lh5e2q6e6is8428925', 'guest', '/webmanifest.json', 0, '::1'),
+(4177, 1674009019, 'rb95uj1b9v5740lj9fsmtseigb', 'guest', '/webmanifest.json', 0, '::1'),
+(4181, 1674009506, '315icpmlaco0a83h0koe979mnu', 'guest', '/webmanifest.json', 0, '::1'),
+(4179, 1674009236, '50855m6604mop8pkoprcqle0sh', 'guest', '/webmanifest.json', 0, '::1'),
+(4180, 1674009249, 'gagt1bnlioj7tdo4kvd29taba8', 'guest', '/webmanifest.json', 0, '::1'),
+(4182, 1674009509, 'saq5oinr8hml8i4u8o6bqm6qbd', 'guest', '/webmanifest.json', 0, '::1'),
+(4183, 1674010576, 'j1kdh8dslueblveraieqplf8fi', 'guest', '/webmanifest.json', 0, '::1'),
+(4184, 1674010583, 'mbu4a71b4v8udoh6n4sflgka1f', 'guest', '/webmanifest.json', 0, '::1'),
+(4185, 1674010593, '58drpsbn8npntmbmdbbqt5k5ik', 'guest', '/webmanifest.json', 0, '::1'),
+(4191, 1674059008, 'gno76kps2f6inm012fs9pvuor9', 'user', '/d/129-mention-beta-programi/239', 1, '127.0.0.1'),
+(4186, 1674010616, '95nu6dmanr283lkrbj8h21usq3', 'guest', '/webmanifest.json', 0, '::1'),
+(4187, 1674010636, '1463abobr6m9rpq2qir31iohvb', 'guest', '/webmanifest.json', 0, '::1'),
+(4188, 1674010639, 'hj4uju7b88hqbdrkomj7jqj5vc', 'guest', '/webmanifest.json', 0, '::1'),
+(4189, 1674010645, '2apfq53orp947trj6ludbddps5', 'guest', '/webmanifest.json', 0, '::1'),
+(4190, 1674011227, 'jh3kv2n0qb2icpjc0nnukgbd2n', 'guest', '/d/12-bol-mesajli-konu/29', 0, '127.0.0.1'),
+(4192, 1674052544, 'tg30bddtcjgjhajk8t10nld7f0', 'guest', '/d/130-yeni-filepicker-test/243', 0, '127.0.0.1'),
+(4193, 1674052589, '1tltulpm6ffj6i2dlat5one2fp', 'guest', '/d/39-links/93', 0, '127.0.0.1'),
+(4194, 1674053830, 'v1sq5sfs04ge8d545pcg5btuv6', 'guest', '/d/36-code-block/89', 0, '127.0.0.1'),
+(4195, 1674059529, '9376cn8ftgo4rdla1kth3hmups', 'user', '/', 1, '127.0.0.1'),
+(4196, 1674100558, '3oddf9ftfq7kgl913na59dupqc', 'user', '/post/edit', 1, '127.0.0.1'),
+(4197, 1674135225, 'nt2jmjomlmkn9uv45pt1295l8p', 'user', '/post/edit', 1, '127.0.0.1'),
+(4198, 1674127227, '21nerj29bgsoerggio9kc4vhsc', 'guest', '/d/130-yeni-filepicker-test/243', 0, '127.0.0.1'),
+(4199, 1674142701, 'uo9snmi0jadmtmrpkttdfq5t1t', 'user', '/', 1, '127.0.0.1'),
+(4200, 1674185176, 'a5ub894u3ol0gp760tafkrquhs', 'user', '/', 1, '127.0.0.1'),
+(4201, 1674174200, '9ar4nledcs07co0le3kpos86m9', 'user', '/', 1, '::1'),
+(4202, 1674174202, 'ija6n7k7l24uf3p5gdkricil1a', 'guest', '/webmanifest.json', 0, '::1'),
+(4204, 1674177095, 'plbh767upvc7rtip530ocjod0n', 'guest', '/', 0, '127.0.0.1'),
+(4203, 1674175978, '4cdbsu6nlsuu44vd3gdt3u8llc', 'guest', '/d/13-alinti-mesaj-deneme-konusu/66', 0, '127.0.0.1'),
+(4205, 1674177939, '7f43jfalgslilvkfr2b2eovaqo', 'user', '/d/129-mention-beta-programi/239', 1, '::1'),
+(4206, 1674177938, 'a2tqq3nabgdl795trlb44fer6t', 'guest', '/webmanifest.json', 0, '::1'),
+(4207, 1674177940, 'jrgj1m9rckavmqjequjajeo17v', 'guest', '/webmanifest.json', 0, '::1'),
+(4208, 1674219956, 'ql9eb445ct4pr307v7mcj0eod8', 'user', '/', 1, '127.0.0.1'),
+(4209, 1674216492, 'c0a2heu6io64p7s84jeqk2ptaa', 'guest', '/d/133-reddit-test/246', 0, '127.0.0.1'),
+(4210, 1674216601, '4vqfig2gb3ek84r10j1hvl89hh', 'guest', '/d/28-soundcloud-test/77', 0, '127.0.0.1'),
+(4211, 1674219399, 'b5c4get8q6c3b2jkf00phu1vkb', 'guest', '/admin', 0, '127.0.0.1'),
+(4212, 1674232997, '1a2926jd0i0pnbesn11bveimpk', 'user', '/editor', 1, '127.0.0.1'),
+(4213, 1674232550, 'bvnodvd04g1h75o9ikbj1frkae', 'guest', '/daw', 0, '127.0.0.1'),
+(4214, 1674247993, '5vcdqgem9rr8v2uij7lk5pbrhr', 'user', '/', 1, '127.0.0.1'),
+(4215, 1674253849, 'd7jk154spucc7b8pcmi11t5ukg', 'user', '/', 1, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -5285,7 +5384,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `usertitle`, `mail`, `profile_picture`, `password`, `secret_key`, `login_key`, `status`, `two_step_verification`, `is_admin`, `registration_date`, `last_activity`, `use_twofa`, `message_bg`) VALUES
-(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1673963464, 0, '#f8f9fa'),
+(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1674253849, 0, '#f8f9fa'),
 (2, 'Demo', '__default', 'test@test.com', 'default.svg', 'NzFDZWhVb2xQdFdzM2pqNHhONUljZz09OjqwPFsIMXTXuyhA6J5O6IxH', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'MEUrejEwRGpjSlhORVNZd09WTGRtak96UkhQaHQ0bk95emZ3N2l6Z2svZz06Ov4rGRs7sQ4E6eoxdhDiXtg=', 1, 0, 0, 1595779759, 1616158044, 0, '#f8f9fa'),
 (8, 'asds4', '', 'awdaw@awd.com', 'default.svg', 'OXd3bDUrUTVTQ0pxZFl6RmhnWC9lZz09OjoVfi3K3cOMRKG0qOptbAGv', 'VGZYckVDMXc4VUxBNzVaSnpjQkk2NHhq', 'UVJNd29pcXYvS1JGdEtGb2ZBQkc3T2cwenZRMmFMYks3dTFxWFh4YWVkbz06Oga3/3jnO8pTx7BrAGiMqtk=', 1, 0, 0, 1639757629, 1642529371, 0, '#f8f9fa');
 
@@ -5434,7 +5533,7 @@ CREATE TABLE IF NOT EXISTS `user_notifications` (
   `is_seeing` int(1) NOT NULL DEFAULT 0,
   `dateline` int(10) NOT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=482 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=530 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `user_notifications`
@@ -5582,7 +5681,11 @@ INSERT INTO `user_notifications` (`notification_id`, `tab`, `post_id`, `discussi
 (462, 'reply-discussion', 0, 130, 1, 1, 0, 1658499008),
 (479, 'reply-discussion', 0, 27, 1, 1, 0, 1673961776),
 (480, 'reply-discussion', 0, 37, 1, 1, 0, 1673962022),
-(481, 'reply-discussion', 0, 27, 1, 1, 0, 1673963139);
+(481, 'reply-discussion', 0, 27, 1, 1, 0, 1673963139),
+(482, 'reply-discussion', 0, 133, 1, 1, 0, 1673964481),
+(483, 'reply-discussion', 0, 27, 1, 1, 0, 1673964581),
+(484, 'reply-discussion', 0, 129, 1, 1, 0, 1673972463),
+(485, 'reply-discussion', 0, 129, 1, 1, 0, 1673992852);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -36,6 +36,14 @@ class Editor extends Controller implements Pub
                         'content' => (new \App\Renderer\BBCode\Editor\Editor())->Render($post->get('content'), 'brToN')
                     ])->render();
                 }
+                else if ($query->has('parseBbcode'))
+                {
+                    $post = new PostRepo();
+
+                    return $this->phrase->render('json')->serialize([
+                        'content' => (new \App\Renderer\BBCode\Parser($this->settings, $this->language, $this->phrase))->Parse($post->get('content'))
+                    ])->render();
+                }
             }
         }
     }

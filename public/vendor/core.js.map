@@ -16,6 +16,7 @@
 		"13": "editor/spoiler.js",
 		"14": "editor/emoticons.js",
 		"15": "editor/quote-message.js",
-		"16": "editor/code.js"
+		"16": "editor/code.js",
+		"17": "editor/preview.js"
 	}
 }
