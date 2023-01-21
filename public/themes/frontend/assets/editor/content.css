@@ -2,7 +2,13 @@ body {
 	font-family: sans-serif;
 }
 
-ul,
-ol {
+.sandboxed ul,
+.sandboxed ol {
 	margin: 0;
+	font-size: 14px;
+	word-wrap: break-word;
+}
+
+.sandboxed .bbWrapper_reddit {
+	display: flex;
 }

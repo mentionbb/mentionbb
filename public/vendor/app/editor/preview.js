@@ -53,6 +53,10 @@ if (window.jQuery === undefined) jQuery = $ = {};
 	var parseContent = function(editor, callback) {
 		$('#post-edit').find('.progress').removeClass('d-none');
 
+		if ($('#post-edit.show').length < 1) {
+			$('.app-post-create .progress').removeClass('d-none');
+		}
+
 		app.post("editor?parseBbcode", {content: editor.getContent()}).done(function(response) {
 			if(response.status === "ok") {
 				callback(response.content);
@@ -78,7 +82,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 		var preventClicksOnLinksScript = '<script>' + 'document.addEventListener && document.addEventListener("click", function(e) {' + 'for (var elm = e.target; elm; elm = elm.parentNode) {' + 'if (elm.nodeName === "A" && !(' + isMetaKeyPressed + ')) {' + 'e.preventDefault();' + '}' + '}' + '}, false);' + '</script> ';
 		var directionality = editor.getBody().dir;
 		var dirAttr = directionality ? ' dir="' + encode(directionality) + '"' : '';
-		var previewHtml = '<!DOCTYPE html>' + '<html>' + '<head>' + headHtml + '</head>' + '<body id="' + encode(bodyId) + '" class="mce-content-body ' + encode(bodyClass) + '"' + dirAttr + '>' + content + preventClicksOnLinksScript + '</body>' + '</html>';
+		var previewHtml = '<!DOCTYPE html>' + '<html>' + '<head>' + headHtml + '</head>' + '<body id="' + encode(bodyId) + '" class="mce-content-body ' + encode(bodyClass) + '"' + dirAttr + '><div class="sandboxed">' + content + '</div>' + preventClicksOnLinksScript + '</body>' + '</html>';
 	
 	    return previewHtml;
 	};
@@ -111,6 +115,10 @@ if (window.jQuery === undefined) jQuery = $ = {};
 			});
 
 			$('#post-edit').find('.progress').addClass('d-none');
+			
+			if ($('#post-edit.show').length < 1) {
+				$('.app-post-create .progress').addClass('d-none');
+			}
 	
 			dataApi.focus('close');
 		});
