@@ -62,7 +62,7 @@ var app = {};
             skin_url: app.config.settings.public_dir + "/vendor/tinymce/skins/ui/" + theme,
             content_css: [
                 app.config.settings.public_dir + "/vendor/tinymce/skins/content/" + content_theme + "/content.min.css",
-                app.config.settings.public_dir + "/themes/frontend/assets/editor/content.css?v=1"
+                app.config.settings.public_dir + "/themes/frontend/assets/editor/content.css?v=4"
             ],
 
             content_style: ".mce-content-body[data-mce-placeholder]:not(.mce-visualblocks)::before { color: rgb(150 150 150); } p {margin:0; padding: 0;} img.js-Twemoji_MentionEditor { width: 22px; height: 22px; vertical-align: text-bottom; } .mce-content-body [data-mce-selected=inline-boundary] { color: #000; }",
@@ -92,6 +92,8 @@ var app = {};
             convert_urls: true,
 
             placeholder: app.phrases.editor_placeholder,
+
+            toolbar_mode: 'sliding',
 
             codesample_languages: [
                 { text: 'HTML/XML', value: 'markup' },
