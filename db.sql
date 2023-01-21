@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 20 Oca 2023, 22:47:18
+-- Üretim Zamanı: 21 Oca 2023, 14:23:22
 -- Sunucu sürümü: 10.4.13-MariaDB
 -- PHP Sürümü: 8.2.1
 
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `discussions` (
   `is_active` int(1) NOT NULL DEFAULT 1,
   `tags` text DEFAULT NULL,
   PRIMARY KEY (`discussion_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=134 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=135 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `discussions`
@@ -361,7 +361,8 @@ INSERT INTO `discussions` (`discussion_id`, `title`, `is_open`, `is_sticky`, `fi
 (130, 'Yeni filepicker test', 1, 0, 242, 1, 0, 1, NULL),
 (131, '1.0.13 Güncellemesi - 22.07.2022', 1, 0, 244, 1, 0, 0, NULL),
 (132, '1.0.13 Güncellemesi - 22.07.2022 <div>', 1, 0, 245, 1, 0, 0, NULL),
-(133, 'Reddit test', 1, 0, 246, 1, 0, 1, NULL);
+(133, 'Reddit test', 1, 0, 246, 1, 0, 1, NULL),
+(134, 'BBCode img test', 1, 0, 254, 1, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -397,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `discussion_views` (
   `ip` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
   `discussion_id` int(11) NOT NULL,
   PRIMARY KEY (`view_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=143 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=144 DEFAULT CHARSET=utf8;
 
 --
 -- Tablo döküm verisi `discussion_views`
@@ -545,7 +546,8 @@ INSERT INTO `discussion_views` (`view_id`, `ip`, `discussion_id`) VALUES
 (139, '127.0.0.1', 13),
 (140, '127.0.0.1', 4),
 (141, '127.0.0.1', 12),
-(142, '127.0.0.1', 32);
+(142, '127.0.0.1', 32),
+(143, '127.0.0.1', 134);
 
 -- --------------------------------------------------------
 
@@ -690,7 +692,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `is_active` int(1) NOT NULL DEFAULT 1,
   `device` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`device`)),
   PRIMARY KEY (`post_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=254 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=256 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `posts`
@@ -928,7 +930,7 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (240, 97732787, 'awdawdawdawdawdd', 1, 129, 1, 1, 1654620383, 1, 0, 1654615570, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.5005.63\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (241, 87580851, '[post-quote]239[/post-quote]\r\nawdawdawdawdawdaw', 1, 129, 1, 1, 0, 0, 0, 1655983805, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (242, 42255968, '[img=]blob:http://localhost/e2cbb31a-1c92-42fc-92b6-832409c4395c[/img]\r\n \r\ntestestetstawta', 1, 130, 1, 1, 0, 0, 0, 1658498844, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"103.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
-(243, 82716572, '[img=]http://localhost/mention/public/editor/1658498993_16294006.jpg[/img]\r\n \r\ntestestaewawdawdawd', 1, 130, 1, 1, 0, 0, 0, 1658499008, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"103.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(243, 82716572, '[img=test:267:267]http://localhost/mention/public/editor/1658498993_16294006.jpg[/img]\r\n\r\ntestestaewawdawdawd', 1, 130, 1, 1, 1674308279, 1, 0, 1658499008, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"103.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (244, 35292520, '[b]22.07.2022[/b] itibarıyla, [b]1.0.13[/b] sürümüne geçiş yapılmıştır.\n \n[heading=3]Yenilikler[/heading]\n[list=decimal]\n[li]SVG resim yükleme güvenlik nedeniyle kaldırıldı, SVG to PNG özelliği bütün sunucularda işlev göstermeyeceği için eklenmedi.[/li]\n[li]Editörden resim yükleme görünümü ve fonksiyonları tamamen değiştirildi.[/li]\n[li]Sitemap fonksiyonları geliştirildi, sayfalama yapıldı. Ayrıca Github paketi kullanıyordu kaldırıldı, sıfırdan XML Render oluşturuldu. İlgili link: [url=https://mentionbb.com/community/sitemap.xml]https://mentionbb.com/community/sitemap.xml[/url][/li]\n[li]Güvenlik ve Cache geliştirilmeleri.[/li]\n[/list]\n \nAyrıca Install yapımına başlandı.', 1, 131, 1, 1, 0, 0, 0, 1658503045, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"103.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (245, 92373066, '[b]22.07.2022[/b] itibarıyla, [b]1.0.13[/b] sürümüne geçiş yapılmıştır. \r\n\r\n\r\n\r\n\r\n\r\n[heading=3]Yenilikler[/heading]\r\n\r\n\r\n\r\n[list=decimal] \r\n[list=disc] \r\n[list=disc] \r\n[list=disc]\r\n[li]SVG resim yükleme güvenlik nedeniyle kaldırıldı, SVG to PNG özelliği bütün sunucularda işlev göstermeyeceği için eklenmedi.[/li]\r\n[/list]\r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\n[list=disc] \r\n[list=disc] \r\n[list=disc]\r\n[li]Editörden resim yükleme görünümü ve fonksiyonları tamamen değiştirildi.[/li]\r\n[/list]\r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\n[list=disc] \r\n[list=disc] \r\n[list=disc]\r\n[li]Sitemap fonksiyonları geliştirildi, sayfalama yapıldı. Ayrıca Github paketi kullanıyordu kaldırıldı, sıfırdan XML Render oluşturuldu. İlgili link: [url=https://mentionbb.com/community/sitemap.xml]https://mentionbb.com/community/sitemap.xml[/url][/li]\r\n[/list]\r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\n[list=disc] \r\n[list=disc] \r\n[list=disc]\r\n[li]Güvenlik ve Cache geliştirilmeleri.[/li]\r\n[/list]\r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\n[/list] \r\n\r\nAyrıca Install yapımına başlandı.', 1, 132, 1, 1, 1658505992, 1, 0, 1658505300, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"103.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (247, 64094565, '[spotify]track/05UMQXFCsa9oPnLgfJHVyF?si=be725278ec4d4ec2[/spotify]', 1, 27, 1, 1, 1673961986, 1, 0, 1673961776, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
@@ -937,7 +939,9 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (250, 86741597, '[reddit]Amd/comments/swzne5/ryzen_5600x_low_performance_with_pbo_and_curve/[/reddit]', 1, 133, 1, 1, 0, 0, 0, 1673964481, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (251, 55518027, '[spotify=playlist]0x1rlDOobe9ITkiiPburca[/spotify]', 1, 27, 1, 1, 0, 0, 0, 1673964581, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (252, 42074938, '[list=decimal]\r\n[li]awdaw[/li]\r\n[li]da[/li]\r\n[li]wd[/li]\r\n[li]a[/li]\r\n[li]dw[/li]\r\n[li]k[/li]\r\n[/list]\r\n \r\n[list=disc]\r\n[li]awdaw[/li]\r\n[li]da[/li]\r\n[li]w[/li]\r\n[li]daw[/li]\r\n[li]da[/li]\r\n[/list]', 1, 129, 1, 1, 1673993122, 1, 0, 1673972463, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
-(253, 88926282, 'awdawd\r\n\r\nawdawd\r\n\r\n\r\n \r\n \r\n \r\n \r\n \r\n\r\n\r\nawdawdaw', 1, 129, 1, 1, 1673993085, 1, 0, 1673992852, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}');
+(253, 88926282, 'awdawd\r\n\r\nawdawd\r\n\r\n\r\n \r\n \r\n \r\n \r\n \r\n\r\n\r\nawdawdaw', 1, 129, 1, 1, 1673993085, 1, 0, 1673992852, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(254, 37186173, '[img=:960:1200]http://localhost/mention/public/editor/1674310560_15094482.jpg[/img]\r\n \r\nTesttestest', 1, 134, 1, 1, 0, 0, 0, 1674310588, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(255, 81214610, 'Boyutlandırma testi.\r\n\r\n[img=test123123123:131:164]http://localhost/mention/public/editor/1674310560_15094482.jpg[/img]', 1, 134, 1, 1, 1674310702, 1, 0, 1674310683, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -1056,7 +1060,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `user_id` int(11) NOT NULL,
   `ip` varchar(24) NOT NULL,
   PRIMARY KEY (`sessions_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4216 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4227 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `sessions`
@@ -5284,7 +5288,18 @@ INSERT INTO `sessions` (`sessions_id`, `dateline`, `session_id`, `type`, `route`
 (4212, 1674232997, '1a2926jd0i0pnbesn11bveimpk', 'user', '/editor', 1, '127.0.0.1'),
 (4213, 1674232550, 'bvnodvd04g1h75o9ikbj1frkae', 'guest', '/daw', 0, '127.0.0.1'),
 (4214, 1674247993, '5vcdqgem9rr8v2uij7lk5pbrhr', 'user', '/', 1, '127.0.0.1'),
-(4215, 1674253849, 'd7jk154spucc7b8pcmi11t5ukg', 'user', '/', 1, '127.0.0.1');
+(4215, 1674253849, 'd7jk154spucc7b8pcmi11t5ukg', 'user', '/', 1, '127.0.0.1'),
+(4216, 1674260195, 'oopta0v02mk4t55mc5sdshti9m', 'user', '/d/129-mention-beta-programi/239', 1, '127.0.0.1'),
+(4217, 1674255381, '07mrh315hvj6p8flif7gqnso2h', 'guest', '/d/36-code-block/89', 0, '127.0.0.1'),
+(4218, 1674257651, '35r35higmu98nlnfama0i222lo', 'guest', '/d/133-reddit-test/246', 0, '127.0.0.1'),
+(4219, 1674258846, 'atk9vorgcl1k1jpql7hqjo0ekh', 'guest', '/d/32-tablo-ornegi/81', 0, '127.0.0.1'),
+(4220, 1674259698, 's5glkds719kvt5a96kak85g53p', 'guest', '/d/26-twitter-yerlestirme-test/75', 0, '127.0.0.1'),
+(4221, 1674266003, 'do4h9rqb5535902u08u1b6qjto', 'user', '/editor', 1, '127.0.0.1'),
+(4222, 1674265090, 'g02ldingh5sdc9d3go6qfhn97j', 'guest', '/d/37-forum-disi-alinti/90', 0, '127.0.0.1'),
+(4223, 1674265290, '9gr9d7sm3mgggoimrj9oq7vbni', 'guest', '/d/36-code-block/89', 0, '127.0.0.1'),
+(4224, 1674304244, '0q9n1ej451idnbs7gc4kedn8h6', 'user', '/', 1, '127.0.0.1'),
+(4225, 1674310784, '8j170v2k5b8nr86eedtjs17cma', 'user', '/post/edit', 1, '127.0.0.1'),
+(4226, 1674310601, '3pn6lls1iundlda3kp9f03e3e7', 'guest', '/d/134-bbcode-img-test/254', 0, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -5384,7 +5399,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `usertitle`, `mail`, `profile_picture`, `password`, `secret_key`, `login_key`, `status`, `two_step_verification`, `is_admin`, `registration_date`, `last_activity`, `use_twofa`, `message_bg`) VALUES
-(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1674253849, 0, '#f8f9fa'),
+(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1674310784, 0, '#f8f9fa'),
 (2, 'Demo', '__default', 'test@test.com', 'default.svg', 'NzFDZWhVb2xQdFdzM2pqNHhONUljZz09OjqwPFsIMXTXuyhA6J5O6IxH', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'MEUrejEwRGpjSlhORVNZd09WTGRtak96UkhQaHQ0bk95emZ3N2l6Z2svZz06Ov4rGRs7sQ4E6eoxdhDiXtg=', 1, 0, 0, 1595779759, 1616158044, 0, '#f8f9fa'),
 (8, 'asds4', '', 'awdaw@awd.com', 'default.svg', 'OXd3bDUrUTVTQ0pxZFl6RmhnWC9lZz09OjoVfi3K3cOMRKG0qOptbAGv', 'VGZYckVDMXc4VUxBNzVaSnpjQkk2NHhq', 'UVJNd29pcXYvS1JGdEtGb2ZBQkc3T2cwenZRMmFMYks3dTFxWFh4YWVkbz06Oga3/3jnO8pTx7BrAGiMqtk=', 1, 0, 0, 1639757629, 1642529371, 0, '#f8f9fa');
 
@@ -5533,7 +5548,7 @@ CREATE TABLE IF NOT EXISTS `user_notifications` (
   `is_seeing` int(1) NOT NULL DEFAULT 0,
   `dateline` int(10) NOT NULL,
   PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=530 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=531 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `user_notifications`
@@ -5685,7 +5700,8 @@ INSERT INTO `user_notifications` (`notification_id`, `tab`, `post_id`, `discussi
 (482, 'reply-discussion', 0, 133, 1, 1, 0, 1673964481),
 (483, 'reply-discussion', 0, 27, 1, 1, 0, 1673964581),
 (484, 'reply-discussion', 0, 129, 1, 1, 0, 1673972463),
-(485, 'reply-discussion', 0, 129, 1, 1, 0, 1673992852);
+(485, 'reply-discussion', 0, 129, 1, 1, 0, 1673992852),
+(530, 'reply-discussion', 0, 134, 1, 1, 0, 1674310683);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
