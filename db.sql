@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 21 Oca 2023, 14:23:22
+-- Üretim Zamanı: 21 Oca 2023, 16:36:21
 -- Sunucu sürümü: 10.4.13-MariaDB
 -- PHP Sürümü: 8.2.1
 
@@ -593,7 +593,7 @@ CREATE TABLE IF NOT EXISTS `editor_toolbars` (
   `order_by` int(11) NOT NULL,
   `is_active` int(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`toolbar_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `editor_toolbars`
@@ -622,11 +622,12 @@ INSERT INTO `editor_toolbars` (`toolbar_id`, `toolbar`, `alias`, `button`, `icon
 (21, 'bullist', 'unordered-list', 'list', '<i class=\"fas fa-list-ul\"></i>', 0, 20, 1),
 (22, 'numlist', 'ordered-list', 'list', '<i class=\"fas fa-list-ol\"></i>', 0, 21, 1),
 (23, 'codesample', 'code-sample', 'code-sample', '<i class=\"fas fa-code\"></i>', 0, 22, 1),
-(24, 'code', 'sourcecode', 'code', '<i class=\"far fa-file-code\"></i>', 0, 23, 1),
+(24, 'code', 'sourcecode', 'code-sample', '<i class=\"far fa-file-code\"></i>', 0, 23, 1),
 (25, 'spoiler', 'spoiler', 'extra', '<i class=\"far fa-eye-slash\"></i>', 1, 24, 1),
 (26, 'quoteMessage', 'quoteMessage', 'extra', '<i class=\"fas fa-quote-right\"></i>', 1, 25, 1),
 (27, 'Example', 'example', 'example', '<i class=\"fas fa-external-link-alt\"></i>', 1, 1, 0),
-(28, 'preview', 'preview', 'preview', '<i class=\"fas fa-search-plus\"></i>', 0, 26, 1);
+(28, 'preview', 'preview', 'code-sample', '<i class=\"fas fa-search-plus\"></i>', 0, 26, 1),
+(29, 'fullscreen', 'fullscreen', 'code-sample', '<i class=\"fas fa-maximize\"></i>', 0, 27, 1);
 
 -- --------------------------------------------------------
 
@@ -1060,7 +1061,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `user_id` int(11) NOT NULL,
   `ip` varchar(24) NOT NULL,
   PRIMARY KEY (`sessions_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4227 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=4228 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `sessions`
@@ -5298,8 +5299,9 @@ INSERT INTO `sessions` (`sessions_id`, `dateline`, `session_id`, `type`, `route`
 (4222, 1674265090, 'g02ldingh5sdc9d3go6qfhn97j', 'guest', '/d/37-forum-disi-alinti/90', 0, '127.0.0.1'),
 (4223, 1674265290, '9gr9d7sm3mgggoimrj9oq7vbni', 'guest', '/d/36-code-block/89', 0, '127.0.0.1'),
 (4224, 1674304244, '0q9n1ej451idnbs7gc4kedn8h6', 'user', '/', 1, '127.0.0.1'),
-(4225, 1674310784, '8j170v2k5b8nr86eedtjs17cma', 'user', '/post/edit', 1, '127.0.0.1'),
-(4226, 1674310601, '3pn6lls1iundlda3kp9f03e3e7', 'guest', '/d/134-bbcode-img-test/254', 0, '127.0.0.1');
+(4225, 1674318819, '8j170v2k5b8nr86eedtjs17cma', 'user', '/', 1, '127.0.0.1'),
+(4226, 1674310601, '3pn6lls1iundlda3kp9f03e3e7', 'guest', '/d/134-bbcode-img-test/254', 0, '127.0.0.1'),
+(4227, 1674311968, 'h8chtaf0d3do3q2sgos7qtq5fa', 'guest', '/d/134-bbcode-img-test/255', 0, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -5399,7 +5401,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `usertitle`, `mail`, `profile_picture`, `password`, `secret_key`, `login_key`, `status`, `two_step_verification`, `is_admin`, `registration_date`, `last_activity`, `use_twofa`, `message_bg`) VALUES
-(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1674310784, 0, '#f8f9fa'),
+(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1674318819, 0, '#f8f9fa'),
 (2, 'Demo', '__default', 'test@test.com', 'default.svg', 'NzFDZWhVb2xQdFdzM2pqNHhONUljZz09OjqwPFsIMXTXuyhA6J5O6IxH', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'MEUrejEwRGpjSlhORVNZd09WTGRtak96UkhQaHQ0bk95emZ3N2l6Z2svZz06Ov4rGRs7sQ4E6eoxdhDiXtg=', 1, 0, 0, 1595779759, 1616158044, 0, '#f8f9fa'),
 (8, 'asds4', '', 'awdaw@awd.com', 'default.svg', 'OXd3bDUrUTVTQ0pxZFl6RmhnWC9lZz09OjoVfi3K3cOMRKG0qOptbAGv', 'VGZYckVDMXc4VUxBNzVaSnpjQkk2NHhq', 'UVJNd29pcXYvS1JGdEtGb2ZBQkc3T2cwenZRMmFMYks3dTFxWFh4YWVkbz06Oga3/3jnO8pTx7BrAGiMqtk=', 1, 0, 0, 1639757629, 1642529371, 0, '#f8f9fa');
 
