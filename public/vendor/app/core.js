@@ -462,15 +462,6 @@ if (window.jQuery === undefined) jQuery = $ = {};
         }
     });
 
-    
-    $(document).on("click", function () {
-        setTimeout(function () {
-
-            $('[data-toggle="tooltip"]').tooltip('hide');
-
-        }, 500);    // Hides tooltip in 500 milliseconds
-    });
-
     $(function() {
         $(".navbar .search-container :input").donetyping(function () {
             if($(this).val().length > 0 && $(this).val() != ' ') {
