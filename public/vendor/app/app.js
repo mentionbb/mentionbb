@@ -69,7 +69,7 @@ var app = {};
 
             language: 'app_EditorLanguage',
 
-            plugins: "bbcodeCustom code autoresize imagetools autolink link image customEmoticons lists codesample media table autosave userTagging spoiler quoteMessage paste preview",
+            plugins: "bbcodeCustom code autoresize imagetools autolink link image customEmoticons lists codesample media table autosave userTagging spoiler quoteMessage paste preview fullscreen",
             toolbar: app.setupEditorToolbars(),
 
             invalid_elements: "div",
