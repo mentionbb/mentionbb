@@ -1009,3 +1009,7 @@
 .app-night-mode .tox.tox-tinymce-aux .tox-toolbar__overflow {
 	border: 2px solid #161f29 !important;
 }
+
+.tox .tox-toolbar-overlord {
+	background-color: transparent !important;
+}
