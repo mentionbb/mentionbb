@@ -453,7 +453,22 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
                 $(".app-post-create .progress").addClass("d-none");
             }, 200);
+
+            setTimeout(function () {
+                $(".app-writer-area")
+                    .removeClass("animate")
+                    .removeClass("slideIn");
+            }, 500);
         }
+    });
+
+    
+    $(document).on("click", function () {
+        setTimeout(function () {
+
+            $('[data-toggle="tooltip"]').tooltip('hide');
+
+        }, 500);    // Hides tooltip in 500 milliseconds
     });
 
     $(function() {
