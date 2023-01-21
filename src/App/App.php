@@ -146,7 +146,24 @@ class App
 
 		return true;
 	}
-
+	
+	/**
+	 * versionNaming
+	 * 
+	 * Version naming. Converts build versions to legit versions.
+	 * 
+	 * For example:
+	 * Build: 11015101
+	 * Version: 1.0.15 Beta 1
+	 * 
+	 * Template: 
+	 * [Major/Minor/Update/Stage/Stage Level]
+	 * Stage = 0:Stable|1:Beta|2:Alpha.
+	 * Stage level = 00, no level but Stage keep.
+	 * So when the version is stable, the last three numbers should be 000.
+	 *
+	 * @return void
+	 */
 	public static function versionNaming()
 	{
 		$versionId = self::$build['versionId'];
@@ -157,7 +174,7 @@ class App
 		$update_2 = substr($versionId, 4, 1);
 
 		$stage = substr($versionId, 5, 1);
-		$stageLevel = substr($versionId, 6, 1);
+		$stageLevel = substr($versionId, 6, 1) . substr($versionId, 7, 1);
 
 		if ($stage == 1)
 		{
@@ -167,18 +184,18 @@ class App
 		{
 			$stage = " Alpha";
 		}
-		elseif ($stage == 3)
+		elseif ($stage == 0)
 		{
 			$stage = "";
 		}
 
-		if ($stageLevel == 9)
+		if ($stageLevel == 00)
 		{
 			$stageLevel = "";
 		}
 		else
 		{
-			$stageLevel = " {$stageLevel}";
+			$stageLevel = " " . number_format($stageLevel);
 		}
 
 		if (substr("{$update}{$update_2}", 0, 1) == 0)
