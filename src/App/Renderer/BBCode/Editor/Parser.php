@@ -28,6 +28,11 @@ class Parser
         }
 
         $s = $this->tagList->addTagCallback([
+            'name' => 'img',
+            'callback' => [$this, 'imgTag', $s]
+        ]);
+
+        $s = $this->tagList->addTagCallback([
             'name' => 'list',
             'callback' => [$this, 'listTag', $s]
         ]);
@@ -42,6 +47,23 @@ class Parser
         $s = preg_replace('/<\/(ol|ul|code|pre|p)>\s*<br\s?(\/)?>/si', '</$1>', $s);
 
         return $s;
+    }
+
+    public function imgTag($options, $string)
+    {
+        return preg_replace_callback("/{$options['bbCode']}/si", function ($matches)
+        {
+            return preg_replace_callback("/(.*?)\:([0-9]+)\:([0-9]+)/", function ($img) use ($matches)
+            {
+                $imgData = [
+                    'title' => $img[1],
+                    'width' => $img[2],
+                    'height' => $img[3]
+                ];
+
+                return "<img src=\"{$matches[2]}\" alt=\"{$imgData['title']}\" width=\"{$imgData['width']}\" height=\"{$imgData['height']}\" />";
+            }, $matches[1]);
+        }, $string);
     }
 
     public function listTag($options, $string)

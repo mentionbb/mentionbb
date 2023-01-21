@@ -17,7 +17,7 @@ class PostProcess
 
         '<img class="js-Twemoji_MentionEditor"(?:.*?)alt="(.*?)" \/>' => '$1',
 
-        '<img.*?src=\"(.*?)\" alt=\"(.*?)\".*?\/>' => '[img=$2]$1[/img]',
+        '<img src=\"(.*?)\" (alt=\"(.*?)\") (width=\"(.*?)\" height=\"(.*?)\")?\s?\/?>' => '[img=$3:$5:$6]$1[/img]',
         '<span class=\"codeStyle\">(.*?)<\/span>' => '[code]$1[/code]',
         '<span class=\"quoteStyle\">(.*?)<\/span>' => '[quote]$1[/quote]',
         '<strong class=\"codeStyle\">(.*?)<\/strong>' => '[code][b]$1[/b][/code]',

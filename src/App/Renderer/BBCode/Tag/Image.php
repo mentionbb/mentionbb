@@ -16,14 +16,17 @@ class Image extends \App\Renderer\BBCode\Tag\AbstractTag
 		 * <img src="{string}" alt="{1}" title="{1}" />
 		 */
 		$this->addTag(
-			'img={param}',
-			['<a class="no-unfurl" href="{string}" data-fancybox="images" data-caption="{1}"><img class="app-AttachmentImage" src="{string}" alt="{1}" title="{1}" /></a>'],
-			['<img src="{string}" alt="{1}" title="{1}" />']
+			'img={param}', ['']
 		);
 
 		/**
 		 * Adding "string" information to the following tags: img
 		 */
 		$this->addString(['img']);
+
+		/**
+		 * Adding "callback" information to the following tags: img
+		 */
+		$this->addCallback(['img']);
 	}
 }

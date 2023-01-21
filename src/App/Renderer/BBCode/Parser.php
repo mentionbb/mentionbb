@@ -59,6 +59,11 @@ class Parser
         }
 
         $s = $tagList->addTagCallback([
+            'name' => 'img',
+            'callback' => [$this, 'imgTag', $s]
+        ]);
+
+        $s = $tagList->addTagCallback([
             'name' => 'list',
             'callback' => [$this, 'listTag', $s]
         ]);
@@ -92,6 +97,25 @@ class Parser
         $string = $this->Parse($string);
 
         return ClearBBCode::Process($string, $nl2br, $html);
+    }
+
+    public function imgTag($options, $string)
+    {
+        return preg_replace_callback("/{$options['bbCode']}/si", function ($matches)
+        {
+            return preg_replace_callback("/(.*?)\:([0-9]+)\:([0-9]+)/", function ($img) use ($matches)
+            {
+                $imgData = [
+                    'title' => $img[1],
+                    'width' => $img[2],
+                    'height' => $img[3]
+                ];
+
+                return "<a class=\"no-unfurl\" href=\"{$matches[2]}\" data-fancybox=\"images\" data-caption=\"{$imgData['title']}\">
+                <img class=\"app-AttachmentImage\" src=\"{$matches[2]}\" alt=\"{$imgData['title']}\" title=\"{$imgData['title']}\" width=\"{$imgData['width']}\" height=\"{$imgData['height']}\" />
+                </a>";
+            }, $matches[1]);
+        }, $string);
     }
 
     public function listTag($options, $string)
@@ -270,9 +294,13 @@ class Parser
             {
                 list($width, $height) = getimagesize($localImage);
 
-                if ($width >= '900')
+                $doc = new \DOMDocument();
+                $doc->loadHTML($matches[0]);
+                $data = $doc->getElementsByTagName('img')[0];
+
+                if ($width >= '900' && $data->getAttribute('width') >= '900')
                 {
-                    return "<img class=\"app-AttachmentImage\" src=\"{$matches[1]}\" style=\"width: 50%\" {$matches[2]}>";
+                    return "<img class=\"app-AttachmentImage\" src=\"{$matches[1]}\" style=\"width: 50%;height: 50%\" {$matches[2]}>";
                 }
                 else
                 {
