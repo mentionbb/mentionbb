@@ -1,10 +1,10 @@
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)"
-            srcset="https://github.com/par274/mentionbb/blob/master/public/images/logo-nightmode.svg">
+            srcset="https://github.com/mentionbb/mentionbb/blob/master/public/images/logo-nightmode.svg">
         <source media="(prefers-color-scheme: light)"
-            srcset="https://github.com/par274/mentionbb/blob/master/public/images/logo.svg">
-        <img alt="Mention logo" src="https://github.com/par274/mentionbb/blob/master/public/images/logo.svg"
+            srcset="https://github.com/mentionbb/mentionbb/blob/master/public/images/logo.svg">
+        <img alt="Mention logo" src="https://github.com/mentionbb/mentionbb/blob/master/public/images/logo.svg"
             width="500px">
     </picture>
 </p>
@@ -34,12 +34,12 @@ You have to do this manually as the Installer isn't ready yet.
 
 ### Via Zip
 
-[Download the latest files](https://github.com/par274/mentionbb/releases/latest) and extract them from the Zip file.
+[Download the latest files](https://github.com/mentionbb/mentionbb/releases/latest) and extract them from the Zip file.
 
 ### Via Git
 
 ```
-git clone https://github.com/par274/mentionbb
+git clone https://github.com/mentionbb/mentionbb
 ```
 
 After this step, we need to perform a composer update.
@@ -111,4 +111,4 @@ These are the main packages that have been used. We used a lot of things to crea
 
 # License
 
-Mention is a open-source project and licensed under the MIT License(MIT). Please read the [license file](https://github.com/par274/mentionbb/blob/master/license.md).
+Mention is a open-source project and licensed under the MIT License(MIT). Please read the [license file](https://github.com/mentionbb/mentionbb/blob/master/license.md).
