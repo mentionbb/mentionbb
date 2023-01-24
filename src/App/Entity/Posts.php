@@ -72,7 +72,7 @@ class Posts extends Mapper
 			$group_by_group = "";
 		}
 
-		if (is_null($onlyStickyDiscussions))
+		if (!$onlyStickyDiscussions && is_null($onlyStickyDiscussions))
 		{
 			$onlyStickyDiscussions_Query = "";
 		}

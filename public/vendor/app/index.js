@@ -111,12 +111,12 @@ if (window.jQuery === undefined) jQuery = $ = {};
 			if($(this).val().length > 0 && $(this).val() != ' ') {
 				if($("#quick-search :input[name='search-forum']").is(':checked')) {
 					if($('.app-forums [data-ui="quick-forum-posts"].active').data('forum-id') === 0) {
-						var forum_id = null;
+						var forum_id = 0;
 					} else {
 						var forum_id = $('.app-forums [data-ui="quick-forum-posts"].active').data('forum-id');
 					}
 				} else {
-					var forum_id = null;
+					var forum_id = 0;
 				}
 
 				if($('.app-switch input').is(':checked')) {
@@ -171,12 +171,12 @@ if (window.jQuery === undefined) jQuery = $ = {};
 								Storages.localStorage.set('auto-refresh-post', true);
 
 								$('.app-forums .filter-content').attr('data-no-refresh', false);
-
-								$('.app-forums a').removeClass('disabled');
-
-								$(".app-order-post > button.order-newest").attr('disabled', false);
-								$(".app-post-manage button.post-refresh").attr('disabled', false);
 							}
+
+							$('.app-forums a').removeClass('disabled');
+
+							$(".app-order-post > button.order-newest").attr('disabled', false);
+							$(".app-post-manage button.post-refresh").attr('disabled', false);
 						});
 					}
 				}).fail(function(xhr, status, err) {
