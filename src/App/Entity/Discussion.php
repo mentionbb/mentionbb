@@ -85,7 +85,7 @@ class Discussion extends Mapper
 			LIMIT 1
 			");
 
-		$query->bindValue('discussion_id', intval($discussion_id));
+		$query->bindValue('discussion_id', intval($discussion_id), $this->getType('integer'));
 		$query->bindValue('is_active', 1, $this->getType('integer'));
 
 		$fetch = $query->executeQuery()->fetchAssociative();
