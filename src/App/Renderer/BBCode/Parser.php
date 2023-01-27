@@ -69,6 +69,11 @@ class Parser
         ]);
 
         $s = $tagList->addTagCallback([
+            'name' => 'heading',
+            'callback' => [$this, 'headingTag', $s]
+        ]);
+
+        $s = $tagList->addTagCallback([
             'name' => 'spoiler',
             'callback' => [$this, 'spoilerTag', $s]
         ]);
@@ -87,7 +92,7 @@ class Parser
 
         $s = $this->userTagging($s);
 
-        $s = preg_replace('/<\/(ol|ul|code|pre|p)>\s*<br\s?(\/)?>/si', '</$1>', $s);
+        $s = preg_replace('/<\/(ol|ul|code|pre|p|h(?:[0-9]+))>\s*<br\s?(\/)?>/si', '</$1>', $s);
 
         return $s;
     }
@@ -115,6 +120,16 @@ class Parser
                 <img class=\"app-AttachmentImage\" src=\"{$matches[2]}\" alt=\"{$imgData['title']}\" title=\"{$imgData['title']}\" width=\"{$imgData['width']}\" height=\"{$imgData['height']}\" />
                 </a>";
             }, $matches[1]);
+        }, $string);
+    }
+
+    public function headingTag($options, $string)
+    {
+        return preg_replace_callback("/{$options['bbCode']}/si", function ($matches)
+        {
+            $link = \App\Phrase::buildSeoLink($matches[2]);
+
+            return "<h{$matches[1]} id=\"{$link}\">{$matches[2]}<a href=\"#{$link}\"></a></h{$matches[1]}>";
         }, $string);
     }
 
