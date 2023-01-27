@@ -5,6 +5,7 @@ namespace App\Hook;
 use App\Hook\Helper\Discussion as DiscussionHook;
 use App\Hook\Helper\Faq as FaqHook;
 use App\Hook\Helper\Feature;
+use App\Hook\Filter\FilterTag;
 
 use Masterminds\HTML5;
 
@@ -48,7 +49,7 @@ class Html
                 $node->removeChild($node->firstChild);
             }
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML($replace());
+            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
             $node->appendChild($fragment);
         }
     }
@@ -59,7 +60,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML($replace());
+            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
             $node->parentNode->insertBefore($fragment, $node);
         }
     }
@@ -70,7 +71,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML($replace());
+            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
             $node->parentNode->insertBefore($fragment, $node->nextSibling);
         }
     }
@@ -81,7 +82,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML($replace());
+            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
             $node->appendChild($fragment);
         }
     }
@@ -92,7 +93,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML($replace());
+            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
             $node->insertBefore($fragment, $node->firstChild);
         }
     }
@@ -165,7 +166,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML($replace());
+            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
             $node->parentNode->replaceChild($fragment, $node);
         }
     }
