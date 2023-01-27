@@ -8,6 +8,7 @@ use App\Hook\Helper\Feature;
 
 use Masterminds\HTML5;
 
+use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\CssSelector\CssSelectorConverter;
 
 class Html
@@ -19,16 +20,18 @@ class Html
     protected $html;
     protected $feature;
 
-    public function __construct($name, $html, object $container)
+    public function __construct($name, $html, $container = null)
     {
         $this->name = $name;
         $this->feature = new Feature($this);
 
         $this->html5 = new HTML5();
         $this->dom = $this->html5->loadHTML($html);
-        $this->dom->formatOutput = true;
 
-        $this->addDispatch($container);
+        if (!is_null($container))
+        {
+            $this->addDispatch($container);
+        }
 
         $this->html = $this->htmltoTemplate(
             $this->html5->saveHTML($this->dom)
@@ -270,7 +273,12 @@ class Html
             $html .= $this->html5->saveHtml($node);
         }
 
-        return $html;
+        return $this->get($html);
+    }
+
+    public function get($html)
+    {
+        return new Crawler($html);
     }
 
     public function isTemplate($name)
