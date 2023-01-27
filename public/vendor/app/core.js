@@ -459,6 +459,14 @@ if (window.jQuery === undefined) jQuery = $ = {};
                     .removeClass("animate")
                     .removeClass("slideIn");
             }, 500);
+
+            if($(".app-writer-area").closest('.app-post-container').length) {
+                setTimeout(function () {
+                    $(".app-post-container")
+                        .removeClass("animate")
+                        .removeClass("slideIn");
+                }, 500);
+            }
         }
     });
 
