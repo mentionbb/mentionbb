@@ -203,8 +203,8 @@ class ProcessTags
 		return $this->tagList[$tag];
 	}
 
-	public function setCallback($tag)
+	public function setCallback($tag, $callback = true)
 	{
-		$this->tagList[$tag]['callback'] = true;
+		$this->tagList[$tag]['callback'] = $callback;
 	}
 }
