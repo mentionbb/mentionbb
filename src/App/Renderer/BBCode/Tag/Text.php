@@ -83,7 +83,7 @@ class Text extends \App\Renderer\BBCode\Tag\AbstractTag
 		 */
 		$this->addTag(
 			'heading={param}',
-			['<h{1}>', '</h{1}>'],
+			[''],
 			['<h{1}>', '</h{1}>']
 		);
 
@@ -143,5 +143,10 @@ class Text extends \App\Renderer\BBCode\Tag\AbstractTag
 		 * Adding "single" information to the following tags: bull, copy, registered, tm
 		 */
 		$this->addSingle(['bull', 'copy', 'registered', 'tm']);
+
+		/**
+		 * Adding "callback" information to the following tags: heading
+		 */
+		$this->addCallback(['heading']);
 	}
 }

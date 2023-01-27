@@ -19,6 +19,7 @@ class Parser
     {
         $s = (string) $string;
 
+        $this->tagList->setCallback('heading', false);
         foreach ($this->tagList->getTagList() as $finalList)
         {
             if (!is_null($finalList['editorModification']) && !$finalList['callback'])
@@ -44,7 +45,7 @@ class Parser
         ]);
 
         $s = preg_replace('/\r\n/', '<br />', $s);
-        $s = preg_replace('/<\/(ol|ul|code|pre|p)>\s*<br\s?(\/)?>/si', '</$1>', $s);
+        $s = preg_replace('/<\/(ol|ul|code|pre|p|h(?:[0-9]+))>\s*<br\s?(\/)?>/si', '</$1>', $s);
 
         return $s;
     }
