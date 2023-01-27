@@ -38,7 +38,7 @@ class Event extends DispatcherEvent
         $event->container->dom->insertBefore('.discuss-info:first-child > div:first-child', function () use ($event)
         {
             return $event->container->template->render(
-                '{addon:gestures}/gesture.tpl',
+                '{addon:gestures}/gesture.twig',
                 []
             );
         });
@@ -49,7 +49,7 @@ class Event extends DispatcherEvent
         $event->container->dom->prepend('{hook:discussionpost-text}', function () use ($event)
         {
             return $event->container->template->render(
-                '{addon:gestures}/doubletap_reactions.tpl',
+                '{addon:gestures}/doubletap_reactions.twig',
                 []
             );
         });
