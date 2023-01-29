@@ -8,6 +8,16 @@ if (window.jQuery === undefined) jQuery = $ = {};
             return this.data("changed"); 
         },
 
+        //https://stackoverflow.com/a/8015864
+        hasClasses: function (selectors) {
+            var self = this;
+            for (var i in selectors) {
+                if ($(self).hasClass(selectors[i]))
+                    return true;
+            }
+            return false;
+        },
+
         trackChanges: function() {
             $(":input",this).change(function() {
                 $(this.form).data("changed", true);
