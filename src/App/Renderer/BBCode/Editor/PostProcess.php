@@ -38,20 +38,20 @@ class PostProcess
         '<u>' => '[u]',
         '<blockquote[^>]*>' => '[quote]',
         '<\/blockquote>' => '[/quote]',
-        
+
         //'<br \/>' => "\r\n",
         //'<br\/>' => "\r\n",
         //'<br>' => "\r\n",
 
-        '&nbsp;|\u00a0' => ' ',
+        '&nbsp;' => ' ',
         '&quot;' => '',
         '&lt;' => '<',
         '&gt;' => '>',
         '&amp;' => '&',
 
-        '<ul>' => '[list=disc]',
+        '<ul(.*?)?>' => '[list=disc]',
         '<\/ul>' => '[/list]',
-        '<ol>' => '[list=decimal]',
+        '<ol(.*?)?>' => '[list=decimal]',
         '<\/ol>' => '[/list]',
         '<li>(.*?)<\/li>' => '[li]$1[/li]',
 
@@ -65,7 +65,7 @@ class PostProcess
 
         '<pre class="language-(.*?)"><code>(.*?)<\/code><\/pre>' => '[code=$1]$2[/code]',
 
-        '<h(1|2|3|4|5|6)>(.*?)<\/h(1|2|3|4|5|6)>' => '[heading=$1]$2[/heading]',
+        '<h(1|2|3|4|5|6)(.*?)?>(.*?)<\/h(1|2|3|4|5|6)>' => '[heading=$1]$3[/heading]',
         '<pre>(.*?)<\/pre>' => '[pre]$1[/pre]',
         '<span style="font-family: (.*?);">(.*?)<\/span>' => '[font=$1]$2[/font]',
 
