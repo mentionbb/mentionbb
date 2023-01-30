@@ -82,6 +82,7 @@ class Parser
         $s = $this->mediaTag($s);
         $s = $this->quoteTag($s, $quoteContainer);
         $s = $this->externalQuoteTag($s, $quoteContainer);
+        $s = $this->quotePostSelectedTag($s, $quoteContainer);
         $s = $this->imageResize($s);
         $s = $this->censorWords($s);
 
@@ -152,6 +153,53 @@ class Parser
             }
 
             $template .= $this->quote($matches[0]);
+
+            if ($quoteContainer)
+            {
+                $template .= "<div class=\"expandQuote js-expandQuote d-none\"><a href=\"#\" role=\"button\"></a></div>";
+                $template .= "</div>";
+            }
+
+            return $template;
+        }, $string);
+    }
+
+    
+
+    protected function quotePostSelectedTag($string, $quoteContainer)
+    {
+        return preg_replace_callback("/(\[post-selected-quote=([0-9]+)\](.*?)\[\/post-quote\])/is", function ($matches) use ($quoteContainer)
+        {
+            $template = "";
+            if ($quoteContainer)
+            {
+                $template .= "<div class=\"bbContainer_appQuote\">";
+            }
+
+            $postString = (new \App\String\Post())->getPostByPostId($matches[2]);
+
+            if ($postString)
+            {
+                $template = "<div class=\"quote-container shadow-sm p-3\">";
+
+                $template .= "<div class=\"quote d-flex flex-column text-dark\" data-post-id=\"{$matches[2]}\">";
+
+                $content = htmlspecialchars_decode($matches[3]);
+                $content = Escape::escapeQuotes($content);
+                $content = htmlspecialchars($content, ENT_QUOTES);
+                $content = htmlspecialchars_decode($content);
+
+                $user = new \App\SubContainer\User\Link($this->settings, $this->language, $this->phrase);
+                $user->setUser($postString['user_id']);
+                $template .= "<div class=\"mb-3\"><span class=\"user\">{$user->getName()}</span></div><div class=\"mr-auto\"><span>{$content}</span></div>";
+                $user->unsetUser();
+
+                $template .= "</div>";
+
+                $template .= "</div>";
+
+                return $template;
+            }
 
             if ($quoteContainer)
             {
@@ -315,11 +363,11 @@ class Parser
 
                 if ($width >= '900' && $data->getAttribute('width') >= '900')
                 {
-                    return "<img class=\"app-AttachmentImage\" src=\"{$matches[1]}\" style=\"width: 50%;height: 50%\" {$matches[2]}>";
+                    return "<img class=\"app-AttachmentImage\" src=\"{$matches[1]}\" style=\"width: 50%;height: 100%\" {$matches[2]} />";
                 }
                 else
                 {
-                    return "<img class=\"app-AttachmentImage\" src=\"{$matches[1]}\" {$matches[2]}>";
+                    return "<img class=\"app-AttachmentImage\" src=\"{$matches[1]}\" {$matches[2]} />";
                 }
             }
             else

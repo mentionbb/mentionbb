@@ -527,7 +527,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 			var quoteInner = '<p><br></p>[post-quote]'+post_id+'[/post-quote]';
 		}
 		
-		tinymce.get('post-editor').execCommand('mceInsertContent', false, currentContent+quoteInner);;
+		tinymce.get('post-editor').execCommand('mceInsertContent', false, currentContent+quoteInner);
 	});
 
 	$(document).on('click', '[data-ui="post-bookmark"]', function (e) {
@@ -1146,6 +1146,153 @@ if (window.jQuery === undefined) jQuery = $ = {};
 				}
 			} */
 		}
+	});
+
+	//https://codepen.io/FezVrasta/pen/vWXQdq
+	$(function () {
+		if ($('body[data-template="discussion"]').length) {
+			class RangeRef {
+				constructor() {
+					this.updateRect();
+
+					const update = (evt, hide = false) => {
+						let selection = document.getSelection();
+
+						this.range = selection && selection.rangeCount && selection.getRangeAt(0);
+
+						if (!$(selection.focusNode).closest('.app-bbcode-content').hasClasses(['app-bbcode-content'])) {
+							hide = true;
+						}
+
+						if (!selection.toString().length) {
+							hide = true;
+						}
+
+						var html = false;
+						if (typeof selection != "undefined") {
+							var sel = selection;
+							if (sel.rangeCount) {
+								var container = document.createElement("span");
+								for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+									container.appendChild(sel.getRangeAt(i).cloneContents())+"<br>";
+								}
+								html = container.innerHTML;
+							}
+						} else if (typeof document.selection != "undefined") {
+							if (document.selection.type == "Text") {
+								html = document.selection.createRange().htmlText;
+							}
+						}
+
+						if (!html || !html.length) {
+							hide = true;
+						}
+
+						$('#quote-pop').attr('data-post-id',
+							$(selection.focusNode).closest('.post').data('post-id')
+						);
+						$('#quote-pop').attr('data-quote-json',
+							JSON.stringify({ 'quote': html })
+						);
+
+						this.updateRect(hide);
+					}
+					document
+						.querySelector(".app-bbcode-content")
+						.addEventListener("mouseup", update);
+					document
+						.querySelector(".app-bbcode-content")
+						.addEventListener("input", update);
+					document
+						.querySelector(".app-bbcode-content")
+						.addEventListener("keydown", evt => update(evt, true));
+
+					window
+						.addEventListener("scroll", update);
+					document
+						.scrollingElement
+						.addEventListener("scroll", update);
+
+					window
+						.addEventListener("click", update);
+				}
+
+				updateRect(hide) {
+					if (!hide && this.range) {
+						this.rect = this.range.getBoundingClientRect();
+					} else {
+						this.rect = {
+							top: 0,
+							left: 0,
+							right: 0,
+							bottom: 0,
+							width: 0,
+							height: 0
+						};
+					}
+
+					this.rectChangedCallback(this.rect);
+				}
+
+				rectChangedCallback() { }
+
+				getBoundingClientRect() {
+					return this.rect;
+				}
+
+				get clientWidth() {
+					return this.rect.width;
+				}
+
+				get clientHeight() {
+					return this.rect.height;
+				}
+			}
+
+			const pop = document.getElementById("quote-pop");
+			const rangeRef = new RangeRef();
+			const popper = new Popper(rangeRef, pop, {
+				placement: "top",
+				modifiers: {
+					name: 'eventListeners',
+					options: { scroll: false }
+				},
+			});
+
+			rangeRef.rectChangedCallback = ({ width }) => {
+				if (width > 0) {
+					popper.scheduleUpdate();
+					pop.classList.add('show');
+				} else {
+					pop.classList.remove('show');
+				}
+			};
+		}
+	});
+
+	$(document).on('click', '#quote-pop a', function (e) {
+		e.preventDefault();
+
+		var post_id = $(this).closest('#quote-pop').attr('data-post-id');
+		var content = $.parseJSON($(this).closest('#quote-pop').attr('data-quote-json'));
+
+		$('.post[data-post-id="' + post_id + '"]').find('.progress').removeClass('d-none');
+
+		setTimeout(function () {
+			$('[data-ui="show-editor"]').click();
+
+			var currentContent = tinymce.get('post-editor').getContent();
+
+			if (app.getStats('post-editor').chars < 1) {
+				var quoteInner = '[post-selected-quote=' + post_id + ']' + content.quote + '[/post-quote]';
+			} else {
+				var quoteInner = '<p><br></p>[post-selected-quote=' + post_id + ']' + content.quote + '[/post-quote]';
+			}
+
+			tinymce.get('post-editor').execCommand('mceInsertContent', false, currentContent + quoteInner);
+
+			$('.post[data-post-id="' + post_id + '"]').find('.progress').addClass('d-none');
+		}, 200);
 	});
 
 	function codeHighlighterTitle() {
