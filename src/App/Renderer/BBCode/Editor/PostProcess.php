@@ -15,7 +15,7 @@ class PostProcess
         '<span style=\"font-size:(.*?);\">(.*?)<\/span>' => '[size=$1]$2[/size]',
         '<font>(.*?)<\/font>' => '$1',
 
-        '<img class="js-Twemoji_MentionEditor"(?:.*?)alt="(.*?)" \/>' => '$1',
+        '<img class="js-Twemoji_MentionEditor"(?:.*?)alt="(.*?)"(.*?)\/>' => '$1',
 
         '<img src=\"(.*?)\" (alt=\"(.*?)\") (width=\"(.*?)\" height=\"(.*?)\")?\s?\/?>' => '[img=$3:$5:$6]$1[/img]',
         '<span class=\"codeStyle\">(.*?)<\/span>' => '[code]$1[/code]',
