@@ -1,25 +1,10 @@
 @import url('../../themes/frontend/assets/font/nunito.css');
-
-:root {
-	--primary: #CFD8DC;
-	--divider: #BDBDBD;
-	--black: #212121;
-	--red: #f44336;
-	--pink: #E91E63;
-	--purple: #9C27B0;
-	--deep-purple: #512DA8;
-	--blue: #2196F3;
-	--green: #4CAF50;
-	--yellow: #FFEB3B;
-	--orange: #FF9800;
-	--brown: #ca917c;
-	--grey: #9E9E9E;
-	--blue-grey: #607D8B;
-}
+@import url('../../themes/frontend/assets/colorschema-light.css');
 
 body {
-	font-family: 'Nunito', sans-serif;
-	background-color: #f8f9fa;
+	font-family: var(--mention-primary-font-family);
+	background-color: var(--mention-doc-bg-color);
+	color: var(--mention-doc-text-color);
 }
 
 .container {
@@ -29,7 +14,7 @@ body {
 	padding-right: 15px;
 }
 
-.app-container > .container {
+.app-container>.container {
 	margin-top: 2.2rem;
 }
 
@@ -46,7 +31,7 @@ body {
 
 #hello-container .path {
 	fill: none;
-	stroke: #37474F;
+	stroke: var(--mention-text-dark-color);
 	stroke-width: 18px;
 	stroke-linecap: round;
 	stroke-linejoin: round;
@@ -86,8 +71,8 @@ body {
 }
 
 .logo.install-index svg [class^='st'] {
-	fill: #f8f9fa;
-	stroke: #37474F;
+	fill: var(--mention-doc-bg-color);
+	stroke: var(--mention-text-dark-color);
 	stroke-width: 5px;
 	stroke-linecap: round;
 	stroke-linejoin: round;
@@ -98,8 +83,8 @@ body {
 }
 
 .logo.install svg [class^='st'] {
-	fill: #f8f9fa;
-	stroke: #37474F;
+	fill: var(--mention-doc-bg-color);
+	stroke: var(--mention-text-dark-color);
 	stroke-width: 5px;
 	stroke-linecap: round;
 	stroke-linejoin: round;
@@ -166,22 +151,22 @@ body {
 }
 
 .app-install {
-	border-top: 5px solid #fb8f20;
+	border-top: 5px solid var(--mention-primary-border-color);
 }
 
 .app-install.error {
 	border-top: 5px solid #e53935;
 }
 
-.app-install >.layout {
+.app-install>.layout {
 	position: relative;
 	width: 100%;
 	padding: 10px;
 	padding-top: 13px;
 }
 
-.app-install > .layout p {
-	color: #000;
+.app-install>.layout p {
+	color: var(--mention-doc-text-color);
 	margin-bottom: 0;
 }
 
@@ -201,8 +186,8 @@ body {
 	background-color: transparent;
 	padding: 0;
 	height: 45px;
-	color: #37474f;
-	border: 2px solid #37474f;
+	color: var(--mention-text-dark-color);
+	border: 2px solid var(--mention-border-color);
 	padding: 0 10px;
 	-webkit-transition: border-color 0.3s, color 0.3s;
 	transition: border-color 0.3s, color 0.3s;
@@ -213,17 +198,17 @@ body {
 	vertical-align: middle;
 	transition: all .3s ease;
 	border-radius: 0.25rem;
-	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+	box-shadow: var(--mention-light-shadow);
 }
 
-.btn.btn-app > span {
+.btn.btn-app>span {
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .btn.btn-app:hover {
-	border: 2px solid #fb8f21;
-	color: #fb8f21;
+	border: 2px solid var(--mention-primary-border-color);
+	color: var(--mention-primary-text-color);
 }
 
 /* Progress animation by https://codepen.io/holdencreative/pen/vEVbwv */
@@ -232,7 +217,7 @@ body {
 	height: 5px;
 	display: block;
 	width: 100%;
-	background-color: #37474f;
+	background-color: var(--mention-progress-bg-color);
 	border-radius: 2px;
 	background-clip: padding-box;
 	margin: 0;
@@ -247,12 +232,12 @@ body {
 	background-color: inherit;
 	top: 0;
 	bottom: 0;
-	background-color: #cccccc;
+	background-color: var(--mention-progress-indeterminate-bg-color);
 	transition: width .3s linear;
 }
 
 .progress .indeterminate {
-	background-color: #cccccc;
+	background-color: var(--mention-progress-indeterminate-bg-color);
 }
 
 .progress .indeterminate:before {
@@ -291,6 +276,12 @@ body {
 	animation-name: fadeIn;
 }
 
+/* Mozilla fix */
+.scrollable {
+	scrollbar-color: var(--mention-scroll-color) transparent;
+	scrollbar-width: thin;
+}
+
 .scrollable::-webkit-scrollbar {
 	background-color: transparent;
 	width: 15px;
@@ -313,13 +304,13 @@ body {
 
 /* scrollbar itself */
 .scrollable::-webkit-scrollbar-thumb {
-	background-color: #6f8692;
+	background-color: var(--mention-scroll-color);
 	border-left: 10px solid transparent;
 	background-clip: padding-box;
 }
 
 .scrollable::-webkit-scrollbar-thumb:hover {
-	background-color: #37474f;
+	background-color: var(--mention-scroll-hover-color);
 }
 
 /* set button(top and bottom of the scrollbar) */
