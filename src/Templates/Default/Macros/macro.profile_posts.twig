@@ -32,8 +32,8 @@
 							<span class="forum rounded">{{ item.forum_title }}</span>
 						</div>
 						{% set profilePosts_Content = app.sub.renderer.bbcode.ClearBBCode(item.content) %}
-						{% if profilePosts_Content|length > 450 %}
-							<p class="mt-1">{{ app.sub.editor.emoticons.Render(profilePosts_Content)|slice(0, 450)|raw }}...</p>
+						{% if profilePosts_Content|length > 200 %}
+							<p class="mt-1">{{ app.sub.editor.emoticons.Render(profilePosts_Content)|slice(0, 200)|raw }}...</p>
 						{% else %}
 							<p class="mt-1">{{ app.sub.editor.emoticons.Render(profilePosts_Content)|raw }}</p>
 						{% endif %}
@@ -46,8 +46,8 @@
 						<hr>
 					{% else %}
 						{% set profilePosts_Content = app.sub.renderer.bbcode.ClearBBCode(item.content) %}
-						{% if profilePosts_Content|length > 450 %}
-							<p class="mt-1">{{ app.sub.editor.emoticons.Render(profilePosts_Content)|slice(0, 450)|raw }}...</p>
+						{% if profilePosts_Content|length > 200 %}
+							<p class="mt-1">{{ app.sub.editor.emoticons.Render(profilePosts_Content)|slice(0, 200)|raw }}...</p>
 						{% else %}
 							<p class="mt-1">{{ app.sub.editor.emoticons.Render(profilePosts_Content)|raw }}</p>
 						{% endif %}

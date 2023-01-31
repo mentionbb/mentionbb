@@ -44,8 +44,8 @@
 						<span class="forum rounded">{{ item.forum_title }}</span>
 					</div>
 					{% set indexPosts_Content = app.sub.renderer.bbcode.ClearBBCode(item.content) %}
-					{% if indexPosts_Content|length > 450 %}
-						<p class="mt-1">{{ app.sub.editor.emoticons.Render(indexPosts_Content)|slice(0, 450)|raw }}...</p>
+					{% if indexPosts_Content|length > 200 %}
+						<p class="mt-1">{{ app.sub.editor.emoticons.Render(indexPosts_Content)|slice(0, 200)|raw }}...</p>
 					{% else %}
 						<p class="mt-1">{{ app.sub.editor.emoticons.Render(indexPosts_Content)|raw }}</p>
 					{% endif %}

@@ -22,8 +22,8 @@
 					<div class="d-flex">
 						<div class="d-flex flex-column">
 							{% set accountPosts_Content = app.sub.renderer.bbcode.ClearBBCode(item.content) %}
-							{% if accountPosts_Content|length > 450 %}
-								<p class="mt-1">{{ app.sub.editor.emoticons.Render(accountPosts_Content)|slice(0, 450)|raw }}...</p>
+							{% if accountPosts_Content|length > 200 %}
+								<p class="mt-1">{{ app.sub.editor.emoticons.Render(accountPosts_Content)|slice(0, 200)|raw }}...</p>
 							{% else %}
 								<p class="mt-1">{{ app.sub.editor.emoticons.Render(accountPosts_Content)|raw }}</p>
 							{% endif %}
