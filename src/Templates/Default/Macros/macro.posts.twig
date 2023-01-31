@@ -435,7 +435,7 @@
 			<div class="align-self-center h5 mb-0 ml-auto text-dark">{{ app.sub.lang.parse.Parse('discussion.first_post.posts', (string.post.getDiscussionPostCount() - 1)) }}</div>
 		</div>
 	{% endif %}
-	{% if firstpost %}
+	{% if firstpost and item.is_open %}
 		{% if string.post.getDiscussionPostCount() < 2 %}
 		    {% if app.user.loggedIn() %}
 			    <div class="no-post d-block">
