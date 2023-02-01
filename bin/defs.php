@@ -11,7 +11,7 @@
  * 
  */
 
-define('INDEX_DIR', __DIR__ . '/../');
+define('INDEX_DIR', __DIR__ . '/..');
 
 //Application location.
 define('APPLICATION_SELF', INDEX_DIR . '/src');
