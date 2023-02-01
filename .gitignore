@@ -226,3 +226,10 @@ src/Addons/Typography.yaml
 src/Addons/ProfileReactionBox/Addon.php
 src/Addons/ProfileReactionBox/App/Event.php
 src/Addons/ProfileReactionBox.noactive
+src/Addons/Pacman/Addon.php
+src/Addons/Pacman/App/Event.php
+src/Addons/Pacman/App/Config/routes.yaml
+src/Addons/Pacman/App/Mvc/ApplicationDefinitions.php
+src/Addons/Pacman/App/Mvc/Pub/Game.php
+src/Addons/Pacman/Templates/pacman.twig
+src/Addons/ProfileReactionBox.yaml
