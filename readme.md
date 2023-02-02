@@ -54,6 +54,7 @@ composer update
 ```
 
 For Composer installation: [https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+
 If you have Windows on local: [https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
 
 If you cannot install, download the ready vendor file and move it to the src folder.
