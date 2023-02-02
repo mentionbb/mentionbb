@@ -17,6 +17,8 @@ class Auth
 	protected $user;
 	protected $request;
 	protected $language;
+	protected $datetime;
+	protected $post;
 
 	public static $instance;
 
@@ -195,6 +197,11 @@ class Auth
 		{
 			$username = CookieEncrypt::getInstance()->get('st-username');
 			$userdata = $this->user->getUserDataFromUsername($username);
+
+			if(!$userdata)
+			{
+				$this->secureLogout();
+			}
 
 			if ($userdata->password != $_COOKIE['st-password'])
 			{

@@ -142,10 +142,14 @@ class Users extends ApplicationDefinitions implements Pub
 
         if ($post->has('username'))
         {
-            $account->changeUsername([
-                'username' => $post->get('username'),
-                'user_id' => $post->get('user_id')
-            ]);
+            $account->changeUsername(
+                [
+                    'username' => $post->get('username'),
+                    'user_id' => $post->get('user_id')
+                ],
+                $this->user,
+                $this->datetime
+            );
         }
 
         if ($post->has('password'))

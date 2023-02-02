@@ -3,6 +3,7 @@
 namespace App\SubContainer\User;
 
 use App\Repository\Crypto;
+use App\Repository\CookieEncrypt;
 use App\Entity\User;
 use App\SubContainer\Attachment\Attachment;
 use App\SubContainer\Bytes;
@@ -111,9 +112,20 @@ class Account
 		return false;
 	}
 
-	public function changeUsername($data)
+	public function changeUsername($data, $visitor, $datetime)
 	{
 		$input = \App\Repository\Set::setObject($data);
+
+		if ($visitor->visitor()->user_id == $input->user_id)
+		{
+			CookieEncrypt::getInstance()->set([
+				'name' => 'st-username',
+				'data' => $input->username,
+				'cookie_time' => ($datetime->getTimestamp() + 31556926),
+				'cookie_path' => '/',
+				'encrypted' => true
+			]);
+		}
 
 		if ($this->user->setUsername($input->username, $input->user_id))
 		{
