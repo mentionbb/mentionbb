@@ -16,7 +16,7 @@ ini_set('max_execution_time', 900);
 $dir = __DIR__;
 require($dir . '/bin/defs.php');
 
-if (!file_exists(APPLICATION_SELF . '/vendor/autoloadd.php'))
+if (!file_exists(APPLICATION_SELF . '/vendor/autoload.php'))
 {
     require(APPLICATION_SELF . '/vendorError.php');
     return;
