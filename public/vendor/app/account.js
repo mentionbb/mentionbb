@@ -61,7 +61,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
 					if($("#acs_profile_picture").val().length) {
 						dataString.append('acs_profile_picture', $("#acs_profile_picture").get(0).files[0]);
-						if ($("#acs_profile_picture").get(0).files[0] > app.config.settings.profile_photo_max_size) {
+						if ($("#acs_profile_picture").get(0).files[0].size > app.config.settings.profile_photo_max_size) {
 							$('.tab-content.settings .progress').addClass('d-none');
 							app.flashMessage(app.phrases.profile_photo_max_size, 'warning');
 							return false;
