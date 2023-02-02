@@ -37,7 +37,7 @@ a:focus {
 }
 
 .text-light {
-	color: var(--mention-text-muted-color) !important;
+	color: var(--mention-text-light-color) !important;
 }
 
 .text-dark {
