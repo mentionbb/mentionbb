@@ -115,9 +115,9 @@
                                     <div>
                                         <select class="selectpicker ml-lg-auto pt-2 pt-lg-0" data-live-search="true"
                                             title="{{ app.sub.lang.string.container.buttons.select }}" name="role" required="required">
-                                            <option value="0" {{ string.user.is_admin is same as("0") ? 'selected' : '' }}>{{
+                                            <option value="0" {{ string.user.is_admin is same as(0) ? 'selected' : '' }}>{{
                                                 app.sub.lang.string.admin.users.forms.role.select.registered }}</option>
-                                            <option value="1" {{ string.user.is_admin is same as("1") ? 'selected' : '' }}>{{
+                                            <option value="1" {{ string.user.is_admin is same as(1) ? 'selected' : '' }}>{{
                                                 app.sub.lang.string.admin.users.forms.role.select.admin }}</option>
                                         </select>
                                         <small id="help_role" class="form-text text-muted">{{

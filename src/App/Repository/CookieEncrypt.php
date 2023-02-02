@@ -8,6 +8,8 @@ class CookieEncrypt
 {
 	public static $instance;
 
+	protected $session_key;
+
 	public function __construct()
 	{
 		$this->session_key = $this->defineAuthToken();
