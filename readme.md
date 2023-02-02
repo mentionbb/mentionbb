@@ -53,6 +53,12 @@ After this step, we need to perform a composer update.
 composer update
 ```
 
+For Composer installation: [https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+If you have Windows on local: [https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
+
+If you cannot install, download the ready vendor file and move it to the src folder.
+[Vendor.zip](https://github.com/mentionbb/mentionbb/raw/master/vendor.zip)
+
 After that, you need to set the database.
 
 - Create an empty database and import the "db.sql" file located in the main directory.
