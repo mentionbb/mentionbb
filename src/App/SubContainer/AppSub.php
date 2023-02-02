@@ -59,6 +59,9 @@ class AppSub
 		$host = $_SERVER['HTTP_HOST'];
 		$folder = $_SERVER['PHP_SELF'];
 
+		// Fix for some system show "index.php/public/.."
+		$folder = \str_replace('/index.php', '', $folder);
+
 		return "{$protocol}://{$host}{$folder}";
 	}
 }
