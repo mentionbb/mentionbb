@@ -94,7 +94,7 @@ class Attachment
 
 			move_uploaded_file($file["tmp_name"], PUBLIC_DIR . "/{$dir}/{$name}");
 
-			$dir = \App\Phrase::getSiteUrl() . "/public/{$dir}/{$name}";
+			$dir = \App\SubContainer\AppSub::getPublicDir() . "/{$dir}/{$name}";
 
 			return [
 				'name' => $name,
