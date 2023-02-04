@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html dir="ltr">
-
 <head>
     <title>Mention Error 1</title>
 
@@ -81,7 +80,7 @@
             border-color: #aaa;
         }
 
-        button svg {
+        svg {
             width: 1rem;
             height: 1rem;
             padding-right: 9px;
@@ -104,8 +103,7 @@
         }
 
         .container>.message {
-            padding: 10px;
-            padding-top: 15px;
+            padding: 1rem .7rem;
             border-top: 5px solid #b02323;
             background-color: rgba(0, 0, 0, 0.34);
             width: 50%;
@@ -123,6 +121,24 @@
             margin-top: 10px;
         }
 
+        .container>.message .found {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .container>.message .found svg {
+            fill: #5cb927;
+        }
+
+        .container>.copyright {
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+            margin-top: 1rem;
+            width: 50%;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -133,7 +149,8 @@
                 height: 150px;
             }
 
-            .container>.message {
+            .container>.message,
+            .container>.copyright {
                 width: 100%;
             }
 
@@ -159,10 +176,23 @@
             </ol>
             <hr>
             <h4>If you cannot install composer on hosting:</h4>
+            <?php
+            if (file_exists(INDEX_DIR . '/vendor.zip')) :
+            ?>
+                <div class="found">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+                    </svg>
+                    <p>Found vendor.zip in root directory.</p>
+                </div>
+            <?php endif; ?>
             <ol>
-                <li>Download and extract the ready <a href="https://github.com/mentionbb/mentionbb/raw/master/vendor.zip">vendor.zip</a> file.</li>
-                <li>Then <code>move it to the src folder.</code></li>
+                <li>If Vendor.zip is not in the directory, download the ready <a href="https://github.com/mentionbb/mentionbb/raw/master/vendor.zip">vendor.zip</a> file.</li>
+                <li>Then extract it and <code>move it to the src folder.</code></li>
+                <li><b>It should be moved as vendor folder!</b></li>
             </ol>
+            <hr>
+            <small>The reason why the vendor file is not included in the release as standard is that it contains important components that contain thousands of files and are constantly updated. Their update is not dependent on MentionBB.</small>
         </div>
         <div class="message button-container">
             <button onClick="window.location.reload();">
@@ -171,6 +201,9 @@
                 </svg>
                 Reload
             </button>
+        </div>
+        <div class="copyright">
+            <p><?php echo date('Y', time()); ?> &copy; <a target="_blank" href="https://github.com/mentionbb">Mention Community BB</a></p>
         </div>
     </div>
 </body>
