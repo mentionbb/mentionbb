@@ -332,7 +332,9 @@ class Discussion extends Mapper
 			->select('*')
 			->from($this->table)
 			->where('title LIKE ?')
+			->andWhere('is_active = ?')
 			->setParameter(0, "%{$keyword}%")
+			->setParameter(1, 1)
 			->setMaxResults(7)
 			->executeQuery()->fetchAllAssociative();
 
