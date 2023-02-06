@@ -23,7 +23,17 @@ class Pub
 {
 	public function __construct()
 	{
-		\App\App::beginInstall();
+		$begin = \App\App::beginInstall();
+		if (isset($begin['status']))
+		{
+			if ($begin['status'] == 'fail')
+			{
+				require(INDEX_DIR . '/bin/RuntimeErrors.php');
+				\RuntimeErrors::Show($begin['error']);
+
+				return;
+			}
+		}
 
 		$this->matchRoutes();
 	}

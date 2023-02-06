@@ -18,7 +18,9 @@ require($dir . '/bin/defs.php');
 
 if (!file_exists(APPLICATION_SELF . '/vendor/autoload.php'))
 {
-    require(APPLICATION_SELF . '/vendorError.php');
+    require($dir . '/bin/RuntimeErrors.php');
+    RuntimeErrors::Show('vendor');
+
     return;
 }
 

@@ -56,23 +56,45 @@ class App
 		$_phpVersion = \PHP_VERSION;
 		if (version_compare($_phpVersion, self::$_supportPhpVersion, '<='))
 		{
-			throw new \Exception("Your PHP version is '$_phpVersion' is does not support.Support PHP version is '7.4'.");
+			if ($_phpVersion < '7.0')
+			{
+				throw new \Exception("Your PHP version is '$_phpVersion' is does not support.Support PHP version is '7.4'.");
+			}
+			else
+			{
+				return [
+					'status' => 'fail',
+					'error' => 'unsupported_php_version'
+				];
+			}
 		}
 		if (!self::isLoadExtension('curl'))
 		{
-			throw new \Exception("Mention required a PHP Curl Extension.");
+			return [
+				'status' => 'fail',
+				'error' => 'php_extensions_not_found'
+			];
 		}
 		if (!self::isLoadExtension('pdo_mysql'))
 		{
-			throw new \Exception("Mention required a MySQL PDO Extension.");
+			return [
+				'status' => 'fail',
+				'error' => 'php_extensions_not_found'
+			];
 		}
 		if (!self::isLoadExtension('mbstring'))
 		{
-			throw new \Exception("Mention required a mbstring Extension.");
+			return [
+				'status' => 'fail',
+				'error' => 'php_extensions_not_found'
+			];
 		}
 		if (!self::isLoadExtension('iconv'))
 		{
-			throw new \Exception("Mention required a iconv Extension.");
+			return [
+				'status' => 'fail',
+				'error' => 'php_extensions_not_found'
+			];
 		}
 
 		self::$collection = new RouteCollection();
@@ -146,7 +168,7 @@ class App
 
 		return true;
 	}
-	
+
 	/**
 	 * versionNaming
 	 * 
