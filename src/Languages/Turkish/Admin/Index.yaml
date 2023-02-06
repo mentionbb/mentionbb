@@ -40,5 +40,6 @@ Language:
           max_execution_time: "max_execution_time"
           curl_version: "cURL versiyonu"
           support_gzip: "GZip desteği"
+          support_iconv: "Iconv desteği"
           support_mbstring: "Mbstring desteği"
           support_zip: "ZipArchive desteği"

@@ -83,6 +83,16 @@ class ServerEnvironment
         return false;
     }
 
+    public function isIconvEnabled()
+    {
+        if (App::isLoadExtension('iconv'))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isCurlEnabled()
     {
         if (App::isLoadExtension('curl'))

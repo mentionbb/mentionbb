@@ -180,6 +180,16 @@
 									</td>
 								</tr>
 								<tr>
+									<td>{{ app.sub.lang.string.admin.index.server_environment.table.rows.support_iconv }}</td>
+									<td>
+										{% if string.server.isIconvEnabled() %}
+										    {{ app.sub.lang.string.container.generic.yes }}
+										{% else %}
+										    {{ app.sub.lang.string.container.generic.no }}
+										{% endif %}
+									</td>
+								</tr>
+								<tr>
 									<td>{{ app.sub.lang.string.admin.index.server_environment.table.rows.support_mbstring }}</td>
 									<td>
 										{% if string.server.isMbstringEnabled() %}
