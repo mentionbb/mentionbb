@@ -38,6 +38,15 @@ You have to do this manually as the Installer isn't ready yet.
 - Composer
 - Git (Optional)
 
+## Requirements PHP Extensions
+- PDO
+- Mbstring
+- Iconv
+- Curl
+- Zip
+
+These extensions are important.
+
 ### Via Zip
 
 [Download the latest files](https://github.com/mentionbb/mentionbb/releases/latest) and extract them from the Zip file.
