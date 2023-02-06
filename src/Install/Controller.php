@@ -2,6 +2,12 @@
 
 namespace Install;
 
+use App\Repository\Request;
+use App\Repository\Get as GetRepo;
+use App\Repository\Post as PostRepo;
+use App\Phrase;
+use Release\Standalone\Templater;
+
 abstract class Controller
 {
     protected $routing;
@@ -21,17 +27,17 @@ abstract class Controller
 
     public function primaryController()
     {
-        $this->request = new \App\Repository\Request();
+        $this->request = new Request();
 
-        $this->phrase = new \App\Phrase();
+        $this->phrase = new Phrase();
         $this->phrase->setContainer($this->request);
         $this->phrase->setupRouteParams();
 
         $this->template = new Templater();
         $this->templaterController();
 
-        $this->post = new \App\Repository\Post();
-        $this->query = new \App\Repository\Get();
+        $this->post = new PostRepo();
+        $this->query = new GetRepo();
 
         \App\RemoveTrailingSlash::removeTrailingSlash($this->request);
 
