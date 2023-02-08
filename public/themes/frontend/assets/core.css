@@ -16,6 +16,11 @@ a:focus {
 	color: var(--mention-link-hover-color);
 }
 
+a.text-dark:hover,
+a.text-dark:focus {
+	color: var(--mention-link-hover-color) !important;
+}
+
 .bg-white {
 	background-color: var(--mention-primary-bg-color) !important;
 }
@@ -60,6 +65,18 @@ hr {
 .form-control {
 	background-color: var(--mention-input-bg-color);
 	border: 1px solid var(--mention-input-border-color);
+	color: var(--mention-text-dark-color);
+}
+
+.form-control:focus {
+	background-color: var(--mention-input-bg-color);
+	color: var(--mention-text-light-color);
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+	background-color: var(--mention-input-bg-color);
+	cursor: not-allowed;
 }
 
 input:hover,
@@ -67,10 +84,20 @@ input:focus {
 	border: 1px solid var(--mention-input-focus-border-color) !important;
 	outline: none !important;
 	box-shadow: none !important;
+	background-color: var(--mention-primary-bg-color) !important;
+	color: var(--mention-text-dark-color) !important;
 }
 
 .cursor-pointer {
 	cursor: pointer;
+}
+
+.border-bottom {
+	border-bottom: 1px solid var(--mention-border-color) !important;
+}
+
+.border-top {
+	border-top: 1px solid var(--mention-border-color) !important;
 }
 
 .col,
@@ -171,7 +198,7 @@ input:focus {
 .btn:disabled:hover {
 	background-color: transparent;
 	color: var(--mention-button-hover-text-color);
-	border: 2px solid #c3c3c3;
+	border: 2px solid var(--mention-button-hover-border-color);
 }
 
 .navbar-brand {
@@ -232,6 +259,11 @@ input:focus {
 
 .navbar-light .navbar-nav .nav-item>a {
 	transition: all .3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+	color: var(--mention-navbar-text-color);
 }
 
 .app-welcome-board {
@@ -364,8 +396,8 @@ input:focus {
 
 .btn-app-login {
 	width: 100%;
-	background-color: #e28949;
-	color: #fff;
+	background-color: var(--mention-button-active-bg-color);
+	color: var(--mention-button-active-text-color);
 	font-size: 18px;
 	border: none;
 	border-radius: 3px;
@@ -638,7 +670,7 @@ input:focus {
 .app-forums .list-group-item.icon:before {
 	font-family: "Font Awesome 6 Free";
 	padding-right: 8px;
-	color: #f39206;
+	color: var(--mention-primary-text-color);
 }
 
 .app-forums .list-group-item.icon.discussions:before {
@@ -751,6 +783,7 @@ button.btn-app-account {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	border-top: 3px solid var(--mention-primary-border-color);
+	background-color: var(--mention-primary-bg-color);
 }
 
 .app-post-manage button.post-refresh {
@@ -1043,7 +1076,7 @@ button.btn-app-account {
 }
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.post-count {
-	color: #7777bf;
+	color: var(--mention-post-count-text-color);
 }
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.post-count:before {
@@ -1052,7 +1085,7 @@ button.btn-app-account {
 }
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.view-count {
-	color: #269626;
+	color: var(--mention-post-views-text-color);
 }
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.view-count:before {
@@ -1320,7 +1353,7 @@ button.btn-app-account {
 }
 
 .post.highlight>.app-post {
-	background-color: #ffffde !important;
+	background-color: var(--mention-post-highlight-bg-color) !important;
 	transition: all 0.2s linear;
 }
 
@@ -2039,7 +2072,7 @@ h5.app-title.user:before {
 }
 
 .dropdown-menu.custom-menu.custom-menu-xs {
-	min-width: 170px;
+	min-width: 135px;
 }
 
 .dropdown-menu.custom-menu.custom-menu-md {
@@ -2066,7 +2099,7 @@ h5.app-title.user:before {
 
 .dropdown-menu.custom-menu>.title {
 	display: flex;
-	background: #fff;
+	background: var(--mention-primary-bg-color);
 	padding: 15px;
 	position: relative;
 	color: var(--mention-doc-text-color);
@@ -2650,7 +2683,7 @@ h5.app-title.user:before {
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body input:focus {
-	border: 3px solid #e28949 !important;
+	border: 3px solid var(--mention-primary-border-color) !important;
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body small {
@@ -2910,7 +2943,7 @@ h5.app-title.user:before {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
-	border: 4px solid rgb(55, 71, 79);
+	border: 4px solid var(--mention-loader-spin-color);
 	border-radius: 50%;
 	border-top-color: transparent;
 	animation: spin 1s ease-in-out infinite;
@@ -2952,16 +2985,20 @@ h5.app-title.user:before {
 	width: 52px;
 	height: 24px;
 	border-radius: 15px;
-	border: 2px solid #c3c3c3;
+	border: 2px solid var(--mention-button-border-color);
 	overflow: hidden;
 }
 
 .switch.active {
-	border: 2px solid #545454;
+	border: 2px solid var(--mention-button-active-border-color);
+}
+
+.switch.active .slider {
+	background-color: var(--mention-button-active-bg-color);
 }
 
 .switch.active>.slider:before {
-	background-color: #545454;
+	background-color: var(--mention-button-active-text-color);
 }
 
 .switch.disabled>.slider {
@@ -2970,7 +3007,7 @@ h5.app-title.user:before {
 }
 
 .switch .slider {
-	background-color: transparent;
+	background-color: var(--mention-button-bg-color);
 }
 
 .switch .slider:before {
@@ -2978,7 +3015,7 @@ h5.app-title.user:before {
 	height: 15px;
 	width: 15px;
 	bottom: 3px;
-	background-color: #ababab;
+	background-color: var(--mention-button-text-color);
 }
 
 .cookiealert.show {
@@ -3176,11 +3213,11 @@ h5.app-title.user:before {
 }
 
 .user-status.offline {
-	border: 3px solid #6b6b6b !important;
+	border: 3px solid var(--mention-user-status-offline-border-color) !important;
 }
 
 .user-status.online {
-	border: 3px solid #53c72e !important;
+	border: 3px solid var(--mention-user-status-online-border-color) !important;
 }
 
 .app-reactions {
@@ -3733,6 +3770,7 @@ h5.app-title.user:before {
 .conversation-area .app-message-create button {
 	border: 0;
 	background-color: transparent;
+	color: var(--mention-link-hover-color);
 }
 
 .conversation-area .app-message-create button:before {
@@ -4529,6 +4567,14 @@ code.error {
 	box-shadow: var(--mention-editor-header-shadow) !important;
 }
 
+.tox .tox-toolbar-overlord {
+	background-color: var(--mention-editor-bg-color) !important;
+}
+
+.tox .tox-tbtn {
+	color: var(--mention-doc-text-color) !important;
+}
+
 .tox .tox-toolbar,
 .tox .tox-toolbar__overflow,
 .tox .tox-toolbar__primary {
@@ -4635,6 +4681,11 @@ code.error {
 	color: var(--mention-text-dark-color) !important;
 }
 
+.tox :not(svg):not(rect) p,
+.tox :not(svg):not(rect):is(h1, h2, h3, h4, h5, h6) {
+	background: transparent !important;
+}
+
 .table {
 	color: var(--mention-table-text-color);
 }
@@ -4643,9 +4694,14 @@ code.error {
 	background: var(--mention-table-nth-bg-color);
 }
 
+.table-bordered,
 .table-bordered td,
 .table-bordered th {
 	border: 1px solid var(--mention-table-border-color);
+}
+
+.table thead th {
+	border-bottom: 2px solid var(--mention-dark-border-color);
 }
 
 #quote-pop .arrow {
@@ -4664,6 +4720,34 @@ code.error {
 	font-weight: 900;
 	content: "\f3e5";
 	margin-right: 5px;
+}
+
+.bs-popover-auto[x-placement^=right]>.arrow::after,
+.bs-popover-right>.arrow::after {
+	border-right-color: var(--mention-light-bg-color);
+}
+
+.bs-popover-auto[x-placement^=left]>.arrow::after,
+.bs-popover-left>.arrow::after {
+	border-left-color: var(--mention-light-bg-color);
+}
+
+.bs-popover-auto[x-placement^=top]>.arrow::after,
+.bs-popover-top>.arrow::after {
+	border-top-color: var(--mention-light-bg-color);
+}
+
+.bs-popover-auto[x-placement^=bottom]>.arrow::after,
+.bs-popover-bottom>.arrow::after {
+	border-bottom-color: var(--mention-light-bg-color);
+}
+
+.popover-body {
+	color: var(--mention-text-dark-color);
+}
+
+.app-box {
+	background-color: var(--mention-light-bg-color);
 }
 
 @keyframes pop-upwards {

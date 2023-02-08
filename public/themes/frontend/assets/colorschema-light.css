@@ -101,6 +101,13 @@
 	--mention-admin-list-group-header-hover-bg-color: #f7f7f7;
 
 	--mention-table-text-color: #212529;
-	--mention-table-nth-bg-color: rgba(0,0,0,.05);
+	--mention-table-nth-bg-color: rgba(0, 0, 0, .05);
 	--mention-table-border-color: #dee2e6;
+
+	--mention-post-highlight-bg-color: #ffffde;
+	--mention-post-count-text-color: #7777bf;
+	--mention-post-views-text-color: #269626;
+
+	--mention-user-status-online-border-color: #53c72e;
+	--mention-user-status-offline-border-color: #6b6b6b;
 }
