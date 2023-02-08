@@ -4747,7 +4747,7 @@ code.error {
 }
 
 .app-box {
-	background-color: var(--mention-light-bg-color);
+	background-color: var(--mention-dark-bg-color);
 }
 
 @keyframes pop-upwards {

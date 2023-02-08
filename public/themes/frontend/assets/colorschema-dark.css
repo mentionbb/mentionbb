@@ -11,7 +11,7 @@ body.app-night-mode {
 	--mention-primary-bg-color: rgb(35, 41, 47);
 	--mention-light-bg-color: #2d343c;
 	--mention-light-hover-bg-color: rgba(9, 11, 15, 0.78);
-	--mention-dark-bg-color: #37474f;
+	--mention-dark-bg-color: #111519;
 
 	--mention-primary-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 	--mention-secondary-shadow: 0 .5rem 1rem rgb(0 0 0 / 35%);
@@ -76,7 +76,7 @@ body.app-night-mode {
 	--mention-input-focus-border-color: #a5a5a5;
 
 	--mention-textarea-bg-color: rgba(0, 0, 0, 0.34);
-	--mention-textarea-disabled-bg-color: #ececec;
+	--mention-textarea-disabled-bg-color: rgba(0, 0, 0, 0.10);
 	--mention-textarea-border-color: transparent;
 	--mention-textarea-text-color: #fff;
 	--mention-textarea-focus-border-color: #a5a5a5;

@@ -602,13 +602,13 @@
 }
 
 .fake-editor {
-    background: url("data:image/svg+xml;charset=utf8,%3Csvg height='39px' viewBox='0 0 40 39px' width='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='38px' width='100' height='1' fill='%23cccccc'/%3E%3C/svg%3E") left 0 top 0 var(--mention-editor-bg-color);
     background-color: var(--mention-editor-bg-color);
     display: flex;
     flex: 0 0 auto;
     flex-shrink: 0;
     flex-wrap: wrap;
     padding: 0 0;
+    fill: var(--mention-text-dark-color);
 }
 
 .fake-editor>div.parent {
@@ -657,6 +657,7 @@
     width: 100%;
     padding: 0;
     background-color: transparent;
+    color: var(--mention-text-dark-color);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -733,16 +734,6 @@
 .fake-editor>div.parent>div.dropdown>button:focus,
 .fake-editor>div.parent>div.dropdown>button.selected {
     background-color: var(--mention-editor-btn-hover-bg-color);
-}
-
-.fake-editor>div.parent>div.dropdown.group-line:before {
-    content: '';
-    height: 39px;
-    display: block;
-    width: 1px;
-    background: var(--mention-light-border-color);
-    position: absolute;
-    right: -3px;
 }
 
 .fake-editor>div.parent>div.dropdown.non-draggable>button:hover {
