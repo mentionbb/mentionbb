@@ -109,6 +109,9 @@ body.app-night-mode {
 	--mention-post-count-text-color: #7777bf;
 	--mention-post-views-text-color: #269626;
 
+	--mention-editor-hide-backdrop-bg-color: rgba(0, 0, 0, 0.32);
+	--mention-editor-hide-backdrop-bg-image: linear-gradient(315deg,rgba(66, 66, 66, 0.62) 0%,rgba(83, 83, 83, 0.55) 74%);
+
 	--mention-user-status-online-border-color: #53c72e;
 	--mention-user-status-offline-border-color: #6b6b6b;
 }
