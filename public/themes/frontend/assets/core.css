@@ -219,7 +219,7 @@ input:focus {
 	color: var(--mention-button-active-text-color) !important;
 }
 
-.navbar-nav .dropdown-menu.custom-menu {
+.navbar-nav .dropdown .dropdown-menu.custom-menu {
 	background-color: var(--mention-button-active-bg-color);
 	border-top: 3px solid var(--mention-primary-border-color);
 	margin-top: 0px;
@@ -4747,7 +4747,7 @@ code.error {
 }
 
 .app-box {
-	background-color: var(--mention-dark-bg-color);
+	background-color: var(--mention-box-bg-color);
 }
 
 @keyframes pop-upwards {

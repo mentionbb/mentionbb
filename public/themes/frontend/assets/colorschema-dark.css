@@ -13,6 +13,8 @@ body.app-night-mode {
 	--mention-light-hover-bg-color: rgba(9, 11, 15, 0.78);
 	--mention-dark-bg-color: #111519;
 
+	--mention-box-bg-color: #111519;
+
 	--mention-primary-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 	--mention-secondary-shadow: 0 .5rem 1rem rgb(0 0 0 / 35%);
 	--mention-light-shadow: none;

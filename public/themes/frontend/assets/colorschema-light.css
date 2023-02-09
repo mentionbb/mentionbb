@@ -13,6 +13,8 @@
 	--mention-light-hover-bg-color: #e9f0f3;
 	--mention-dark-bg-color: #37474f;
 
+	--mention-box-bg-color: #fff;
+
 	--mention-primary-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 	--mention-secondary-shadow: 0 .5rem 1rem rgb(0 0 0 / 35%);
 	--mention-light-shadow: 0 2px 10px -2px #cedae0;
