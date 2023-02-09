@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 09 Şub 2023, 12:46:11
+-- Üretim Zamanı: 09 Şub 2023, 17:16:59
 -- Sunucu sürümü: 10.4.27-MariaDB
 -- PHP Sürümü: 8.2.0
 
@@ -180,7 +180,7 @@ CREATE TABLE `bbmedias` (
 --
 
 INSERT INTO `bbmedias` (`media_id`, `title`, `bb_key`, `matching_url`, `embed_html`, `callback`, `is_active`) VALUES
-(1, 'YouTube', 'youtube={number}', 'youtube.com/watch?v={id}&t={number}s\nyoutube.com/watch?v={id}\nyoutu.be/{id}?t={number}\nyoutu.be/{id}', '<iframe src=\"https://www.youtube.com/embed/{id}?start={number}\" width=\"500\" height=\"282\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '', 1),
+(1, 'YouTube', 'youtube={number}', 'youtube.com/watch?v={id}&t={number}s\nyoutube.com/watch?v={id}\nyoutube.com/shorts/{id}\nyoutube.com/shorts/{id}?feature=share\nyoutu.be/{id}?t={number}\nyoutu.be/{id}', '<iframe src=\"https://www.youtube.com/embed/{id}?start={number}\" width=\"500\" height=\"282\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '', 1),
 (3, 'Spotify', 'spotify={name}', 'open.spotify.com/track/{id}\nopen.spotify.com/album/{id}\nopen.spotify.com/artist/{id}\nopen.spotify.com/user/*/playlist/{id}\nopen.spotify.com/playlist/{id}', '<iframe src=\"https://open.spotify.com/embed/{name}/{id}\" width=\"100%\" height=\"352\" frameborder=\"0\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '\\App\\Renderer\\BBCode\\Helper\\Media\\Spotify', 1),
 (2, 'Dailymotion', 'dailymotion', 'dailymotion.com/video/{id}\r\ndai.ly/{id}', '<iframe src=\"https://www.dailymotion.com/embed/video/{id}?\r\nwidth=560&hideInfos=1\" width=\"560\" height=\"315\" allowfullscreen frameborder=\"0\"></iframe>', '', 1),
 (4, 'Twitch', 'twitch={name}', 'twitch.tv/videos/{id}\ntwitch.tv/{id}\nclips.twitch.tv/{id}', '<iframe src=\"https://player.twitch.tv/?{name}={id}&parent={url|host}\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\"></iframe>', '\\App\\Renderer\\BBCode\\Helper\\Media\\Twitch', 1),
@@ -364,7 +364,8 @@ INSERT INTO `discussions` (`discussion_id`, `title`, `is_open`, `is_sticky`, `fi
 (134, 'BBCode img test', 1, 0, 254, 1, 0, 1, NULL),
 (135, 'Heading test', 1, 0, 256, 1, 0, 1, NULL),
 (136, 'AWDAW', 1, 0, 277, 1, 0, 0, NULL),
-(137, 'Steam', 1, 0, 278, 1, 0, 1, NULL);
+(137, 'Steam', 1, 0, 278, 1, 0, 1, NULL),
+(138, 'YouTube shorts', 1, 0, 279, 1, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -549,7 +550,8 @@ INSERT INTO `discussion_views` (`view_id`, `ip`, `discussion_id`) VALUES
 (144, '127.0.0.1', 135),
 (145, '::1', 135),
 (146, '127.0.0.1', 136),
-(147, '127.0.0.1', 137);
+(147, '127.0.0.1', 137),
+(148, '127.0.0.1', 138);
 
 -- --------------------------------------------------------
 
@@ -956,7 +958,8 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (275, 91558646, '[post-selected-quote=84] Merhaba 🙂\" data-shortcut=\"🙂\" data-title=\"Slight smile\" data-original-title=\"  [/post-quote]', 1, 34, 1, 1, 0, 0, 0, 1675089260, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (276, 89697823, '[post-selected-quote=84]Merhaba 🙂  [/post-quote]', 1, 34, 1, 1, 0, 0, 0, 1675089397, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (277, 41606234, 'DAWDWADADAWD', 1, 136, 1, 1, 0, 0, 0, 1675368604, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
-(278, 70279730, '[steam]374320[/steam]', 1, 137, 1, 1, 1675692430, 1, 0, 1675687857, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}');
+(278, 70279730, '[steam]374320[/steam]', 1, 137, 1, 1, 1675692430, 1, 0, 1675687857, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(279, 48143673, '[youtube]XIPGJ3CZ664[/youtube]', 1, 138, 1, 1, 1675959376, 1, 0, 1675959352, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -5498,7 +5501,8 @@ INSERT INTO `sessions` (`sessions_id`, `dateline`, `session_id`, `type`, `route`
 (4417, 1675908876, '10mj0ovehrtg1iac9qtam728li', 'guest', '/pages/faq', 0, '127.0.0.1'),
 (4419, 1675911240, 'f129jridkljmktbdet5n2fevqk', 'user', '/', 1, '127.0.0.1'),
 (4418, 1675910914, '229han4roc3l4gb6a9acgrc9e7', 'guest', '/d/1-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit/4', 0, '127.0.0.1'),
-(4420, 1675943101, 'u4rlk8pvme4u8ouj524lfikvls', 'user', '/', 1, '127.0.0.1');
+(4420, 1675952086, 'u4rlk8pvme4u8ouj524lfikvls', 'user', '/', 1, '127.0.0.1'),
+(4421, 1675959405, 'vmc5sc5g27uqghjj45mcv3djlg', 'user', '/', 1, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -5592,7 +5596,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `usertitle`, `mail`, `profile_picture`, `password`, `secret_key`, `login_key`, `status`, `two_step_verification`, `is_admin`, `registration_date`, `last_activity`, `use_twofa`, `message_bg`) VALUES
-(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1675943101, 0, '#f8f9fa'),
+(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1675959405, 0, '#f8f9fa'),
 (2, 'Demo', '__default', 'test@test.com', 'default.svg', 'NnpVN21LWUpPYXJIQkVUSmkvcFZ2QT09OjobQFNTXaQ5zzehsJDHwRX3', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'MEUrejEwRGpjSlhORVNZd09WTGRtak96UkhQaHQ0bk95emZ3N2l6Z2svZz06Ov4rGRs7sQ4E6eoxdhDiXtg=', 1, 0, 0, 1595779759, 1675350610, 0, '#f8f9fa'),
 (8, 'asds4', '', 'awdaw@awd.com', 'default.svg', 'OXd3bDUrUTVTQ0pxZFl6RmhnWC9lZz09OjoVfi3K3cOMRKG0qOptbAGv', 'VGZYckVDMXc4VUxBNzVaSnpjQkk2NHhq', 'UVJNd29pcXYvS1JGdEtGb2ZBQkc3T2cwenZRMmFMYks3dTFxWFh4YWVkbz06Oga3/3jnO8pTx7BrAGiMqtk=', 1, 0, 0, 1639757629, 1642529371, 0, '#f8f9fa');
 
@@ -6091,7 +6095,7 @@ ALTER TABLE `bbmedias`
 -- Tablo için AUTO_INCREMENT değeri `discussions`
 --
 ALTER TABLE `discussions`
-  MODIFY `discussion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `discussion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `discussion_subscriptions`
@@ -6103,7 +6107,7 @@ ALTER TABLE `discussion_subscriptions`
 -- Tablo için AUTO_INCREMENT değeri `discussion_views`
 --
 ALTER TABLE `discussion_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `editor_buttons`
@@ -6133,7 +6137,7 @@ ALTER TABLE `moderations`
 -- Tablo için AUTO_INCREMENT değeri `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=279;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `post_bookmarks`
@@ -6163,7 +6167,7 @@ ALTER TABLE `reports`
 -- Tablo için AUTO_INCREMENT değeri `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `sessions_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4421;
+  MODIFY `sessions_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4422;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `settings`
