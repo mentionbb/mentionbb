@@ -1387,9 +1387,9 @@ button.btn-app-account {
 	animation-duration: 1s;
 }
 
-.app-discussion>.post-layout>.post-content>.discussion-text iframe {
+.app-discussion>.post-layout>.post-content>.discussion-text .bbWrapper_reddit iframe {
 	width: 510px;
-	background-color: var(--mention-primary-bg-color);
+	background-color: #fff;
 }
 
 .app-discussion>.post-layout>.post-content>.discussion-text img.app-AttachmentImage {
@@ -4712,7 +4712,7 @@ code.error {
 }
 
 #quote-pop a {
-	color: var(--mention-text-white-color);
+	color: var(--mention-tooltip-text-color);
 }
 
 #quote-pop a:before {
