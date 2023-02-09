@@ -7,6 +7,7 @@
         <img alt="Mention logo" src="https://github.com/mentionbb/mentionbb/blob/master/public/images/logo.svg"
             width="500px">
     </picture>
+    [https://github.com/mentionbb/.github/tree/main/screenshots](More screenshots)
 </p>
 
 <p align="center">
