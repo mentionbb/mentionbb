@@ -1,0 +1,38 @@
+Language:
+  items:
+    title: "Messages"
+
+    breadcrumb:
+      messages: "Messages"
+      conversations: "Conversations"
+      new: "New"
+      all: "All"
+
+    search:
+      title: "Search"
+      placeholder: "Quick search"
+
+    conversation:
+      title: "Conversations"
+      default: "Select a conversation from the list or create a new one."
+      options:
+        title: "Message options"
+        buttons:
+          archive: "Archive"
+          remove_archive: "Unarchive."
+          remove: "Remove"
+      status:
+        delivered: "Delivered"
+        seen: "Seen"
+        last_seen: "Last seen: {1}"
+      just_before: "Just before"
+      archived_text: "You cannot reply to the archived message."
+      archived: "archived"
+
+    new:
+      form:
+        username: "Username"
+        username_placeholder: "Username of the receiver."
+        username_result: "Results"
+        title: "Title"
+        title_placeholder: "Enter a message title."

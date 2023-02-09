@@ -1,0 +1,14 @@
+Language:
+  init:
+    id: en-US
+    name: 'EnglishUS'
+    title: 'English (US)'
+    desc: 'English language pack for MentionBB'
+    path: 'English (US)'
+    text_direction: ltr
+    timer:
+      zone: UTC
+      format: 'j F I Y, h:i'
+      date_format: 'F j l'
+      date_format_simple: mm/dd/yyyy
+      year_format: 'Y'

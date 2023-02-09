@@ -1,0 +1,69 @@
+Language:
+  items:
+    title: "User management"
+    desc: "From this page you can search and edit registered users and create a new user."
+
+    last:
+      title: "Last 5 record"
+
+      user:
+        registration_date: "<b>{1}</b> joined."
+        buttons:
+          ban: "Ban"
+
+    new:
+      title: "Add new user"
+      desc: "You can add users manually from here."
+    
+    edit:
+      title: "User management"
+      desc: "Editing user {1} ."
+      account: "Account settings"
+      profile_picture:
+        remove: "Remove profile photo"
+    
+    ban:
+      title: "Ban"
+      desc: "User {1} is banned"
+      help: "The banned user can still use the site, but will be deprived of features such as writing messages, opening and editing topics."
+      history:
+        title: "History"
+        text: "User <strong>{1}</strong> was banned on date, reason:<strong>{2}</strong>. Ban expires on: <strong>{3}</strong>"
+        no_history: "The user has not been banned before."
+        buttons:
+          remove: "Remove the ban."
+      forms:
+        expires_in: 
+          title: "Until"
+          text: "The end date of the ban."
+        text:
+          title: "Explanation"
+          text: "The description and date will be shown to the banned user and the penalty will be lifted automatically when the selected date comes."
+
+    forms:
+      name:
+        title: "Username"
+        desc: "Username to use when logging in."
+
+      password:
+        title: "Password"
+        desc: "Password to use when logging in."
+        text: "Mention uses an advanced method of password encryption. Therefore, once users' passwords are set, they cannot be seen or edited. But it can be reset."
+      
+      mail:
+        title: "E-Mail"
+        desc: "User e-mail address"
+        text: "Since the user is added by the administrator, the verification mail will not be sent. However, this part is important because the user will use the e-mail address when he or she wants to reset the password later."
+      
+      title:
+        title: "User title"
+        desc: "User title to appear"
+        text: "If the role you choose is administrator, you can use HTML code."
+      
+      role:
+        title: "Role"
+        desc: "The authorization the user will have."
+        text: "If you select the user role as administrator, it can access the panel."
+        select:
+          registered: "Member"
+          admin: "Admin"

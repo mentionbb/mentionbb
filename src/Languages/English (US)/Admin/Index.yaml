@@ -1,0 +1,45 @@
+Language:
+  items:
+    title: "Entrance"
+
+    logs:
+      text: "The software has default PHP warning logs. Click <a href=\"{1}?PHPWarnings\">here</a> to view and clear warnings."
+
+    quick_search:
+      label: "Search a user"
+      placeholder: "Search name, e-mail"
+      users:
+        button: "Edit user {1} "
+
+    stats:
+      title: "Statistics"
+
+    check_requirements:
+      text:
+        success: "Your server provides the necessary criteria for Mention to work stably."
+        fail: "One or more modules are missing from your server. In this case, the operation of Mention may be interrupted or stop working."
+      error:
+        php: "Your servers PHB version: {1}, PHP version required: {2}"
+        mbstring: "<a href=\"https://www.php.net/manual/tr/book.mbstring.php\">PHP mbstring</a> plugin is turned off or not installed."
+        zip: " Zip plugin is disabled. <a href=\"https://www.php.net/manual/tr/book.zip.php\">Zip</a> plugin is required for the system to export or import packages."
+        curl: "Mention receives or sends information from some remote site. <a href=\"https://www.php.net/manual/tr/book.curl\">PHP Curl</a> This plugin is essential."
+
+    server_environment:
+      title: "Server report"
+      table:
+        head: 
+          feature: "Feature"
+          value: "Value"
+        rows:
+          php_version: "PHP version"
+          mysql_version: "MySQL version"
+          memory_limit: "memory_limit"
+          post_max_size: "post_max_size"
+          upload_max_filesize: "upload_max_filesize"
+          max_input_vars: "max_input_vars"
+          max_execution_time: "max_execution_time"
+          curl_version: "cURL version"
+          support_gzip: "Support GZip"
+          support_iconv: "Support Iconv"
+          support_mbstring: "Support Mbstring"
+          support_zip: "Support ZipArchive"

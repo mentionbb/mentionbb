@@ -1,0 +1,136 @@
+Language:
+  items:
+    list:
+      title: "Languages"
+      desc: "Here you can see the installed languages."
+      checkbox:
+        title: "Is it the default language?"
+
+    edit:
+      title: "{1} Language settings"
+      desc: "Language options."
+    
+    new:
+      title: "Create language pack"
+      desc: "Here you can create a new language pack."
+      head:
+        title: "Language pack"
+      dropdown:
+        title: "Exemplary language"
+      help: "After you create your language pack, you can edit the files in the <strong>src/Languages/{language you created}</strong> folder."
+      main_language_text: "<strong>{1}</strong> selected, default settings copied."
+
+    sentences:
+      title: "Sentences and words"
+      desc: "Here you can see and edit the sentences of languages."
+      search:
+        title: "Search in words"
+        desc: "From here, you can search and edit sentences and words in the language you choose."
+        label: "Searcg in sentences"
+        placeholder: "Sentence or word"
+        dropdown: 
+          languages:
+            all: "In all languages"
+          addons:
+            all: "In all plugins"
+        no_results: "No results were found matching your search."
+
+    phrase:
+      title: "Edit sentences"
+      desc: "You can edit sentences and words here."
+
+      forms:
+        variable:
+          title: "Vasiable"
+          desc: "It must be unique."
+        phrase: 
+          title: "Sentence"
+          desc: "Unedited sentence"
+        modification:
+          title: "Edited sentence"
+          desc: "If you want to change the sentence, write it in this section. This will not change the original sentence, it will only modify the language pack and as a result the sentence edited by you will be based on."
+          placeholder: "Cümlenin düzenlenmiş versiyonu"
+        text: "Expressions such as <code>{1}</code>, <code>{2}</code> used inside sentences represent variables. <br /> For example: <code>{1} before</code> converts the variable <code>{1}</code> to <code>a little</code> or <code>an hour</code> and We'll get the output as <code>just now</code>.<br /><br /> If you are going to use html and you want to use it in a template file, you must first write it in Twig in a defined form. Example <code>{{ foo.bar|raw }}</code> <br /> For detailed information: <a target=\"blank\" href=\"https://twig.symfony.com/doc/ 3.x/filters/raw.html\">https://twig.symfony.com/doc/3.x/filters/raw.html</a>"
+
+    forms:
+      id:
+        title: "ID"
+        desc: "Language ID such as: en-TR, en-US."
+      name:
+        title: "Fixed name"
+        desc: "Fixed language name"
+      title:
+        title: "Title"
+        desc: "It's title."
+      desc: 
+        title: "description"
+        desc: "It's description"
+      dir:
+        title: "Writing direction"
+        desc: "The writing direction of the language is expressed, for example, from left to right: 'ltr', from right to left: 'rtl'. If the text direction is unknown, the value 'auto' can be given."
+      zone:
+        title: "Zone"
+        desc: "Time zone"
+      format:
+        title: "General date format"
+        desc: "Example: 'j F l Y, H:i' corresponds to <strong>Tuesday, January 18, 2022, 16:44</strong>. <br /> Detailed information: <a target=\"_blank\" href=\"https://www.php.net/manual/en/datetime.format.php\">https://www.php. net/manual/en/datetime.format.php</a>"
+      date_format:
+        title: "Date format"
+        desc: "Date format. Example: 'j F l' corresponds to <strong>Tuesday, January 18</strong>."
+      date_format_simple:
+        title: "Basic date format"
+        desc: "Simple date format. Example: 'dd/mm/yyyy' corresponds to <strong>18/01/2022</strong>."
+      year_format:
+        title: "Year format"
+        desc: "Specifies the year format. For example, 'Y' corresponds to <strong>2022</strong>."
+    
+    search:
+      label: "Search in languages"
+      placeholder: "Search in sentences or variables"
+      
+    languages:
+      Turkish: "Turkish"
+      English_US: "English(US)"
+      English_UK: "English(UK)"
+      German: "German"
+      Spanish: "Spanish"
+      Italian: "Italian"
+      Portuguese: "Portuguese"
+      Japanese: "Japanese"
+      Chinese: "Chinese"
+      Russian: "Russian"
+      Arabic: "Arabic"
+      files:
+        Addons: "Addons"
+        Attachments: "Files"
+        CensorWords: "Word cencorship"
+        Container: "General"
+        Forums: "Forums"
+        Index: "Home"
+        Languages: "Languages"
+        NativeApi: "Api keys"
+        OAuth: "OAuth"
+        RouteFilters: "Route filters"
+        Settings: "Settings"
+        Theme: "Themes"
+        Users: "Users"
+        Account: "Account"
+        Discussion: "Topics"
+        Editor: "Editor"
+        Error: "Errors"
+        Messages: "Conversations"
+        Pages: "Pages"
+        Profile: "Profile"
+
+    remove:
+      title: "Delete language?"
+      desc: "If you delete this language pack, all sentences and words related to this language will also be deleted. Do you confirm?"
+      success: "The language pack has been removed."
+
+    import:
+      title: "Import language pack"
+      desc: "Here you can add new language packs."
+      install: 
+        title: "Package installer"
+        file: 
+          text: "Choose your language pack file."

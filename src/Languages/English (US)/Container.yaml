@@ -1,0 +1,226 @@
+Language:
+  items:
+    proceed: "loading..."
+
+    generic:
+      yes: "yes"
+      no: "no"
+      and: "and"
+      or: "or"
+      either: "either"
+      except: "except"
+      end: "end"
+      all: "all"
+
+    nav:
+      home: "Home"
+      help:
+        title: "Help"
+        faq: "FAQ"
+        privacy: "Privacy"
+        contact: "Contact"
+
+    quick_menu: "Quick menu"
+
+    welcome_message: 'Welcome, to exchange information, write private messages, receive notifications and create posts on our forum, please be <a class="text-light font-weight-bold" data-ui="register-attempt" href="#">register</a>'
+    cookie_text: 'This site uses cookies to personalize content, improve your experience and also for actions such as Registration and Login. By using our site you accept this: <a class="text-white u" href="{1}/privacy">Our Privacy Policy.</a>'
+
+    buttons:
+      copy: "Copy"
+      submit: "Submit"
+      publish: "Publish"
+      save: "Save"
+      cancel: "Cancel"
+      reply: "Reply"
+      reply_login: "Login for reply"
+      subscribe: "Subscribe"
+      subscribe_remove: "Unsubscribe"
+      search: "Search"
+      refresh: "Refresh"
+      show_all: "Show all"
+      more: "Load more"
+      sign_in: "Sign in"
+      register: "Register"
+      navigation: "Navigation"
+      close: "Close"
+      complete: "Complete"
+      clear: "Clear"
+      back: "Back"
+      next: "Next"
+      approve: "Approve"
+      setup: "Set up"
+      update: "Update"
+      delete: "Delete"
+      browse: "Browse"
+      select: "Select"
+      select_file: "Add file"
+      restore: "Restore"
+      new: "New"
+      sort: "Sort"
+      edit: "Edit"
+      remove: "Remove"
+      install: "Install"
+      export: "Export"
+      import: "İmport"
+
+    visitor:
+      auth:
+        csrf_error: "CSRF token error"
+        cannot_be_blank: "Username or password cannot be left blank!"
+        wrong_username_or_password: "Username or password is incorrect!"
+      register:
+        title: "Register"
+        mail_small: "Verification code will be sent."
+        username_available: "This username available."
+        username_not_available: "This username cannot be used."
+        quick_login: "Quick login after registration is complete."
+        quick_login_title: "Quick login"
+        desc: "Choose your password as reliable, if you wish, you can turn on two-step verification after registration, so you can log in with the Google Authentication application."
+        or_login: 'If you have an account <a class="login" href="#">You can login now.</a>'
+        agreement: 'I have read and accept<a target="_blank" href="{1}/faq">the terms</a> and <a target="_blank" href="{1}/privacy">privacy agreement</a>.'
+        please_verify_captcha: "Please verify that you are not a robot."
+      login:
+        title: "Login"
+        none: '<p>Dont have an account <a class="register" href="#">sign up now!</a></p><a href="#" data-ui="forgot-password">I forgot my password</a>'
+        remember_me: "Remember me."
+      placeholder:
+        username: "User name"
+        password: "Password"
+        mail: "E-Mail"
+      buttons:
+        login: "Login"
+      status:
+        online: "Online"
+        offline: "Offline"
+      sign_out:
+        title: "Log out."
+        text: "Are you sure you want to sign out?"
+      forgot:
+        title: "I forgot my password"
+        text: "Please enter a valid e-mail address."
+      default_title: "Member"
+      ban_message: "You cannot perform this action because you have been banned."
+      ban: 
+        title: "You have been banned from the forum!"
+        reason_title: "You have been banned from the forum for:"
+        expires_in: "expiration date: {1}"
+
+    search:
+      text: "Search word..."
+      search_forums: "Search in the selected forum"
+      advanced_search: "Advanced search"
+      no_results: "No results were found matching your search."
+      discussions: "Discussions"
+      users: "Users"
+      discussions_containing_word: '"{1}" all topics containing.'
+      users_containing_word: '"{1}" all users containing.'
+      quick_message_text: "{1} Send message to user."
+
+    message:
+      title: "Messages"
+      buttons:
+        mark_read: "Mark all as read."
+        new: "Write a new message."
+      none: "You currently do not have any new messages."
+      reply: "Reply: <b>{1}</b>"
+
+    notification:
+      title: "Notifications"
+      buttons:
+        settings: "Notification settings"
+      text:
+        replied: "<strong>{1}</strong> replied to your message."
+        reply: "<strong>{1}</strong> wrote a message to your thread."
+        tagged: "<strong>{1}</strong> tagged you in a post."
+        reaction: '<span><strong>{1}</strong> left a reaction on your message: </span><span class="reaction {2}"></span>'
+        subscribe: "<span><strong>{1}</strong> wrote a message in a thread you subscribe to."
+        friendship_request: "<span><strong>{1}</strong> added you as a friend."
+      none: "You have no new notifications."
+      friendship_request:
+        text:
+          approved: "Request accepted."
+          removed: "The request has been deleted."
+
+    usermenu:
+      buttons:
+        control_panel: "Control Panel"
+        password: "Password operations."
+        two_step_verification: "Two-step verification"
+        profile_picture: "Profile picture"
+      links:
+        admin: "Admin panel"
+        profile: "Your profile"
+        bookmarks: "My collection"
+        posts: "All your content"
+        sign_out: "Sign out"
+        night_mode: "Night mode"
+      guest:
+        title: "Welcome"
+
+    editor:
+      placeholder:
+        title: "Discussion title"
+        forum: "Select forum"
+        write: "Click here to reply"
+        new_post: "Write something.."
+        message: "Write a message"
+      shared_by: "It is shared as <strong>{1}</strong>"
+      next:
+        text: "more options"
+        attachment:
+          title: "Attachments"
+          max_size_text: "Maximum file size: <strong>{1}</strong>"
+        admin_options:
+          pinned: "Pin the discussion."
+          locked: "Lock the discussion."
+
+    order:
+      title: "Sort by"
+      new_message: "New message"
+      popular: "Popular"
+      top_likes: "By likes"
+      oldest: "Old to new"
+
+    no_post:
+      none: "There is nothing to display here."
+      new: "Start a new discussion."
+      new_post: "Write a new message."
+
+    posts:
+      pinned: "Pinned"
+      locked: "Locked"
+
+    login_error: "Login error"
+
+    two_step_verification:
+      title: "Two-step verification"
+      help_text: "Please enter the code you obtained from the Google Authenticator app."
+      reset: "Reset authentication."
+
+    flash_message:
+      wait_a_while: "Wait a while."
+      copy_to_clipboard: "Copied to clipboard."
+      report_post: "The message has been reported to the administrator."
+      delete_post: "The message has been unpublished."
+      edit_post: "Message edited."
+      bookmark_post: "Added to the collection."
+      unbookmark_post: "Removed from collection."
+      two_step_verification_code_error: "The application code is incorrect."
+      add_friend: "Friend request sent."
+      remove_friend: "The user has been removed from your friend list."
+      account_settings_success: "Settings updated."
+      account_password_success: "Your password has been successfully updated."
+      messages_archived: "The message has been archived."
+      messages_removed_archive: "The message has been removed from the archive."
+      messages_write_a_username: "You must enter a username."
+      messages_write_a_title: "You must enter a title."
+      messages_not_self: "You cannot send messages to yourself."
+      not_saving_content: "There is unsaved content!"
+      account_passwords_must_much: "Passwords entered must be the same."
+      attachment_deleted_successfull: "The file has been deleted."
+
+    page_errors:
+      page_not_found:
+        title: "Page not found"
+        breadcrumb: "404"
+        text: "The page you were looking for could not be found."
