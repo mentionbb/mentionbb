@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 21 Oca 2023, 16:36:21
--- Sunucu sürümü: 10.4.13-MariaDB
--- PHP Sürümü: 8.2.1
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 09 Şub 2023, 12:46:11
+-- Sunucu sürümü: 10.4.27-MariaDB
+-- PHP Sürümü: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,16 +27,14 @@ SET time_zone = "+00:00";
 -- Tablo için tablo yapısı `admin_navigations`
 --
 
-DROP TABLE IF EXISTS `admin_navigations`;
-CREATE TABLE IF NOT EXISTS `admin_navigations` (
-  `nav_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin_navigations` (
+  `nav_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `link` varchar(50) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `navigation_order` int(11) NOT NULL,
-  `icon` varchar(50) NOT NULL,
-  PRIMARY KEY (`nav_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4;
+  `icon` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `admin_navigations`
@@ -119,15 +117,13 @@ INSERT INTO `admin_navigations` (`nav_id`, `name`, `link`, `parent_id`, `navigat
 -- Tablo için tablo yapısı `attachments`
 --
 
-DROP TABLE IF EXISTS `attachments`;
-CREATE TABLE IF NOT EXISTS `attachments` (
-  `attach_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `attachments` (
+  `attach_id` int(11) NOT NULL,
   `filename` text NOT NULL,
   `unique_id` varchar(36) NOT NULL,
   `post_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`attach_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+  `user_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `attachments`
@@ -135,6 +131,7 @@ CREATE TABLE IF NOT EXISTS `attachments` (
 
 INSERT INTO `attachments` (`attach_id`, `filename`, `unique_id`, `post_id`, `user_id`) VALUES
 (5, '2 (1) (1).docx', '56754d08-f90a-4f93-820b-d6bbe333bce4', 179, 1),
+(10, 'ryujinx-1.1.391-win_x64.zip', 'eadb4914-8e9a-4e61-b076-50114291e522', 277, 1),
 (9, 'laser_2.zip', '2c6ce868-7853-4c3d-a8ff-dded6e27e94b', 240, 1);
 
 -- --------------------------------------------------------
@@ -143,15 +140,13 @@ INSERT INTO `attachments` (`attach_id`, `filename`, `unique_id`, `post_id`, `use
 -- Tablo için tablo yapısı `attachment_filetypes`
 --
 
-DROP TABLE IF EXISTS `attachment_filetypes`;
-CREATE TABLE IF NOT EXISTS `attachment_filetypes` (
-  `type_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `attachment_filetypes` (
+  `type_id` int(11) NOT NULL,
   `extension` varchar(10) NOT NULL,
   `mime_type` varchar(100) NOT NULL,
   `icon` varchar(100) NOT NULL,
-  `is_active` int(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+  `is_active` int(1) NOT NULL DEFAULT 1
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `attachment_filetypes`
@@ -170,30 +165,37 @@ INSERT INTO `attachment_filetypes` (`type_id`, `extension`, `mime_type`, `icon`,
 -- Tablo için tablo yapısı `bbmedias`
 --
 
-DROP TABLE IF EXISTS `bbmedias`;
-CREATE TABLE IF NOT EXISTS `bbmedias` (
-  `media_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `bbmedias` (
+  `media_id` int(11) NOT NULL,
   `title` varchar(40) NOT NULL,
   `bb_key` varchar(35) NOT NULL,
   `matching_url` longtext NOT NULL,
   `embed_html` longtext NOT NULL,
   `callback` varchar(150) NOT NULL,
-  `is_active` int(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`media_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+  `is_active` int(1) NOT NULL DEFAULT 1
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `bbmedias`
 --
 
 INSERT INTO `bbmedias` (`media_id`, `title`, `bb_key`, `matching_url`, `embed_html`, `callback`, `is_active`) VALUES
-(1, 'YouTube', 'youtube={number}', 'youtube.com/watch?v={id}&t={number}s\nyoutube.com/watch?v={id}\nyoutu.be/{id}', '<iframe src=\"https://www.youtube.com/embed/{id}?start={number}\" width=\"500\" height=\"282\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '', 1),
+(1, 'YouTube', 'youtube={number}', 'youtube.com/watch?v={id}&t={number}s\nyoutube.com/watch?v={id}\nyoutu.be/{id}?t={number}\nyoutu.be/{id}', '<iframe src=\"https://www.youtube.com/embed/{id}?start={number}\" width=\"500\" height=\"282\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>', '', 1),
 (3, 'Spotify', 'spotify={name}', 'open.spotify.com/track/{id}\nopen.spotify.com/album/{id}\nopen.spotify.com/artist/{id}\nopen.spotify.com/user/*/playlist/{id}\nopen.spotify.com/playlist/{id}', '<iframe src=\"https://open.spotify.com/embed/{name}/{id}\" width=\"100%\" height=\"352\" frameborder=\"0\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', '\\App\\Renderer\\BBCode\\Helper\\Media\\Spotify', 1),
 (2, 'Dailymotion', 'dailymotion', 'dailymotion.com/video/{id}\r\ndai.ly/{id}', '<iframe src=\"https://www.dailymotion.com/embed/video/{id}?\r\nwidth=560&hideInfos=1\" width=\"560\" height=\"315\" allowfullscreen frameborder=\"0\"></iframe>', '', 1),
 (4, 'Twitch', 'twitch={name}', 'twitch.tv/videos/{id}\ntwitch.tv/{id}\nclips.twitch.tv/{id}', '<iframe src=\"https://player.twitch.tv/?{name}={id}&parent={url|host}\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen=\"true\" scrolling=\"no\"></iframe>', '\\App\\Renderer\\BBCode\\Helper\\Media\\Twitch', 1),
-(5, 'Twitter', 'twitter', 'twitter.com/*/status/{id}\r\ntwitter.com/statuses/{id}', '<div id=\"tweet\" data-tweet-id=\"{id}\"></div>', '', 1),
+(5, 'Twitter', 'twitter', 'twitter.com/*/status/{id}\ntwitter.com/statuses/{id}', '<div id=\"tweet\" data-tweet-id=\"{id}\"></div>', '', 1),
 (6, 'Soundcloud', 'soundcloud', 'soundcloud.com/{id}', '<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\" src=\"https://w.soundcloud.com/player/?url=https://soundcloud.com/{id}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true\"></iframe>', '', 1),
-(7, 'Reddit', 'reddit', 'reddit.com/r/{id}', '<blockquote class=\"reddit-card\" >\n<a href=\"https://www.reddit.com/r/{id}?ref_source=embed&amp;ref=share\"></a>\n</blockquote>\n<script async src=\"https://embed.redditmedia.com/widgets/platform.js\" charset=\"UTF-8\"></script>', '', 1);
+(7, 'Reddit', 'reddit', 'reddit.com/r/{id}', '<blockquote class=\"reddit-card\" >\n<a href=\"https://www.reddit.com/r/{id}?ref_source=embed&amp;ref=share\"></a>\n</blockquote>\n<script async src=\"https://embed.redditmedia.com/widgets/platform.js\" charset=\"UTF-8\"></script>', '', 1),
+(8, 'Steam', 'steam', 'store.steampowered.com/app/{number}/{id}/', '<iframe src=\"https://store.steampowered.com/widget/{id}\" frameborder=\"0\" width=\"646\" height=\"190\"></iframe>', '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `cache_items`
+--
+-- sf.cache_items tablosu için yapı okuma hatası: #1932 - Table &#039;sf.cache_items&#039; doesn&#039;t exist in engine
+-- sf.cache_items tablosu için veri okuma hatası: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#039;FROM `sf`.`cache_items`&#039; at line 1
 
 -- --------------------------------------------------------
 
@@ -201,10 +203,9 @@ INSERT INTO `bbmedias` (`media_id`, `title`, `bb_key`, `matching_url`, `embed_ht
 -- Tablo için tablo yapısı `censored_words`
 --
 
-DROP TABLE IF EXISTS `censored_words`;
-CREATE TABLE IF NOT EXISTS `censored_words` (
+CREATE TABLE `censored_words` (
   `word_list` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `censored_words`
@@ -219,9 +220,8 @@ INSERT INTO `censored_words` (`word_list`) VALUES
 -- Tablo için tablo yapısı `discussions`
 --
 
-DROP TABLE IF EXISTS `discussions`;
-CREATE TABLE IF NOT EXISTS `discussions` (
-  `discussion_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `discussions` (
+  `discussion_id` int(11) NOT NULL,
   `title` varchar(70) NOT NULL,
   `is_open` int(1) NOT NULL DEFAULT 1,
   `is_sticky` int(1) NOT NULL DEFAULT 0,
@@ -229,9 +229,8 @@ CREATE TABLE IF NOT EXISTS `discussions` (
   `forum_id` int(11) NOT NULL,
   `poll_id` int(11) NOT NULL DEFAULT 0,
   `is_active` int(1) NOT NULL DEFAULT 1,
-  `tags` text DEFAULT NULL,
-  PRIMARY KEY (`discussion_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=135 DEFAULT CHARSET=utf8mb4;
+  `tags` text DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `discussions`
@@ -362,7 +361,10 @@ INSERT INTO `discussions` (`discussion_id`, `title`, `is_open`, `is_sticky`, `fi
 (131, '1.0.13 Güncellemesi - 22.07.2022', 1, 0, 244, 1, 0, 0, NULL),
 (132, '1.0.13 Güncellemesi - 22.07.2022 <div>', 1, 0, 245, 1, 0, 0, NULL),
 (133, 'Reddit test', 1, 0, 246, 1, 0, 1, NULL),
-(134, 'BBCode img test', 1, 0, 254, 1, 0, 1, NULL);
+(134, 'BBCode img test', 1, 0, 254, 1, 0, 1, NULL),
+(135, 'Heading test', 1, 0, 256, 1, 0, 1, NULL),
+(136, 'AWDAW', 1, 0, 277, 1, 0, 0, NULL),
+(137, 'Steam', 1, 0, 278, 1, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -370,14 +372,12 @@ INSERT INTO `discussions` (`discussion_id`, `title`, `is_open`, `is_sticky`, `fi
 -- Tablo için tablo yapısı `discussion_subscriptions`
 --
 
-DROP TABLE IF EXISTS `discussion_subscriptions`;
-CREATE TABLE IF NOT EXISTS `discussion_subscriptions` (
-  `subscription_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `discussion_subscriptions` (
+  `subscription_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `discussion_id` int(11) NOT NULL,
-  `dateline` int(10) NOT NULL,
-  PRIMARY KEY (`subscription_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
+  `dateline` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `discussion_subscriptions`
@@ -392,13 +392,11 @@ INSERT INTO `discussion_subscriptions` (`subscription_id`, `user_id`, `discussio
 -- Tablo için tablo yapısı `discussion_views`
 --
 
-DROP TABLE IF EXISTS `discussion_views`;
-CREATE TABLE IF NOT EXISTS `discussion_views` (
-  `view_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ip` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
-  `discussion_id` int(11) NOT NULL,
-  PRIMARY KEY (`view_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=144 DEFAULT CHARSET=utf8;
+CREATE TABLE `discussion_views` (
+  `view_id` int(11) NOT NULL,
+  `ip` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `discussion_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Tablo döküm verisi `discussion_views`
@@ -547,7 +545,11 @@ INSERT INTO `discussion_views` (`view_id`, `ip`, `discussion_id`) VALUES
 (140, '127.0.0.1', 4),
 (141, '127.0.0.1', 12),
 (142, '127.0.0.1', 32),
-(143, '127.0.0.1', 134);
+(143, '127.0.0.1', 134),
+(144, '127.0.0.1', 135),
+(145, '::1', 135),
+(146, '127.0.0.1', 136),
+(147, '127.0.0.1', 137);
 
 -- --------------------------------------------------------
 
@@ -555,9 +557,8 @@ INSERT INTO `discussion_views` (`view_id`, `ip`, `discussion_id`) VALUES
 -- Tablo için tablo yapısı `editor_buttons`
 --
 
-DROP TABLE IF EXISTS `editor_buttons`;
-CREATE TABLE IF NOT EXISTS `editor_buttons` (
-  `button_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `editor_buttons` (
+  `button_id` int(11) NOT NULL,
   `tag` varchar(40) NOT NULL,
   `replace_text` mediumtext NOT NULL,
   `bbcode` varchar(200) NOT NULL,
@@ -565,9 +566,8 @@ CREATE TABLE IF NOT EXISTS `editor_buttons` (
   `is_string` int(1) NOT NULL DEFAULT 0,
   `is_single` int(1) NOT NULL DEFAULT 0,
   `parent_id` int(11) NOT NULL DEFAULT 0,
-  `is_active` int(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`button_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+  `is_active` int(1) NOT NULL DEFAULT 1
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `editor_buttons`
@@ -582,18 +582,16 @@ INSERT INTO `editor_buttons` (`button_id`, `tag`, `replace_text`, `bbcode`, `too
 -- Tablo için tablo yapısı `editor_toolbars`
 --
 
-DROP TABLE IF EXISTS `editor_toolbars`;
-CREATE TABLE IF NOT EXISTS `editor_toolbars` (
-  `toolbar_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `editor_toolbars` (
+  `toolbar_id` int(11) NOT NULL,
   `toolbar` varchar(40) NOT NULL,
   `alias` varchar(40) NOT NULL,
   `button` varchar(30) NOT NULL,
   `icon` text NOT NULL,
   `is_editable` int(1) NOT NULL DEFAULT 0,
   `order_by` int(11) NOT NULL,
-  `is_active` int(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`toolbar_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
+  `is_active` int(1) NOT NULL DEFAULT 1
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `editor_toolbars`
@@ -635,16 +633,14 @@ INSERT INTO `editor_toolbars` (`toolbar_id`, `toolbar`, `alias`, `button`, `icon
 -- Tablo için tablo yapısı `forums`
 --
 
-DROP TABLE IF EXISTS `forums`;
-CREATE TABLE IF NOT EXISTS `forums` (
-  `forum_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `forums` (
+  `forum_id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `title` varchar(40) NOT NULL,
   `forum_description` text NOT NULL,
   `icon_id` int(11) NOT NULL,
-  `forum_order` int(11) NOT NULL,
-  PRIMARY KEY (`forum_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+  `forum_order` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `forums`
@@ -660,16 +656,14 @@ INSERT INTO `forums` (`forum_id`, `parent_id`, `title`, `forum_description`, `ic
 -- Tablo için tablo yapısı `moderations`
 --
 
-DROP TABLE IF EXISTS `moderations`;
-CREATE TABLE IF NOT EXISTS `moderations` (
-  `moderation_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `moderations` (
+  `moderation_id` int(11) NOT NULL,
   `moderation_type` varchar(10) NOT NULL,
   `reason` varchar(300) NOT NULL,
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
-  `operation_user_id` int(11) NOT NULL,
-  PRIMARY KEY (`moderation_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `operation_user_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -677,9 +671,8 @@ CREATE TABLE IF NOT EXISTS `moderations` (
 -- Tablo için tablo yapısı `posts`
 --
 
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
-  `post_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `posts` (
+  `post_id` int(11) NOT NULL,
   `shortcode` int(8) NOT NULL,
   `content` text NOT NULL,
   `forum_id` int(11) NOT NULL,
@@ -691,9 +684,8 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `rating_count` int(11) NOT NULL DEFAULT 0,
   `dateline` int(10) NOT NULL,
   `is_active` int(1) NOT NULL DEFAULT 1,
-  `device` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`device`)),
-  PRIMARY KEY (`post_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=256 DEFAULT CHARSET=utf8mb4;
+  `device` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`device`))
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `posts`
@@ -926,7 +918,7 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (236, 20430989, '[url=http://localhost/mention/d/1-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit/4]http://localhost/mention/d/1-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit/4[/url]', 1, 43, 1, 1, 0, 0, 0, 1642337150, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"97.0.4692.71\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (237, 60285828, '[url=https://www.instagram.com/ayc4b/]https://www.instagram.com/ayc4b/[/url]', 1, 39, 1, 1, 0, 0, 0, 1644021290, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"98.0.4758.81\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (238, 14497668, 'awdawdawdawd', 1, 43, 1, 1, 0, 0, 0, 1652840993, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"101.0.4951.67\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
-(239, 74752519, 'Mention BETA, henüz bazı fonksiyonları tam olmayan, [u]site üzerine kurulabilir, yönetilebilir ve yayınlanabilir[/u] olan versiondur ve satışa çıkarılmıştır.\r\n\r\nBETA programına dahil olarak:\r\n[list=decimal]\r\n[li]Güncellemeleri sık alırsınız.[/li]\r\n[li]Hataları direkt yapımcıya bildirebilirsiniz.[/li]\r\n[li]Yazılımda aklınıza gelen özelliği bildirebilirsiniz.[/li]\r\n[li][b][u]BETA programı kapsamında lisans aktarımı kesinlikle yasaktır.[/u][/b][/li]\r\n[li]Dosyalar açık edilemez, kaynak kodları sunulamaz.[/li]\r\n[li]Eklenti, tema oluşturup bunları ücretli/ücretsiz paylaşabilirsiniz.[/li]\r\n[li][u]Şablon düzenleme, kullanıcı yönetimi, eklenti yönetimi, genel site ayarları vs. bütün ana fonksiyonlar çalışır durumdadır![/u][/li]\r\n[/list]\r\nBETA yazılımında eksik olan bazı temel özellikler:\r\n[list=decimal]\r\n[li]E-Posta fonksiyonları[/li]\r\n[li]Admin panelde, iletişim, araçlar ve kayıtlar kullanılamaz. [u]Bu fonksiyonlar sitenin kullanılmasında önemli yer teşkil etmez![/u][/li]\r\n[li][u]Install arayüzü yoktur.[/u][/li]\r\n[/list]\r\nSistemi kullanabileceğiniz hosting/server gereksinimleri:\r\n[list=decimal]\r\n[li]En az PHP 7.4+ veya 8.1+.[/li]\r\n[li]MySQL 5.5+[/li]\r\n[li]Gerekli PHP eklentileri: cURL, Iconv, DOM, JSON, SimpleXML, PDO[/li]\r\n[/list]', 1, 129, 1, 1, 1674216212, 1, 0, 1654564509, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.5005.63\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}');
+(239, 74752519, 'Mention BETA, henüz bazı fonksiyonları tam olmayan, [u]site üzerine kurulabilir, yönetilebilir ve yayınlanabilir[/u] olan versiondur ve satışa çıkarılmıştır.\r\n\r\nBETA programına dahil olarak:\r\n[list=decimal]\r\n[li]Güncellemeleri sık alırsınız.[/li]\r\n[li]Hataları direkt yapımcıya bildirebilirsiniz.[/li]\r\n[li]Yazılımda aklınıza gelen özelliği bildirebilirsiniz.[/li]\r\n[li][b][u]BETA programı kapsamında lisans aktarımı kesinlikle yasaktır.[/u][/b][/li]\r\n[li]Dosyalar açık edilemez, kaynak kodları sunulamaz.[/li]\r\n[li]Eklenti, tema oluşturup bunları ücretli/ücretsiz paylaşabilirsiniz.[/li]\r\n[li][u]Şablon düzenleme, kullanıcı yönetimi, eklenti yönetimi, genel site ayarları vs. bütün ana fonksiyonlar çalışır durumdadır![/u][/li]\r\n[/list]\r\nBETA yazılımında eksik olan bazı temel özellikler:\r\n[list=decimal]\r\n[li]E-Posta fonksiyonları[/li]\r\n[li]Admin panelde, iletişim, araçlar ve kayıtlar kullanılamaz. [u]Bu fonksiyonlar sitenin kullanılmasında önemli yer teşkil etmez![/u][/li]\r\n[li][u]Install arayüzü yoktur.[/u][/li]\r\n[/list]\r\nSistemi kullanabileceğiniz hosting/server gereksinimleri:\r\n[list=decimal]\r\n[li]En az PHP 7.4+ veya 8.1+.[/li]\r\n[li]MySQL 5.5+[/li]\r\n[li]Gerekli PHP eklentileri: cURL, Iconv, DOM, JSON, SimpleXML, PDO[/li]\r\n[/list]', 1, 129, 1, 1, 1674829912, 1, 0, 1654564509, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.5005.63\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}');
 INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_id`, `user_id`, `parent_id`, `lastedit_date`, `lastedit_userid`, `rating_count`, `dateline`, `is_active`, `device`) VALUES
 (240, 97732787, 'awdawdawdawdawdd', 1, 129, 1, 1, 1654620383, 1, 0, 1654615570, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.5005.63\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"model\":\"\"}'),
 (241, 87580851, '[post-quote]239[/post-quote]\r\nawdawdawdawdawdaw', 1, 129, 1, 1, 0, 0, 0, 1655983805, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Chrome\",\"short_name\":\"CH\",\"version\":\"102.0.0.0\",\"engine\":\"Blink\",\"engine_version\":\"\",\"family\":\"Chrome\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
@@ -942,7 +934,29 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 (252, 42074938, '[list=decimal]\r\n[li]awdaw[/li]\r\n[li]da[/li]\r\n[li]wd[/li]\r\n[li]a[/li]\r\n[li]dw[/li]\r\n[li]k[/li]\r\n[/list]\r\n \r\n[list=disc]\r\n[li]awdaw[/li]\r\n[li]da[/li]\r\n[li]w[/li]\r\n[li]daw[/li]\r\n[li]da[/li]\r\n[/list]', 1, 129, 1, 1, 1673993122, 1, 0, 1673972463, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (253, 88926282, 'awdawd\r\n\r\nawdawd\r\n\r\n\r\n \r\n \r\n \r\n \r\n \r\n\r\n\r\nawdawdaw', 1, 129, 1, 1, 1673993085, 1, 0, 1673992852, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"108.0\",\"engine\":\"Gecko\",\"engine_version\":\"108.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
 (254, 37186173, '[img=:960:1200]http://localhost/mention/public/editor/1674310560_15094482.jpg[/img]\r\n \r\nTesttestest', 1, 134, 1, 1, 0, 0, 0, 1674310588, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
-(255, 81214610, 'Boyutlandırma testi.\r\n\r\n[img=test123123123:131:164]http://localhost/mention/public/editor/1674310560_15094482.jpg[/img]', 1, 134, 1, 1, 1674310702, 1, 0, 1674310683, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}');
+(255, 81214610, 'Boyutlandırma testi.\n\n[img=test123123123:131:164]http://localhost/mention/public/editor/1674310560_15094482.jpg[/img]', 1, 134, 1, 1, 1674310702, 1, 0, 1674310683, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(257, 92498876, '[post-quote=256]\r\n<h2 id=\"lorem-ipsum-dolor-sit-amet\">Lorem ipsum dolor sit amet</h2>\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar ligula ac suscipit pulvinar. Vivamus et sagittis sem. Nunc vitae pretium ligula. Suspendisse in justo eget turpis tincidunt facilisis tempor non velit. Quisque nec placerat eros, sollicitudin dapibus velit. Nam dapibus nunc id nisl suscipit, vel condimentum nulla aliquet. Suspendisse a tortor aliquam, malesuada urna in, posuere massa. Nam mattis tincidunt est id vehicula. Aliquam erat volutpat. In euismod quis neque at volutpat. Quisque nec velit tortor. Etiam elit massa, dignissim vel enim a, fringilla porttitor leo. Integer varius metus laoreet libero porttitor condimentum.[/post-quote]\r\nTesttt', 1, 135, 1, 1, 0, 0, 0, 1675044757, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(256, 69792129, '[heading=2]Lorem ipsum dolor sit amet[/heading]\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar ligula ac suscipit pulvinar. Vivamus et sagittis sem. Nunc vitae pretium ligula. Suspendisse in justo eget turpis tincidunt facilisis tempor non velit. Quisque nec placerat eros, sollicitudin dapibus velit. Nam dapibus nunc id nisl suscipit, vel condimentum nulla aliquet. Suspendisse a tortor aliquam, malesuada urna in, posuere massa. Nam mattis tincidunt est id vehicula. Aliquam erat volutpat. In euismod quis neque at volutpat. Quisque nec velit tortor. Etiam elit massa, dignissim vel enim a, fringilla porttitor leo. Integer varius metus laoreet libero porttitor condimentum.\r\n[heading=2]Maecenas at eros malesuada[/heading]\r\nMaecenas at eros malesuada, malesuada enim eget, vulputate tellus. Nunc ac nunc hendrerit, facilisis metus non, viverra ex. Pellentesque tincidunt, felis scelerisque fringilla ornare, orci velit faucibus quam, eget porta orci purus nec metus. Nullam finibus ac mauris posuere viverra. Aenean leo felis, vestibulum id iaculis vitae, egestas quis velit. Integer nec dignissim dolor. Suspendisse quis sollicitudin ex, in imperdiet sapien. Ut a metus non ex auctor interdum auctor et tortor. Donec mattis laoreet dolor, ac varius augue auctor in.\r\n[heading=2]Aenean non venenatis urna[/heading]\r\nAenean non venenatis urna. Etiam vehicula orci diam, a sagittis urna eleifend dictum. Nunc tempus magna mattis dolor finibus ultricies ut eu dolor. Phasellus ut est sit amet velit bibendum malesuada eget eu dui. Praesent maximus nibh et purus lacinia, vitae pulvinar massa convallis. Proin commodo justo ac iaculis dictum. Fusce sed accumsan nibh. Maecenas ut dui justo. Sed maximus justo eget felis facilisis auctor. Aenean iaculis a mi vel aliquam.', 1, 135, 1, 1, 1674744681, 1, 0, 1674743027, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(258, 56818708, '[post-quote=256]Aenean non venenatis urna\r\nAenean non venenatis urna. Etiam vehicula orci diam, a sagittis urna eleifend dictum. Nunc tempus magna mattis dolor finibus ultricies ut eu dolor. Phasellus ut est sit amet velit bibendum malesuada eget eu dui. Praesent maximus nibh et purus lacinia, vitae pulvinar massa convallis. Proin commodo justo ac iaculis dictum. Fusce sed accumsan nibh. Maecenas ut dui justo. Sed maximus justo eget felis facilisis auctor. Aenean iaculis a mi vel aliquam.[/post-quote]\r\nTesttt', 1, 135, 1, 1, 1675047104, 1, 0, 1675045354, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(259, 19568087, '[post-selected-quote=256]\r\n[heading=2]Lorem ipsum dolor sit amet[/heading]\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar ligula ac suscipit pulvinar. Vivamus et sagittis sem. Nunc vitae pretium ligula. Suspendisse in justo eget turpis tincidunt facilisis tempor non velit. Quisque nec placerat eros, sollicitudin dapibus velit. Nam dapibus nunc id nisl suscipit, vel condimentum nulla aliquet. Suspendisse a tortor aliquam, malesuada urna in, posuere massa. Nam mattis tincidunt est id vehicula. Aliquam erat volutpat. In euismod quis neque at volutpat. Quisque nec velit tortor. Etiam elit massa, dignissim vel enim a, fringilla porttitor leo. Integer varius metus laoreet libero porttitor condimentum.[/post-quote]', 1, 135, 1, 1, 1675047754, 1, 0, 1675047624, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(261, 22756841, '[post-quote]81[/post-quote]', 1, 32, 1, 1, 0, 0, 0, 1675048318, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(262, 70637700, '[post-selected-quote=256]Aenean non venenatis urna Aenean non venenatis urna. Etiam vehicula orci diam, a sagittis urna eleifend dictum. Nunc tempus magna mattis dolor finibus ultricies ut eu dolor. Phasellus ut est sit amet velit bibendum malesuada eget eu dui. Praesent maximus nibh et purus lacinia, vitae pulvinar massa convallis. Proin commodo justo ac iaculis dictum. Fusce sed accumsan nibh. Maecenas ut dui justo. Sed maximus justo eget felis facilisis auctor. Aenean iaculis a mi vel aliquam. [/post-quote]\r\ntestttt', 1, 135, 1, 1, 1675048632, 1, 0, 1675048599, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(263, 26995666, '[post-selected-quote=256]\r\n[heading=2]Aenean non venenatis urna[/heading]\r\nAenean non venenatis urna. Etiam vehicula orci diam, a sagittis urna eleifend dictum. Nunc tempus magna mattis dolor finibus ultricies ut eu dolor. Phasellus ut est sit amet velit bibendum malesuada eget eu dui. Praesent maximus nibh et purus lacinia, vitae pulvinar massa convallis. Proin commodo justo ac iaculis dictum. Fusce sed accumsan nibh. Maecenas ut dui justo. Sed maximus justo eget felis facilisis auctor. Aenean iaculis a mi vel aliquam. [/post-quote]', 1, 135, 1, 1, 0, 0, 0, 1675049178, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(264, 47258303, '[post-selected-quote=239]Mention BETA, henüz bazı fonksiyonları tam olmayan, [u]site üzerine kurulabilir, yönetilebilir ve yayınlanabilir[/u] olan versiondur ve satışa çıkarılmıştır.\r\n\r\nBETA programına dahil olarak:\r\n[list=decimal]\r\n[li]Güncellemeleri sık alırsınız.[/li]\r\n[li]Hataları direkt yapımcıya bildirebilirsiniz.[/li]\r\n[li]Yazılımda aklınıza gelen özelliği bildirebilirsiniz.[/li]\r\n[li][b][u]BETA programı kapsamında lisans aktarımı kesinlikle yasaktır.[/u][/b][/li]\r\n[/list]\r\n[/post-quote]\r\nsfsefs', 1, 129, 1, 1, 0, 0, 0, 1675079942, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(265, 38347262, '[post-quote]255[/post-quote]\r\nasdasda', 1, 134, 1, 1, 0, 0, 0, 1675081212, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(266, 68583111, '[post-selected-quote=254][url=http://localhost/mention/public/editor/1674310560_15094482.jpg]<img class=\"app-AttachmentImage\" style=\"width: 50%; height: 50%;\" title=\"\" src=\"http://localhost/mention/public/editor/1674310560_15094482.jpg\" alt=\"\" width=\"960\" height=\"1200\" data-original-title=\"\" /> [/url]\r\n\r\nTest[/post-quote]\r\nawdawdaw', 1, 134, 1, 1, 1675082637, 1, 0, 1675082234, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(267, 14300638, '[post-selected-quote=254][url=http://localhost/mention/public/editor/1674310560_15094482.jpg]<img class=\"app-AttachmentImage\" style=\"width: 50%; height: 100%;\" title=\"\" src=\"http://localhost/mention/public/editor/1674310560_15094482.jpg\" alt=\"\" width=\"960\" height=\"1200\" data-original-title=\"\" /> [/url]\r\n\r\nTestte[/post-quote]\r\nadadawdaw', 1, 134, 1, 1, 0, 0, 0, 1675083767, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(268, 73457696, '[post-selected-quote=254][url=http://localhost/mention/public/editor/1674310560_15094482.jpg]<img class=\"app-AttachmentImage\" style=\"width: 50%; height: 100%;\" title=\"\" src=\"http://localhost/mention/public/editor/1674310560_15094482.jpg\" alt=\"\" width=\"960\" height=\"1200\" data-original-title=\"\" /> [/url]\r\n\r\nTestteste[/post-quote]', 1, 134, 1, 1, 0, 0, 0, 1675084068, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(269, 74211288, '[post-selected-quote=256]\r\n[heading=2]Aenean non venenatis urna[/heading]\r\nAenean non venenatis urna. Etiam vehicula orci diam, a sagittis urna eleifend dictum. Nunc tempus magna mattis dolor finibus ultricies ut eu dolor. Phasellus ut est sit amet velit bibendum malesuada eget eu dui. Praesent maximus nibh et purus lacinia, vitae pulvinar massa convallis. Proin commodo justo ac iaculis dictum. Fusce sed accumsan nibh. Maecenas ut dui justo. Sed maximus justo eget felis facilisis auctor. Aenean iaculis a mi vel aliquam. [/post-quote]', 1, 135, 1, 1, 0, 0, 0, 1675086246, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(270, 44586234, '[post-selected-quote=254][url=http://localhost/mention/public/editor/1674310560_15094482.jpg]<img class=\"app-AttachmentImage\" style=\"width: 50%; height: 100%;\" title=\"\" src=\"http://localhost/mention/public/editor/1674310560_15094482.jpg\" alt=\"\" width=\"960\" height=\"1200\" data-original-title=\"\" /> [/url]\r\n\r\nTesttes[/post-quote]', 1, 134, 1, 1, 0, 0, 0, 1675086282, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(271, 44557014, '[post-selected-quote=256]\r\n[heading=2]Lorem ipsum dolor sit amet[/heading]\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar ligula ac suscipit pulvinar. Vivamus et sagittis sem. Nunc vitae pretium ligula. Suspendisse in justo eget turpis tincidunt facilisis tempor non velit. Quisque nec placerat eros, sollicitudin dapibus velit. Nam dapibus nunc id nisl suscipit, vel condimentum nulla aliquet. Suspendisse a tortor aliquam, malesuada urna in, posuere massa. Nam mattis tincidunt est id vehicula. Aliquam erat volutpat. In euismod quis neque at volutpat. Quisque nec velit tortor. Etiam elit massa, dignissim vel enim a, fringilla porttitor leo. Integer varius metus laoreet libero porttitor condimentum.[/post-quote]', 1, 135, 1, 1, 0, 0, 0, 1675087681, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(272, 66550481, '[post-selected-quote=239]BETA programına dahil olarak:{line}\r\n[list=decimal]\r\n[li]Güncellemeleri sık alırsınız.[/li]\r\n[li]Hataları direkt yapımcıya bildirebilirsiniz.[/li]\r\n[li]Yazılımda aklınıza gelen özelliği bildirebilirsiniz.[/li]\r\n[li][b][u]BETA programı kapsamında lisans aktarımı kesinlikle yasaktır.[/u][/b][/li]\r\n[li]Dosyalar açık edilemez, kaynak kodları sunulamaz.[/li]\r\n[li]Eklenti, tema oluşturup bunları ücretli/ücretsiz paylaşabilirsiniz.[/li]\r\n[li][u]Şablon düzenleme, kullanıcı yönetimi, eklenti yönetimi, genel site ayarları vs. bütün ana fonksiyonlar çalışır durumdadır![/u][/li]\r\n[/list]\r\n[/post-quote]', 1, 129, 1, 1, 0, 0, 0, 1675087741, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(273, 98380089, '[post-selected-quote=239]Mention BETA, henüz bazı fonksiyonları tam olmayan, [u]site üzerine kurulabilir, yönetilebilir ve yayınlanabilir[/u] olan versiondur ve satışa çıkarılmıştır.{line} \r\nBETA programına dahil olarak:\r\n[list=decimal]\r\n[li]Güncellemeleri sık alırsınız.[/li]\r\n[li]Hataları direkt yapımcıya bildirebilirsiniz.[/li]\r\n[li]Yazılımda aklınıza gelen özelliği bildirebilirsiniz.[/li]\r\n[li][b][u]BETA programı kapsamında lisans aktarımı kesinlikle yasaktır.[/u][/b][/li]\r\n[/list]\r\n[/post-quote]', 1, 129, 1, 1, 0, 0, 0, 1675087782, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(274, 36957035, '[post-selected-quote=239]Mention BETA, henüz bazı fonksiyonları tam olmayan, [u]site üzerine kurulabilir, yönetilebilir ve yayınlanabilir[/u] olan versiondur ve satışa çıkarılmıştır.\r\n\r\nBETA programına dahil olarak:\r\n[list=decimal]\r\n[li]Güncellemeleri sık alırsınız.[/li]\r\n[li]Hataları direkt yapımcıya bildirebilirsiniz.[/li]\r\n[li]Yazılımda aklınıza gelen özelliği bildirebilirsiniz.[/li]\r\n[li][b][u]BETA programı kapsamında lisans aktarımı kesinlikle yasaktır.[/u][/b][/li]\r\n[li]Dosyalar açık edilemez, kaynak kodları sunulamaz.[/li]\r\n[li]Eklenti, tema oluşturup bunları ücretli/ücretsiz paylaşabilirsiniz.[/li]\r\n[/list]\r\n[/post-quote]', 1, 129, 1, 1, 1675089103, 1, 0, 1675087805, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(275, 91558646, '[post-selected-quote=84] Merhaba 🙂\" data-shortcut=\"🙂\" data-title=\"Slight smile\" data-original-title=\"  [/post-quote]', 1, 34, 1, 1, 0, 0, 0, 1675089260, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(276, 89697823, '[post-selected-quote=84]Merhaba 🙂  [/post-quote]', 1, 34, 1, 1, 0, 0, 0, 1675089397, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(277, 41606234, 'DAWDWADADAWD', 1, 136, 1, 1, 0, 0, 0, 1675368604, 0, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}'),
+(278, 70279730, '[steam]374320[/steam]', 1, 137, 1, 1, 1675692430, 1, 0, 1675687857, 1, '{\"client\":{\"type\":\"browser\",\"name\":\"Firefox\",\"short_name\":\"FF\",\"version\":\"109.0\",\"engine\":\"Gecko\",\"engine_version\":\"109.0\",\"family\":\"Firefox\"},\"os\":{\"name\":\"Windows\",\"short_name\":\"WIN\",\"version\":\"10\",\"platform\":\"x64\",\"family\":\"Windows\"},\"device\":\"desktop\",\"brand\":\"\",\"model\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -950,14 +964,12 @@ INSERT INTO `posts` (`post_id`, `shortcode`, `content`, `forum_id`, `discussion_
 -- Tablo için tablo yapısı `post_bookmarks`
 --
 
-DROP TABLE IF EXISTS `post_bookmarks`;
-CREATE TABLE IF NOT EXISTS `post_bookmarks` (
-  `bookmark_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `post_bookmarks` (
+  `bookmark_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `dateline` int(10) NOT NULL,
-  PRIMARY KEY (`bookmark_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4;
+  `dateline` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `post_bookmarks`
@@ -972,15 +984,13 @@ INSERT INTO `post_bookmarks` (`bookmark_id`, `post_id`, `user_id`, `dateline`) V
 -- Tablo için tablo yapısı `post_likes`
 --
 
-DROP TABLE IF EXISTS `post_likes`;
-CREATE TABLE IF NOT EXISTS `post_likes` (
-  `like_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `post_likes` (
+  `like_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `reaction` varchar(15) NOT NULL,
-  `dateline` int(10) NOT NULL,
-  PRIMARY KEY (`like_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=445 DEFAULT CHARSET=utf8;
+  `dateline` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Tablo döküm verisi `post_likes`
@@ -1005,16 +1015,14 @@ INSERT INTO `post_likes` (`like_id`, `post_id`, `user_id`, `reaction`, `dateline
 -- Tablo için tablo yapısı `post_reports`
 --
 
-DROP TABLE IF EXISTS `post_reports`;
-CREATE TABLE IF NOT EXISTS `post_reports` (
-  `report_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `post_reports` (
+  `report_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `dateline` int(10) NOT NULL,
-  `is_seeing` int(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`report_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+  `is_seeing` int(1) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `post_reports`
@@ -1034,16 +1042,14 @@ INSERT INTO `post_reports` (`report_id`, `post_id`, `user_id`, `content`, `datel
 -- Tablo için tablo yapısı `reports`
 --
 
-DROP TABLE IF EXISTS `reports`;
-CREATE TABLE IF NOT EXISTS `reports` (
-  `report_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reports` (
+  `report_id` int(11) NOT NULL,
   `report_text` mediumtext NOT NULL,
   `reported_user_id` int(11) NOT NULL,
   `operation_user_id` int(11) NOT NULL,
   `is_seeing` int(1) NOT NULL,
-  `is_closed` int(1) NOT NULL,
-  PRIMARY KEY (`report_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `is_closed` int(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1051,17 +1057,15 @@ CREATE TABLE IF NOT EXISTS `reports` (
 -- Tablo için tablo yapısı `sessions`
 --
 
-DROP TABLE IF EXISTS `sessions`;
-CREATE TABLE IF NOT EXISTS `sessions` (
-  `sessions_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sessions` (
+  `sessions_id` int(11) NOT NULL,
   `dateline` int(10) NOT NULL,
   `session_id` varchar(40) NOT NULL,
   `type` varchar(10) NOT NULL,
   `route` varchar(80) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `ip` varchar(24) NOT NULL,
-  PRIMARY KEY (`sessions_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4228 DEFAULT CHARSET=utf8mb4;
+  `ip` varchar(24) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `sessions`
@@ -5301,7 +5305,200 @@ INSERT INTO `sessions` (`sessions_id`, `dateline`, `session_id`, `type`, `route`
 (4224, 1674304244, '0q9n1ej451idnbs7gc4kedn8h6', 'user', '/', 1, '127.0.0.1'),
 (4225, 1674318819, '8j170v2k5b8nr86eedtjs17cma', 'user', '/', 1, '127.0.0.1'),
 (4226, 1674310601, '3pn6lls1iundlda3kp9f03e3e7', 'guest', '/d/134-bbcode-img-test/254', 0, '127.0.0.1'),
-(4227, 1674311968, 'h8chtaf0d3do3q2sgos7qtq5fa', 'guest', '/d/134-bbcode-img-test/255', 0, '127.0.0.1');
+(4227, 1674311968, 'h8chtaf0d3do3q2sgos7qtq5fa', 'guest', '/d/134-bbcode-img-test/255', 0, '127.0.0.1'),
+(4228, 1674331407, 'tme2fr3j84icoqm8ru9talc4og', 'user', '/account/profile-tooltip', 1, '127.0.0.1'),
+(4229, 1674339688, 'dpop911209ka1dgftuuo7ivsea', 'user', '/', 1, '127.0.0.1'),
+(4230, 1674340116, 't5l1ogpre5eeqjg6qql765a7bo', 'user', '/', 1, '127.0.0.1'),
+(4231, 1674358988, '4aip73h7k8nra5j8br0r9in5tf', 'user', '/', 1, '127.0.0.1'),
+(4232, 1674354966, 'itaj5mfk3kselaq2rdp6svnsai', 'guest', '/', 0, '127.0.0.1'),
+(4233, 1674388221, 'e43sdmhmkff31ugvjo4d21a9jo', 'user', '/', 1, '127.0.0.1'),
+(4234, 1674392965, 'llq2bn98qikvi5jmvg2m0o0t98', 'user', '/', 1, '127.0.0.1'),
+(4235, 1674397813, 'lruo50iom8fodaf3bpbi6kdtbp', 'user', '/', 1, '127.0.0.1'),
+(4236, 1674401213, 'vjjcob69adin5ag6888jpgb8e9', 'user', '/', 1, '127.0.0.1'),
+(4237, 1674401799, 'ro6p4bajfk160hdmlug232jdn8', 'user', '/', 1, '127.0.0.1'),
+(4238, 1674403480, 'pd138cqs77unu4ds153kjmofh8', 'user', '/', 1, '127.0.0.1'),
+(4239, 1674407381, '5r0t6qtsoo1eun7qcjpu46s7q5', 'user', '/editor', 1, '127.0.0.1'),
+(4240, 1674439167, 'b4akb8am9nhlo5g9c3uimmrqc8', 'user', '/admin/theme', 1, '127.0.0.1'),
+(4241, 1674436528, '6fh0n1jl5jg6g96ngb1qirls9f', 'guest', '/', 0, '127.0.0.1'),
+(4242, 1674438049, '9m098jeetqvhsnivghd87v39gr', 'guest', '/messages/conversation/58', 0, '127.0.0.1'),
+(4243, 1674474944, 'pv031dk8a374202s0mou8dlkhe', 'user', '/', 1, '127.0.0.1'),
+(4244, 1674481834, 'kp4bpk1opjrqe75vd6etvr3ol5', 'user', '/', 1, '127.0.0.1'),
+(4245, 1674583046, '604k1a9e92jodipoe6m7co41km', 'user', '/', 1, '127.0.0.1'),
+(4246, 1674575175, '5ikrhrfrae0gnqkjmj6g8cqm11', 'guest', '/pages/faq', 0, '127.0.0.1'),
+(4247, 1674575522, 't9ogprgb2811sh82ptk2nqcgt9', 'guest', '/account', 0, '127.0.0.1'),
+(4248, 1674575744, '6tmq5bjnhjvrfmh29c8o37ce5d', 'guest', '/account/reactions', 0, '127.0.0.1'),
+(4250, 1674578234, 'c16chgphsiejno0pfpf8e02b5d', 'guest', '/admin', 0, '127.0.0.1'),
+(4249, 1674577198, 'dk9kj88tul9lqqhcaf77jf9p4f', 'guest', '/d/12-bol-mesajli-konu/29', 0, '127.0.0.1'),
+(4251, 1674581798, '6tt8gi6tl1uki27nfbcabhe9t1', 'guest', '/admin/forums', 0, '127.0.0.1'),
+(4252, 1674581798, '0i9ntphi3tc19h7f0q9glo7g6j', 'guest', '/', 0, '127.0.0.1'),
+(4253, 1674581933, '1jjdn8g6opn7fa8f5lohgfh45j', 'guest', '/admin/templates', 0, '127.0.0.1'),
+(4254, 1674582106, 'rgptvio9v9docbbkfi6t20in73', 'guest', '/admin/languages', 0, '127.0.0.1'),
+(4255, 1674661647, 'uv0famcj31lnesod4tst9fujd4', 'user', '/', 1, '127.0.0.1'),
+(4256, 1674661216, 'cd6pc47e6odaln13guomm26fi5', 'guest', '/d/134-bbcode-img-test/255', 0, '127.0.0.1'),
+(4257, 1674662588, 'tqci0qmrgpak2dm0kkk3t4d26s', 'user', '/', 1, '127.0.0.1'),
+(4258, 1674701853, 'nep0fq7nd7htgsn1rnbgtv4jgn', 'user', '/d/129-mention-beta-programi/239', 1, '127.0.0.1'),
+(4259, 1674749912, 'rpr8l6n2t0oje1b69sqka9cs80', 'user', '/d/135-heading-test/256', 1, '127.0.0.1'),
+(4260, 1674743044, '270ugbcauf2nc4sii3695b6dvs', 'guest', '/d/135-heading-test/256', 0, '127.0.0.1'),
+(4261, 1674755006, 'u7n98o915es2eanrq3iuib4j7i', 'user', '/', 1, '127.0.0.1'),
+(4262, 1674754513, 'o6c27l8v5fgsvacbjr0ppesv42', 'guest', '/admin/users', 0, '127.0.0.1'),
+(4263, 1674783794, 'fnvcgsldmrgu2j359gh4t4372p', 'user', '/d/135-heading-test/256', 1, '127.0.0.1'),
+(4264, 1674784366, 'd0q1f07i826rfj5oskadci89o0', 'user', '/d/135-heading-test/256', 1, '127.0.0.1'),
+(4265, 1674784580, '3nlnv8490nrosg3ivmtj0sv8l0', 'user', '/d/135-heading-test/256', 1, '127.0.0.1'),
+(4266, 1674820468, '57ohdv5h4udu8ulre4hm934s0s', 'user', '/d/135-heading-test/256', 1, '127.0.0.1'),
+(4267, 1674835001, 'va84h72024bjsu7ljh4p97thqd', 'user', '/', 1, '127.0.0.1'),
+(4268, 1674830180, '92e3po7remsg5o0cj9ecjgsle3', 'guest', '/messages/conversation/58', 0, '127.0.0.1'),
+(4269, 1674830857, 'i67aju89uvlkiadicl0nunf7kb', 'guest', '/pages/faq', 0, '127.0.0.1'),
+(4270, 1674831231, '251cg9nm1q0oq7357b41pd5tnn', 'guest', '/d/39-links/93', 0, '127.0.0.1'),
+(4271, 1674833017, 'navjmet9nnl7h94n65imr16ff3', 'guest', '/d/36-code-block/89', 0, '127.0.0.1'),
+(4272, 1674833460, 't07a91lk55s6528gf68342bk8b', 'guest', '/f/1-test-forum', 0, '127.0.0.1'),
+(4273, 1674833809, 'l37mq2r1imfsv1dn3m20pufumj', 'guest', '/d/37-forum-disi-alinti/90', 0, '127.0.0.1'),
+(4274, 1674834472, '24qqvdtk2f0g28ah9uu2dp1v4v', 'guest', '/d/25-media-test/74', 0, '127.0.0.1'),
+(4275, 1674834553, '7nrbojiepc3f72cvedd8n3p20r', 'guest', '/d/13-alinti-mesaj-deneme-konusu/66', 0, '127.0.0.1'),
+(4276, 1674835643, 'rpil9u3itbrl6833mnhuhi9dg7', 'user', '/', 1, '127.0.0.1'),
+(4277, 1674835562, 'mptgtkbhjds9csu0avdjsfroon', 'guest', '/pages/privacy', 0, '127.0.0.1'),
+(4278, 1674865733, 'hip07jpe50ths6hnn6q27ljqmp', 'user', '/', 1, '127.0.0.1'),
+(4279, 1674867445, 'f4efa3tm32n3bld8c9qtpe6evn', 'user', '/', 1, '127.0.0.1'),
+(4280, 1674920187, '6oauc8ms8s0oo8imn55au17d5r', 'user', '/d/135-heading-test/256', 1, '127.0.0.1'),
+(4281, 1674912670, 'ec570lfg0t9e3ec1tv0ikakn15', 'guest', '/d/12-bol-mesajli-konu/29', 0, '127.0.0.1'),
+(4282, 1674914762, 'iblqp7aiuc3lnhjk61jtbakjv8', 'user', '/d/129-mention-beta-programi/239', 1, '::1'),
+(4283, 1674914264, 'oratdducn6edsuiqf69v0f737d', 'guest', '/webmanifest.json', 0, '::1'),
+(4284, 1674914266, '5u7a77vpvo158ocjp7754hmi5k', 'guest', '/webmanifest.json', 0, '::1'),
+(4285, 1674914268, 'ava0ctvst98ksc638nvpgmpq8o', 'guest', '/webmanifest.json', 0, '::1'),
+(4286, 1674914762, 'v9j43accqoe017nr8lagcpuflm', 'guest', '/webmanifest.json', 0, '::1'),
+(4287, 1674951820, 'oec79g0of2oti4jb6u2cq3f8oe', 'user', '/account/profile-tooltip', 1, '127.0.0.1'),
+(4288, 1674940886, 'kmau7o6cb88spojgjtbd4srqb5', 'guest', '/d/134-bbcode-img-test/255', 0, '127.0.0.1'),
+(4289, 1674956664, 'c4vh3deoths67dhjheuj66vl9r', 'user', '/d/129-mention-beta-programi/239', 1, '127.0.0.1'),
+(4290, 1674994438, 'qbp0bmut8edofcbhoul9m38r63', 'user', '/', 1, '127.0.0.1'),
+(4291, 1675022102, '393j87jd6ifjoempav2h2o5f91', 'user', '/', 1, '127.0.0.1'),
+(4292, 1675044251, 'vo7mpust3u56l04kh7u87lp7b4', 'user', '/', 1, '127.0.0.1'),
+(4293, 1675030029, 'kggglj472dnb8hrv7k2d2hi80g', 'guest', '/d/134-bbcode-img-test/255', 0, '127.0.0.1'),
+(4294, 1675030314, '9deco484c05ujfqb91vivahvn1', 'guest', '/d/12-bol-mesajli-konu/29', 0, '127.0.0.1'),
+(4295, 1675034326, 'jtpjuetkh4otihs9ffpjg3h6es', 'guest', '/d/34-ifadeler/84', 0, '127.0.0.1'),
+(4296, 1675037986, 'joampq5f84mthkmjajvu2mllha', 'user', '/post/next-discussion-page', 1, '::1'),
+(4297, 1675034337, '1j2b9m1ablfhk7jdmt7j8dltiu', 'guest', '/webmanifest.json', 0, '::1'),
+(4298, 1675034342, '630jtfpokohtd8ir0l5kkirnpa', 'guest', '/webmanifest.json', 0, '::1'),
+(4299, 1675034401, 'fh2jo0bhgkj3g5n1rlu2jufaqm', 'guest', '/webmanifest.json', 0, '::1'),
+(4300, 1675034408, 'igc49orlh9nef5s9jakdlh13gr', 'guest', '/webmanifest.json', 0, '::1'),
+(4301, 1675034414, 'cmhtm27cchh2hu26dc8fjtjt1b', 'guest', '/webmanifest.json', 0, '::1'),
+(4316, 1675035012, '3jsmohacrh0qqk65skod960ctq', 'guest', '/webmanifest.json', 0, '::1'),
+(4302, 1675034415, '9da4smc2vtd7uf5q6e4iqpag30', 'guest', '/webmanifest.json', 0, '::1'),
+(4303, 1675034471, 'd9g24m7p28dk6c57bn9tjf50cg', 'guest', '/webmanifest.json', 0, '::1'),
+(4304, 1675034513, '3tu4im2tegeg87c6msta6kljgq', 'guest', '/webmanifest.json', 0, '::1'),
+(4305, 1675034543, 'n8c4e55i9m80iqjcnks55fema7', 'guest', '/webmanifest.json', 0, '::1'),
+(4306, 1675034556, 'bojtqfbnm6gts3cph1jil4vg5e', 'guest', '/webmanifest.json', 0, '::1'),
+(4307, 1675034575, '30vm82eer6assr4cui1ufbs6jl', 'guest', '/webmanifest.json', 0, '::1'),
+(4308, 1675034603, '5ap99q23qgvrprfsh71jv1a1p6', 'guest', '/webmanifest.json', 0, '::1'),
+(4309, 1675034607, 'scr4u5pip2tpqi5phtum4vffnl', 'guest', '/webmanifest.json', 0, '::1'),
+(4310, 1675034693, 'gj5gjgga8f2h6l7ri0ahqgf8tf', 'guest', '/webmanifest.json', 0, '::1'),
+(4311, 1675034698, 'e3epf3248et2frhbuo18kqns2v', 'guest', '/webmanifest.json', 0, '::1'),
+(4312, 1675034809, 'j0g7lm4codka3cfqj9jkbqs28f', 'guest', '/webmanifest.json', 0, '::1'),
+(4313, 1675034812, '84r3a1pohl03o8hlcv15gmam8p', 'guest', '/webmanifest.json', 0, '::1'),
+(4314, 1675034818, 'rle0hijenil400a7qiu8ru4gam', 'guest', '/webmanifest.json', 0, '::1'),
+(4315, 1675035002, 'i8co6svddmn71kphsr2pmt610j', 'guest', '/webmanifest.json', 0, '::1'),
+(4317, 1675035021, 'hnkcstl3he36ehpbdffnt60elo', 'guest', '/webmanifest.json', 0, '::1'),
+(4318, 1675035067, 'l8l6ve0sic681vu9q0gp5pc4bi', 'guest', '/webmanifest.json', 0, '::1'),
+(4319, 1675035080, 'jg63to9i4tfthu4nr109opu4il', 'guest', '/webmanifest.json', 0, '::1'),
+(4320, 1675035658, 'c8i2jhuamjss6b060rqhl6irkc', 'guest', '/webmanifest.json', 0, '::1'),
+(4321, 1675035685, '19n610d5k5dnl36jihakv7ts4o', 'guest', '/webmanifest.json', 0, '::1'),
+(4322, 1675035722, '15kg6peddonsl2p2vssklamh8d', 'guest', '/webmanifest.json', 0, '::1'),
+(4323, 1675035781, 'ap953tkf922bjtf1ngs3og7t0m', 'guest', '/webmanifest.json', 0, '::1'),
+(4324, 1675035788, '5kk9l9joln8lobj0mb5q6clu15', 'guest', '/webmanifest.json', 0, '::1'),
+(4325, 1675037979, '1j2jvf436qhf0552p1vj9u7or5', 'guest', '/webmanifest.json', 0, '::1'),
+(4326, 1675038434, 'fpa45uc3bhlvqlntlak35b065c', 'user', '/d/34-ifadeler/84', 1, '::1'),
+(4327, 1675038400, 'rmn0q1aqfknrg46mehr89g8s0t', 'guest', '/webmanifest.json', 0, '::1'),
+(4330, 1675038423, 'rirjbn8j6e9m1qvghpc8svbjg7', 'guest', '/webmanifest.json', 0, '::1'),
+(4328, 1675038403, 'umct1ctiqivicvpl2re25hdee8', 'guest', '/webmanifest.json', 0, '::1'),
+(4329, 1675038405, '3m6gmaq2u4knecpv8rpk9pk67b', 'guest', '/webmanifest.json', 0, '::1'),
+(4331, 1675038431, 'plvlk3g74tbhnkf5iapdsgp47s', 'guest', '/webmanifest.json', 0, '::1'),
+(4332, 1675038434, '97go40s4nqvb0aq1tpi6q4if2m', 'guest', '/webmanifest.json', 0, '::1'),
+(4333, 1675041927, '8k3tfd54bb01fn9ticspkmc9jp', 'user', '/d/129-mention-beta-programi/239', 1, '::1'),
+(4334, 1675041891, '126qhgk5n4pp6qd1r89ulge5m2', 'guest', '/webmanifest.json', 0, '::1'),
+(4335, 1675041894, 'v6di9n6fmkcsctpk2hq4d1k5j7', 'guest', '/webmanifest.json', 0, '::1'),
+(4336, 1675041900, '2nr7p5esokrc7gh29tu5m58203', 'guest', '/webmanifest.json', 0, '::1'),
+(4337, 1675041928, 'f025ehor3nfd6454ohcslk20q3', 'guest', '/webmanifest.json', 0, '::1'),
+(4338, 1675050336, 'g2ubq845ngpb24qice9cp9jms0', 'user', '/d/135-heading-test/256', 1, '127.0.0.1'),
+(4340, 1675090926, 'i2kk1os9qcsere59hh8612rh4n', 'user', '/', 1, '127.0.0.1'),
+(4339, 1675044545, 'fsiguulug5okdborn4v7t5389d', 'guest', '/d/13-alinti-mesaj-deneme-konusu/66', 0, '127.0.0.1'),
+(4341, 1675079861, 'd95bkm1gtgbqbs77hnhl5iqgfd', 'guest', '/d/135-heading-test/263', 0, '127.0.0.1'),
+(4342, 1675129253, 'p2qp7c2vrbdj0rs1paa40uoofv', 'user', '/admin/templates', 1, '127.0.0.1'),
+(4343, 1675126400, '4slsgqlgdhn3oomt7o9o0m3kg7', 'guest', '/p/4IQ7v', 0, '127.0.0.1'),
+(4344, 1675219188, '6h5097ii5as2eogunv6vt3bna8', 'user', '/', 1, '127.0.0.1'),
+(4345, 1675260191, 'rung7qup2q20q3hkbb37furlmt', 'user', '/', 1, '127.0.0.1'),
+(4346, 1675264692, '17de4j0r6vug7jk23009d5cfic', 'user', '/', 1, '127.0.0.1'),
+(4347, 1675275830, '93cr5fh9rotuvpar3m67kf273p', 'user', '/', 1, '127.0.0.1'),
+(4348, 1675300882, 'sc1f928hvs4lqb69a33hjpmkv4', 'user', '/', 1, '127.0.0.1'),
+(4349, 1675302564, '9hq934nj9nniqnrf62vh7f7n2u', 'user', '/', 1, '::1'),
+(4350, 1675305964, 'o86dhmqb85u81sm7b7mqtp43sn', 'user', '/post/order-index-posts', 1, '127.0.0.1'),
+(4351, 1675305980, '3i5cjg39v0jng14ktgs20cujpc', 'user', '/post/order-index-posts', 1, '127.0.0.1'),
+(4352, 1675339782, 'bomtanq1fptrfsg6fru87migcj', 'user', '/post/quick-forum-posts', 1, '127.0.0.1'),
+(4353, 1675339564, '2ubj0d0bre2o27m77e5vni7oad', 'guest', '/admin/languages', 0, '127.0.0.1'),
+(4354, 1675350699, 'fc2dfst4j7piak4houlqp6sgdm', 'user', '/', 1, '127.0.0.1'),
+(4355, 1675347398, 'sorqfirosngpm7uhiveh9atf9r', 'guest', '/admin/route-filters', 0, '127.0.0.1'),
+(4356, 1675348624, 'ogjcqjq6un3j32dhrohusch98d', 'guest', '/admin', 0, '127.0.0.1'),
+(4357, 1675348760, '3q481hkqvaq3num80ha2apnr8v', 'guest', '/admin/users', 0, '127.0.0.1'),
+(4358, 1675350703, 'mrhsndllfioa8lcl650la8ul9b', 'guest', '/', 0, '127.0.0.1'),
+(4359, 1675361857, 'aguehdh5h6lt02fhjbufb7e05t', 'user', '/', 1, '127.0.0.1'),
+(4360, 1675361192, '96p39jehkbqon7isf9l2lb1ui4', 'guest', '/account', 0, '127.0.0.1'),
+(4361, 1675366899, 'vdjvstos0kq1shron9dqmkpoe2', 'user', '/', 1, '127.0.0.1'),
+(4362, 1675373931, '5h8kihak0pts7r41asgp2j18ap', 'user', '/', 1, '127.0.0.1'),
+(4363, 1675385366, 'u1ikl0bkfd6gd9qdlrfbudo1q4', 'user', '/post/edit', 1, '127.0.0.1'),
+(4364, 1675441037, 'd4pt1kebk7dsml5u7fel0jqc5a', 'user', '/', 1, '127.0.0.1'),
+(4365, 1675447721, 'p0iieupfihpfkm8efp919kc79t', 'user', '/', 1, '127.0.0.1'),
+(4366, 1675449223, 'pio4ng9oqt6i9gupo91v66eolo', 'user', '/', 1, '127.0.0.1'),
+(4367, 1675472243, 'pm5mepd6v514174gn1l594bfks', 'user', '/', 1, '127.0.0.1'),
+(4368, 1675476665, '76087u2pnpa28dn2i1icnu479f', 'user', '/account/about', 1, '127.0.0.1'),
+(4369, 1675598305, 'ihr01iebe2ob30bgiss0am542s', 'user', '/', 1, '127.0.0.1'),
+(4370, 1675602386, '8c7s0f3saj04v8t7qmdjhc7ni4', 'user', '/post/quick-forum-posts', 1, '127.0.0.1'),
+(4371, 1675654164, 'r14dhjgd9o1v276j42n3mm1eg1', 'user', '/', 1, '127.0.0.1'),
+(4372, 1675681756, '6p7k3jjc5c6ib7qdsicl12tbeb', 'user', '/', 1, '127.0.0.1'),
+(4373, 1675685365, 'f3ucjh4olkvjt1dsh9gstu8htf', 'user', '/admin/settings', 1, '127.0.0.1'),
+(4374, 1675692475, 'n88e5n61apaqgc1qa0esbma9e2', 'user', '/d/137-steam/278', 1, '127.0.0.1'),
+(4375, 1675687956, '8dug7o7f1mtdtt7h2b39ttie2b', 'guest', '/d/137-steam/278', 0, '127.0.0.1'),
+(4376, 1675693451, 'ida7a56liisb1ulacvf0g5o5pv', 'user', '/', 1, '127.0.0.1'),
+(4377, 1675694201, 'iadeq7v6186le17gubkcccrj1c', 'user', '/', 1, '127.0.0.1'),
+(4378, 1675697323, 'tg3lci28pke3pakq46ruq0106t', 'user', '/', 1, '127.0.0.1'),
+(4379, 1675699483, 'kss4b4fe960gib5u1bekoeo1qh', 'user', '/account/profile-tooltip', 1, '127.0.0.1'),
+(4380, 1675782085, 'bfjh6qjtfqu7nia8493l9pi5jb', 'user', '/', 1, '127.0.0.1'),
+(4381, 1675858296, 'hr8d3v47snkqnm7sqj1bf4du10', 'user', '/', 1, '127.0.0.1'),
+(4382, 1675860600, 'ilg0ao20r38sn9ruf9re832t6h', 'user', '/', 1, '127.0.0.1'),
+(4383, 1675860678, 'ntoivuonl8jr1e9gic50vr61d2', 'user', '/', 1, '127.0.0.1'),
+(4384, 1675862564, 'h713beiuk47gggirgpvkkivruc', 'user', '/', 1, '127.0.0.1'),
+(4385, 1675862442, 'cgrsnj778aub6aibetp4ha0oad', 'guest', '/', 0, '127.0.0.1'),
+(4386, 1675897449, 'gbjlnrbeuqqqg5lfd9fpjmahqh', 'user', '/', 1, '127.0.0.1'),
+(4387, 1675887523, 'tfcgg12legvloh2f4gmmi9cv0i', 'guest', '/d/129-mention-beta-programi/239', 0, '127.0.0.1'),
+(4388, 1675888369, 'bvvdae2c6ghbh2jnvb4523btri', 'guest', '/messages/conversation/58', 0, '127.0.0.1'),
+(4389, 1675893336, 'kgbisqv98d33ppel5sdo653d8e', 'user', '/account/sign-out', 1, '::1'),
+(4390, 1675892551, 'gbqg3l7m6hvp690a9e9mve4iq4', 'guest', '/webmanifest.json', 0, '::1'),
+(4392, 1675892641, 'l444vf4q882bjodsuj2ng7jrec', 'guest', '/webmanifest.json', 0, '::1'),
+(4391, 1675892558, '4843enchgse9g2ejnkph9iejmd', 'guest', '/webmanifest.json', 0, '::1'),
+(4393, 1675892867, 'eur5gojfiau8eppb9jq52cosjc', 'guest', '/webmanifest.json', 0, '::1'),
+(4394, 1675893176, 'k0sn8gv5304e7u3qchi0tk5g1f', 'guest', '/webmanifest.json', 0, '::1'),
+(4395, 1675893337, '7rl2lummoh5dmpecaghkbe76vs', 'guest', '/webmanifest.json', 0, '::1'),
+(4396, 1675893339, '9n1i2etqrfpbhbt4crupbkc7p6', 'guest', '/webmanifest.json', 0, '::1'),
+(4397, 1675893342, '4n0vk64rfi4a7e2944pen801mt', 'guest', '/webmanifest.json', 0, '::1'),
+(4398, 1675893362, '2ue5nii5jhikda2irck71fu5aj', 'guest', '/webmanifest.json', 0, '::1'),
+(4399, 1675893364, '7jeoltf91i89hrdmjrc4n9tg77', 'guest', '/webmanifest.json', 0, '::1'),
+(4400, 1675893419, 'iebho7mkb0kfvvdt6mfjk882kh', 'guest', '/webmanifest.json', 0, '::1'),
+(4401, 1675893463, 'o4rlhndbhlcnreeba2hdnjfscs', 'guest', '/webmanifest.json', 0, '::1'),
+(4402, 1675893478, 'jgs0vmiv1ud67s0m57t7ikcljp', 'guest', '/webmanifest.json', 0, '::1'),
+(4403, 1675893492, '11n46k8e8hklleccpvd2k1ipd6', 'guest', '/webmanifest.json', 0, '::1'),
+(4404, 1675893506, 's2km4m4ve8sf4jaluatlrrehdq', 'guest', '/webmanifest.json', 0, '::1'),
+(4405, 1675893525, 'bkbta438i0nh6v4s9lbv3k888k', 'guest', '/webmanifest.json', 0, '::1'),
+(4406, 1675893537, 'jneovv8qctpuprt2t8oou37s0s', 'guest', '/webmanifest.json', 0, '::1'),
+(4407, 1675893801, 'l1175kaplr4ho88a9ddfuhc1da', 'guest', '/webmanifest.json', 0, '::1'),
+(4408, 1675893814, 'mek579f7qrmj0pfo0fnk0a8gep', 'guest', '/webmanifest.json', 0, '::1'),
+(4409, 1675893815, 'hl1tp5rukgll8mcg092hlat32m', 'guest', '/webmanifest.json', 0, '::1'),
+(4410, 1675896468, 'qcmgr8oi1dlaub6agl3329v97k', 'guest', '/admin', 0, '127.0.0.1'),
+(4411, 1675898105, '6k4rkrn037otjbvqqfgg6a07nk', 'user', '/', 1, '127.0.0.1'),
+(4412, 1675901122, '88rrglc7v6dlmni9ldvs4qk2ve', 'user', '/', 1, '127.0.0.1'),
+(4413, 1675899094, '5p9jhubs62eku163el276tirks', 'guest', '/admin/editor', 0, '127.0.0.1'),
+(4414, 1675899534, '99iok1siavq2lajrhgjc7uth3h', 'guest', '/admin/route-filters', 0, '127.0.0.1'),
+(4415, 1675900653, 'ohvnps55kem62mlgp8fur73h8a', 'guest', '/d/133-reddit-test/246', 0, '127.0.0.1'),
+(4416, 1675911061, 'iqovo61ev6913b7m55r6viks9n', 'user', '/p/3IMfb', 1, '127.0.0.1'),
+(4417, 1675908876, '10mj0ovehrtg1iac9qtam728li', 'guest', '/pages/faq', 0, '127.0.0.1'),
+(4419, 1675911240, 'f129jridkljmktbdet5n2fevqk', 'user', '/', 1, '127.0.0.1'),
+(4418, 1675910914, '229han4roc3l4gb6a9acgrc9e7', 'guest', '/d/1-lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit/4', 0, '127.0.0.1'),
+(4420, 1675943101, 'u4rlk8pvme4u8ouj524lfikvls', 'user', '/', 1, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -5309,15 +5506,13 @@ INSERT INTO `sessions` (`sessions_id`, `dateline`, `session_id`, `type`, `route`
 -- Tablo için tablo yapısı `settings`
 --
 
-DROP TABLE IF EXISTS `settings`;
-CREATE TABLE IF NOT EXISTS `settings` (
-  `setting_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `settings` (
+  `setting_id` int(11) NOT NULL,
   `name` varchar(25) NOT NULL,
   `value` varchar(140) NOT NULL,
   `type` varchar(10) NOT NULL,
-  `group_name` varchar(40) NOT NULL,
-  PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+  `group_name` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `settings`
@@ -5332,14 +5527,14 @@ INSERT INTO `settings` (`setting_id`, `name`, `value`, `type`, `group_name`) VAL
 (6, 'per_page', '10', 'text', 'posts'),
 (7, 'site_logo', 'logo.svg', 'filetext', 'styles'),
 (8, 'meta_description', 'Mention Test App', 'text', 'site'),
-(9, 'default_language', 'Turkish', 'selectbox', 'languages'),
+(9, 'default_language', 'EnglishUS', 'selectbox', 'languages'),
 (10, 'title_char_min', '5', 'text', 'posts'),
 (11, 'content_char_min', '10', 'text', 'posts'),
 (12, 'site_mail', 'demo@demo.com', 'email', 'site'),
 (13, 'site_logo_night', 'logo-nightmode.svg', 'filetext', 'styles'),
 (14, 'emoticon_database', 'local', 'text', 'styles'),
 (15, 'max_attachments', '5', 'text', 'posts'),
-(16, 'attachment_max_size', '2MB', 'text', 'posts'),
+(16, 'attachment_max_size', '50MB', 'text', 'posts'),
 (17, 'profile_photo_max_size', '500KB', 'text', 'users'),
 (18, 'default_theme', 'Default', 'selectbox', 'styles');
 
@@ -5349,16 +5544,14 @@ INSERT INTO `settings` (`setting_id`, `name`, `value`, `type`, `group_name`) VAL
 -- Tablo için tablo yapısı `socialsites`
 --
 
-DROP TABLE IF EXISTS `socialsites`;
-CREATE TABLE IF NOT EXISTS `socialsites` (
-  `site_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `socialsites` (
+  `site_id` int(11) NOT NULL,
   `title` varchar(40) NOT NULL,
   `name` varchar(40) NOT NULL,
   `api_keys` text NOT NULL,
   `callback` text NOT NULL,
-  `is_active` int(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`site_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+  `is_active` int(1) NOT NULL DEFAULT 1
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `socialsites`
@@ -5376,9 +5569,8 @@ INSERT INTO `socialsites` (`site_id`, `title`, `name`, `api_keys`, `callback`, `
 -- Tablo için tablo yapısı `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `usertitle` varchar(80) NOT NULL DEFAULT 'Üye',
   `mail` text NOT NULL,
@@ -5392,17 +5584,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `registration_date` int(10) NOT NULL,
   `last_activity` int(10) NOT NULL DEFAULT 0,
   `use_twofa` int(1) NOT NULL DEFAULT 0,
-  `message_bg` varchar(200) NOT NULL DEFAULT '#f8f9fa',
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+  `message_bg` varchar(200) NOT NULL DEFAULT '#f8f9fa'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `usertitle`, `mail`, `profile_picture`, `password`, `secret_key`, `login_key`, `status`, `two_step_verification`, `is_admin`, `registration_date`, `last_activity`, `use_twofa`, `message_bg`) VALUES
-(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1674318819, 0, '#f8f9fa'),
-(2, 'Demo', '__default', 'test@test.com', 'default.svg', 'NzFDZWhVb2xQdFdzM2pqNHhONUljZz09OjqwPFsIMXTXuyhA6J5O6IxH', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'MEUrejEwRGpjSlhORVNZd09WTGRtak96UkhQaHQ0bk95emZ3N2l6Z2svZz06Ov4rGRs7sQ4E6eoxdhDiXtg=', 1, 0, 0, 1595779759, 1616158044, 0, '#f8f9fa'),
+(1, 'TestUser', '<span style=\"font-weight: 600; color: #a3c8ff\">Administrator</span>', 'test@test.com', 'testuser.svg', 'YmxMVGlueTg4UkhSR0JxcUN4VDl3Zz09OjrCETwe20w6gbVBavXgMB0L', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'T1RiaVB0RmVsUGIxU1RJRmVvUTgyQTEzOXczZ2ZONUhWYWE5cmNMelk4QT06OqHgSa0DPmRHpEv0lr8P7IY=', 1, 0, 1, 1593522574, 1675943101, 0, '#f8f9fa'),
+(2, 'Demo', '__default', 'test@test.com', 'default.svg', 'NnpVN21LWUpPYXJIQkVUSmkvcFZ2QT09OjobQFNTXaQ5zzehsJDHwRX3', 'SEZNb0MyNkF6YVFnTGpFaFhpbElUNXUzRE5CY3NaOFkxUm4wNEtrcFY5U2VVN09QcXJmeHRkR3ZtV2J3eUo=\r\n', 'MEUrejEwRGpjSlhORVNZd09WTGRtak96UkhQaHQ0bk95emZ3N2l6Z2svZz06Ov4rGRs7sQ4E6eoxdhDiXtg=', 1, 0, 0, 1595779759, 1675350610, 0, '#f8f9fa'),
 (8, 'asds4', '', 'awdaw@awd.com', 'default.svg', 'OXd3bDUrUTVTQ0pxZFl6RmhnWC9lZz09OjoVfi3K3cOMRKG0qOptbAGv', 'VGZYckVDMXc4VUxBNzVaSnpjQkk2NHhq', 'UVJNd29pcXYvS1JGdEtGb2ZBQkc3T2cwenZRMmFMYks3dTFxWFh4YWVkbz06Oga3/3jnO8pTx7BrAGiMqtk=', 1, 0, 0, 1639757629, 1642529371, 0, '#f8f9fa');
 
 -- --------------------------------------------------------
@@ -5411,15 +5602,13 @@ INSERT INTO `users` (`user_id`, `username`, `usertitle`, `mail`, `profile_pictur
 -- Tablo için tablo yapısı `user_bans`
 --
 
-DROP TABLE IF EXISTS `user_bans`;
-CREATE TABLE IF NOT EXISTS `user_bans` (
-  `ban_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_bans` (
+  `ban_id` int(11) NOT NULL,
   `expires` int(10) NOT NULL,
   `text` varchar(200) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `dateline` int(10) NOT NULL,
-  PRIMARY KEY (`ban_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+  `dateline` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `user_bans`
@@ -5435,15 +5624,13 @@ INSERT INTO `user_bans` (`ban_id`, `expires`, `text`, `user_id`, `dateline`) VAL
 -- Tablo için tablo yapısı `user_friendships`
 --
 
-DROP TABLE IF EXISTS `user_friendships`;
-CREATE TABLE IF NOT EXISTS `user_friendships` (
-  `friendship_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_friendships` (
+  `friendship_id` int(11) NOT NULL,
   `sender_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `awaiting` int(1) NOT NULL DEFAULT 1,
-  `dateline` int(10) NOT NULL,
-  PRIMARY KEY (`friendship_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+  `dateline` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -5451,9 +5638,8 @@ CREATE TABLE IF NOT EXISTS `user_friendships` (
 -- Tablo için tablo yapısı `user_messages`
 --
 
-DROP TABLE IF EXISTS `user_messages`;
-CREATE TABLE IF NOT EXISTS `user_messages` (
-  `message_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_messages` (
+  `message_id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `text` longtext NOT NULL,
   `sender_id` int(11) NOT NULL,
@@ -5462,9 +5648,8 @@ CREATE TABLE IF NOT EXISTS `user_messages` (
   `is_seeing` int(1) NOT NULL DEFAULT 0,
   `dateline` int(10) NOT NULL,
   `is_active` int(11) NOT NULL DEFAULT 1,
-  `is_archived` int(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`message_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4;
+  `is_archived` int(1) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `user_messages`
@@ -5539,18 +5724,16 @@ INSERT INTO `user_messages` (`message_id`, `title`, `text`, `sender_id`, `user_i
 -- Tablo için tablo yapısı `user_notifications`
 --
 
-DROP TABLE IF EXISTS `user_notifications`;
-CREATE TABLE IF NOT EXISTS `user_notifications` (
-  `notification_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_notifications` (
+  `notification_id` int(11) NOT NULL,
   `tab` varchar(50) NOT NULL,
   `post_id` int(11) DEFAULT 0,
   `discussion_id` int(11) NOT NULL DEFAULT 0,
   `sender_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `is_seeing` int(1) NOT NULL DEFAULT 0,
-  `dateline` int(10) NOT NULL,
-  PRIMARY KEY (`notification_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=531 DEFAULT CHARSET=utf8mb4;
+  `dateline` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `user_notifications`
@@ -5703,7 +5886,326 @@ INSERT INTO `user_notifications` (`notification_id`, `tab`, `post_id`, `discussi
 (483, 'reply-discussion', 0, 27, 1, 1, 0, 1673964581),
 (484, 'reply-discussion', 0, 129, 1, 1, 0, 1673972463),
 (485, 'reply-discussion', 0, 129, 1, 1, 0, 1673992852),
-(530, 'reply-discussion', 0, 134, 1, 1, 0, 1674310683);
+(530, 'reply-discussion', 0, 134, 1, 1, 0, 1674310683),
+(531, 'reply-discussion', 0, 135, 1, 1, 0, 1675044757),
+(532, 'reply-discussion', 0, 135, 1, 1, 0, 1675045354),
+(533, 'reply-discussion', 0, 135, 1, 1, 0, 1675047624),
+(534, 'quote-post', 254, 134, 1, 1, 0, 1675048218),
+(535, 'reply-discussion', 0, 134, 1, 1, 0, 1675048218),
+(536, 'quote-post', 81, 32, 1, 1, 0, 1675048318),
+(537, 'reply-discussion', 0, 32, 1, 1, 0, 1675048318),
+(538, 'reply-discussion', 0, 135, 1, 1, 0, 1675048599),
+(539, 'reply-discussion', 0, 135, 1, 1, 0, 1675049178),
+(540, 'reply-discussion', 0, 129, 1, 1, 0, 1675079942),
+(541, 'quote-post', 255, 134, 1, 1, 0, 1675081212),
+(542, 'reply-discussion', 0, 134, 1, 1, 0, 1675081212),
+(543, 'reply-discussion', 0, 134, 1, 1, 0, 1675082234),
+(544, 'reply-discussion', 0, 134, 1, 1, 0, 1675083767),
+(545, 'reply-discussion', 0, 134, 1, 1, 0, 1675084068),
+(546, 'reply-discussion', 0, 135, 1, 1, 0, 1675086246),
+(547, 'reply-discussion', 0, 134, 1, 1, 0, 1675086282),
+(548, 'reply-discussion', 0, 135, 1, 1, 0, 1675087681),
+(549, 'reply-discussion', 0, 129, 1, 1, 0, 1675087741),
+(550, 'reply-discussion', 0, 129, 1, 1, 0, 1675087782),
+(551, 'reply-discussion', 0, 129, 1, 1, 0, 1675087805),
+(552, 'reply-discussion', 0, 34, 1, 1, 0, 1675089260),
+(553, 'reply-discussion', 0, 34, 1, 1, 0, 1675089397);
+
+--
+-- Dökümü yapılmış tablolar için indeksler
+--
+
+--
+-- Tablo için indeksler `admin_navigations`
+--
+ALTER TABLE `admin_navigations`
+  ADD PRIMARY KEY (`nav_id`);
+
+--
+-- Tablo için indeksler `attachments`
+--
+ALTER TABLE `attachments`
+  ADD PRIMARY KEY (`attach_id`);
+
+--
+-- Tablo için indeksler `attachment_filetypes`
+--
+ALTER TABLE `attachment_filetypes`
+  ADD PRIMARY KEY (`type_id`);
+
+--
+-- Tablo için indeksler `bbmedias`
+--
+ALTER TABLE `bbmedias`
+  ADD PRIMARY KEY (`media_id`);
+
+--
+-- Tablo için indeksler `discussions`
+--
+ALTER TABLE `discussions`
+  ADD PRIMARY KEY (`discussion_id`);
+
+--
+-- Tablo için indeksler `discussion_subscriptions`
+--
+ALTER TABLE `discussion_subscriptions`
+  ADD PRIMARY KEY (`subscription_id`);
+
+--
+-- Tablo için indeksler `discussion_views`
+--
+ALTER TABLE `discussion_views`
+  ADD PRIMARY KEY (`view_id`);
+
+--
+-- Tablo için indeksler `editor_buttons`
+--
+ALTER TABLE `editor_buttons`
+  ADD PRIMARY KEY (`button_id`);
+
+--
+-- Tablo için indeksler `editor_toolbars`
+--
+ALTER TABLE `editor_toolbars`
+  ADD PRIMARY KEY (`toolbar_id`);
+
+--
+-- Tablo için indeksler `forums`
+--
+ALTER TABLE `forums`
+  ADD PRIMARY KEY (`forum_id`);
+
+--
+-- Tablo için indeksler `moderations`
+--
+ALTER TABLE `moderations`
+  ADD PRIMARY KEY (`moderation_id`);
+
+--
+-- Tablo için indeksler `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`post_id`);
+
+--
+-- Tablo için indeksler `post_bookmarks`
+--
+ALTER TABLE `post_bookmarks`
+  ADD PRIMARY KEY (`bookmark_id`);
+
+--
+-- Tablo için indeksler `post_likes`
+--
+ALTER TABLE `post_likes`
+  ADD PRIMARY KEY (`like_id`);
+
+--
+-- Tablo için indeksler `post_reports`
+--
+ALTER TABLE `post_reports`
+  ADD PRIMARY KEY (`report_id`);
+
+--
+-- Tablo için indeksler `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`report_id`);
+
+--
+-- Tablo için indeksler `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`sessions_id`);
+
+--
+-- Tablo için indeksler `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`setting_id`);
+
+--
+-- Tablo için indeksler `socialsites`
+--
+ALTER TABLE `socialsites`
+  ADD PRIMARY KEY (`site_id`);
+
+--
+-- Tablo için indeksler `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Tablo için indeksler `user_bans`
+--
+ALTER TABLE `user_bans`
+  ADD PRIMARY KEY (`ban_id`);
+
+--
+-- Tablo için indeksler `user_friendships`
+--
+ALTER TABLE `user_friendships`
+  ADD PRIMARY KEY (`friendship_id`);
+
+--
+-- Tablo için indeksler `user_messages`
+--
+ALTER TABLE `user_messages`
+  ADD PRIMARY KEY (`message_id`);
+
+--
+-- Tablo için indeksler `user_notifications`
+--
+ALTER TABLE `user_notifications`
+  ADD PRIMARY KEY (`notification_id`);
+
+--
+-- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
+--
+
+--
+-- Tablo için AUTO_INCREMENT değeri `admin_navigations`
+--
+ALTER TABLE `admin_navigations`
+  MODIFY `nav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `attachments`
+--
+ALTER TABLE `attachments`
+  MODIFY `attach_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `attachment_filetypes`
+--
+ALTER TABLE `attachment_filetypes`
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `bbmedias`
+--
+ALTER TABLE `bbmedias`
+  MODIFY `media_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `discussions`
+--
+ALTER TABLE `discussions`
+  MODIFY `discussion_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `discussion_subscriptions`
+--
+ALTER TABLE `discussion_subscriptions`
+  MODIFY `subscription_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `discussion_views`
+--
+ALTER TABLE `discussion_views`
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `editor_buttons`
+--
+ALTER TABLE `editor_buttons`
+  MODIFY `button_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `editor_toolbars`
+--
+ALTER TABLE `editor_toolbars`
+  MODIFY `toolbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `forums`
+--
+ALTER TABLE `forums`
+  MODIFY `forum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `moderations`
+--
+ALTER TABLE `moderations`
+  MODIFY `moderation_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=279;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `post_bookmarks`
+--
+ALTER TABLE `post_bookmarks`
+  MODIFY `bookmark_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `post_likes`
+--
+ALTER TABLE `post_likes`
+  MODIFY `like_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=447;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `post_reports`
+--
+ALTER TABLE `post_reports`
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `sessions`
+--
+ALTER TABLE `sessions`
+  MODIFY `sessions_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4421;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `socialsites`
+--
+ALTER TABLE `socialsites`
+  MODIFY `site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `user_bans`
+--
+ALTER TABLE `user_bans`
+  MODIFY `ban_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `user_friendships`
+--
+ALTER TABLE `user_friendships`
+  MODIFY `friendship_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `user_messages`
+--
+ALTER TABLE `user_messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `user_notifications`
+--
+ALTER TABLE `user_notifications`
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=556;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
