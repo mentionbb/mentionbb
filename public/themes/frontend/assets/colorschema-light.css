@@ -44,10 +44,13 @@
 
 	--mention-editor-bg-color: #fff;
 	--mention-editor-border-color: #eee;
+	--mention-editor-text-color: #212529;
 	--mention-editor-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
 	--mention-editor-header-shadow: 0 2px 2px -2px rgba(34, 47, 62, .1), 0 8px 8px -4px rgba(34, 47, 62, .07);
 	--mention-editor-btn-hover-bg-color: #f0f0f0;
 	--mention-editor-btn-select-bg-color: #f7f7f7;
+	--mention-editor-hide-backdrop-bg-color: rgb(255 255 255 / 32%);
+	--mention-editor-hide-backdrop-bg-image: linear-gradient(315deg, rgb(255 255 255 / 62%) 0%, rgb(220 220 220 / 55%) 74%);
 
 	--mention-loader-spin-color: rgb(55, 71, 79);
 
@@ -99,21 +102,23 @@
 	--mention-scroll-color: #6f8692;
 	--mention-scroll-hover-color: #37474f;
 
-	--mention-admin-list-group-header-bg-color: #f3f3f3;
-	--mention-admin-list-group-header-hover-bg-color: #f7f7f7;
-
 	--mention-table-text-color: #212529;
 	--mention-table-nth-bg-color: rgba(0, 0, 0, .05);
 	--mention-table-border-color: #dee2e6;
 
 	--mention-post-highlight-bg-color: #ffffde;
-
 	--mention-post-count-text-color: #7777bf;
 	--mention-post-views-text-color: #269626;
 
-	--mention-editor-hide-backdrop-bg-color: rgb(255 255 255 / 32%);
-	--mention-editor-hide-backdrop-bg-image: linear-gradient(315deg, rgb(255 255 255 / 62%) 0%, rgb(220 220 220 / 55%) 74%);
-
 	--mention-user-status-online-border-color: #53c72e;
 	--mention-user-status-offline-border-color: #6b6b6b;
+
+	--mention-admin-list-group-header-bg-color: #f3f3f3;
+	--mention-admin-list-group-header-hover-bg-color: #f7f7f7;
+
+	--mention-install-svg-color: #37474f;
+	--mention-install-button-border-color: #37474f;
+	--mention-install-button-hover-border-color: #fb8f20;
+	--mention-install-button-text-color: #37474f;
+	--mention-install-button-hover-text-color: #fb8f20;
 }

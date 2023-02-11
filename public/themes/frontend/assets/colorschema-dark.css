@@ -5,7 +5,7 @@ body.app-night-mode {
 	--mention-doc-text-color: #b9b9b9;
 	--mention-doc-light-text-color: #676767;
 
-	--mention-link-color: #007bff;
+	--mention-link-color: #79a2ce;
 	--mention-link-hover-color: #d0e7ff;
 
 	--mention-primary-bg-color: rgb(35, 41, 47);
@@ -44,10 +44,13 @@ body.app-night-mode {
 
 	--mention-editor-bg-color: #2f3742;
 	--mention-editor-border-color: #4c535e;
+	--mention-editor-text-color: #fff;
 	--mention-editor-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
 	--mention-editor-header-shadow: 0 2px 2px -2px rgba(100, 124, 151, 0.22), 0 8px 8px -4px rgba(30, 41, 53, 0.31);
 	--mention-editor-btn-hover-bg-color: rgba(9, 11, 15, 0.66);
 	--mention-editor-btn-select-bg-color: rgba(25, 30, 40, 0.25);
+	--mention-editor-hide-backdrop-bg-color: rgba(0, 0, 0, 0.32);
+	--mention-editor-hide-backdrop-bg-image: linear-gradient(315deg,rgba(66, 66, 66, 0.62) 0%,rgba(83, 83, 83, 0.55) 74%);
 
 	--mention-loader-spin-color: #d0e7ff;
 
@@ -99,21 +102,23 @@ body.app-night-mode {
 	--mention-scroll-color: #6f8692;
 	--mention-scroll-hover-color: #37474f;
 
-	--mention-admin-list-group-header-bg-color: #111519;
-	--mention-admin-list-group-header-hover-bg-color: #212830;
-
 	--mention-table-text-color: #a2b5c8;
 	--mention-table-nth-bg-color: rgb(35, 41, 47);
 	--mention-table-border-color: #575757;
 
 	--mention-post-highlight-bg-color: #1e3766;
-	
 	--mention-post-count-text-color: #7777bf;
 	--mention-post-views-text-color: #269626;
 
-	--mention-editor-hide-backdrop-bg-color: rgba(0, 0, 0, 0.32);
-	--mention-editor-hide-backdrop-bg-image: linear-gradient(315deg,rgba(66, 66, 66, 0.62) 0%,rgba(83, 83, 83, 0.55) 74%);
-
 	--mention-user-status-online-border-color: #53c72e;
 	--mention-user-status-offline-border-color: #6b6b6b;
+
+	--mention-admin-list-group-header-bg-color: #111519;
+	--mention-admin-list-group-header-hover-bg-color: #212830;
+
+	--mention-install-svg-color: #d0e7ff;
+	--mention-install-button-border-color: #dfb78e;
+	--mention-install-button-hover-border-color: #d0e7ff;
+	--mention-install-button-text-color: #dfb78e;
+	--mention-install-button-hover-text-color: #d0e7ff;
 }

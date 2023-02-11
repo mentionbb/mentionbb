@@ -2199,11 +2199,11 @@ h5.app-title.user:before {
 }
 
 .dropdown-menu.custom-menu .notification.bg-dark {
-	background-color: #343a40 !important
+	background-color: #151c22 !important
 }
 
 .dropdown-menu.custom-menu .notification.bg-dark:hover {
-	background-color: #343a40 !important
+	background-color: #151c22 !important
 }
 
 .dropdown-menu.custom-menu.custom-menu-xs .notification.quick-menu {
@@ -4572,7 +4572,7 @@ code.error {
 }
 
 .tox .tox-tbtn {
-	color: var(--mention-doc-text-color) !important;
+	color: var(--mention-editor-text-color) !important;
 }
 
 .tox .tox-toolbar,
