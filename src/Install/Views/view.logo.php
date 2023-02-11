@@ -14,10 +14,10 @@
             <g>
                 <defs>
                     <linearGradient y2="0%" x2="100%" y1="0%" x1="0%" id="step1a">
-                        <stop stop-color="#37474F" offset="33%">
+                        <stop offset="33%">
                             <animate id="step1a-animate" attributeName="offset" values="0;.33" dur="0.5s" fill="freeze" />
                         </stop>
-                        <stop stop-color="#f8f9fa" offset="0%" />
+                        <stop offset="0%" />
                     </linearGradient>
                 </defs>
                 <path class="st0" d="M469.9,235.1c-0.4-19.3,4.2-39.5,17.1-54.3c7.5-8.6,18.1-15.2,28.9-18.6c1.5-0.5,3.4-0.9,5.4-1.1

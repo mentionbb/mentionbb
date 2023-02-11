@@ -1,10 +1,67 @@
 @import url('../../themes/frontend/assets/font/nunito.css');
 @import url('../../themes/frontend/assets/colorschema-light.css');
+@import url('../../themes/frontend/assets/colorschema-dark.css');
 
 body {
 	font-family: var(--mention-primary-font-family);
 	background-color: var(--mention-doc-bg-color);
 	color: var(--mention-doc-text-color);
+}
+
+a {
+	color: var(--mention-link-color);
+}
+
+a:hover,
+a:active,
+a:focus {
+	color: var(--mention-link-hover-color);
+}
+
+a.text-dark:hover,
+a.text-dark:focus {
+	color: var(--mention-link-hover-color) !important;
+}
+
+.bg-white {
+	background-color: var(--mention-primary-bg-color) !important;
+}
+
+.bg-light {
+	background-color: var(--mention-light-bg-color) !important;
+}
+
+.bg-dark {
+	background-color: var(--mention-dark-bg-color) !important;
+}
+
+.shadow {
+	box-shadow: var(--mention-primary-shadow) !important;
+}
+
+.text-white {
+	color: var(--mention-text-white-color) !important;
+}
+
+.text-light {
+	color: var(--mention-text-light-color) !important;
+}
+
+.text-dark {
+	color: var(--mention-text-dark-color) !important;
+}
+
+.text-muted {
+	color: var(--mention-text-muted-color) !important;
+}
+
+.badge-dark {
+	background-color: var(--mention-button-active-bg-color);
+	color: var(--mention-text-white-color);
+}
+
+hr {
+	border-top: 1px solid var(--mention-light-border-color);
 }
 
 .container {
@@ -31,7 +88,7 @@ body {
 
 #hello-container .path {
 	fill: none;
-	stroke: var(--mention-text-dark-color);
+	stroke: var(--mention-install-svg-color);
 	stroke-width: 18px;
 	stroke-linecap: round;
 	stroke-linejoin: round;
@@ -88,6 +145,14 @@ body {
 	stroke-width: 5px;
 	stroke-linecap: round;
 	stroke-linejoin: round;
+}
+
+.logo.install linearGradient stop:nth-child(1) {
+	stop-color: var(--mention-install-svg-color);
+}
+
+.logo.install linearGradient stop:nth-child(2) {
+	stop-color: var(--mention-doc-bg-color);
 }
 
 .logo.install.step1a svg .st0 {
@@ -186,8 +251,8 @@ body {
 	background-color: transparent;
 	padding: 0;
 	height: 45px;
-	color: var(--mention-text-dark-color);
-	border: 2px solid var(--mention-border-color);
+	color: var(--mention-install-button-text-color);
+	border: 2px solid var(--mention-install-button-border-color);
 	padding: 0 10px;
 	-webkit-transition: border-color 0.3s, color 0.3s;
 	transition: border-color 0.3s, color 0.3s;
@@ -207,8 +272,8 @@ body {
 }
 
 .btn.btn-app:hover {
-	border: 2px solid var(--mention-primary-border-color);
-	color: var(--mention-primary-text-color);
+	border: 2px solid var(--mention-install-button-hover-border-color);
+	color: var(--mention-install-button-hover-text-color);
 }
 
 /* Progress animation by https://codepen.io/holdencreative/pen/vEVbwv */
@@ -316,6 +381,24 @@ body {
 /* set button(top and bottom of the scrollbar) */
 .scrollable::-webkit-scrollbar-button {
 	display: none
+}
+
+.table {
+	color: var(--mention-table-text-color);
+}
+
+.table-striped tbody tr:nth-of-type(2n+1) {
+	background: var(--mention-table-nth-bg-color);
+}
+
+.table-bordered,
+.table-bordered td,
+.table-bordered th {
+	border: 1px solid var(--mention-table-border-color);
+}
+
+.table thead th {
+	border-bottom: 2px solid var(--mention-dark-border-color);
 }
 
 @keyframes fadeIn {

@@ -52,7 +52,7 @@
     ?>
 </head>
 
-<body class="app-install-container" data-template="<?php echo $this->getName(); ?>">
+<body class="app-install-container app-night-mode" data-template="<?php echo $this->getName(); ?>">
     <?php echo (!empty($content) ? $content : ''); ?>
 
 

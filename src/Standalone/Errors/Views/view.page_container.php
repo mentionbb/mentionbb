@@ -62,6 +62,12 @@
             text-decoration: underline;
         }
 
+        a:hover,
+        a:focus,
+        a:active {
+            color: #d0e7ff;
+        }
+
         p {
             margin: 0;
         }
@@ -149,7 +155,7 @@
         .container>.message {
             padding: 1rem .7rem;
             border-top: 5px solid #b02323;
-            background-color: rgba(0, 0, 0, 0.34);
+            background-color: #111519;
             width: 50%;
         }
 
