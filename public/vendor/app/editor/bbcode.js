@@ -44,7 +44,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
 					return (
 						$.each(app.setupEditorPostProcess(), function (idx2, val2) {
-							(o(new RegExp(`${idx2}`, 'gi'), val2), t)
+							(o(new RegExp(`${idx2}`, 'si'), val2), t)
 						}),
 						o(/^\n$/gi, '<br />'),
 						t
