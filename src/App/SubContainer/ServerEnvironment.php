@@ -83,6 +83,16 @@ class ServerEnvironment
         return false;
     }
 
+    public function isPDOEnabled()
+    {
+        if (App::isLoadExtension('pdo_mysql'))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isIconvEnabled()
     {
         if (App::isLoadExtension('iconv'))
