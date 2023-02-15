@@ -14,6 +14,7 @@ use Doctrine\DBAL\Configuration as DoctrineConfiguration;
 use Doctrine\DBAL\DriverManager as DoctrineDriverManager;
 use Doctrine\DBAL\Logging\Middleware as DoctrineMiddleware;
 use Doctrine\DBAL\Types\Type as DoctrineTypes;
+use Doctrine\DBAL\Schema\Table as TableSchema;
 
 abstract class Mapper
 {
@@ -94,6 +95,16 @@ abstract class Mapper
 		$this->conn->close();
 
 		return $query;
+	}
+
+	public function getSchemaManager()
+	{
+		return $this->conn->createSchemaManager();
+	}
+
+	public function createTableSchema($name)
+	{
+		return new TableSchema($name);
 	}
 
 	public function getType($type)
