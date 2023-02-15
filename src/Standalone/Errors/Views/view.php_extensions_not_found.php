@@ -84,7 +84,7 @@
             </li>
         <?php endif; ?>
         <?php
-        if ($string['server']->isIconvEnabled()) :
+        if ($string['server']->isPDOEnabled()) :
         ?>
             <li>
                 <div class="found">
