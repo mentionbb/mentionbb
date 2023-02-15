@@ -1,7 +1,7 @@
 MIT License
 
 Copyright (c) 2023 Mention Community Bulletin Board
-Copyright (c) 2023 author parantezprojects@gmailc.com / https://www.r10.net/profil/90047-scarecrow.html
+Copyright (c) 2023 author parantezprojects@gmail.com / https://www.r10.net/profil/90047-scarecrow.html
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
