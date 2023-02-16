@@ -75,13 +75,6 @@ class App
 				'error' => 'php_extensions_not_found'
 			];
 		}
-		if (!self::isLoadExtension('pdo_mysql'))
-		{
-			return [
-				'status' => 'fail',
-				'error' => 'php_extensions_not_found'
-			];
-		}
 		if (!self::isLoadExtension('mbstring'))
 		{
 			return [
