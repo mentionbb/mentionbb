@@ -935,6 +935,7 @@ button.btn-app-account {
 .app-post>.post-layout>.post-content {
 	flex: 1;
 	text-align: left;
+	width: 0;
 }
 
 .app-post>.post-layout>.post-content i.bbIcon {
@@ -4007,6 +4008,7 @@ pre[class*="language-"] {
 	-ms-hyphens: none;
 	hyphens: none;
 	font-weight: 700;
+	max-height: 700px;
 }
 
 pre[class*="language-"]::-moz-selection,
@@ -5034,6 +5036,10 @@ code.error {
 
 	.app-post>.post-layout>.post-user {
 		width: 17%;
+	}
+
+	.app-post>.post-layout>.post-content {
+		width: 100%;
 	}
 
 	.app-post>.post-layout>.post-content p {
