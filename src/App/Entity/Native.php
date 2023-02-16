@@ -25,7 +25,9 @@ class Native extends Mapper
         }
         else if ($this->conn->getParams()['driver'] == 'mysqli')
         {
-            $response['server_info'] = $this->conn->getNativeConnection()->dump_debug_info();
+            $stats = $this->conn->getNativeConnection()->get_connection_stats();
+            
+            $response['server_info'] = "Bytes sent: {$stats['bytes_sent']}, bytes received: {$stats['bytes_received']}.";
             $response['server_version'] = $this->conn->getNativeConnection()->get_server_info();
         }
         else if ($this->conn->getParams()['driver'] == 'sqlite3')
