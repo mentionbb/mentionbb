@@ -39,13 +39,10 @@ You have to do this manually as the Installer isn't ready yet.
 - Git (Optional)
 
 ## Requirements PHP Extensions
-- PDO
 - Mbstring
 - Iconv
 - Curl
 - Zip
-
-**Note: The MySQLi driver is currently unavailable, so PDO is required. MySQLi adaptation work continues.**
 
 These extensions are important.
 
