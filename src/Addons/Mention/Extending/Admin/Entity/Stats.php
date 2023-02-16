@@ -18,14 +18,14 @@ class Stats extends Mapper
 
     public function get24HoursVisitor()
     {
-        $query = $this->conn->prepare("SELECT *
-			FROM {$this->table}
-
-            WHERE dateline >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 1 WEEK))
-
-            GROUP BY ip
-            ORDER BY dateline ASC
-			");
+        $query = $this->conn->createQueryBuilder();
+        $query->select('*')
+            ->from($this->table)
+            ->where(
+                $query->expr()->gte('dateline', 'UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 1 WEEK))')
+            )
+            ->groupBy('ip')
+            ->orderBy('dateline', 'ASC');
 
         $fetch = $query->executeQuery()->fetchAllAssociative();
 

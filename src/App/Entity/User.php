@@ -67,7 +67,7 @@ class User extends Mapper
 	{
 		$result = $this->findByUserName($username);
 
-		if(is_array($result))
+		if (is_array($result))
 		{
 			return \App\Repository\Set::setObject($result);
 		}
@@ -84,7 +84,7 @@ class User extends Mapper
 	{
 		$result = $this->findByUserId($user_id);
 
-		if(is_array($result))
+		if (is_array($result))
 		{
 			return \App\Repository\Set::setObject($result);
 		}
@@ -218,7 +218,7 @@ class User extends Mapper
 	public function search(string $keyword)
 	{
 		$query = $this->conn->createQueryBuilder()
-			->select('usertitle, user_id, username, profile_picture, status, registration_date')
+			->select('usertitle', 'user_id', 'username', 'profile_picture', 'status', 'registration_date')
 			->from($this->table)
 			->where('username LIKE ?')
 			->setParameter(0, "%{$keyword}%")

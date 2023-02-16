@@ -69,46 +69,34 @@ class Messages extends Mapper
 
 	public function getMessagesByUserId(int $user_id, int $is_archived, int $limit)
 	{
+		$query = $this->conn->createQueryBuilder();
+		$query->select('m.*', 'sender.username as sender_username', 'sender.user_id as sender_user_id', 'u.user_id', 'u.username')
+			->from($this->table, 'm')
+			->leftJoin('m', 'user_messages', 'b', $query->expr()->and(
+				$query->expr()->eq('m.parent_id', 'b.parent_id'),
+				$query->expr()->lt('m.dateline', 'b.dateline')
+			))
+			->leftJoin('m', 'users', 'sender', 'sender.user_id = m.sender_id')
+			->leftJoin('m', 'users', 'u', 'u.user_id = m.user_id')
+			->where('m.is_archived = :is_archived')
+			->andWhere('m.is_active = :is_active')
+			->andWhere('b.dateline IS NULL')
+			->andWhere('m.user_id = :user_id')
+			->orWhere('m.is_archived = :is_archived')
+			->andWhere('m.is_active = :is_active')
+			->andWhere('b.dateline IS NULL')
+			->andWhere('m.sender_id = :user_id')
+			->groupBy('m.parent_id')
+			->orderBy('m.dateline', 'DESC');
+
 		if ($limit > 0)
 		{
-			$limit = "LIMIT {$limit}";
-		}
-		else
-		{
-			$limit = "";
+			$query->setMaxResults($limit);
 		}
 
-		$query = $this->conn->prepare("SELECT m.*, sender.username as sender_username, sender.user_id as sender_user_id, u.user_id, u.username
-			FROM user_messages m
-
-			LEFT JOIN user_messages b 
-			ON m.parent_id = b.parent_id 
-			AND m.dateline < b.dateline
-
-			LEFT JOIN users sender 
-			ON sender.user_id = m.sender_id
-
-			LEFT JOIN users u 
-			ON u.user_id = m.user_id
-
-			WHERE m.is_archived = :is_archived
-			AND m.is_active = :is_active
-			AND b.dateline IS NULL
-			AND m.user_id = :user_id
-			OR m.is_archived = :is_archived
-			AND m.is_active = :is_active
-			AND b.dateline IS NULL
-			AND m.sender_id = :user_id
-
-			GROUP BY m.parent_id
-			ORDER BY m.dateline DESC
-
-			{$limit}
-			");
-
-		$query->bindValue('user_id', $user_id, $this->getType('integer'));
-		$query->bindValue('is_active', 1, $this->getType('integer'));
-		$query->bindValue('is_archived', $is_archived, $this->getType('integer'));
+		$query->setParameter('user_id', $user_id)
+			->setParameter('is_active', 1)
+			->setParameter('is_archived', $is_archived);
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 

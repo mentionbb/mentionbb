@@ -15,30 +15,18 @@ class EditorButtons extends Mapper
 
     public function buttonList($is_active = true)
     {
-        if ($is_active)
-        {
-            $isActive_Query = "WHERE b.is_active = :is_active";
-        }
-        else
-        {
-            $isActive_Query = "";
-        }
-
-        $query = $this->conn->prepare("SELECT b.*, t.*
-			FROM {$this->table} b
-
-			LEFT JOIN editor_toolbars t 
-			ON t.toolbar_id = b.toolbar_id
-
-			{$isActive_Query}
-
-            ORDER BY b.toolbar_id
-			");
+        $query = $this->conn->createQueryBuilder();
+        $query->select('b.*', 't.*')
+            ->from($this->table, 'b')
+            ->leftJoin('b', 'editor_toolbars', 't', 't.toolbar_id = b.toolbar_id');
 
         if ($is_active)
         {
-            $query->bindValue('is_active', 1, $this->getType('integer'));
+            $query->where('b.is_active = :is_active');
+            $query->setParameter('is_active', 1);
         }
+
+        $query->orderBy('b.toolbar_id');
 
         $fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -102,16 +90,12 @@ class EditorButtons extends Mapper
 
     public function getButton($button_id)
     {
-        $query = $this->conn->prepare("SELECT b.*, t.*
-			FROM {$this->table} b
-
-			LEFT JOIN editor_toolbars t 
-			ON t.toolbar_id = b.toolbar_id
-
-			WHERE b.button_id = :button_id
-			");
-
-        $query->bindValue('button_id', $button_id, $this->getType('integer'));
+        $query = $this->conn->createQueryBuilder();
+        $query->select('b.*', 't.*')
+            ->from($this->table, 'b')
+            ->leftJoin('b', 'editor_toolbars', 't', 't.toolbar_id = b.toolbar_id')
+            ->where('b.button_id = :button_id')
+            ->setParameter('button_id', $button_id);
 
         $fetch = $query->executeQuery()->fetchAssociative();
 

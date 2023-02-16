@@ -67,26 +67,17 @@ class Discussion extends Mapper
 
 	public function getDiscussion(int $discussion_id)
 	{
-		$query = $this->conn->prepare("SELECT d.*, p.*, f.title as forum_title, u.user_id, u.username
-			FROM discussions d
-
-			LEFT JOIN forums f
-			ON f.forum_id = d.forum_id
-
-			LEFT JOIN posts p
-			ON p.post_id = d.firstpost_id
-
-			LEFT JOIN users u 
-			ON u.user_id = p.user_id
-
-			WHERE d.discussion_id = :discussion_id
-			AND d.is_active = :is_active
-
-			LIMIT 1
-			");
-
-		$query->bindValue('discussion_id', intval($discussion_id), $this->getType('integer'));
-		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('d.*', 'p.*', 'f.title as forum_title', 'u.user_id', 'u.username')
+			->from($this->table, 'd')
+			->leftJoin('d', 'forums', 'f', 'f.forum_id = d.forum_id')
+			->leftJoin('d', 'posts', 'p', 'p.post_id = d.firstpost_id')
+			->leftJoin('d', 'users', 'u', 'u.user_id = p.user_id')
+			->where('d.discussion_id = :discussion_id')
+			->andWhere('d.is_active = :is_active')
+			->setMaxResults(1)
+			->setParameter('discussion_id', intval($discussion_id))
+			->setParameter('is_active', 1);
 
 		$fetch = $query->executeQuery()->fetchAssociative();
 
@@ -97,24 +88,16 @@ class Discussion extends Mapper
 
 	public function getAllDiscussions()
 	{
-		$query = $this->conn->prepare("SELECT d.*, p.*, f.title as forum_title, u.user_id, u.username
-			FROM discussions d
-
-			LEFT JOIN forums f
-			ON f.forum_id = d.forum_id
-
-			LEFT JOIN posts p
-			ON p.post_id = d.firstpost_id
-
-			LEFT JOIN users u 
-			ON u.user_id = p.user_id
-
-			WHERE d.is_active = :is_active
-
-			ORDER BY p.dateline
-			");
-
-		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('d.*', 'p.*', 'f.title as forum_title', 'u.user_id', 'u.username')
+			->from($this->table, 'd')
+			->leftJoin('d', 'forums', 'f', 'f.forum_id = d.forum_id')
+			->leftJoin('d', 'posts', 'p', 'p.post_id = d.firstpost_id')
+			->leftJoin('d', 'users', 'u', 'u.user_id = p.user_id')
+			->where('d.discussion_id = :discussion_id')
+			->andWhere('d.is_active = :is_active')
+			->orderBy('p.dateline')
+			->setParameter('is_active', 1);
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -143,35 +126,27 @@ class Discussion extends Mapper
 
 	public function isAnySticky($forum_id)
 	{
-		if ($forum_id != 0)
-		{
-			$forum_id_query = "AND d.forum_id = :forum_id";
-		}
-		else
-		{
-			$forum_id_query = "";
-		}
-
-		$query = $this->conn->prepare("SELECT f.*, d.*
-			FROM forums f
-
-			LEFT JOIN discussions d
-			ON d.forum_id = f.forum_id
-
-			WHERE d.is_active = :is_active
-			AND d.is_sticky = :is_sticky
-			{$forum_id_query}
-
-			ORDER BY d.discussion_id
-			");
+		$query = $this->conn->createQueryBuilder();
+		$query->select('f.*', 'd.*')
+			->from($this->table, 'd')
+			->leftJoin('d', 'forums', 'f', 'f.forum_id = d.forum_id')
+			->where('d.is_active = :is_active')
+			->andWhere('d.is_sticky = :is_sticky');
 
 		if ($forum_id != 0)
 		{
-			$query->bindValue('forum_id', $forum_id, $this->getType('integer'));
+			$query->andWhere('d.forum_id = :forum_id');
 		}
 
-		$query->bindValue('is_sticky', 1, $this->getType('integer'));
-		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query->setMaxResults(1);
+
+		if ($forum_id != 0)
+		{
+			$query->setParameter('forum_id', $forum_id);
+		}
+
+		$query->setParameter('is_active', 1)
+			->setParameter('is_sticky', 1);
 
 		$rowCount = $query->executeQuery()->rowCount();
 
@@ -424,19 +399,13 @@ class Discussion extends Mapper
 
 	public function getUserSubscriptions(int $user_id)
 	{
-		$query = $this->conn->prepare("SELECT d.*, p.user_id as user_id
-			FROM discussion_subscriptions ds
-
-			LEFT JOIN discussions d
-			ON d.discussion_id = ds.discussion_id
-
-			LEFT JOIN posts p
-			ON p.post_id = d.firstpost_id
-
-			WHERE ds.user_id = :user_id
-			");
-
-		$query->bindValue('user_id', intval($user_id));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('d.*', 'p.user_id as user_id')
+			->from('discussion_subscriptions', 'ds')
+			->leftJoin('ds', 'discussions', 'd', 'd.discussion_id = ds.discussion_id')
+			->leftJoin('ds', 'posts', 'p', 'p.post_id = d.firstpost_id')
+			->where('ds.user_id = :user_id')
+			->setParameter('user_id', intval($user_id));
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 

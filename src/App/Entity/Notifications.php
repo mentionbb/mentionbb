@@ -130,31 +130,21 @@ class Notifications extends Mapper
 
 	public function getNotificationByUserId(int $user_id)
 	{
-		$query = $this->conn->prepare("SELECT n.*, p.*, d.*, sender.username as sender_username, sender.user_id as sender_user_id, u.user_id, u.username
-			FROM user_notifications n
-
-			LEFT JOIN users sender 
-			ON sender.user_id = n.sender_id
-
-			LEFT JOIN users u 
-			ON u.user_id = n.user_id
-
-			LEFT JOIN posts p 
-			ON p.post_id = n.post_id
-
-			LEFT JOIN discussions d
-			ON d.discussion_id = n.discussion_id
-
-			WHERE n.user_id = :user_id
-			AND n.sender_id != :user_id
-			AND n.dateline >= UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 3 DAY))
-
-			ORDER BY n.dateline DESC
-
-			LIMIT 7
-			");
-
-		$query->bindValue('user_id', $user_id, $this->getType('integer'));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('n.*', 'p.*', 'd.*', 'sender.username as sender_username', 'sender.user_id as sender_user_id', 'u.user_id', 'u.username')
+			->from($this->table, 'n')
+			->leftJoin('n', 'users', 'sender', 'sender.user_id = n.sender_id')
+			->leftJoin('n', 'users', 'u', 'u.user_id = n.user_id')
+			->leftJoin('n', 'posts', 'p', 'p.post_id = n.post_id')
+			->leftJoin('n', 'discussions', 'd', 'd.discussion_id = n.discussion_id')
+			->where('n.user_id = :user_id')
+			->andWhere('n.sender_id != :user_id')
+			->andWhere(
+				$query->expr()->gte('n.dateline', 'UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 3 DAY))')
+			)
+			->orderBy('n.dateline', 'DESC')
+			->setMaxResults(7)
+			->setParameter('user_id', $user_id);
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 

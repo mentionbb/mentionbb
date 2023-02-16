@@ -15,206 +15,208 @@ class Posts extends Mapper
 
 	public function getPostByForumId($forum_id, $wherePage, $topicnumber, object $order, object $keyword, $user_id = null, $group_by = true, $firstpost = false, $onlyStickyDiscussions = false)
 	{
-		if (!$keyword->search)
-		{
-			if ($group_by)
-			{
-				$staticQuery = "AND b.dateline IS NULL";
-			}
-			else
-			{
-				$staticQuery = "";
-			}
-		}
-		else
-		{
-			foreach ($keyword->query as $static)
-			{
-				$staticQuery = "{$static->where} {$static->column} {$static->statement} {$static->param}";
-			}
-		}
-
-		if (!is_null($user_id))
-		{
-			$userIdStatic = "AND p.user_id = :user_id";
-		}
-		else
-		{
-			$userIdStatic = "";
-		}
-
-		if ($group_by)
-		{
-			if (!$firstpost)
-			{
-				$firstpost = "AND p.dateline < b.dateline";
-			}
-			else
-			{
-				$firstpost = "AND p.dateline > b.dateline";
-			}
-
-			$group_left_join = "
-			LEFT JOIN posts b 
-			ON p.discussion_id = b.discussion_id 
-			AND b.is_active = :is_active 
-			{$firstpost}
-			";
-
-			$group_by_where = "AND d.discussion_id IS NOT NULL";
-			$group_by_group = "GROUP BY d.discussion_id";
-		}
-		else
-		{
-			$group_left_join = "";
-
-			$group_by_where = "";
-			$group_by_group = "";
-		}
-
-		if (!$onlyStickyDiscussions && is_null($onlyStickyDiscussions))
-		{
-			$onlyStickyDiscussions_Query = "";
-		}
-		else
-		{
-			$onlyStickyDiscussions_Query = "AND d.is_sticky = :is_sticky";
-		}
-
 		if (!is_null($forum_id))
 		{
-			if (\App\SubContainer\Post\Order::isWhiteList($order->statement, ['WHERE', 'ORDER BY']) && \App\SubContainer\Post\Order::isWhiteList($order->param, ['p.dateline', 'comment_count', 'lp.like_count']) && \App\SubContainer\Post\Order::isWhiteList($order->with, ['DESC', 'ASC']))
+			if (
+				\App\SubContainer\Post\Order::isWhiteList($order->statement, ['WHERE', 'ORDER BY'])
+				&& \App\SubContainer\Post\Order::isWhiteList($order->param, ['p.dateline', 'comment_count', 'lp.like_count'])
+				&& \App\SubContainer\Post\Order::isWhiteList($order->with, ['DESC', 'ASC'])
+			)
 			{
-				if ($forum_id != 0)
+				$query = $this->conn->createQueryBuilder();
+				$query->select(
+					'p.*',
+					'd.*',
+					'f.title as forum_title',
+					'p.dateline as post_dateline',
+					'u.user_id',
+					'u.username',
+					'u.profile_picture',
+					'u.usertitle',
+					'u.registration_date',
+					'u.last_activity',
+					'(pa.comment_count - 1) as comment_count',
+					'pa.max_post_id',
+					'lp.like_count',
+					'vc.view_count',
+					'started_by.fp_username as started_by_username',
+					'started_by.fp_user_id as started_by_user_id',
+					'started_by.dateline as discussion_dateline'
+				)
+					->from($this->table, 'p');
+
+				if ($group_by)
 				{
-					$query = $this->conn->prepare("SELECT p.*, d.*, f.title as forum_title, p.dateline as post_dateline, u.user_id, u.username, u.profile_picture, u.usertitle, u.registration_date, u.last_activity, (pa.comment_count - 1) as comment_count, pa.max_post_id, lp.like_count, vc.view_count, started_by.fp_username as started_by_username, started_by.fp_user_id as started_by_user_id, started_by.dateline as discussion_dateline
-						FROM posts p
+					if (!$firstpost)
+					{
+						$query->leftJoin('p', 'posts', 'b', $query->expr()->and(
+							$query->expr()->eq('p.discussion_id', 'b.discussion_id'),
+							$query->expr()->eq('b.is_active', ':is_active'),
+							$query->expr()->lt('p.dateline', 'b.dateline')
+						));
+					}
+					else
+					{
+						$query->leftJoin('p', 'posts', 'b', $query->expr()->and(
+							$query->expr()->eq('p.discussion_id', 'b.discussion_id'),
+							$query->expr()->eq('b.is_active', ':is_active'),
+							$query->expr()->gt('p.dateline', 'b.dateline')
+						));
+					}
+				}
 
-						{$group_left_join}
-
-						LEFT JOIN discussions d
-						ON d.discussion_id = p.discussion_id
-						{$onlyStickyDiscussions_Query}
-						AND d.is_active = :is_active
-
-						LEFT JOIN users u
-						ON u.user_id = p.user_id
-
-						LEFT JOIN
-						( select p.dateline, p.user_id, p.post_id, u.username as fp_username, u.user_id as fp_user_id from posts p 
-						    LEFT JOIN 
-						    ( select u.user_id, u.username from users u) u
-						    ON u.user_id = p.user_id
-						) started_by
-						ON started_by.post_id = d.firstpost_id
-
-						LEFT JOIN forums f
-						ON f.forum_id = p.forum_id
-
-						LEFT JOIN
-						( select discussion_id, count(post_id) as comment_count, max(post_id) as max_post_id, is_active from posts where is_active = :is_active group by discussion_id ) pa
-						ON pa.discussion_id = d.discussion_id
-
-						LEFT JOIN
-						( select post_id, count(post_id) as like_count from post_likes group by post_id ) lp
-						ON lp.post_id = p.post_id
-
-						LEFT JOIN
-						( select discussion_id, count(view_id) as view_count from discussion_views group by discussion_id ) vc
-						ON vc.discussion_id = d.discussion_id
-
-						WHERE p.is_active = :is_active
-						{$group_by_where}
-						AND p.forum_id = :forum_id
-						{$userIdStatic}
-						{$staticQuery}
-
-						{$group_by_group}
-
-						{$order->statement} {$order->param} {$order->with}
-
-						LIMIT :wherePage, :topicLimit
-						");
-
-					$query->bindValue('forum_id', $forum_id);
+				if (!$onlyStickyDiscussions && is_null($onlyStickyDiscussions))
+				{
+					$query->leftJoin('p', 'discussions', 'd', $query->expr()->and(
+						$query->expr()->eq('d.discussion_id', 'p.discussion_id'),
+						$query->expr()->eq('d.is_active', ':is_active')
+					));
 				}
 				else
 				{
-					$query = $this->conn->prepare("SELECT p.*, d.*, f.title as forum_title, p.dateline as post_dateline, u.user_id, u.username, u.profile_picture, u.usertitle, u.registration_date, u.last_activity, (pa.comment_count - 1) as comment_count, pa.max_post_id, lp.like_count, vc.view_count, started_by.fp_username as started_by_username, started_by.fp_user_id as started_by_user_id, started_by.dateline as discussion_dateline
-						FROM posts p
-						
-						{$group_left_join}
+					$query->leftJoin('p', 'discussions', 'd', $query->expr()->and(
+						$query->expr()->eq('d.discussion_id', 'p.discussion_id'),
+						$query->expr()->eq('d.is_sticky', ':is_sticky'),
+						$query->expr()->eq('d.is_active', ':is_active')
+					));
+				}
 
-						LEFT JOIN discussions d
-						ON d.discussion_id = p.discussion_id
-						{$onlyStickyDiscussions_Query}
-						AND d.is_active = :is_active
+				$query->leftJoin('p', 'users', 'u', 'u.user_id = p.user_id');
+				$query->leftJoin(
+					'p',
+					\sprintf(
+						'(%s)',
+						$this->conn->createQueryBuilder()->select('p.dateline', 'p.user_id', 'p.post_id', 'u.username as fp_username', 'u.user_id as fp_user_id')
+							->from('posts', 'p')
+							->leftJoin(
+								'p',
+								\sprintf(
+									'(%s)',
+									$this->conn->createQueryBuilder()->select('u.user_id', 'u.username')
+										->from('users', 'u')
+								),
+								'u',
+								'u.user_id = p.user_id'
+							)
+					),
+					'started_by',
+					'started_by.post_id = d.firstpost_id'
+				);
 
-						LEFT JOIN users u
-						ON u.user_id = p.user_id
+				$query->leftJoin('p', 'forums', 'f', 'f.forum_id = p.forum_id');
 
-						LEFT JOIN
-						( select p.dateline, p.user_id, p.post_id, u.username as fp_username, u.user_id as fp_user_id from posts p 
-						    LEFT JOIN 
-						    ( select u.user_id, u.username from users u) u
-						    ON u.user_id = p.user_id
-						) started_by
-						ON started_by.post_id = d.firstpost_id
+				$query->leftJoin(
+					'd',
+					\sprintf(
+						'(%s)',
+						$this->conn->createQueryBuilder()->select('discussion_id', 'count(post_id) as comment_count', 'max(post_id) as max_post_id', 'is_active')
+							->from('posts')
+							->where('is_active = :is_active')
+							->groupBy('discussion_id')
+					),
+					'pa',
+					'pa.discussion_id = d.discussion_id'
+				);
 
-						LEFT JOIN forums f
-						ON f.forum_id = p.forum_id
+				$query->leftJoin(
+					'p',
+					\sprintf(
+						'(%s)',
+						$this->conn->createQueryBuilder()->select('post_id', 'count(post_id) as like_count')
+							->from('post_likes')
+							->groupBy('post_id')
+					),
+					'lp',
+					'lp.post_id = p.post_id'
+				);
 
-						LEFT JOIN
-						( select discussion_id, count(post_id) as comment_count, max(post_id) as max_post_id, is_active from posts where is_active = :is_active group by discussion_id ) pa
-						ON pa.discussion_id = d.discussion_id
+				$query->leftJoin(
+					'd',
+					\sprintf(
+						'(%s)',
+						$this->conn->createQueryBuilder()->select('discussion_id', 'count(view_id) as view_count')
+							->from('discussion_views')
+							->groupBy('discussion_id')
+					),
+					'vc',
+					'vc.discussion_id = d.discussion_id'
+				);
 
-						LEFT JOIN
-						( select post_id, count(post_id) as like_count from post_likes group by post_id ) lp
-						ON lp.post_id = p.post_id
+				$query->where('p.is_active = :is_active');
 
-						LEFT JOIN
-						( select discussion_id, count(view_id) as view_count from discussion_views group by discussion_id ) vc
-						ON vc.discussion_id = d.discussion_id
+				if ($group_by)
+				{
+					$query->andWhere('d.discussion_id IS NOT NULL');
+				}
 
-						WHERE p.is_active = :is_active
-						{$group_by_where}
-						{$userIdStatic}
-						{$staticQuery}
+				if ($forum_id != 0)
+				{
+					$query->andWhere('p.forum_id = :forum_id');
+				}
 
-						{$group_by_group}
+				if (!is_null($user_id))
+				{
+					$query->andWhere('p.user_id = :user_id');
+				}
 
-						{$order->statement} {$order->param} {$order->with}
+				if (!$keyword->search)
+				{
+					if ($group_by)
+					{
+						$query->andWhere('b.dateline IS NULL');
+					}
+				}
+				else
+				{
+					foreach ($keyword->query as $static)
+					{
+						$query->andWhere("{$static->column} {$static->statement} {$static->param}");
+					}
+				}
 
-						LIMIT :wherePage, :topicLimit
-						");
+				if ($group_by)
+				{
+					$query->groupBy('d.discussion_id');
+				}
+
+				if ($order->statement == 'ORDER BY')
+				{
+					$query->orderBy($order->param, $order->with);
+				}
+
+				$query->setFirstResult($wherePage)
+					->setMaxResults($topicnumber);
+
+				if ($forum_id != 0)
+				{
+					$query->setParameter('forum_id', $forum_id);
 				}
 
 				if ($keyword->search)
 				{
 					foreach ($keyword->query as $static)
 					{
-						$query->bindValue($static->param, $static->value);
+						$query->setParameter(
+							\ltrim($static->param, ':'), $static->value
+						);
 					}
 				}
 
 				if (!is_null($user_id))
 				{
-					$query->bindValue('user_id', $user_id, $this->getType('integer'));
+					$query->setParameter('user_id', $user_id, $this->getType('integer'));
 				}
-
-				$query->bindValue('wherePage', $wherePage, $this->getType('integer'));
-				$query->bindValue('topicLimit', $topicnumber, $this->getType('integer'));
 
 				if ($onlyStickyDiscussions && !is_null($onlyStickyDiscussions))
 				{
-					$query->bindValue('is_sticky', 1, $this->getType('integer'));
+					$query->setParameter('is_sticky', 1, $this->getType('integer'));
 				}
 				else
 				{
-					$query->bindValue('is_sticky', 0, $this->getType('integer'));
+					$query->setParameter('is_sticky', 0, $this->getType('integer'));
 				}
 
-				$query->bindValue('is_active', 1, $this->getType('integer'));
+				$query->setParameter('is_active', 1, $this->getType('integer'));
 
 				$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -365,33 +367,34 @@ class Posts extends Mapper
 	{
 		if (\App\SubContainer\Post\Order::isWhiteList($order->statement, ['ORDER BY']) && \App\SubContainer\Post\Order::isWhiteList($order->param, ['p.dateline', 'lp.like_count']) && \App\SubContainer\Post\Order::isWhiteList($order->with, ['DESC', 'ASC']))
 		{
-			$query = $this->conn->prepare("SELECT p.*, f.title as forum_title, u.user_id, u.username, lp.like_count
-				FROM posts p
+			$query = $this->conn->createQueryBuilder();
+			$query->select('p.*', 'f.title as forum_title', 'u.user_id, u.username', 'lp.like_count')
+				->from('posts', 'p')
+				->leftJoin('p', 'forums', 'f', 'f.forum_id = p.forum_id')
+				->leftJoin('p', 'users', 'u', 'u.user_id = p.user_id')
+				->leftJoin(
+					'p',
+					\sprintf(
+						'(%s)',
+						$this->conn->createQueryBuilder()->select('post_id', 'count(post_id) as like_count')
+							->from('post_likes')
+							->groupBy('post_id')
+					),
+					'lp',
+					'lp.post_id = p.post_id'
+				)
+				->where('p.discussion_id = :discussion_id')
+				->andWhere('p.is_active = :is_active');
 
-				LEFT JOIN forums f
-				ON f.forum_id = p.forum_id
+			if ($order->statement == 'ORDER BY')
+			{
+				$query->orderBy($order->param, $order->with);
+			}
 
-				LEFT JOIN users u 
-				ON u.user_id = p.user_id
-
-				LEFT JOIN
-				( select post_id, count(post_id) as like_count from post_likes group by post_id ) lp
-				ON lp.post_id = p.post_id
-
-				WHERE p.discussion_id = :discussion_id
-				AND p.is_active = :is_active
-
-				{$order->statement} {$order->param} {$order->with}
-
-				LIMIT :wherePage, :topicLimit
-				");
-
-			$query->bindValue('discussion_id', intval($discussion_id));
-
-			$query->bindValue('wherePage', $wherePage, $this->getType('integer'));
-			$query->bindValue('topicLimit', $topicnumber, $this->getType('integer'));
-
-			$query->bindValue('is_active', 1, $this->getType('integer'));
+			$query->setFirstResult($wherePage)
+				->setMaxResults($topicnumber)
+				->setParameter('discussion_id', intval($discussion_id))
+				->setParameter('is_active', 1);
 
 			$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -684,21 +687,16 @@ class Posts extends Mapper
 
 	public function getUserDiscussionCount(int $user_id)
 	{
-		$query = $this->conn->prepare("SELECT p.*
-			FROM posts p
-
-			LEFT JOIN discussions d
-			ON d.firstpost_id = p.post_id
-
-			WHERE p.user_id = :user_id
-			AND p.is_active = :is_active
-			AND d.is_active = :is_active
-
-			GROUP BY d.discussion_id
-			");
-
-		$query->bindValue('user_id', $user_id, $this->getType('integer'));
-		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('p.*')
+			->from('posts', 'p')
+			->leftJoin('p', 'discussions', 'd', 'd.firstpost_id = p.post_id')
+			->where('p.user_id = :user_id')
+			->andWhere('p.is_active = :is_active')
+			->andWhere('d.is_active = :is_active')
+			->groupBy('d.discussion_id')
+			->setParameter('user_id', $user_id)
+			->setParameter('is_active', 1);
 
 		$rowCount = $query->executeQuery()->rowCount();
 
@@ -726,30 +724,18 @@ class Posts extends Mapper
 
 	public function getUserLikesPosts(int $user_id, $wherePage, $topicnumber)
 	{
-		$query = $this->conn->prepare("SELECT p.*, d.*, pl.reaction as reaction, u.user_id, u.username
-			FROM post_likes pl
-
-			LEFT JOIN posts p
-			ON p.post_id = pl.post_id
-
-			LEFT JOIN discussions d
-			ON d.discussion_id = p.discussion_id
-
-			LEFT JOIN users u 
-			ON u.user_id = p.user_id
-
-			WHERE pl.user_id = :user_id
-			AND p.is_active = :is_active
-
-			LIMIT :wherePage, :topicLimit
-			");
-
-		$query->bindValue('user_id', intval($user_id));
-
-		$query->bindValue('wherePage', $wherePage, $this->getType('integer'));
-		$query->bindValue('topicLimit', $topicnumber, $this->getType('integer'));
-
-		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('p.*', 'd.*', 'pl.reaction as reaction', 'u.user_id, u.username')
+			->from('post_likes', 'pl')
+			->leftJoin('pl', 'posts', 'p', 'p.post_id = pl.post_id')
+			->leftJoin('p', 'discussions', 'd', 'd.discussion_id = p.discussion_id')
+			->leftJoin('p', 'users', 'u', 'u.user_id = p.user_id')
+			->where('pl.user_id = :user_id')
+			->andWhere('p.is_active = :is_active')
+			->setFirstResult($wherePage)
+			->setMaxResults($topicnumber)
+			->setParameter('user_id', intval($user_id))
+			->setParameter('is_active', 1);
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -760,18 +746,14 @@ class Posts extends Mapper
 
 	public function getUserLikesAllPosts(int $user_id)
 	{
-		$query = $this->conn->prepare("SELECT p.*
-			FROM post_likes pl
-
-			LEFT JOIN posts p
-			ON p.post_id = pl.post_id
-
-			WHERE pl.user_id = :user_id
-			AND p.is_active = :is_active
-			");
-
-		$query->bindValue('user_id', intval($user_id));
-		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('p.*')
+			->from('post_likes', 'pl')
+			->leftJoin('pl', 'posts', 'p', 'p.post_id = pl.post_id')
+			->where('pl.user_id = :user_id')
+			->andWhere('p.is_active = :is_active')
+			->setParameter('user_id', intval($user_id))
+			->setParameter('is_active', 1);
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -782,30 +764,18 @@ class Posts extends Mapper
 
 	public function getUserBookmarksPosts(int $user_id, $wherePage, $topicnumber)
 	{
-		$query = $this->conn->prepare("SELECT p.*, d.*, u.user_id, u.username
-			FROM post_bookmarks pb
-
-			LEFT JOIN posts p
-			ON p.post_id = pb.post_id
-
-			LEFT JOIN discussions d
-			ON d.discussion_id = p.discussion_id
-
-			LEFT JOIN users u 
-			ON u.user_id = p.user_id
-
-			WHERE pb.user_id = :user_id
-			AND p.is_active = :is_active
-
-			LIMIT :wherePage, :topicLimit
-			");
-
-		$query->bindValue('user_id', intval($user_id));
-
-		$query->bindValue('wherePage', $wherePage, $this->getType('integer'));
-		$query->bindValue('topicLimit', $topicnumber, $this->getType('integer'));
-
-		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('p.*', 'd.*', 'u.user_id, u.username')
+			->from('post_bookmarks', 'pb')
+			->leftJoin('pb', 'posts', 'p', 'p.post_id = pb.post_id')
+			->leftJoin('p', 'discussions', 'd', 'd.discussion_id = p.discussion_id')
+			->leftJoin('p', 'users', 'u', 'u.user_id = p.user_id')
+			->where('pb.user_id = :user_id')
+			->andWhere('p.is_active = :is_active')
+			->setFirstResult($wherePage)
+			->setMaxResults($topicnumber)
+			->setParameter('user_id', intval($user_id))
+			->setParameter('is_active', 1);
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
@@ -816,18 +786,14 @@ class Posts extends Mapper
 
 	public function getUserBookmarksAllPosts(int $user_id)
 	{
-		$query = $this->conn->prepare("SELECT p.*
-			FROM post_bookmarks pb
-
-			LEFT JOIN posts p
-			ON p.post_id = pb.post_id
-
-			WHERE pb.user_id = :user_id
-			AND p.is_active = :is_active
-			");
-
-		$query->bindValue('user_id', intval($user_id));
-		$query->bindValue('is_active', 1, $this->getType('integer'));
+		$query = $this->conn->createQueryBuilder();
+		$query->select('p.*')
+			->from('post_bookmarks', 'pb')
+			->leftJoin('pb', 'posts', 'p', 'p.post_id = pb.post_id')
+			->where('pb.user_id = :user_id')
+			->andWhere('p.is_active = :is_active')
+			->setParameter('user_id', intval($user_id))
+			->setParameter('is_active', 1);
 
 		$fetch = $query->executeQuery()->fetchAllAssociative();
 
