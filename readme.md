@@ -78,9 +78,12 @@ The column you need to change is:
 Enter the full address of your site in this column.
 
 Open:
-> src/App/Config/db.yaml
+> src/DbConfig.php
 
 Make your database settings in this file.
+
+**You should set the file according to the database driver you want to run on your server. All instructions are in the file.**
+**By default, pdo_mysql is selected, and the PDO plugin must be installed to use it.**
 
 After that, your site will be up and running.
 
