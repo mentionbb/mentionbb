@@ -197,7 +197,7 @@ class DbConfig
     /**
      * @ibm_db2
      */
-    const DB_PARAMS_IMB_DB2 = [
+    const DB_PARAMS_IBM_DB2 = [
         /**
          * Hostname of the database to connect to.
          */

@@ -64,7 +64,7 @@ abstract class Mapper
 		}
 		else if (\Release\DbConfig::DB_Params['driver'] == 'ibm_db2')
 		{
-			$connectionParams = \Release\DbConfig::DB_PARAMS_IMB_DB2;
+			$connectionParams = \Release\DbConfig::DB_PARAMS_IBM_DB2;
 		}
 
 		if (is_null($connectionParams))
