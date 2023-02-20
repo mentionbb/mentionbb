@@ -3,12 +3,10 @@
 /**
  * This Abstract class use a App run on Object-Relational-Mapping.
  *
- * Utilized for ORM: Doctrine DBAL | https://www.doctrine-project.org/projects/doctrine-dbal/en/2.10/index.html
+ * Utilized for ORM: Doctrine DBAL | https://www.doctrine-project.org/projects/doctrine-dbal/en/current/index.html
  */
 
 namespace App\Entity;
-
-use App\Repository\Config\Schema;
 
 use Doctrine\DBAL\Configuration as DoctrineConfiguration;
 use Doctrine\DBAL\DriverManager as DoctrineDriverManager;
@@ -35,11 +33,49 @@ abstract class Mapper
 
 	public function __construct()
 	{
-		$schema = new Schema();
+		$connectionParams = null;
+		if (\Release\DbConfig::DB_Params['driver'] == 'pdo_mysql')
+		{
+			$connectionParams = \Release\DbConfig::DB_Params_PDO_MySQL;
+		}
+		else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_sqlite')
+		{
+			$connectionParams = \Release\DbConfig::DB_PARAMS_PDO_SQLite;
+		}
+		else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_pgsql' && \Release\DbConfig::DB_Params['driver'] == 'pgsql')
+		{
+			$connectionParams = \Release\DbConfig::DB_PARAMS_PgSQL;
+		}
+		else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_oci' && \Release\DbConfig::DB_Params['driver'] == 'oci8')
+		{
+			$connectionParams = \Release\DbConfig::DB_PARAMS_OCI;
+		}
+		else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_sqlsrv' && \Release\DbConfig::DB_Params['driver'] == 'sqlsrv')
+		{
+			$connectionParams = \Release\DbConfig::DB_PARAMS_SQLSrv;
+		}
+		else if (\Release\DbConfig::DB_Params['driver'] == 'mysqli')
+		{
+			$connectionParams = \Release\DbConfig::DB_PARAMS_MySQLi;
+		}
+		else if (\Release\DbConfig::DB_Params['driver'] == 'sqlite3')
+		{
+			$connectionParams = \Release\DbConfig::DB_PARAMS_SQLite3;
+		}
+		else if (\Release\DbConfig::DB_Params['driver'] == 'ibm_db2')
+		{
+			$connectionParams = \Release\DbConfig::DB_PARAMS_IMB_DB2;
+		}
 
-		$connectionParams = [
-			'url' => $schema->db
-		];
+		if (is_null($connectionParams))
+		{
+			throw new \Exception('Make sure you have entered the correct database driver settings.');
+		}
+
+		$connectionParams = \array_merge(
+			$connectionParams,
+			\Release\DbConfig::DB_Params
+		);
 
 		/**
 		 * [$this->conn Connect to MySQL with parameters.]
@@ -51,6 +87,9 @@ abstract class Mapper
 			->setMiddlewares([
 				new DoctrineMiddleware(new \Psr\Log\NullLogger())
 			]);
+
+		$cache = new \Symfony\Component\Cache\Adapter\ArrayAdapter();
+		$this->conn->getConfiguration()->setResultCache($cache);
 	}
 
 	/**
