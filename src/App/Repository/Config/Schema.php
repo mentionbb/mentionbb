@@ -6,13 +6,13 @@ use App\Util\Yaml;
 
 class Schema
 {
-	public $db;
-
-	public function __construct()
-	{
-		$this->db = $this->dbInitialize();
-	}
-
+	/**
+	 * dbInitialize
+	 * 
+	 * @deprecated 
+	 *
+	 * @return void
+	 */
 	protected function dbInitialize()
 	{
 		$config = Yaml::getFile(CONFIG_DIR . "/db.yaml");
