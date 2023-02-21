@@ -12,7 +12,6 @@ use Doctrine\DBAL\Configuration as DoctrineConfiguration;
 use Doctrine\DBAL\DriverManager as DoctrineDriverManager;
 use Doctrine\DBAL\Logging\Middleware as DoctrineMiddleware;
 use Doctrine\DBAL\Types\Type as DoctrineTypes;
-use Doctrine\DBAL\Schema\Table as TableSchema;
 
 abstract class Mapper
 {
@@ -46,10 +45,6 @@ abstract class Mapper
 		{
 			$connectionParams = \Release\DbConfig::DB_PARAMS_PgSQL;
 		}
-		else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_oci' && \Release\DbConfig::DB_Params['driver'] == 'oci8')
-		{
-			$connectionParams = \Release\DbConfig::DB_PARAMS_OCI;
-		}
 		else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_sqlsrv' && \Release\DbConfig::DB_Params['driver'] == 'sqlsrv')
 		{
 			$connectionParams = \Release\DbConfig::DB_PARAMS_SQLSrv;
@@ -61,10 +56,6 @@ abstract class Mapper
 		else if (\Release\DbConfig::DB_Params['driver'] == 'sqlite3')
 		{
 			$connectionParams = \Release\DbConfig::DB_PARAMS_SQLite3;
-		}
-		else if (\Release\DbConfig::DB_Params['driver'] == 'ibm_db2')
-		{
-			$connectionParams = \Release\DbConfig::DB_PARAMS_IBM_DB2;
 		}
 
 		if (is_null($connectionParams))
@@ -134,16 +125,6 @@ abstract class Mapper
 		$this->conn->close();
 
 		return $query;
-	}
-
-	public function getSchemaManager()
-	{
-		return $this->conn->createSchemaManager();
-	}
-
-	public function createTableSchema($name)
-	{
-		return new TableSchema($name);
 	}
 
 	public function getType($type)

@@ -16,7 +16,6 @@ class DbConfig
          * pdo_mysql (DB_PARAMS_PDO_MySQL)
          * pdo_sqlite (DB_PARAMS_PDO_SQLite)
          * pdo_pgsql, pgsql (DB_PARAMS_PgSQL)
-         * pdo_oci, oci8 (DB_PARAMS_OCI)
          * pdo_sqlsrv, sqlsrv (DB_PARAMS_SQLSrv)
          * 
          * For PDO requires a PHP PDO extension.
@@ -24,8 +23,6 @@ class DbConfig
          * mysqli (DB_PARAMS_MySQLi)
          * 
          * sqlite3 (DB_PARAMS_SQLite3) (Ignore user and password.)
-         * 
-         * ibm_db2 (DB_PARAMS_IBM_DB2)
          * 
          * Warning: you must fill in the following settings according to the driver you choose. Indicated in parentheses.
          * 
@@ -150,31 +147,6 @@ class DbConfig
     ];
 
     /**
-     * @pdo_oci, oci8
-     */
-    const DB_PARAMS_OCI = [
-        /**
-         * Hostname of the database to connect to.
-         */
-        'host' => 'localhost',
-
-        /**
-         * Port of the database to connect to.
-         */
-        'port' => '',
-
-        /**
-         * Name of the database/schema to connect to.
-         */
-        'dbname' => '',
-
-        /**
-         * The charset used when connecting to the database.
-         */
-        'charset' => 'utf8mb4'
-    ];
-
-    /**
      * @pdo_sqlsrv, @sqlsrv
      */
     const DB_PARAMS_SQLSrv = [
@@ -192,30 +164,5 @@ class DbConfig
          * Name of the database/schema to connect to.
          */
         'dbname' => ''
-    ];
-
-    /**
-     * @ibm_db2
-     */
-    const DB_PARAMS_IBM_DB2 = [
-        /**
-         * Hostname of the database to connect to.
-         */
-        'host' => 'localhost',
-
-        /**
-         * Port of the database to connect to.
-         */
-        'port' => '',
-
-        /**
-         * Name of the database/schema to connect to.
-         */
-        'dbname' => '',
-
-        /**
-         * The charset used when connecting to the database.
-         */
-        'charset' => 'utf8mb4'
     ];
 }
