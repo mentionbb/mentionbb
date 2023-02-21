@@ -17,7 +17,6 @@ class Native extends Mapper
             $this->conn->getParams()['driver'] == 'pdo_mysql'
             || $this->conn->getParams()['driver'] == 'pdo_sqlite'
             || $this->conn->getParams()['driver'] == 'pdo_pgsql'
-            || $this->conn->getParams()['driver'] == 'pdo_oci'
         )
         {
             $response['server_info'] = $this->conn->getNativeConnection()->getAttribute(constant('PDO::ATTR_SERVER_INFO'));
@@ -53,7 +52,7 @@ class Native extends Mapper
 
     public function isPlatform($platform)
     {
-        if ($platform == 'mysql' && $platform == 'mysqli')
+        if ($platform == 'mysql' || $platform == 'mysqli')
         {
             if (
                 $this->conn->getParams()['driver'] == 'pdo_mysql'
@@ -89,23 +88,6 @@ class Native extends Mapper
                 $this->conn->getParams()['driver'] == 'pdo_sqlsrv'
                 || $this->conn->getParams()['driver'] == 'sqlsrv'
             )
-            {
-                return true;
-            }
-        }
-        else if ($platform == 'oci')
-        {
-            if (
-                $this->conn->getParams()['driver'] == 'pdo_oci'
-                || $this->conn->getParams()['driver'] == 'oci8'
-            )
-            {
-                return true;
-            }
-        }
-        else if ($platform == 'ibm_db2')
-        {
-            if ($this->conn->getParams()['driver'] == 'ibm_db2')
             {
                 return true;
             }
