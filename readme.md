@@ -88,7 +88,7 @@ Make your database settings in this file.
 After that, your site will be up and running.
 
 Default user:pass
-> Test User:123456.,
+> TestUser:123456.,
 
 Admin Panel for more settings.
 
