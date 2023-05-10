@@ -1,7 +1,30 @@
 @import url('font/nunito.css');
 
+.app-container.app-root {
+	--mention-primary-font-family: 'Nunito', sans-serif;
+
+	--mention-root-font-weight-lightest: 200;
+	--mention-root-font-weight-lighter: 300;
+	--mention-root-font-weight-light: 450;
+	--mention-root-font-weight-normal: 530;
+	--mention-root-font-weight-bold: 600;
+	--mention-root-font-weight-bolder: 700;
+	--mention-root-font-weight-boldest: 800;
+	--mention-root-font-weight-black: 900;
+}
+
+/* Mozilla font weight fix */
+@-moz-document url-prefix() {
+	.app-container.app-root {
+		--mention-root-font-weight-light: 400;
+		--mention-root-font-weight-normal: 400;
+	}
+}
+
 body {
 	font-family: var(--mention-primary-font-family);
+	font-weight: var(--mention-root-font-weight-normal);
+
 	background-color: var(--mention-doc-bg-color);
 	color: var(--mention-doc-text-color);
 }
@@ -203,7 +226,7 @@ input:focus {
 
 .navbar-brand {
 	font-size: 1.45rem;
-	font-weight: 500;
+	font-weight: var(--mention-root-font-weight-normal);
 }
 
 .nav-link {
@@ -229,7 +252,7 @@ input:focus {
 
 .navbar-nav .dropdown-menu.custom-menu a {
 	color: var(--mention-button-active-text-color);
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .navbar-nav .dropdown-menu.custom-menu a:last-child {
@@ -299,7 +322,7 @@ input:focus {
 	color: var(--mention-doc-text-color);
 	padding: 10px 13px;
 	font-size: 15px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	text-transform: uppercase;
 	border: 2px solid var(--mention-border-color);
 	border-radius: 0;
@@ -449,7 +472,7 @@ input:focus {
 
 .btn.icon:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	padding-right: 9px;
 }
 
@@ -466,141 +489,141 @@ input:focus {
 .btn.icon.next:before {
 	content: "\f30b";
 	color: var(--mention-text-dark-color);
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.back:before {
 	content: "\f30a";
 	color: var(--mention-text-dark-color);
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.plus:before {
 	content: "\f067";
 	color: var(--mention-text-dark-color);
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.upload:before {
 	content: "\f093";
 	color: var(--mention-text-dark-color);
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.sort:before {
 	content: "\f0dc";
 	color: var(--mention-text-dark-color);
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.search:before {
 	content: "\f002";
 	color: var(--mention-text-dark-color);
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.order-newest:before {
 	content: "\f884";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.order-oldest:before {
 	content: "\f882";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.order-top-likes:before {
 	content: "\f886";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.order-popular:before {
 	content: "\f163";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.order-up:before {
 	content: "\f161";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.reply:before {
 	content: "\f3e5";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.exclamation:before {
 	content: "\f12a";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.messages:before {
 	content: "\f0e0";
 	color: var(--mention-text-dark-color);
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	font-size: 22px;
 }
 
 .btn.icon.subscription:before {
 	content: "\f0f3";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.eye:before {
 	content: "\f06e";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .btn.icon.subscription-remove:before {
 	content: "\f1f6";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.add-friend:before {
 	content: "\f234";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.awaiting-friend:before {
 	content: "\f4fd";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.remove-friend:before {
 	content: "\f235";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.gear:before {
 	content: "\f013";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.go:before {
 	content: "\f0c1";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.notification:before {
 	content: "\f0f3";
 	color: var(--mention-text-dark-color);
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	font-size: 22px;
 }
 
 .btn.icon.restore:before {
 	content: "\f01e";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.addons:before {
 	content: "\f84c";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn.icon.puzzle:before {
 	content: "\f12e";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .btn-app-social>i {
@@ -659,7 +682,7 @@ input:focus {
 }
 
 .app-forums .list-group-item {
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	border: 0;
 	color: var(--mention-doc-text-color);
 	font-size: 14px;
@@ -682,12 +705,12 @@ input:focus {
 }
 
 .app-forums .list-group-item.icon.users:before {
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f0c0";
 }
 
 .app-forums .list-group-item.icon.last-user:before {
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f234";
 }
 
@@ -758,7 +781,7 @@ button.btn-app-account {
 
 .app-post-manage .dropdown.show button:before,
 .dropdown.show button.btn-app-account:before {
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	color: var(--mention-button-active-text-color) !important;
 }
 
@@ -775,7 +798,7 @@ button.btn-app-account {
 .app-post-manage button.post-refresh:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f2f1";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown .dropdown-menu.custom-menu {
@@ -816,13 +839,13 @@ button.btn-app-account {
 	z-index: 1;
 	color: var(--mention-text-dark-color);
 	text-decoration: none;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .js-appExpandNodes a:before,
 .js-appExpandNodes a:after {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding: 0 10px;
 	content: "\f077";
 }
@@ -889,7 +912,7 @@ button.btn-app-account {
 }
 
 .app-post>.post-layout .discussion-post-user a {
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	color: var(--mention-text-dark-color);
 }
 
@@ -899,7 +922,7 @@ button.btn-app-account {
 
 .app-post>.post-layout>.new-post>.new-post>span:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	content: "\f005";
 	margin-right: 3px;
 }
@@ -907,7 +930,7 @@ button.btn-app-account {
 .dropdown-toggle:after {
 	font-family: "Font Awesome 6 Free";
 	content: "\f0d7";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	border: none;
 	line-height: 0.5;
 	vertical-align: baseline;
@@ -997,13 +1020,13 @@ button.btn-app-account {
 
 .app-post>.post-layout>.post-content span.icon.locked:before {
 	content: "\f023";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	color: var(--mention-text-dark-color);
 }
 
 .app-post>.post-layout>.post-content span.icon.pinned:before {
 	content: "\f08d";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	color: #d05757;
 }
 
@@ -1020,12 +1043,12 @@ button.btn-app-account {
 
 .app-post>.post-layout>.post-content p.replied span:nth-child(1):before {
 	content: "\f35a";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .app-post>.post-layout>.post-content p.replied span:nth-child(2):before {
 	content: "\f3e5";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .app-discussion>.post-layout>.post-content a.tagged-user {
@@ -1041,7 +1064,7 @@ button.btn-app-account {
 
 .app-post>.post-layout>.post-content .discuss-info {
 	font-size: 15px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span {
@@ -1064,7 +1087,7 @@ button.btn-app-account {
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.likes:before {
 	content: "\f164";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.rate {
@@ -1073,7 +1096,7 @@ button.btn-app-account {
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.rate:before {
 	content: "\f005";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.post-count {
@@ -1082,7 +1105,7 @@ button.btn-app-account {
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.post-count:before {
 	content: "\f27a";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.view-count {
@@ -1091,7 +1114,7 @@ button.btn-app-account {
 
 .app-post>.post-layout>.post-content .discuss-info>div.info>span.view-count:before {
 	content: "\f06e";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .app-post.app-post-create>.hide-editor>.backdrop {
@@ -1111,7 +1134,7 @@ button.btn-app-account {
 .app-post.app-post-create>.hide-editor>.text {
 	position: absolute;
 	z-index: 7;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	color: var(--mention-text-dark-color);
 	width: 100%;
 }
@@ -1141,7 +1164,7 @@ button.btn-app-account {
 	color: var(--mention-text-dark-color) !important;
 	border-radius: 5px;
 	font-size: 15px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	background-color: var(--mention-bselect-bg-color);
 	border: 2px solid var(--mention-bselect-border-color);
 	transition: all .3s ease;
@@ -1219,7 +1242,7 @@ button.btn-app-account {
 	padding: 10px;
 	color: var(--mention-button-active-text-color) !important;
 	font-size: 15px;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .bootstrap-select.dropdown-menu a>span,
@@ -1238,7 +1261,7 @@ button.btn-app-account {
 
 .bootstrap-select.dropdown li>a span.sub:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f309";
 	color: var(--mention-primary-text-color);
 	padding-right: 10px;
@@ -1291,12 +1314,12 @@ button.btn-app-account {
 .app-title>.app-breadcrumb>div:after {
 	font-family: "Font Awesome 6 Free";
 	content: "\f105";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding: 0 10px;
 }
 
 .app-title>.app-breadcrumb>div:last-child {
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .app-title>.app-breadcrumb>div:last-child:after {
@@ -1306,7 +1329,7 @@ button.btn-app-account {
 .app-title>.app-breadcrumb>.home:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f015";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 10px;
 }
 
@@ -1339,13 +1362,13 @@ button.btn-app-account {
 
 .app-discussion-status.pinned>span:before {
 	content: "\f08d";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	color: #d05757;
 }
 
 .app-discussion-status.locked>span:before {
 	content: "\f023";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	color: var(--mention-text-dark-color);
 }
 
@@ -1443,7 +1466,7 @@ button.btn-app-account {
 	line-height: 50px;
 	text-align: center;
 	font-size: 13px;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 	color: var(--mention-doc-text-color);
 	text-decoration: none;
 }
@@ -1457,7 +1480,7 @@ button.btn-app-account {
 .app-discussion>.post-layout>.post-content>.discussion-text .quote {
 	border-left: 3px solid var(--mention-light-border-color);
 	padding: 10px;
-	font-weight: 500;
+	font-weight: var(--mention-root-font-weight-normal);
 }
 
 .app-discussion>.post-layout>.post-content>.discussion-text .quote .quote {
@@ -1471,13 +1494,13 @@ button.btn-app-account {
 	border-radius: 5px;
 	padding: 5px;
 	margin-right: 10px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .app-discussion>.post-layout>.post-content>.discussion-text .quote .user:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f3e5";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 10px;
 }
 
@@ -1500,7 +1523,7 @@ button.btn-app-account {
 	padding: 10px 15px;
 	position: relative;
 	color: var(--mention-doc-text-color);
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	font-size: 16px;
 	border-bottom: 1px solid var(--mention-light-border-color);
 }
@@ -1513,7 +1536,7 @@ button.btn-app-account {
 .app-discussion>.post-layout>.post-content>.discussion-text .js-Spoiler.spoiler-alert>div.title:after {
 	font-family: "Font Awesome 6 Free";
 	content: "\f063";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	float: right;
 }
 
@@ -1550,7 +1573,7 @@ img.js-Twemoji_MentionEditor {
 .app-discussion>.post-layout>.post-content .post-edit>span:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f14b";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 5px;
 }
 
@@ -1561,7 +1584,7 @@ img.js-Twemoji_MentionEditor {
 .app-discussion>.post-layout>.post-content .post-likes>a,
 .app-discussion>.post-layout>.post-content .post-likes>.dropdown>a {
 	color: var(--mention-doc-text-color);
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .app-discussion>.post-layout>.post-content .post-likes a:before {
@@ -1585,7 +1608,7 @@ img.js-Twemoji_MentionEditor {
 }
 
 .app-discussion>.post-layout>.post-content .discuss-info a:before {
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .app-discussion>.post-layout>.post-content .discuss-info a.report-button:before {
@@ -1619,7 +1642,7 @@ img.js-Twemoji_MentionEditor {
 .app-discussion>.post-layout>.post-content .discuss-info .grey-button:after {
 	font-family: "Font Awesome 6 Free";
 	content: "\f023";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	font-size: 13px;
 	color: #373d43;
 	position: absolute;
@@ -1630,22 +1653,22 @@ img.js-Twemoji_MentionEditor {
 }
 
 .app-discussion>.post-layout>.post-content .discuss-info a.like-button.active:not(.reaction):before {
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	color: #446cb5;
 }
 
 .app-discussion>.post-layout>.post-content .discuss-info a.like-button.btn-active:not(.reaction):before {
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .app-discussion>.post-layout>.post-content .discuss-info a.quote-button:before {
 	content: "\f3e5";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .app-discussion>.post-layout>.post-content .discuss-info a.share-button:before {
 	content: "\f1e0";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .app-discussion>.post-layout>.post-content .discuss-info a.like-button {
@@ -1739,7 +1762,7 @@ img.js-Twemoji_MentionEditor {
 	color: var(--mention-text-white-color);
 	background: var(--mention-button-active-bg-color);
 	visibility: hidden;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	transform: translateX(-50%);
 	left: 50%;
 	display: inline-block;
@@ -1781,14 +1804,14 @@ img.js-Twemoji_MentionEditor {
 .post-timeliner>.first-post,
 .post-timeliner>.last-post {
 	cursor: pointer;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 	padding-left: 1px;
 }
 
 .post-timeliner>.first-post:before,
 .post-timeliner>.last-post:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 5px;
 }
 
@@ -1869,7 +1892,7 @@ img.js-Twemoji_MentionEditor {
 .post-timeliner>.scrollable-parent>.scrollbar-area>.backto-post:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f111";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 5px;
 	font-size: 7px;
 }
@@ -1885,7 +1908,7 @@ img.js-Twemoji_MentionEditor {
 }
 
 .badge-light {
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .dropdown-item.active,
@@ -1897,7 +1920,7 @@ img.js-Twemoji_MentionEditor {
 .dropdown-item.active:after {
 	font-family: "Font Awesome 6 Free";
 	content: "\f00c";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-left: 20px;
 	font-size: 13px;
 	float: right;
@@ -1919,13 +1942,13 @@ h5.app-title {
 h5.app-title:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f015";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 10px;
 }
 
 h5.app-title.user:before {
 	content: "\f007";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .title-mobile {
@@ -1935,7 +1958,7 @@ h5.app-title.user:before {
 .no-post {
 	text-align: center;
 	font-size: 18px;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	color: var(--mention-doc-text-color);
 	padding: 20px 0;
 	display: none;
@@ -1959,7 +1982,7 @@ h5.app-title.user:before {
 
 .app-account-area button.btn-app-account>span {
 	text-transform: none;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	padding: 0;
 	margin: 0;
 	vertical-align: middle;
@@ -1985,7 +2008,7 @@ h5.app-title.user:before {
 	font-size: 11px;
 	line-height: 17px;
 	color: #fff;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .app-account-area button.messages>span {
@@ -2003,7 +2026,7 @@ h5.app-title.user:before {
 
 .app-profile-info span.username {
 	font-size: 17px;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .app-tab-container>div {
@@ -2056,12 +2079,12 @@ h5.app-title.user:before {
 .app-box .copyright p {
 	color: var(--mention-text-dark-color);
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .app-box .copyright .version {
 	color: #fb8f21;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 	font-size: 15px;
 }
 
@@ -2173,7 +2196,7 @@ h5.app-title.user:before {
 .dropdown-menu.custom-menu .notification.active>.text:after {
 	font-family: "Font Awesome 6 Free";
 	content: "\f00c";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 10px;
 	font-size: 13px;
 	float: right;
@@ -2236,7 +2259,7 @@ h5.app-title.user:before {
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span {
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .dropdown-menu.custom-menu.post-user-menu .notification.quick-menu>.text>span {
@@ -2246,7 +2269,7 @@ h5.app-title.user:before {
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon:before {
 	font-family: "Font Awesome 6 Free";
 	padding-right: 10px;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.night:before {
@@ -2255,7 +2278,7 @@ h5.app-title.user:before {
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.admin:before {
 	content: "\f509";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.user:before {
@@ -2272,22 +2295,22 @@ h5.app-title.user:before {
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.move:before {
 	content: "\f0b2";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.pin:before {
 	content: "\f08d";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.lock:before {
 	content: "\f023";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.open-lock:before {
 	content: "\f3c1";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.report:before {
@@ -2304,12 +2327,12 @@ h5.app-title.user:before {
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.add-friend:before {
 	content: "\f234";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.remove-friend:before {
 	content: "\f503";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.post:before {
@@ -2326,41 +2349,41 @@ h5.app-title.user:before {
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.share:before {
 	content: "\f1e0";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.sign-in:before {
 	content: "\f2f6";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.sign-out:before {
 	content: "\f2f5";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.register:before {
 	content: "\f234";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.puzzle:before {
 	content: "\f12e";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.language:before {
 	content: "\f1ab";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.addons:before {
 	content: "\f84c";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification.quick-menu>.text>span.icon.active:before {
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .dropdown-menu.custom-menu .notification:hover {
@@ -2409,7 +2432,7 @@ h5.app-title.user:before {
 .dropdown-menu.custom-menu .notification>.text>span.sender:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f064";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	margin-right: 5px;
 }
 
@@ -2463,7 +2486,7 @@ h5.app-title.user:before {
 	height: 30px;
 	line-height: 0px;
 	color: #fff;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	font-size: 12px;
 }
 
@@ -2473,7 +2496,7 @@ h5.app-title.user:before {
 
 .dropdown-menu.custom-menu .friendship-request-buttons>button:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 5px;
 }
 
@@ -2509,7 +2532,7 @@ h5.app-title.user:before {
 	background-color: var(--mention-light-bg-color);
 	border-bottom: 1px solid var(--mention-light-border-color);
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	color: var(--mention-doc-text-color);
 }
 
@@ -2596,7 +2619,7 @@ h5.app-title.user:before {
 	padding: 10px;
 	text-align: left;
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-header {
@@ -2613,7 +2636,7 @@ h5.app-title.user:before {
 	padding: 25px 30px;
 	position: initial;
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	color: var(--mention-doc-text-color);
 	box-shadow: var(--mention-light-shadow);
 }
@@ -2635,7 +2658,7 @@ h5.app-title.user:before {
 	color: var(--mention-text-dark-color);
 	background-color: var(--mention-input-bg-color);
 	border: 3px solid var(--mention-input-border-color);
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body textarea {
@@ -2670,7 +2693,7 @@ h5.app-title.user:before {
 	overflow: hidden;
 	text-align: left;
 	width: 100%;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body textarea:focus {
@@ -2688,7 +2711,7 @@ h5.app-title.user:before {
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body small {
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 	font-size: 12px;
 }
 
@@ -2729,7 +2752,7 @@ h5.app-title.user:before {
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body .big-icon {
 	font-family: "Font Awesome 6 Free";
 	content: "\f46c";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	font-size: 70px;
 }
 
@@ -2746,19 +2769,19 @@ h5.app-title.user:before {
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body .big-icon.flag:before {
 	content: "\f024";
 	color: #ca5656;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body .big-icon.move:before {
 	content: "\f0b2";
 	color: #568fca;
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body .big-icon.error:before {
 	content: "\f071";
 	color: #ca5656;
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .modal.custom-modal>.modal-dialog>.modal-content>.modal-body .desc {
@@ -2774,7 +2797,7 @@ h5.app-title.user:before {
 .modal.custom-modal .close:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f00d";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .modal-backdrop {
@@ -2818,7 +2841,7 @@ h5.app-title.user:before {
 	padding: 15px;
 	position: relative;
 	color: var(--mention-doc-text-color);
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	border-bottom: 1px solid var(--mention-light-border-color);
 	box-shadow: var(--mention-light-shadow);
 	font-size: 14px;
@@ -2860,7 +2883,7 @@ h5.app-title.user:before {
 
 .popover-body>.share-content>div a.icon:before {
 	font-family: "Font Awesome 6 Brands";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .popover-body>.share-content>div a.icon.facebook:before {
@@ -2916,7 +2939,7 @@ h5.app-title.user:before {
 .guest-welcome-area {
 	padding: 7px 10px;
 	font-size: 13px;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .navbar-brand img {
@@ -3053,7 +3076,7 @@ h5.app-title.user:before {
 .cookiealert .acceptcookies:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f00d";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 }
 
 .cookiealert a {
@@ -3295,7 +3318,7 @@ h5.app-title.user:before {
 .app-reactions.reaction-md>.reaction>span {
 	margin-top: 10px;
 	font-size: 13px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .app-reactions.reaction-md>.reaction:before {
@@ -3344,7 +3367,7 @@ h5.app-title.user:before {
 
 .app-device-area>span.device-icon:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 7px;
 	font-size: 14px;
 	vertical-align: middle;
@@ -3408,7 +3431,7 @@ h5.app-title.user:before {
 	margin: 45px auto;
 	color: #fff;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	padding: 10px;
 	border-radius: .25rem;
 	display: none;
@@ -3432,7 +3455,7 @@ h5.app-title.user:before {
 
 .app-alert-container.alert-login span:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f06a";
 	padding-right: 7px;
 }
@@ -3514,7 +3537,7 @@ h5.app-title.user:before {
 	padding: 10px 15px;
 	position: relative;
 	color: var(--mention-text-dark-color);
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	border-bottom: 1px solid var(--mention-light-border-color);
 	box-shadow: var(--mention-light-shadow);
 	font-size: 16px;
@@ -3525,7 +3548,7 @@ h5.app-title.user:before {
 	font-family: "Font Awesome 6 Free";
 	padding-right: 8px;
 	color: #f39206;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .search-container>.search-results>.title.icon.discussions:before {
@@ -3533,7 +3556,7 @@ h5.app-title.user:before {
 }
 
 .search-container>.search-results>.title.icon.users:before {
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f0c0";
 }
 
@@ -3557,7 +3580,7 @@ h5.app-title.user:before {
 .search-container>.search-results>.scrollable>div>a>span.icon:before {
 	font-family: "Font Awesome 6 Free";
 	color: #f39206;
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	content: "\f0e0";
 	font-size: 20px;
 }
@@ -3578,7 +3601,7 @@ h5.app-title.user:before {
 .search-container>.search-results a.more-search:before {
 	font-family: "Font Awesome 6 Free";
 	content: "\f002";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 7px;
 }
 
@@ -3637,7 +3660,7 @@ h5.app-title.user:before {
 
 .conversation-list>div>span:first-child {
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .conversation-list>div>span:last-child {
@@ -3646,7 +3669,7 @@ h5.app-title.user:before {
 
 .conversation-list>div>span[data-is-seeing]:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f00c";
 	padding-right: 5px;
 }
@@ -3747,7 +3770,7 @@ h5.app-title.user:before {
 
 .conversation-area .messages>div.me>div[data-is-seeing]:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f00c";
 	position: absolute;
 	left: -30px;
@@ -3776,7 +3799,7 @@ h5.app-title.user:before {
 
 .conversation-area .app-message-create button:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	content: "\f1d8";
 	font-size: 24px;
 }
@@ -3793,7 +3816,7 @@ h5.app-title.user:before {
 	bottom: -25px;
 	right: 10px;
 	margin-bottom: 5px;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .conversation-area .messages>div>.anim-area {
@@ -3820,7 +3843,7 @@ h5.app-title.user:before {
 	border-radius: 9px;
 	font-size: 11px;
 	padding: 3px 0;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 	z-index: 1;
 	left: 0;
 	right: 0;
@@ -3832,7 +3855,7 @@ h5.app-title.user:before {
 }
 
 .conversation-area .form-group label {
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .conversation-area .form-group .form-control {
@@ -3871,7 +3894,7 @@ h5.app-title.user:before {
 	padding: 5px 10px;
 	position: relative;
 	color: var(--mention-doc-text-color);
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	border-bottom: 1px solid var(--mention-light-border-color);
 	box-shadow: var(--mention-light-shadow);
 }
@@ -3917,7 +3940,7 @@ h5.app-title.user:before {
 .bbContainer_appCodeBlock>.codeBlockTitle {
 	padding: 1em;
 	padding-bottom: 0;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 	color: var(--mention-text-dark-color);
 }
 
@@ -3958,7 +3981,7 @@ h5.app-title.user:before {
 .js-appExternalLink.show>.content>h6>a:after {
 	display: inline-block;
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f35d";
 	margin-left: 5px;
 	font-size: 13px;
@@ -3976,7 +3999,7 @@ h5.app-title.user:before {
 
 .js-appExternalLink.show>.content>.link:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f0c1";
 	margin-right: 5px;
 }
@@ -4007,7 +4030,7 @@ pre[class*="language-"] {
 	-webkit-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 	max-height: 700px;
 }
 
@@ -4280,7 +4303,7 @@ code[class*="language-html"] {
 
 .custom-file-label:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f093";
 	color: var(--mention-file-label-text-color);
 	margin-right: 10px;
@@ -4326,7 +4349,7 @@ code[class*="language-html"] {
 
 .post-attachments.edit-attachments .attachment a:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	content: "\f2ed";
 	font-size: 20px;
 	color: #9a9a9a;
@@ -4364,7 +4387,7 @@ code[class*="language-html"] {
 	background-color: var(--mention-tooltip-main-color);
 	color: var(--mention-tooltip-text-color);
 	border-radius: 0;
-	font-weight: 600;
+	font-weight: var(--mention-root-font-weight-bold);
 }
 
 .tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before,
@@ -4466,12 +4489,12 @@ code[class*="language-html"] {
 
 .tooltip.tooltipEmojiBox .tooltip-inner>div>div>span:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	padding-right: 5px;
 }
 
 .tooltip.tooltipEmojiBox .tooltip-inner>div>div>span:nth-child(1) {
-	font-weight: 700;
+	font-weight: var(--mention-root-font-weight-bolder);
 }
 
 .tooltip.tooltipEmojiBox .tooltip-inner>div>div>span:nth-child(1):before {
@@ -4480,7 +4503,7 @@ code[class*="language-html"] {
 
 .tooltip.tooltipEmojiBox .tooltip-inner>div>div>span:nth-child(2):before {
 	content: "\f059";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 }
 
 .tooltip.tooltipEmojiBox .tooltip-inner a.copy {
@@ -4491,7 +4514,7 @@ code[class*="language-html"] {
 
 .tooltip.tooltipEmojiBox .tooltip-inner a.copy:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 400;
+	font-weight: var(--mention-root-font-weight-light);
 	content: "\f0c5";
 }
 
@@ -4632,7 +4655,7 @@ code.error {
 .app-bbcode-content h6 a:after {
 	font-family: "Font Awesome 6 Free";
 	content: "\f0c1";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	color: var(--mention-text-dark-color);
 	font-size: 17px;
 	margin: 0 10px;
@@ -4859,7 +4882,7 @@ code.error {
 
 #quote-pop a:before {
 	font-family: "Font Awesome 6 Free";
-	font-weight: 900;
+	font-weight: var(--mention-root-font-weight-black);
 	content: "\f3e5";
 	margin-right: 5px;
 }
@@ -5255,7 +5278,7 @@ code.error {
 		font-family: "Font Awesome 6 Free";
 		content: "\f0c9";
 		color: var(--mention-text-dark-color);
-		font-weight: 900;
+		font-weight: var(--mention-root-font-weight-black);
 	}
 
 	.navbar-nav .nav-item.show>a {

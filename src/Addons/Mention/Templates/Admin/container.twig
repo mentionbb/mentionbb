@@ -34,7 +34,7 @@
 	{% set night_mode_class = ' app-night-mode' %}
 {% endif %}
 
-<body class="app-container{{ night_mode_class }} app-admin" data-template="{% block app_template_name %}{% endblock %}">
+<body class="app-root app-container{{ night_mode_class }} app-admin" data-template="{% block app_template_name %}{% endblock %}">
 	{% include 'navbar.twig' %}
 	<div class="app-page-content app-admin-content container mb-4 row">
 		{% block content %}{% endblock %}

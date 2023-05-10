@@ -25,7 +25,7 @@
 {% endif %}
 
 <body hook-action="{Mention:App-domEvent-htmlbody}" 
-    class="app-container{{ night_mode_class }}" 
+    class="app-root app-container{{ night_mode_class }}" 
     data-template="{% block app_template_name %}{% endblock %}" 
     data-color="{{ app.cookie.night_mode ? '#23292f' : '#fff' }}">
 	{% include 'navbar.twig' %}
