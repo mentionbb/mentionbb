@@ -4,7 +4,7 @@
         "global": {
             "Coding_Style": "PSR-12",
             "Par_File_Format": "Application Standarts for Mention Environment",
-            "Par_File_Format_Version": "2.2.4",
+            "Par_File_Format_Version": "2.2.6",
             "Bin": "bin",
             "Console": "bin/console",
             "Init": "src",
@@ -26,7 +26,11 @@
                 "PHP Debug",
                 "PHP Intelephense",
                 "PHP Intellisense",
-                "PHP Namespace Resolver"
+                "PHP Namespace Resolver",
+                "YAML",
+                "XML",
+                "Twig Language",
+                "Vscode-faker"
             ],
             "Development_Environment": "Xampp/Wamp"
         }
