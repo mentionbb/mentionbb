@@ -140,7 +140,7 @@ abstract class Controller
 				'phrase' => $this->phrase,
 				'user' => $this->user,
 				'visitor' => $this->user->visitor(),
-				'csrf_token' => \App\Repository\CookieEncrypt::getInstance()->defineAuthToken(),
+				'csrf_token' => (new \App\SecurityProtocols\CrossSiteRequestForgery())->getEncodedToken(),
 				'sub' => [
 					'device' => new \App\SubContainer\Device(),
 					'user' => [

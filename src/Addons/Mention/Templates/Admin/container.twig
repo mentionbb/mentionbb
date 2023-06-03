@@ -188,14 +188,14 @@
 	{% endif %}
 
 	<div class="app-alert-container">
-    	<div class="app-alert text-center shadow">
+    	<div class="app-alert shadow">
     		<span></span>
     	</div>
     </div>
 
     {% if app.session.has('session_alert_message') %}
 	    <div class="app-alert-container alert-login">
-	    	<div class="app-alert text-center shadow animate slideIn d-block">
+	    	<div class="app-alert shadow animate slideIn d-block">
 	    		<span>{{ app.session.get('session_alert_message') }}</span>
 	    	</div>
 	    </div>
@@ -278,8 +278,15 @@
 
 		visitor: {
 			user_id: "{{ app.visitor.user_id }}",
-			username: "{{ app.visitor.username }}"
+			username: "{{ app.visitor.username }}",
+			csrf: "{{ app.csrf_token }}"
  		},
+
+		 {% else %}
+
+        visitor: {
+	        csrf: "{{ app.csrf_token }}"
+        },
  		{% endif %}
 
 		phrases: {

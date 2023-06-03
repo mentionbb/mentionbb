@@ -7,6 +7,8 @@ class Json extends ResponseRenderer
     protected $modifiers = JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT;
     protected $contentType = 'application/json';
 
+    protected $isCsrf = false;
+
     public function getResponseType()
     {
         return 'json';
@@ -39,6 +41,16 @@ class Json extends ResponseRenderer
 
     public function serialize(array $params, $status = true, $modifiers = false)
     {
+        if ($this->isCsrf)
+        {
+            if (!(new \App\SecurityProtocols\CrossSiteRequestForgery())->validateToken($this->request->getCsrf()))
+            {
+                $params = [
+                    'status' => 'fail_security_x_token'
+                ];
+            }
+        }
+
         if (!$modifiers)
         {
             $this->serialize = json_encode(
@@ -69,5 +81,10 @@ class Json extends ResponseRenderer
             $this->serialize,
             $this->contentType
         );
+    }
+
+    public function useCsrf()
+    {
+        $this->isCsrf = true;
     }
 }

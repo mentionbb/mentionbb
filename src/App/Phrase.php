@@ -133,6 +133,11 @@ class Phrase
 		$callback = $this->getContainer("\App\Renderer\Response\\$callback", $this->request);
 		$callback->init();
 
+		if ($this->request->isXmlHttpRequest())
+		{
+			$callback->useCsrf();
+		}
+
 		return $callback;
 	}
 

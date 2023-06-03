@@ -37,15 +37,6 @@ class Auth
 	{
 		if ($this->post->has('login-submit'))
 		{
-			if (\App\Repository\CookieEncrypt::getInstance()->defineAuthToken() != $this->post->get('csrf_token'))
-			{
-				\App\Mvc\Controller::warningUserWithSession(
-					$this->language->container->visitor->auth->csrf_error
-				);
-
-				$this->request->redirect();
-			}
-
 			if (empty($this->post->get('username')) && empty($this->post->get('password')))
 			{
 				\App\Mvc\Controller::warningUserWithSession(
@@ -198,7 +189,7 @@ class Auth
 			$username = CookieEncrypt::getInstance()->get('st-username');
 			$userdata = $this->user->getUserDataFromUsername($username);
 
-			if(!$userdata)
+			if (!$userdata)
 			{
 				$this->secureLogout();
 			}
@@ -217,37 +208,37 @@ class Auth
 	}
 
 	public function getActiveBan($user_id)
-    {
-        $getBanList = $this->user->getUserBans($user_id);
-        $getBan = [];
-        foreach ($getBanList as $key => $item)
-        {
-            $getBan[$item['dateline']] = [$key => $item];
-        }
-        if (count($getBan))
-        {
-            $getBan = max($getBan);
-        }
+	{
+		$getBanList = $this->user->getUserBans($user_id);
+		$getBan = [];
+		foreach ($getBanList as $key => $item)
+		{
+			$getBan[$item['dateline']] = [$key => $item];
+		}
+		if (count($getBan))
+		{
+			$getBan = max($getBan);
+		}
 
-        if (isset($getBan[0]['expires']))
-        {
-            if ($getBan[0]['expires'] <= time())
-            {
-                return false;
-            }
-            else
-            {
-                return $getBan[0];
-            }
-        }
+		if (isset($getBan[0]['expires']))
+		{
+			if ($getBan[0]['expires'] <= time())
+			{
+				return false;
+			}
+			else
+			{
+				return $getBan[0];
+			}
+		}
 
-        return false;
-    }
+		return false;
+	}
 
 	public function getBans($user_id)
-    {
-        return $this->user->getUserBans($user_id);
-    }
+	{
+		return $this->user->getUserBans($user_id);
+	}
 
 	public function saveSession()
 	{

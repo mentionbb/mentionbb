@@ -69,6 +69,26 @@ class Request
 		return $this->request->server->get('REQUEST_METHOD');
 	}
 
+	public function getUserAgent()
+	{
+		return $this->request->headers->get('User-Agent');
+	}
+
+	public function isXmlHttpRequest()
+	{
+		return $this->request->isXmlHttpRequest();
+	}
+
+	public function getCsrf()
+	{
+		if ($this->request->headers->has('X-CSRF'))
+		{
+			return $this->request->headers->get('X-CSRF');
+		}
+
+		return false;
+	}
+
 	public function setContentDisposition($filename, $file, $contentType, $attachment = false)
 	{
 		$fileContent = $file;

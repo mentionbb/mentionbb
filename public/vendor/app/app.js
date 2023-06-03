@@ -6,11 +6,18 @@ var app = {};
         var promise = $.ajax({
             url: app.config.settings.ajax_path + "/" + url,
             type: "post",
+            headers: {
+                'X-CSRF': app.visitor.csrf
+            },
             data: data,
             dataType: "JSON",
             processData: processData,
             contentType: contentType
         }).done(function (responseData, status, xhr) {
+            if(responseData.status == 'fail_security_x_token') {
+                app.flashMessage('A security error has occurred. <br /><br /><kbd>The X-CSRF header is incorrect or corrupted. Please refresh the browser.</kbd>', 'danger');
+                return;
+            }
         }).fail(function (xhr, status, err) {
             app.flashMessage('Error: json response', 'danger');
         });
