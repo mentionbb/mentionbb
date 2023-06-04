@@ -128,12 +128,10 @@ class App
 	 */
 	protected static function isAppInstalled()
 	{
+		$builder = new \App\Builder\VersionBuilder();
 		if (!file_exists(APPLICATION_SELF . '/install.lock'))
 		{
-			$buildData = json_decode(
-				file_get_contents(APPLICATION_SELF . '/Install/versions.json'),
-				true
-			);
+			$buildData = $builder->getBuildList();
 			$buildData = \App\Util\Arr::arrayKeyMaxValue($buildData);
 			self::$build = $buildData;
 
@@ -153,10 +151,7 @@ class App
 		}
 		else
 		{
-			self::$build = json_decode(
-				file_get_contents(APPLICATION_SELF . '/install.lock'),
-				true
-			);
+			self::$build = $builder->getCurrentBuild();
 		}
 
 		return true;
