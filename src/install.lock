@@ -1,10 +1,10 @@
 {
-	"version": "1",
-	"versionId": "11015104",
-	"versionTitle": "1.0 BETA for testers.",
-	"contains": {
-		"status": "stable-beta",
-		"installable": "true",
-		"upgradable": "true"
-	}
+    "version": 1,
+    "versionId": "11016104",
+    "versionTitle": "1.0 developer preview",
+    "contains": {
+        "status": "stable-beta",
+        "installable": "true",
+        "upgradable": "true"
+    }
 }

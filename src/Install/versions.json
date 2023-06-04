@@ -1,92 +1,102 @@
 {
-	"1101239": {
-		"version": "1",
-		"versionId": "1101239",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "stable",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	},
-	"1101339": {
-		"version": "1",
-		"versionId": "1101339",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "stable",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	},
-	"1101416": {
-		"version": "1",
-		"versionId": "1101416",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "beta",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	},
-	"1101417": {
-		"version": "1",
-		"versionId": "1101417",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "beta",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	},
-	"1101418": {
-		"version": "1",
-		"versionId": "1101418",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "stable-beta",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	},
-	"11015101": {
-		"version": "1",
-		"versionId": "11015101",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "stable-beta",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	},
-	"11015102": {
-		"version": "1",
-		"versionId": "11015102",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "stable-beta",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	},
-	"11015103": {
-		"version": "1",
-		"versionId": "11015103",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "stable-beta",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	},
-	"11015104": {
-		"version": "1",
-		"versionId": "11015104",
-		"versionTitle": "1.0 BETA for testers.",
-		"contains": {
-			"status": "stable-beta",
-			"installable": "true",
-			"upgradable": "true"
-		}
-	}
+    "build:1101239": {
+        "version": "1",
+        "versionId": "1101239",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "stable",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:1101339": {
+        "version": "1",
+        "versionId": "1101339",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "stable",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:1101416": {
+        "version": "1",
+        "versionId": "1101416",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:1101417": {
+        "version": "1",
+        "versionId": "1101417",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:1101418": {
+        "version": "1",
+        "versionId": "1101418",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "stable-beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:11015101": {
+        "version": "1",
+        "versionId": "11015101",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "stable-beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:11015102": {
+        "version": "1",
+        "versionId": "11015102",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "stable-beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:11015103": {
+        "version": "1",
+        "versionId": "11015103",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "stable-beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:11015104": {
+        "version": "1",
+        "versionId": "11015104",
+        "versionTitle": "1.0 BETA for testers.",
+        "contains": {
+            "status": "stable-beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    },
+    "build:11016104": {
+        "version": 1,
+        "versionId": "11016104",
+        "versionTitle": "1.0 developer preview",
+        "contains": {
+            "status": "stable-beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
+    }
 }
