@@ -2,6 +2,8 @@
 
 namespace App\Renderer;
 
+use App\String\Post as PostString;
+
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Client;
 
@@ -16,17 +18,32 @@ use Symfony\Component\DomCrawler\Crawler;
 class ExternalLinkRenderer
 {
 	private static $url;
+	private static $post_id;
 
-	public static function Init($url)
+	public static function Init($url, $post_id)
 	{
 		self::$url = $url;
+		self::$post_id = $post_id;
 		$stack = self::addCache();
 
-		if(\Release\InitialConfig::Disable_ExternalLink_Preview)
+		if (\Release\InitialConfig::Disable_ExternalLink_Preview)
 		{
 			return [
 				'status' => 'exception',
 				'message' => 'This feature(ExternalLink_Renderer) is disabled by Config File.'
+			];
+		}
+
+		$linkData = (new PostString())->getLink(
+			\sha1(self::$url),
+			self::$post_id
+		);
+
+		if ($linkData)
+		{
+			return [
+				'data' => \json_decode($linkData['json'], true),
+				'status' => 'ok'
 			];
 		}
 
@@ -87,6 +104,12 @@ class ExternalLinkRenderer
 				'url' => self::$url,
 				'site' => $site
 			];
+
+			\App\SubContainer\Post\Link::CreatePreview([
+				'url' => self::$url,
+				'json' => $data,
+				'post_id' => self::$post_id
+			]);
 
 			return [
 				'data' => $data,

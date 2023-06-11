@@ -1317,6 +1317,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 							elem.closest('.app-discussion').find('.progress').removeClass('d-none');
 
 							var dataString = {
+								post_id: elem.closest('.post').data('post-id'),
 								url: matchingUrl[0]
 							}
 

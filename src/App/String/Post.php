@@ -4,6 +4,7 @@ namespace App\String;
 
 use App\Entity\Posts as PostEntity;
 use App\Entity\Settings as SettingsEntity;
+use App\Entity\LinkPreviews as LinkPreviewEntity;
 
 class Post
 {
@@ -216,5 +217,17 @@ class Post
 		$shortcode = (new \App\SubContainer\Discussion\Shortcode())->to10($shortcode);
 
 		return $this->post->getDiscussionId($shortcode);
+	}
+
+	public function getLink($uniq_id, $post_id)
+	{
+		$link = (new LinkPreviewEntity())->getPreview($uniq_id, $post_id);
+
+		if ($link)
+		{
+			return $link;
+		}
+
+		return false;
 	}
 }

@@ -1231,7 +1231,8 @@ class Post extends Controller implements Pub
 		$post = new PostRepo();
 
 		$json = \App\Renderer\ExternalLinkRenderer::Init(
-			$post->get('url')
+			$post->get('url'),
+			$post->get('post_id')
 		);
 
 		return $this->phrase->render('json')->serialize(
