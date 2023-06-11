@@ -4869,6 +4869,14 @@ code.error {
 	border-bottom: 2px solid var(--mention-dark-border-color);
 }
 
+#quote-pop {
+	visibility: hidden;
+}
+
+#quote-pop.show {
+	visibility: visible;
+}
+
 #quote-pop .arrow {
 	bottom: 0;
 	left: 0;
