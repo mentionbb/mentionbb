@@ -38,7 +38,7 @@ var app = {};
     };
 
     context.editorConfig = function (id, style = 'default') {
-        if (typeof app.visitor == 'undefined') {
+        if (typeof app.visitor.user_id == 'undefined') {
             return false;
         }
 
