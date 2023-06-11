@@ -94,8 +94,7 @@ class Discussion extends Mapper
 			->leftJoin('d', 'forums', 'f', 'f.forum_id = d.forum_id')
 			->leftJoin('d', 'posts', 'p', 'p.post_id = d.firstpost_id')
 			->leftJoin('d', 'users', 'u', 'u.user_id = p.user_id')
-			->where('d.discussion_id = :discussion_id')
-			->andWhere('d.is_active = :is_active')
+			->where('d.is_active = :is_active')
 			->orderBy('p.dateline')
 			->setParameter('is_active', 1);
 
