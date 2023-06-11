@@ -87,4 +87,11 @@ class Json extends ResponseRenderer
     {
         $this->isCsrf = true;
     }
+
+    public function setContentTypeManifest()
+    {
+        $this->contentType = 'application/manifest+json';
+
+        return $this;
+    }
 }

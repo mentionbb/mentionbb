@@ -46,9 +46,10 @@ class WebManifest extends Controller implements Pub
                 'theme_color' => '#ffffff'
             ];
 
-            $this->request->setContentType('application/manifest+json');
+            $renderer = $this->phrase->render('json')->serialize($data, false, JSON_PRETTY_PRINT);
+            $renderer->setContentTypeManifest();
 
-            echo json_encode($data, JSON_PRETTY_PRINT);
+            return $renderer->render();
         }
         elseif ($this->request->getRequestMethod() == "POST")
         {
