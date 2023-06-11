@@ -1150,7 +1150,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
 	//https://codepen.io/FezVrasta/pen/vWXQdq
 	$(function () {
-		if ($('body[data-template="discussion"]').length) {
+		if ($('body[data-template="discussion"]').length && typeof app.visitor.user_id !== 'undefined') {
 			class RangeRef {
 				constructor() {
 					this.updateRect();
