@@ -197,7 +197,8 @@ class Posts extends Mapper
 					foreach ($keyword->query as $static)
 					{
 						$query->setParameter(
-							\ltrim($static->param, ':'), $static->value
+							\ltrim($static->param, ':'),
+							$static->value
 						);
 					}
 				}
@@ -218,7 +219,10 @@ class Posts extends Mapper
 
 				$query->setParameter('is_active', 1, $this->getType('integer'));
 
-				$fetch = $query->executeQuery()->fetchAllAssociative();
+				//$fetch = $query->executeQuery()->fetchAllAssociative();
+				$fetch = $this->setQuery($query, 'INDEX_POSTS')
+					->executeQuery()
+					->fetchAllAssociative();
 
 				$this->conn->close();
 

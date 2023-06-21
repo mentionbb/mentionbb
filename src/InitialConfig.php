@@ -5,6 +5,57 @@ namespace Release;
 class InitialConfig
 {
     /**
+     * Cache config.
+     * 
+     * Adapters:
+     * ApcuAdapter
+     * ArrayAdapter
+     * MemcachedAdapter
+     * DoctrineDbalAdapter (default)
+     * PhpFilesAdapter
+     * RedisAdapter
+     * 
+     * https://symfony.com/doc/5.4/components/cache.html
+     */
+    const Cache_Standard = [
+        'adapter' => 'DoctrineDbalAdapter',
+        'config' => [
+            'defaultLifetime' => 3600,
+
+        /**
+         * For APCU.
+         */
+        //'version' => null,
+
+        /**
+         * For ArrayAdapter.
+         */
+        //'storeSerialized' => true,
+        //'maxLifetime' => 3600,
+        //'maxItems' => 0,
+
+        /**
+         * For Memcache.
+         * 
+         * https://symfony.com/doc/5.4/components/cache/adapters/memcached_adapter.html
+         */
+        /*
+        'url' => [
+            'memcached://my.server.com:11211',
+            'memcached://rmf:abcdef@localhost',
+        ]
+        */
+
+        /**
+         * For Redis.
+         * 
+         * https://symfony.com/doc/5.4/components/cache/adapters/redis_adapter.html
+         */
+        //'url' => 'redis://localhost'
+        ]
+    ];
+
+    /**
      * This option disables all plugins in software crash due to any plugin.
      * In this way, it makes the site work until the problem is solved.
      */

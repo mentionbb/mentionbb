@@ -30,6 +30,9 @@ abstract class Mapper
 
 	protected $conn;
 
+	private $query;
+	private $queryName;
+
 	public function __construct()
 	{
 		$connectionParams = null;
@@ -79,7 +82,75 @@ abstract class Mapper
 				new DoctrineMiddleware(new \Psr\Log\NullLogger())
 			]);
 
-		$cache = new \Symfony\Component\Cache\Adapter\ArrayAdapter();
+		$cacheConfig = [
+			'namespace' => 'DBQuaries'
+		];
+
+		$cache = null;
+
+		if (\Release\InitialConfig::Cache_Standard['adapter'] == 'ApcuAdapter')
+		{
+			$cache = new \Symfony\Component\Cache\Adapter\ApcuAdapter(
+				$cacheConfig['namespace'],
+				\Release\InitialConfig::Cache_Standard['config']['defaultLifetime'],
+				\Release\InitialConfig::Cache_Standard['config']['version']
+			);
+		}
+		else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'ArrayAdapter')
+		{
+			$cache = new \Symfony\Component\Cache\Adapter\ArrayAdapter(
+				\Release\InitialConfig::Cache_Standard['config']['defaultLifetime'],
+				\Release\InitialConfig::Cache_Standard['config']['storeSerialized'],
+				\Release\InitialConfig::Cache_Standard['config']['maxLifetime'],
+				\Release\InitialConfig::Cache_Standard['config']['maxItems']
+			);
+		}
+		else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'MemcachedAdapter')
+		{
+			$cache = new \Symfony\Component\Cache\Adapter\MemcachedAdapter(
+				\Symfony\Component\Cache\Adapter\MemcachedAdapter::createConnection(
+					\Release\InitialConfig::Cache_Standard['config']['url']
+				),
+				$cacheConfig['namespace'],
+				\Release\InitialConfig::Cache_Standard['config']['defaultLifetime']
+			);
+		}
+		else if (
+			\Release\InitialConfig::Cache_Standard['adapter'] == 'DoctrineDbalAdapter'
+			|| \Release\InitialConfig::Cache_Standard['adapter'] == 'PdoAdapter'
+			|| \Release\InitialConfig::Cache_Standard['adapter'] == 'default'
+		)
+		{
+			$cache = new \Symfony\Component\Cache\Adapter\DoctrineDbalAdapter(
+				$this->conn,
+				$cacheConfig['namespace'],
+				\Release\InitialConfig::Cache_Standard['config']['defaultLifetime']
+			);
+		}
+		else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'PhpFilesAdapter')
+		{
+			$cache = new \Symfony\Component\Cache\Adapter\PhpFilesAdapter(
+				$cacheConfig['namespace'],
+				\Release\InitialConfig::Cache_Standard['config']['defaultLifetime'],
+				APPLICATION_SELF . '/Cache'
+			);
+		}
+		else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'RedisAdapter')
+		{
+			$cache = new \Symfony\Component\Cache\Adapter\RedisAdapter(
+				\Symfony\Component\Cache\Adapter\RedisAdapter::createConnection(
+					\Release\InitialConfig::Cache_Standard['config']['url']
+				),
+				$cacheConfig['namespace'],
+				\Release\InitialConfig::Cache_Standard['config']['defaultLifetime']
+			);
+		}
+
+		if (is_null($cache))
+		{
+			throw new \Exception('Cache not set. Please use a cacher or set it by default.');
+		}
+
 		$this->conn->getConfiguration()->setResultCache($cache);
 	}
 
@@ -130,5 +201,36 @@ abstract class Mapper
 	public function getType($type)
 	{
 		return DoctrineTypes::getType($type);
+	}
+
+	/**
+	 * setQuery
+	 *
+	 * @param  \Doctrine\DBAL\Query\QueryBuilder $query
+	 * @return \App\Entity\Mapper
+	 */
+	public function setQuery(\Doctrine\DBAL\Query\QueryBuilder $query, string $queryName = ''): \App\Entity\Mapper
+	{
+		$this->query = $query;
+		$this->queryName = $queryName;
+
+		return $this;
+	}
+
+	/**
+	 * executeQuery
+	 * 
+	 * This is an additional function for cache queries written to be shortened and more understandable.
+	 *
+	 * @return \Doctrine\DBAL\Result
+	 */
+	public function executeQuery(): \Doctrine\DBAL\Result
+	{
+		return $this->conn->executeCacheQuery(
+			$this->query->getSQL(),
+			$this->query->getParameters(),
+			$this->query->getParameterTypes(),
+			new \Doctrine\DBAL\Cache\QueryCacheProfile(3600, "MentionApp_DbQuery_CacheImpl_{$this->queryName}_" . sha1($this->queryName))
+		);
 	}
 }
