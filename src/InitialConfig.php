@@ -22,36 +22,36 @@ class InitialConfig
         'config' => [
             'defaultLifetime' => 3600,
 
-        /**
-         * For APCU.
-         */
-        //'version' => null,
+            /**
+             * For APCU.
+             */
+            //'version' => null,
 
-        /**
-         * For ArrayAdapter.
-         */
-        //'storeSerialized' => true,
-        //'maxLifetime' => 3600,
-        //'maxItems' => 0,
+            /**
+             * For ArrayAdapter.
+             */
+            //'storeSerialized' => true,
+            //'maxLifetime' => 3600,
+            //'maxItems' => 0,
 
-        /**
-         * For Memcache.
-         * 
-         * https://symfony.com/doc/5.4/components/cache/adapters/memcached_adapter.html
-         */
-        /*
-        'url' => [
-            'memcached://my.server.com:11211',
-            'memcached://rmf:abcdef@localhost',
-        ]
-        */
+            /**
+             * For Memcache.
+             * 
+             * https://symfony.com/doc/5.4/components/cache/adapters/memcached_adapter.html
+             */
+            /*
+            'url' => [
+                'memcached://my.server.com:11211',
+                'memcached://rmf:abcdef@localhost',
+            ]
+            */
 
-        /**
-         * For Redis.
-         * 
-         * https://symfony.com/doc/5.4/components/cache/adapters/redis_adapter.html
-         */
-        //'url' => 'redis://localhost'
+            /**
+             * For Redis.
+             * 
+             * https://symfony.com/doc/5.4/components/cache/adapters/redis_adapter.html
+             */
+            //'url' => 'redis://localhost'
         ]
     ];
 
