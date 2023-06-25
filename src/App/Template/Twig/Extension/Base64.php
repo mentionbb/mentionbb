@@ -7,7 +7,12 @@
 namespace App\Template\Twig\Extension;
 
 class Base64 extends \Twig\Extension\AbstractExtension
-{
+{    
+    /**
+     * getFilters
+     *
+     * @return \Twig\TwigFilter[]
+     */
     public function getFilters()
     {
         return [

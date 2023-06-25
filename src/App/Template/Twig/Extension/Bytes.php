@@ -7,7 +7,12 @@
 namespace App\Template\Twig\Extension;
 
 class Bytes extends \Twig\Extension\AbstractExtension
-{
+{    
+    /**
+     * getFilters
+     *
+     * @return \Twig\TwigFilter[]
+     */
     public function getFilters()
     {
         return [
