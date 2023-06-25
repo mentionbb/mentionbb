@@ -117,14 +117,20 @@ abstract class Mapper
 		}
 		else if (
 			\Release\InitialConfig::Cache_Standard['adapter'] == 'DoctrineDbalAdapter'
-			|| \Release\InitialConfig::Cache_Standard['adapter'] == 'PdoAdapter'
 			|| \Release\InitialConfig::Cache_Standard['adapter'] == 'default'
 		)
 		{
 			$cache = new \Symfony\Component\Cache\Adapter\DoctrineDbalAdapter(
 				$this->conn,
 				$cacheConfig['namespace'],
-				\Release\InitialConfig::Cache_Standard['config']['defaultLifetime']
+				\Release\InitialConfig::Cache_Standard['config']['defaultLifetime'],
+				[
+					'db_table' => 'dbquery_cache_items',
+					'db_id_col' => 'item_id',
+					'db_item_col' => 'item_data',
+					'db_lifetime_col' => 'item_lifetime',
+					'db_time_col' => 'item_time'
+				]
 			);
 		}
 		else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'PhpFilesAdapter')
@@ -146,7 +152,7 @@ abstract class Mapper
 			);
 		}
 
-		if (is_null($cache))
+		if (empty(\Release\InitialConfig::Cache_Standard['adapter']) || is_null($cache))
 		{
 			throw new \Exception('Cache not set. Please use a cacher or set it by default.');
 		}
