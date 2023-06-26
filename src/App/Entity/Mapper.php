@@ -31,7 +31,6 @@ abstract class Mapper
 	protected $conn;
 
 	private $query;
-	private $queryName;
 
 	public function __construct()
 	{
@@ -215,10 +214,9 @@ abstract class Mapper
 	 * @param  \Doctrine\DBAL\Query\QueryBuilder $query
 	 * @return \App\Entity\Mapper
 	 */
-	public function setQuery(\Doctrine\DBAL\Query\QueryBuilder $query, string $queryName = ''): \App\Entity\Mapper
+	public function setQuery(\Doctrine\DBAL\Query\QueryBuilder $query): \App\Entity\Mapper
 	{
 		$this->query = $query;
-		$this->queryName = $queryName;
 
 		return $this;
 	}
@@ -236,7 +234,7 @@ abstract class Mapper
 			$this->query->getSQL(),
 			$this->query->getParameters(),
 			$this->query->getParameterTypes(),
-			new \Doctrine\DBAL\Cache\QueryCacheProfile(3600, "MentionApp_DbQuery_CacheImpl_{$this->queryName}_" . sha1($this->queryName))
+			new \Doctrine\DBAL\Cache\QueryCacheProfile(3600, "MentionApp_DbQuery_CacheImpl_" . \ucwords($this->query->getQueryPart('from')[0]['table']) . "_" . sha1($this->query->getSQL()))
 		);
 	}
 }

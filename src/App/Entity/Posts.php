@@ -220,7 +220,7 @@ class Posts extends Mapper
 				$query->setParameter('is_active', 1, $this->getType('integer'));
 
 				//$fetch = $query->executeQuery()->fetchAllAssociative();
-				$fetch = $this->setQuery($query, 'INDEX_POSTS')
+				$fetch = $this->setQuery($query)
 					->executeQuery()
 					->fetchAllAssociative();
 
