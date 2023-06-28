@@ -14,32 +14,38 @@ class Attachments extends Mapper
     }
 
     public function getAttachment(int $attach_id)
-	{
-		$query = $this->conn->createQueryBuilder()
-			->select('*')
-			->from($this->table)
-			->where('attach_id = ?')
-			->setParameter(0, $attach_id)
-			->executeQuery()->fetchAssociative();
+    {
+        $query = $this->conn->createQueryBuilder()
+            ->select('*')
+            ->from($this->table)
+            ->where('attach_id = ?')
+            ->setParameter(0, $attach_id);
 
-		$this->conn->close();
+        $fetch = $this->setQuery($query)
+            ->executeQuery()
+            ->fetchAssociative();
 
-		return $query;
-	}
+        $this->conn->close();
+
+        return $fetch;
+    }
 
     public function getPostAttachmentList(int $post_id)
-	{
-		$query = $this->conn->createQueryBuilder()
-			->select('*')
-			->from($this->table)
-			->where('post_id = ?')
-			->setParameter(0, $post_id)
-			->executeQuery()->fetchAllAssociative();
+    {
+        $query = $this->conn->createQueryBuilder()
+            ->select('*')
+            ->from($this->table)
+            ->where('post_id = ?')
+            ->setParameter(0, $post_id);
 
-		$this->conn->close();
+        $fetch = $this->setQuery($query)
+            ->executeQuery()
+            ->fetchAllAssociative();
 
-		return $query;
-	}
+        $this->conn->close();
+
+        return $fetch;
+    }
 
     public function createAttachment(string $filename, string $unique_id, int $post_id, int $user_id)
     {
@@ -65,13 +71,13 @@ class Attachments extends Mapper
     public function removeAttachment(int $attach_id)
     {
         $query = $this->conn->createQueryBuilder()
-			->delete($this->table)
-			->where('attach_id = ?')
-			->setParameter(0, $attach_id)
-			->executeQuery();
+            ->delete($this->table)
+            ->where('attach_id = ?')
+            ->setParameter(0, $attach_id)
+            ->executeQuery();
 
-		$this->conn->close();
+        $this->conn->close();
 
-		return $query;
+        return $query;
     }
 }

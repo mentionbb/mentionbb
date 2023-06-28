@@ -219,7 +219,6 @@ class Posts extends Mapper
 
 				$query->setParameter('is_active', 1, $this->getType('integer'));
 
-				//$fetch = $query->executeQuery()->fetchAllAssociative();
 				$fetch = $this->setQuery($query)
 					->executeQuery()
 					->fetchAllAssociative();
@@ -285,7 +284,9 @@ class Posts extends Mapper
 
 		$query->orderBy('post_id', 'DESC');
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -329,7 +330,9 @@ class Posts extends Mapper
 			$query->setParameter(1, $forum_id);
 		}
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -346,8 +349,7 @@ class Posts extends Mapper
 				->where('is_active = ?')
 				->andWhere('user_id = ?')
 				->setParameter(0, 1)
-				->setParameter(1, $user_id)
-				->executeQuery()->fetchAllAssociative();
+				->setParameter(1, $user_id);
 		}
 		else
 		{
@@ -358,13 +360,16 @@ class Posts extends Mapper
 				->andWhere('user_id = ?')
 				->groupBy('discussion_id')
 				->setParameter(0, 1)
-				->setParameter(1, $user_id)
-				->executeQuery()->fetchAllAssociative();
+				->setParameter(1, $user_id);
 		}
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function getPostByDiscussionId(int $discussion_id, $wherePage, $topicnumber, object $order)
@@ -400,7 +405,9 @@ class Posts extends Mapper
 				->setParameter('discussion_id', intval($discussion_id))
 				->setParameter('is_active', 1);
 
-			$fetch = $query->executeQuery()->fetchAllAssociative();
+			$fetch = $this->setQuery($query)
+				->executeQuery()
+				->fetchAllAssociative();
 
 			$this->conn->close();
 
@@ -741,7 +748,9 @@ class Posts extends Mapper
 			->setParameter('user_id', intval($user_id))
 			->setParameter('is_active', 1);
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -759,7 +768,9 @@ class Posts extends Mapper
 			->setParameter('user_id', intval($user_id))
 			->setParameter('is_active', 1);
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -781,7 +792,9 @@ class Posts extends Mapper
 			->setParameter('user_id', intval($user_id))
 			->setParameter('is_active', 1);
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -799,7 +812,9 @@ class Posts extends Mapper
 			->setParameter('user_id', intval($user_id))
 			->setParameter('is_active', 1);
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -833,12 +848,14 @@ class Posts extends Mapper
 			->andWhere('is_active = ?')
 			->setParameter(0, $shortcode)
 			->setParameter(1, 1)
-			->setMaxResults(1)
+			->setMaxResults(1);
+
+		$fetch = $this->setQuery($query)
 			->executeQuery()
 			->fetchAssociative();
 
 		$this->conn->close();
 
-		return $query['discussion_id'];
+		return $fetch['discussion_id'];
 	}
 }

@@ -19,10 +19,11 @@ class Reactions extends Mapper
 			->select('*')
 			->from($this->table)
 			->where('user_id = ?')
-			->setParameter(0, $user_id)
-			->executeQuery();
+			->setParameter(0, $user_id);
 
-		$fetch = $query->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 

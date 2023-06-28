@@ -20,13 +20,15 @@ class AdminNavigations extends Mapper
             ->from($this->table)
             ->where('parent_id = ?')
             ->orderBy('navigation_order', 'ASC')
-            ->setParameter(0, $parent_id)
+            ->setParameter(0, $parent_id);
+
+        $fetch = $this->setQuery($query)
             ->executeQuery()
             ->fetchAllAssociative();
 
         $this->conn->close();
 
-        return $query;
+        return $fetch;
     }
 
     public function getNavigationByName($name)
@@ -35,13 +37,15 @@ class AdminNavigations extends Mapper
             ->select('*')
             ->from($this->table)
             ->where('name = ?')
-            ->setParameter(0, $name)
+            ->setParameter(0, $name);
+
+        $fetch = $this->setQuery($query)
             ->executeQuery()
             ->fetchAssociative();
 
         $this->conn->close();
 
-        return $query;
+        return $fetch;
     }
 
     public function getNavigationByLink($link)
@@ -50,13 +54,15 @@ class AdminNavigations extends Mapper
             ->select('*')
             ->from($this->table)
             ->where('link = ?')
-            ->setParameter(0, $link)
+            ->setParameter(0, $link);
+
+        $fetch = $this->setQuery($query)
             ->executeQuery()
             ->fetchAssociative();
 
         $this->conn->close();
 
-        return $query;
+        return $fetch;
     }
 
     public function getNavigationById($nav_id)
@@ -65,12 +71,14 @@ class AdminNavigations extends Mapper
             ->select('*')
             ->from($this->table)
             ->where('nav_id = ?')
-            ->setParameter(0, $nav_id)
+            ->setParameter(0, $nav_id);
+
+        $fetch = $this->setQuery($query)
             ->executeQuery()
             ->fetchAssociative();
 
         $this->conn->close();
 
-        return $query;
+        return $fetch;
     }
 }

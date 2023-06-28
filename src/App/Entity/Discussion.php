@@ -19,12 +19,15 @@ class Discussion extends Mapper
 			->select('*')
 			->from($this->table)
 			->where('is_active = ?')
-			->setParameter(0, 1)
-			->executeQuery()->fetchAllAssociative();
+			->setParameter(0, 1);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function createDiscussion(string $title, int $forum_id, int $is_sticky, int $is_open)
@@ -79,7 +82,9 @@ class Discussion extends Mapper
 			->setParameter('discussion_id', intval($discussion_id))
 			->setParameter('is_active', 1);
 
-		$fetch = $query->executeQuery()->fetchAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAssociative();
 
 		$this->conn->close();
 
@@ -98,7 +103,9 @@ class Discussion extends Mapper
 			->orderBy('p.dateline')
 			->setParameter('is_active', 1);
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -160,21 +167,22 @@ class Discussion extends Mapper
 			->select('*')
 			->from($this->table)
 			->where('firstpost_id = ?')
-			->setParameter(0, $post_id)
-			->executeQuery();
+			->setParameter(0, $post_id);
 
-		if ($query->rowCount() > 0)
+		$exc = $this->setQuery($query)->executeQuery();
+
+		if ($exc->rowCount() > 0)
 		{
-			$query = $query->fetchAssociative();
+			$fetch = $exc->fetchAssociative();
 		}
 		else
 		{
-			$query = false;
+			$fetch = false;
 		}
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function discussionDeActivate(int $discussion_id)
@@ -373,12 +381,15 @@ class Discussion extends Mapper
 			->select('*')
 			->from('discussion_subscriptions')
 			->where('discussion_id = ?')
-			->setParameter(0, $discussion_id)
-			->executeQuery()->fetchAllAssociative();
+			->setParameter(0, $discussion_id);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function removeSubscription(int $user_id, int $discussion_id)
@@ -406,7 +417,9 @@ class Discussion extends Mapper
 			->where('ds.user_id = :user_id')
 			->setParameter('user_id', intval($user_id));
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 

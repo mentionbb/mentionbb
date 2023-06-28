@@ -176,12 +176,15 @@ abstract class Mapper
 	{
 		$query = $this->conn->createQueryBuilder()
 			->select('*')
-			->from($this->table)
-			->executeQuery()->fetchAllAssociative();
+			->from($this->table);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	/**
@@ -195,12 +198,15 @@ abstract class Mapper
 			->select('*')
 			->from($this->table)
 			->where('name = ?')
-			->setParameter(0, $name)
-			->executeQuery()->fetchAssociative();
+			->setParameter(0, $name);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function getType($type)

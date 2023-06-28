@@ -98,7 +98,9 @@ class Messages extends Mapper
 			->setParameter('is_active', 1)
 			->setParameter('is_archived', $is_archived);
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 

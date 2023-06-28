@@ -146,7 +146,9 @@ class Notifications extends Mapper
 			->setMaxResults(7)
 			->setParameter('user_id', $user_id);
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 

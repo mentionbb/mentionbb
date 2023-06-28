@@ -20,12 +20,15 @@ class Forum extends Mapper
 			->from($this->table)
 			->where('parent_id = ?')
 			->orderBy('forum_order', 'ASC')
-			->setParameter(0, $parent_id)
-			->executeQuery()->fetchAllAssociative();
+			->setParameter(0, $parent_id);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function getForum($forum_id)
@@ -34,12 +37,15 @@ class Forum extends Mapper
 			->select('*')
 			->from($this->table)
 			->where('forum_id = ?')
-			->setParameter(0, $forum_id)
-			->executeQuery()->fetchAssociative();
+			->setParameter(0, $forum_id);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function editForum(int $forum_id, int $parent_id, string $title, int $order, string $description)

@@ -21,12 +21,15 @@ class LinkPreviews extends Mapper
             ->where('post_id = ?')
             ->andWhere('uniq_id = ?')
             ->setParameter(0, $post_id)
-            ->setParameter(1, $uniq_id)
-            ->executeQuery()->fetchAssociative();
+            ->setParameter(1, $uniq_id);
+
+        $fetch = $this->setQuery($query)
+            ->executeQuery()
+            ->fetchAssociative();
 
         $this->conn->close();
 
-        return $query;
+        return $fetch;
     }
 
     public function createLinkPreview(string $uniq_id, string $json, int $post_id)

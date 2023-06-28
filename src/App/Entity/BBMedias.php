@@ -19,12 +19,15 @@ class BBMedias extends Mapper
 			->select('*')
 			->from($this->table)
 			->where('is_active = ?')
-			->setParameter(0, 1)
-			->executeQuery()->fetchAllAssociative();
+			->setParameter(0, 1);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function findMedia($bb_key)
@@ -39,11 +42,14 @@ class BBMedias extends Mapper
 			->setParameter(0, $bb_key)
 			->setParameter(1, "{$bb_key}={name}")
 			->setParameter(2, "{$bb_key}={number}")
-			->setParameter(3, 1)
-			->executeQuery()->fetchAssociative();
+			->setParameter(3, 1);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 }

@@ -28,7 +28,9 @@ class EditorButtons extends Mapper
 
         $query->orderBy('b.toolbar_id');
 
-        $fetch = $query->executeQuery()->fetchAllAssociative();
+        $fetch = $this->setQuery($query)
+            ->executeQuery()
+            ->fetchAllAssociative();
 
         $this->conn->close();
 
@@ -42,12 +44,15 @@ class EditorButtons extends Mapper
             ->from('editor_toolbars')
             ->where('is_active = ?')
             ->orderBy('order_by', 'ASC')
-            ->setParameter(0, 1)
-            ->executeQuery()->fetchAllAssociative();
+            ->setParameter(0, 1);
+
+        $fetch = $this->setQuery($query)
+            ->executeQuery()
+            ->fetchAllAssociative();
 
         $this->conn->close();
 
-        return $query;
+        return $fetch;
     }
 
     public function toolbarNonactiveList()
@@ -57,12 +62,15 @@ class EditorButtons extends Mapper
             ->from('editor_toolbars')
             ->where('is_active = ?')
             ->orderBy('order_by', 'ASC')
-            ->setParameter(0, 0)
-            ->executeQuery()->fetchAllAssociative();
+            ->setParameter(0, 0);
+
+        $fetch = $this->setQuery($query)
+            ->executeQuery()
+            ->fetchAllAssociative();
 
         $this->conn->close();
 
-        return $query;
+        return $fetch;
     }
 
     public function changeOrderToolbars($data, $active = 1)
@@ -97,7 +105,9 @@ class EditorButtons extends Mapper
             ->where('b.button_id = :button_id')
             ->setParameter('button_id', $button_id);
 
-        $fetch = $query->executeQuery()->fetchAssociative();
+        $fetch = $this->setQuery($query)
+            ->executeQuery()
+            ->fetchAllAssociative();
 
         $this->conn->close();
 

@@ -25,7 +25,9 @@ class Social extends Mapper
 				->setParameter(0, 1);
 		}
 
-		$fetch = $query->executeQuery()->fetchAllAssociative();
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAllAssociative();
 
 		$this->conn->close();
 
@@ -40,12 +42,15 @@ class Social extends Mapper
 			->where('name = ?')
 			->andWhere('is_active = ?')
 			->setParameter(0, $name)
-			->setParameter(1, 1)
-			->executeQuery()->fetchAssociative();
+			->setParameter(1, 1);
+
+		$fetch = $this->setQuery($query)
+			->executeQuery()
+			->fetchAssociative();
 
 		$this->conn->close();
 
-		return $query;
+		return $fetch;
 	}
 
 	public function setService(int $site_id, string $title, string $name, string $api_keys, string $callback, int $is_active = 1)
