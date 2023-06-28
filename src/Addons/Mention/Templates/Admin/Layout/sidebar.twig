@@ -15,7 +15,13 @@
             aria-expanded="{{ activeNavAriaExpanded }}" aria-controls="adminSidebar_{{ item.name }}-{{ item.nav_id }}" data-tab="{{ item.name }}-{{ item.nav_id }}">
                 <h6 class="font-weight-bold">
                     <i class="{{ item.icon }}"></i>
-                    <span>{{ app.sub.lang.string.admin.container.sidebar[item.name].title }}</span>
+                    <span>
+                        {% if app.sub.lang.string.admin.container.sidebar[item.name].title|length > 20 %}
+                            {{ app.sub.lang.string.admin.container.sidebar[item.name].title|slice(0, 20) }}...
+                        {% else %}
+                            {{ app.sub.lang.string.admin.container.sidebar[item.name].title }}
+                        {% endif %}
+                    </span>
                 </h6>
             </a>
             <div id="adminSidebar_{{ item.name }}-{{ item.nav_id }}" class="collapse {{ activeNavShow }}" aria-labelledby="adminSidebar_{{ item.name }}-{{ item.nav_id }}" data-parent="#accordion">
