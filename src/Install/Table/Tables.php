@@ -607,6 +607,21 @@ class Tables extends Mapper
             ]);
         };
 
+        $tables['dbquery_cache_items'] = function (TableSchema $table)
+        {
+            $table->addColumn('item_id', 'varbinary', [
+                'length' => 255,
+                'autoincrement' => true
+            ]);
+            $table->addColumn('item_data', 'mediumblob');
+            $table->addColumn('item_lifetime', 'integer', [
+                'length' => 10
+            ]);
+            $table->addColumn('item_time', 'integer', [
+                'length' => 10
+            ]);
+        };
+
         return $tables;
     }
 
