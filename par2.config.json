@@ -12,7 +12,7 @@
             "Application": "src/App",
             "Config_Ext": "yaml",
             "Routing": "Symfony",
-            "Symfony_Ver": "5",
+            "Symfony_Ver": "6",
             "Template": "Twig 3",
             "Query_Style": "Doctrine DBAL",
             "Editor": "Visual Studio Code",
