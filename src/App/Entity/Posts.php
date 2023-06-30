@@ -405,9 +405,7 @@ class Posts extends Mapper
 				->setParameter('discussion_id', intval($discussion_id))
 				->setParameter('is_active', 1);
 
-			$fetch = $this->setQuery($query)
-				->executeQuery()
-				->fetchAllAssociative();
+			$fetch = $query->executeQuery()->fetchAllAssociative();
 
 			$this->conn->close();
 
