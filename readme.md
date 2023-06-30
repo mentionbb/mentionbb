@@ -114,14 +114,14 @@ Mention has been developed under an custom application framework called Par2. I 
 In general, Symfony Components are used.
 
 # Packages used in this project
-- [Symfony/Routing](https://symfony.com/doc/5.4/create_framework/routing.html)
-- [Symfony/HttpFoundation](https://symfony.com/doc/5.4/components/http_foundation.html)
-- [Symfony/Yaml](https://symfony.com/doc/5.4/components/yaml.html)
+- [Symfony/Routing](https://symfony.com/doc/current/create_framework/routing.html)
+- [Symfony/HttpFoundation](https://symfony.com/doc/current/components/http_foundation.html)
+- [Symfony/Yaml](https://symfony.com/doc/current/components/yaml.html)
 - [Doctrine/Dbal](https://www.doctrine-project.org/projects/dbal/current.html)
 - [Twig/Twig](https://twig.symfony.com/)
 - [Masterminds/Html5](https://github.com/Masterminds/html5-php)
-- [Symfony/Serializer](https://symfony.com/doc/5.4/components/serializer.html)
-- [Symfony/DomCrawler](https://symfony.com/doc/5.4/components/dom_crawler.html)
+- [Symfony/Serializer](https://symfony.com/doc/current/components/serializer.html)
+- [Symfony/DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html)
 - [Nesbot/Carbon](https://carbon.nesbot.com/)
 - [Laminas/Escaper](https://docs.laminas.dev/laminas-escaper/)
 - [Guzzle/Guzzle](https://github.com/guzzle/guzzle)
