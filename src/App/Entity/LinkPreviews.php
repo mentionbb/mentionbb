@@ -23,9 +23,7 @@ class LinkPreviews extends Mapper
             ->setParameter(0, $post_id)
             ->setParameter(1, $uniq_id);
 
-        $fetch = $this->setQuery($query)
-            ->executeQuery()
-            ->fetchAssociative();
+        $fetch = $query->executeQuery()->fetchAssociative();
 
         $this->conn->close();
 
