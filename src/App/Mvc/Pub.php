@@ -2,7 +2,7 @@
 
 /**
  * This file stores the 'Public' data required for running the software in the Routing section and outputs the URL.
- * Symfony/Routing&HttpFoundation is used for routing | https://symfony.com/doc/current/create_framework/routing.html #version: 5.4
+ * Symfony/Routing&HttpFoundation is used for routing | https://symfony.com/doc/current/create_framework/routing.html #version: 6.3
  *
  * This file is one of Par2's core files for MVC.
  */

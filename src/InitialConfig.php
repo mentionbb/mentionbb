@@ -15,7 +15,7 @@ class InitialConfig
      * PhpFilesAdapter
      * RedisAdapter
      * 
-     * https://symfony.com/doc/5.4/components/cache.html
+     * https://symfony.com/doc/current/components/cache.html
      */
     const Cache_Standard = [
         'adapter' => 'DoctrineDbalAdapter',
@@ -37,7 +37,7 @@ class InitialConfig
             /**
              * For Memcache.
              * 
-             * https://symfony.com/doc/5.4/components/cache/adapters/memcached_adapter.html
+             * https://symfony.com/doc/current/components/cache/adapters/memcached_adapter.html
              */
             /*
             'url' => [
@@ -49,7 +49,7 @@ class InitialConfig
             /**
              * For Redis.
              * 
-             * https://symfony.com/doc/5.4/components/cache/adapters/redis_adapter.html
+             * https://symfony.com/doc/current/components/cache/adapters/redis_adapter.html
              */
             //'url' => 'redis://localhost'
         ]
