@@ -12,7 +12,7 @@ use Symfony\Component\EventDispatcher\Event;
 abstract class Controller
 {
 	protected $routing;
-	
+
 	protected $request;
 	protected $user;
 	protected $event;
@@ -154,7 +154,8 @@ abstract class Controller
 					],
 					'theme' => [
 						'compile' => new \App\SubContainer\Theme\Compile(),
-						'loader' => new \App\Template\Twig\Loader
+						'loader' => new \App\Template\Twig\Loader,
+						'css' => new \App\SubContainer\Theme\Attributes($this->settings)
 					],
 					'lang' => [
 						'string' => $this->languageInit,

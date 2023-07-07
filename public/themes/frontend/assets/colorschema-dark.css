@@ -1,4 +1,6 @@
 body.app-night-mode {
+	--mention-meta-color: #23292f;
+
 	--mention-doc-bg-color: #0d1117;
 	--mention-doc-text-color: #b9b9b9;
 	--mention-doc-light-text-color: #676767;

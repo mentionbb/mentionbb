@@ -1,0 +1,27 @@
+.app-container.app-root {
+    --mention-primary-font-family: 'Nunito', sans-serif;
+
+    --mention-root-font-weight-lightest: 200;
+    --mention-root-font-weight-lighter: 300;
+    --mention-root-font-weight-light: 450;
+    --mention-root-font-weight-normal: 530;
+    --mention-root-font-weight-bold: 600;
+    --mention-root-font-weight-bolder: 700;
+    --mention-root-font-weight-boldest: 800;
+    --mention-root-font-weight-black: 900;
+}
+
+/* Mozilla font weight fix */
+@-moz-document url-prefix() {
+    .app-container.app-root {
+        --mention-root-font-weight-light: 400;
+        --mention-root-font-weight-normal: 400;
+    }
+}
+
+@import url('font/nunito.css');
+
+/* [import] */
+@import url('colorschema-light.css');
+@import url('colorschema-dark.css');
+/* [/import] */

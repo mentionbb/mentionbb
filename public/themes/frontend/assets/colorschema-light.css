@@ -1,4 +1,6 @@
 :root {
+	--mention-meta-color: #fff;
+
 	--mention-doc-bg-color: #f8f9fa;
 	--mention-doc-text-color: #212529;
 	--mention-doc-light-text-color: #676767;

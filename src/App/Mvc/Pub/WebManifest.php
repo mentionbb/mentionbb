@@ -21,6 +21,8 @@ class WebManifest extends Controller implements Pub
                 $scope = '/';
             }
 
+            $cssAttr = (new \App\SubContainer\Theme\Attributes($this->settings))->getThemeColor();
+
             $data = [
                 'name' => $this->settings->site_title,
                 'short_name' => $this->settings->site_short_title,
@@ -42,8 +44,8 @@ class WebManifest extends Controller implements Pub
                 'display' => 'minimal-ui',
                 'scope' => $scope,
                 'start_url' => "{$scope}?_pwa=1",
-                'background_color' => '#f8f9fa',
-                'theme_color' => '#ffffff'
+                'background_color' => $cssAttr['bg_color'],
+                'theme_color' => $cssAttr['theme_color']
             ];
 
             $renderer = $this->phrase->render('json')->serialize($data, false, JSON_PRETTY_PRINT);

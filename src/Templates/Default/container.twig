@@ -27,7 +27,7 @@
 <body hook-action="{Mention:App-domEvent-htmlbody}" 
     class="app-root app-container{{ night_mode_class }}" 
     data-template="{% block app_template_name %}{% endblock %}" 
-    data-color="{{ app.cookie.night_mode ? '#23292f' : '#fff' }}">
+    data-color="{{ app.sub.theme.css.getThemeColor()['theme_color'] }}">
 	{% include 'navbar.twig' %}
 	{% if app.user.getActiveBan(app.visitor.user_id) %}
 	    {% set banItem = app.user.getActiveBan(app.visitor.user_id) %}
