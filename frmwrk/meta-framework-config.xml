@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <framework>
+        <name>Par2</name>
+        <sname>ForumWorks for MentionBB(Par2)</sname>
+        <ver>2.2.12</ver>
+        <config_dir>
+            <root>../</root>
+            <init>{$root}/src</init>
+            <bin>{$root}/bin</bin>
+            <console>{$root}/bin/console</console>
+            <vendor>{$init}/vendor</vendor>
+            <application>{$init}/App</application>
+        </config_dir>
+        <dev>
+            <dev_editor>Visual Studio Code</dev_editor>
+            <dev_env>Xampp/Wamp</dev_env>
+            <code_standart>PSR-12</code_standart>
+            <file_format>Application Standarts for Mention Environment</file_format>
+            <file_format_version>2.2.12</file_format_version>
+            <framework_config_ext>XML</framework_config_ext>
+            <app_config_ext>YAML</app_config_ext>
+            <routing>Symfony</routing>
+            <symfony_ver>6</symfony_ver>
+            <template>Twig 3</template>
+            <db_query>Doctrine DBAL</db_query>
+        </dev>
+    </framework>
+</root>
