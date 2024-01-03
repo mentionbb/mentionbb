@@ -96,6 +96,21 @@ class Attachment
 
 			$dir = \App\SubContainer\AppSub::getPublicDir() . "/{$dir}/{$name}";
 
+			/**
+			 * If PHP_GD library enabled all images converts to WEBP format.
+			 */
+			if (function_exists('imagewebp'))
+			{
+				$outputName = \pathinfo($name, PATHINFO_FILENAME) . ".webp";
+				$outputDir = \App\SubContainer\AppSub::getPublicDir() . "/editor/{$outputName}";
+
+				if (\App\Util\Webp::convertToWebp(PUBLIC_DIR . "/editor/{$name}", PUBLIC_DIR . "/editor/{$outputName}"))
+				{
+					$name = $outputName;
+					$dir = $outputDir;
+				}
+			}
+
 			return [
 				'name' => $name,
 				'dir' => $dir
