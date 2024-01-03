@@ -84,4 +84,10 @@ class InitialConfig
      * If you are unable to link to external links, you can disable external link preview within posts.
      */
     const Disable_ExternalLink_Preview = 0;
+
+    /**
+     * Images uploaded are automatically converted to Webp format if the PHP_GD extension is turned on.
+     * Turning this setting off disables the feature. Leaving the images in their original format will result in loss of disk space.
+     */
+    const Enable_Convert_Webp_Images = 1;
 }

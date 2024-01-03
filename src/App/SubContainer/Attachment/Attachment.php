@@ -99,7 +99,7 @@ class Attachment
 			/**
 			 * If PHP_GD library enabled all images converts to WEBP format.
 			 */
-			if (function_exists('imagewebp'))
+			if (function_exists('imagewebp') && \Release\InitialConfig::Enable_Convert_Webp_Images)
 			{
 				$outputName = \pathinfo($name, PATHINFO_FILENAME) . ".webp";
 				$outputDir = \App\SubContainer\AppSub::getPublicDir() . "/editor/{$outputName}";
