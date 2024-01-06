@@ -21,7 +21,7 @@
             <framework_config_ext>XML</framework_config_ext>
             <app_config_ext>YAML</app_config_ext>
             <routing>Symfony</routing>
-            <symfony_ver>6</symfony_ver>
+            <symfony_ver>7</symfony_ver>
             <template>Twig 3</template>
             <db_query>Doctrine DBAL</db_query>
         </dev>
