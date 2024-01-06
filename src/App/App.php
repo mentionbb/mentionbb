@@ -20,7 +20,7 @@ class App
 
 	public static $session;
 
-	public static $_supportPhpVersion = '7.4';
+	public static $_supportPhpVersion = '8.2';
 
 	public static $variable = [
 		'session' => [
@@ -53,12 +53,12 @@ class App
 			Debug::enable();
 		}
 
-		$_phpVersion = \PHP_VERSION;
+		$_phpVersion = \PHP_VERSION_ID;
 		if (version_compare($_phpVersion, self::$_supportPhpVersion, '<='))
 		{
-			if ($_phpVersion < '7.0')
+			if ($_phpVersion < '8.2')
 			{
-				throw new \Exception("Your PHP version is '$_phpVersion' is does not support.Support PHP version is '7.4'.");
+				throw new \Exception("Your PHP version is '$_phpVersion' is does not support.Support PHP version is '" . self::$_supportPhpVersion . "'.");
 			}
 			else
 			{
