@@ -34,7 +34,7 @@ And much much more.
 You have to do this manually as the Installer isn't ready yet.
 
 ## Requirements
-- PHP 7.4+
+- PHP 8.2+
 - Composer
 - Git (Optional)
 

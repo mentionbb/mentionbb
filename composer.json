@@ -25,6 +25,7 @@
         }
     },
     "require": {
+        "php": ">=8.2",
         "wikimedia/composer-merge-plugin": "dev-master"
     },
     "extra": {
