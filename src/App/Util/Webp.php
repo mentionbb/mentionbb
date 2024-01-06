@@ -6,11 +6,11 @@ class Webp
 {
     public static function convertToWebp($path, $target, $quality = 80)
     {
-        if(!file_exists($path))
+        if (!file_exists($path))
         {
             return false;
         }
-        
+
         $fileType = \exif_imagetype($path);
 
         if ($fileType == IMAGETYPE_JPEG)
