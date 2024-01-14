@@ -3,13 +3,17 @@
     <p>Error code: 1</p>
     <hr>
     <p class="text-light">If you see this page everything is fine. You just need to install the vendor file, there are two ways to do it.</p>
-    <h4>Via composer:</h4>
+    <h4 class="text-title">Via composer:</h4>
+    <ol>
+        <li>Open the command window and run the <code>php frmwrk/bin/composer.phar update</code> command.</li>
+    </ol>
+    <h5>OR</h5>
     <ol>
         <li>Install the <a target="_blank" href="https://getcomposer.org/">Composer</a>.</li>
         <li>Then run the <code>composer update</code> command on root directory.</li>
     </ol>
     <hr>
-    <h4>If you cannot install composer on hosting:</h4>
+    <h4 class="text-title">If you cannot install composer on hosting or composer problem:</h4>
     <?php
     if (file_exists("{$app['index_dir']}/vendor.zip'")) :
     ?>
@@ -22,7 +26,7 @@
     <?php endif; ?>
     <ol>
         <li>If Vendor.zip is not in the directory, download the ready <a href="https://github.com/mentionbb/mentionbb/raw/master/vendor.zip">vendor.zip</a> file.</li>
-        <li>Then extract it and <code>move it to the src folder.</code></li>
+        <li>Then extract it and <code>move it to the <b>frmwrk</b> folder.</code></li>
         <li><b>It should be moved as vendor folder!</b></li>
     </ol>
     <hr>

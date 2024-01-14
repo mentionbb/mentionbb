@@ -140,6 +140,10 @@
             color: #e18484;
         }
 
+        .text-title {
+            color: #14cad2;
+        }
+
         .container {
             display: flex;
             justify-content: center;

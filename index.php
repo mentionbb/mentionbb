@@ -16,7 +16,7 @@ ini_set('max_execution_time', 900);
 $dir = __DIR__;
 require($dir . '/bin/defs.php');
 
-if (!file_exists(APPLICATION_SELF . '/vendor/autoload.php'))
+if (!file_exists(FRAMEWORK_LIBS . '/vendor/autoload.php'))
 {
     require($dir . '/bin/RuntimeErrors.php');
     RuntimeErrors::Show('vendor');
@@ -27,7 +27,7 @@ if (!file_exists(APPLICATION_SELF . '/vendor/autoload.php'))
 /**
  * Run Application
  */
-require(APPLICATION_SELF . '/vendor/autoload.php');
+require(FRAMEWORK_LIBS . '/vendor/autoload.php');
 new \App\Mvc\Pub();
 
 /**
