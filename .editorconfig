@@ -11,6 +11,10 @@ indent_size = 4
 indent_style = space
 indent_size = 4
 
+[*.xml]
+indent_style = space
+indent_size = 4
+
 [*.map]
 indent_style = space
 indent_size = 4
