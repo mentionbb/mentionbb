@@ -19,11 +19,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class Package extends Command
 {
-    protected static $defaultName = \App\Cli\CommandList::REBUILDING_ADDONS;
-
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setDescription('This command builds your addon and outputs it as a package.')
+        $this->setName(\App\Cli\CommandList::REBUILDING_ADDONS)
+            ->setDescription('This command builds your addon and outputs it as a package.')
             ->setDefinition(
                 new InputDefinition([
                     new InputOption('name', null, InputOption::VALUE_REQUIRED)
@@ -31,7 +30,7 @@ class Package extends Command
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $filesystem = new Filesystem();
 
