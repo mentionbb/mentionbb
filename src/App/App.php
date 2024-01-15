@@ -53,7 +53,7 @@ class App
 			Debug::enable();
 		}
 
-		$_phpVersion = \PHP_VERSION_ID;
+		$_phpVersion = \PHP_VERSION;
 		if (version_compare($_phpVersion, self::$_supportPhpVersion, '<='))
 		{
 			if ($_phpVersion < '8.2')
