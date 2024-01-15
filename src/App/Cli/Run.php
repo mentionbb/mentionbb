@@ -14,7 +14,10 @@ class Run
 		}
 
 		\App\App::beginConsoleInstall();
-		$application = new ConsoleApplication('MentionBB Console Application', 'Version: ' . \App\App::versionNaming() . ', Build: ' . \App\App::$build['versionId']);
+		$application = new ConsoleApplication(
+			\App\App::getFiglet() . "\nMentionBB Console Application",
+			'Version: ' . \App\App::versionNaming() . ', Build: ' . \App\App::$build['versionId']
+		);
 
 		$this->addCommands($application);
 
