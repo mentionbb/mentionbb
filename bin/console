@@ -11,17 +11,17 @@
  * !! The software uses ParFramework2, this infrastructure cannot be used by third parties or any other project can not be produced. !!
  * 
  */
- 
+
 ini_set('max_execution_time', 900);
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
 $dir = __DIR__;
-require($dir . '/bin/defs.php');
+require($dir . '/defs.php');
 
 /**
  * Run Application
  */
-require(APPLICATION_SELF . '/vendor/autoload.php');
+require(FRAMEWORK_LIBS . '/vendor/autoload.php');
 new \App\Cli\Run();

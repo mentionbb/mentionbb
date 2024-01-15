@@ -96,6 +96,11 @@ class App
 		self::isAppInstalled();
 	}
 
+	public static function beginConsoleInstall()
+	{
+		self::isAppInstalled();
+	}
+
 	public static function parameterContainer()
 	{
 		self::$session = new \App\Repository\Session();

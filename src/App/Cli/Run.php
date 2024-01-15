@@ -13,7 +13,8 @@ class Run
 			die('Console Application is only for Cli.');
 		}
 
-		$application = new ConsoleApplication('Mention for console application', 'Version: ' . \App\App::versionNaming() . ', Build: ' . \App\App::$build['versionId']);
+		\App\App::beginConsoleInstall();
+		$application = new ConsoleApplication('MentionBB Console Application', 'Version: ' . \App\App::versionNaming() . ', Build: ' . \App\App::$build['versionId']);
 
 		$this->addCommands($application);
 
