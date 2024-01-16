@@ -2,6 +2,8 @@
 
 namespace App\Cli\Command\Composer;
 
+use App\Cli\Console\loggableOutput;
+
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -23,6 +25,8 @@ class Update extends Command
     {
         if ($input->getArgument('update'))
         {
+            $output = new loggableOutput($this->getName(), $output);
+
             $output->writeln('<info>Starting composer update..</info>');
 
             $process = new Process(['php', FRAMEWORK_LIBS . '/bin/composer.phar', 'update', '-v']);
@@ -33,34 +37,14 @@ class Update extends Command
                 throw new ProcessFailedException($process);
             }
 
-            $loggerName = \App\Uuid::v4();
-            $this->doLogger($loggerName, \App\Cli\CommandList::COMPOSER);
-            $process->run(function ($type, $buffer) use ($output, $loggerName)
+            $process->run(function ($type, $buffer) use ($output)
             {
-                $this->doLogger($loggerName, \App\Cli\CommandList::COMPOSER, $buffer);
-                if (Process::ERR === $type)
-                {
-                    $output->writeln("<fg=black;bg=cyan;options=bold>{$buffer}</>");
-                }
-                else
-                {
-                    $output->writeln("<info>{$buffer}</info>");
-                }
+                $output->writeln("<fg=white;bg=green;options=bold>{$buffer}</>");
             });
         }
 
+        $output->log();
+
         return Command::SUCCESS;
-    }
-
-    private function doLogger(string $name, string $command, $data = "")
-    {
-        $file = new \App\Util\File();
-
-        if (!file_exists(APPLICATION_SELF . "/Logs/Console/{$name}.txt"))
-        {
-            $data = "Log date:" . time() . "\n" . "> {$command} update\n\n";
-        }
-
-        $file->appendToFile(APPLICATION_SELF . "/Logs/Console/{$name}.txt", $data);
     }
 }
