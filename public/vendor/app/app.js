@@ -19,7 +19,7 @@ var app = {};
                 return;
             }
         }).fail(function (xhr, status, err) {
-            app.flashMessage('Error: json response', 'danger');
+            app.flashMessage('Unknown error. <br /><br /><kbd>Json response indicated that an error was returned.</kbd>', 'danger');
         });
 
         return promise;
