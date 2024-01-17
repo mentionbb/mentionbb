@@ -60,6 +60,7 @@ After this step, we need to perform a composer update.
 ```
 php bin/console mention:composer update
 ```
+If you run this command, you do not need to install composer!
 
 OR
 ```
