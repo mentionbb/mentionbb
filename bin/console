@@ -19,11 +19,16 @@ ini_set('max_execution_time', 900);
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
-$dir = __DIR__;
-require($dir . '/defs.php');
+return (function (): \App\Cli\Run
+{
+    $dir = __DIR__;
+    require($dir . '/defs.php');
 
-/**
- * Run Application
- */
-require(FRAMEWORK_LIBS . '/vendor/autoload.php');
-new \App\Cli\Run();
+    /**
+     * Run Application
+     */
+    require(FRAMEWORK_LIBS . '/vendor/autoload.php');
+    $app = new \App\Cli\Run();
+
+    return $app;
+})();
