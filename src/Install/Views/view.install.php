@@ -1,4 +1,4 @@
-<?php $this->setPageTitle('Yükleyici'); ?>
+<?php $this->setPageTitle('Installer'); ?>
 <div class="app-page-content container my-5 row">
     <aside class="app-install-area col-sm-12">
         <?php echo $this->render('logo'); ?>
@@ -10,13 +10,13 @@
                     </div>
                     <div class="steps js-AppInstall-Steps">
                         <div class="step1a">
-                            <p>Kuruluma hoşgeldiniz, başlangıç için hazırsınız. Bir sonraki aşamada sunucu/hosting altyapınızın uygunluğunu test edeceğiz. Hazırsanız başlayalım.</p>
+                            <p>Welcome to the installation, you are ready to get started. In the next stage, we will test the suitability of your server/hosting infrastructure. If you're ready, let's start.</p>
                         </div>
                     </div>
                     <hr>
                     <button class="btn btn-app btn-install-next" data-step="1a">
                         <i class="fas fa-check-circle mr-1"></i>
-                        <span>Kurulumu Başlat</span>
+                        <span>Start Setup</span>
                     </button>
                 </div>
             </div>

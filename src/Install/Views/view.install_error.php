@@ -1,7 +1,7 @@
 <div class="app-error-log shadow rounded mb-4">
     <div class="bg-light border-bottom py-2 px-2">
         <i class="fas fa-exclamation-triangle"></i>
-        <span>Hata</span>
+        <span>Error Context</span>
     </div>
     <div class="bg-light small py-2 px-2">
         <p class="mb-0">

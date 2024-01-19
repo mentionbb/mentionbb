@@ -5,23 +5,23 @@
         if (!is_array($appRequirements)) :
         ?>
             <div class="alert alert-success" role="alert">
-                <span>Sunucunuz Mention'un stabil bir şekilde çalışması için gerekli kriterleri sağlamaktadır.</span>
+                <span>Your server meets the necessary criteria for MentionBB to operate stably.</span>
             </div>
         <?php else : ?>
             <div class="alert alert-warning" role="alert">
-                <span>Sunucunuzda bir veya birden fazla modül eksik. Bu durumda Mention'un çalışması sekteye uğrayabilir veya çalışmayı durdurabilir.</span>
+                <span>One or more PHP plugins/modules are missing on your server. In this case, Mention's operation may be interrupted or stop working.</span>
                 <ul class="mb-0">
                     <?php foreach ($appRequirements as $requirementMessage) : ?>
                         <li>
                             <strong><?php echo $requirementMessage['error']; ?>:</strong>
                             <?php if ($requirementMessage['error'] == 'php') : ?>
-                                Sunucunuzun PHP versiyonu: <?php echo $string['server']->getPHPVersion(); ?>, gereken PHP versiyonu: <?php echo $app->build->support_php_version; ?>
+                                Your server's PHP version: <?php echo $string['server']->getPHPVersion(); ?>, required PHP version: <?php echo $app->build->support_php_version; ?>
                             <?php else : ?>
                                 <?php
                                 $messages = [];
-                                $messages['mbstring'] = "<a href=\"https://www.php.net/manual/tr/book.mbstring.php\">PHP mbstring</a> eklentisi kapalı veya yüklenmemiş.";
-                                $messages['zip'] = "Zip eklentisi kapalı, sistemin paketleri dışa veya içeriye aktarabilmesi için <a href=\"https://www.php.net/manual/tr/book.zip.php\">Zip</a> eklentisi gerekiyor.";
-                                $messages['curl'] = "Mention, bazı uzak sitelerden bilgi alır veya gönderir. <a href=\"https://www.php.net/manual/tr/book.curl\">PHP Curl</a> eklentisi şarttır.";
+                                $messages['mbstring'] = "<a href=\"https://www.php.net/manual/tr/book.mbstring.php\">PHP mbstring</a> plugin is disabled or not loaded.";
+                                $messages['zip'] = "Zip plugin is disabled, <a href=\"https://www.php.net/manual/tr/book.zip.php\">Zip</a> plugin is required for the system to export or import packages.";
+                                $messages['curl'] = "Mention receives or sends information from some remote site. <a href=\"https://www.php.net/manual/tr/book.curl\">PHP Curl</a> plugin is a must.";
                                 ?>
                                 <span><?php echo $messages[$requirementMessage['error']]; ?></span>
                             <?php endif; ?>
@@ -36,17 +36,17 @@
             <table class="table table-bordered table-striped table-responsive-sm">
                 <thead>
                     <tr>
-                        <th scope="col">Özellik</th>
-                        <th scope="col">Değer</th>
+                        <th scope="col">Feature</th>
+                        <th scope="col">Value</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>PHP sürümü:</td>
+                        <td>PHP version:</td>
                         <td><?php echo $string['server']->getPHPVersion(); ?></td>
                     </tr>
                     <tr>
-                        <td>MySQL sürümü:</td>
+                        <td>MySQL version:</td>
                         <td><?php echo $string['server']->getServerVersion(); ?></td>
                     </tr>
                     <tr>
@@ -70,38 +70,38 @@
                         <td><?php echo $string['server']->getMaxExecutionTime(); ?></td>
                     </tr>
                     <tr>
-                        <td>cURL versiyonu</td>
+                        <td>cURL version</td>
                         <td><?php echo $string['server']->getCurlVersion(); ?></td>
                     </tr>
                     <tr>
-                        <td>GZip desteği</td>
+                        <td>GZip support</td>
                         <td>
                             <?php if ($string['server']->isSupportGZip()) :
-                                echo '<span class="text-success">Evet</span>';
+                                echo '<span class="text-success">Yes</span>';
                             else :
-                                echo '<span class="text-danger">Hayır</span>';
+                                echo '<span class="text-danger">No</span>';
                             endif;
                             ?>
                         </td>
                     </tr>
                     <tr>
-                        <td>Mbstring desteği</td>
+                        <td>Mbstring support</td>
                         <td>
                             <?php if ($string['server']->isMbstringEnabled()) :
-                                echo '<span class="text-success">Evet</span>';
+                                echo '<span class="text-success">Yes</span>';
                             else :
-                                echo '<span class="text-danger">Hayır</span>';
+                                echo '<span class="text-danger">No</span>';
                             endif;
                             ?>
                         </td>
                     </tr>
                     <tr>
-                        <td>ZipArchive desteği</td>
+                        <td>ZipArchive support</td>
                         <td>
                             <?php if ($string['server']->isZipEnabled()) :
-                                echo '<span class="text-success">Evet</span>';
+                                echo '<span class="text-success">Yes</span>';
                             else :
-                                echo '<span class="text-danger">Hayır</span>';
+                                echo '<span class="text-danger">No</span>';
                             endif;
                             ?>
                         </td>
