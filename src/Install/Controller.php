@@ -63,7 +63,7 @@ abstract class Controller
                 'post' => $this->post,
                 'query' => $this->query,
                 'phrase' => $this->phrase,
-                'csrf_token' => \App\Repository\CookieEncrypt::getInstance()->defineAuthToken(),
+                'csrf_token' => (new \App\SecurityProtocols\CrossSiteRequestForgery())->getEncodedToken(),
                 'resource' => [
                     'common' => new \Install\Resource()
                 ]

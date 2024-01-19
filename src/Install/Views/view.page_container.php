@@ -85,6 +85,9 @@
             },
             phrase: {
                 default_title: "<?php echo $this->getPageTitle(); ?>"
+            },
+            visitor: {
+                csrf: "<?php echo $app->csrf_token; ?>"
             }
         });
     </script>
