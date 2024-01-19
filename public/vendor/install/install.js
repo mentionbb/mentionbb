@@ -4,13 +4,6 @@ if (window.jQuery === undefined) jQuery = $ = {};
 	"use strict";
 
 	$(function () {
-		function animationStart() {
-			$('#hello-container').addClass('fin');
-		}
-		setTimeout(animationStart, 250);
-	});
-
-	$(function () {
 		$(document).on('click', '.app-install .btn-install-next', function (e) {
 			switch ($(this).attr('data-step')) {
 				case ('1a'):
@@ -34,7 +27,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 						.addClass('fa-arrow-alt-circle-right')
 						.closest('button')
 						.find('span')
-						.text('Devam et');
+						.text('Next');
 
 					setPercent(5);
 

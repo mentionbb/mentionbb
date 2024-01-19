@@ -2,6 +2,8 @@
 @import url('../../themes/frontend/assets/colorschema-light.css');
 @import url('../../themes/frontend/assets/colorschema-dark.css');
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
 	font-family: var(--mention-primary-font-family);
 	background-color: var(--mention-doc-bg-color);
@@ -79,39 +81,6 @@ hr {
 	margin-top: 3rem;
 }
 
-/* https://codepen.io/gau/pen/ZWZKxO */
-#hello-container.fin .path-1,
-#hello-container.fin .path-2,
-#hello-container.fin .path-3 {
-	stroke-dashoffset: 0;
-}
-
-#hello-container .path {
-	fill: none;
-	stroke: var(--mention-install-svg-color);
-	stroke-width: 18px;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-}
-
-#hello-container .path-1 {
-	stroke-dasharray: 1850 2000;
-	stroke-dashoffset: 1851;
-	transition: 2.5s linear;
-}
-
-#hello-container .path-2 {
-	stroke-dasharray: 260 1000;
-	stroke-dashoffset: 261;
-	transition: 1s linear 2.5s;
-}
-
-#hello-container .path-3 {
-	stroke-dasharray: 100 1000;
-	stroke-dashoffset: 101;
-	transition: 1s linear 3.7s;
-}
-
 .logo {
 	text-align: center;
 	position: relative;
@@ -125,6 +94,31 @@ hr {
 	width: 500px;
 	height: 170px;
 	padding-bottom: 20px;
+}
+
+/* https://codepen.io/ANAMAFLA/pen/eYJbGpd */
+svg.logo2b text {
+	font-family: 'Pacifico', cursive;
+	letter-spacing: 15px;
+	stroke: var(--mention-install-svg-color);
+	font-size: 150px;
+	font-weight: 400;
+	stroke-width: 2;
+	animation: helloAnimation 5s infinite alternate;
+}
+
+@keyframes helloAnimation {
+	0% {
+		stroke-dasharray: 0 50%;
+		stroke-dashoffset: 20%;
+		fill: var(--mention-install-svg-color);
+	}
+
+	100% {
+		stroke-dasharray: 50% 0;
+		stroke-dashoffstet: -20%;
+		fill: var(--mention-doc-bg-color);
+	}
 }
 
 .logo.install-index svg [class^='st'] {
@@ -556,8 +550,15 @@ hr {
 		margin-top: 0;
 	}
 
+	svg.logo2b text {
+		letter-spacing: 7px;
+		font-size: 65px;
+		stroke-width: 2;
+	}
+
 	.logo svg {
 		width: 100%;
+		height: 85px;
 	}
 
 	.app-install-container {

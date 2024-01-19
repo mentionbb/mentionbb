@@ -1,9 +1,9 @@
 app:
-  version: "{build:versionNaming}, Build: {build:versionId}"
+  version: "Source version: {build:versionNaming} <br /> Build: {build:versionId}"
   installer_version: "Installer version: {install:versionNaming}"
 
   copyright:
-    text: "@ {year} <a target=\"_blank\" href=\"https://mentionbb.com/community\">Mention Community BB</a>"
+    text: "@ {year} <a target=\"_blank\" href=\"https://mentionbb.com/community\">MentionBB</a>"
     links:
       official: "https://github.com/mentionbb|@Github"
       github: "https://github.com/par274|@par274"
