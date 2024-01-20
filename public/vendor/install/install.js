@@ -8,17 +8,18 @@ if (window.jQuery === undefined) jQuery = $ = {};
 			switch ($(this).attr('data-step')) {
 				case ('1a'):
 					$('.hello-logo').addClass('d-none');
+					$('.step1a p').text('Proceed to installation.');
+
+					$(this).addClass('button-highlight');
 
 					$('.logo:not(.hello-logo)').fadeIn('fast');
 
-					setTimeout(function () {
-						$('.logo:not(.hello-logo)')
-							.removeClass('install-index')
-							.addClass('install')
-							.addClass('step1a');
+					$('.logo:not(.hello-logo)')
+						.removeClass('install-index')
+						.addClass('install')
+						.addClass('step1a');
 
-						document.getElementById('step1a-animate').beginElement();
-					}, 2500);
+					document.getElementById('step1a-animate').beginElement();
 
 					$(this)
 						.attr('data-step', '1b')

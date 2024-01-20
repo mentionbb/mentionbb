@@ -2,8 +2,6 @@
 @import url('../../themes/frontend/assets/colorschema-light.css');
 @import url('../../themes/frontend/assets/colorschema-dark.css');
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
 body {
 	font-family: var(--mention-primary-font-family);
 	background-color: var(--mention-doc-bg-color);
@@ -86,39 +84,28 @@ hr {
 	position: relative;
 }
 
-.logo.install-index {
-	display: none;
+.button-highlight {
+	animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+	0% {
+		box-shadow: 0 0 0 0px var(--mention-install-button-border-color);
+	}
+
+	50% {
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+	}
 }
 
 .logo svg {
 	width: 500px;
 	height: 170px;
 	padding-bottom: 20px;
-}
-
-/* https://codepen.io/ANAMAFLA/pen/eYJbGpd */
-svg.logo2b text {
-	font-family: 'Pacifico', cursive;
-	letter-spacing: 15px;
-	stroke: var(--mention-install-svg-color);
-	font-size: 150px;
-	font-weight: 400;
-	stroke-width: 2;
-	animation: helloAnimation 5s infinite alternate;
-}
-
-@keyframes helloAnimation {
-	0% {
-		stroke-dasharray: 0 50%;
-		stroke-dashoffset: 20%;
-		fill: var(--mention-install-svg-color);
-	}
-
-	100% {
-		stroke-dasharray: 50% 0;
-		stroke-dashoffstet: -20%;
-		fill: var(--mention-doc-bg-color);
-	}
 }
 
 .logo.install-index svg [class^='st'] {
