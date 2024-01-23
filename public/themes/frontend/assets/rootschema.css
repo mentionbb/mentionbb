@@ -1,4 +1,11 @@
-.app-container.app-root {
+@import url('font/nunito.css');
+
+/* [import] */
+@import url('colorschema-light.css');
+@import url('colorschema-dark.css');
+/* [/import] */
+
+body {
     --mention-primary-font-family: 'Nunito', sans-serif;
 
     --mention-root-font-weight-lightest: 200;
@@ -18,10 +25,3 @@
         --mention-root-font-weight-normal: 400;
     }
 }
-
-@import url('font/nunito.css');
-
-/* [import] */
-@import url('colorschema-light.css');
-@import url('colorschema-dark.css');
-/* [/import] */
