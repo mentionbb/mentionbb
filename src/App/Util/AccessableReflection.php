@@ -7,10 +7,10 @@ class AccessableReflection
     /**
      * This method allows you to call private functions, constants and properties in any class.
      *
-     * @param  mixed $obj
-     * @param  mixed $propertyOrConstantOrMethod
-     * @param  mixed $args
-     * @return boolean
+     * @param  object $obj
+     * @param  string $propertyOrConstantOrMethod
+     * @param  array $args
+     * @return mixed
      */
     public static function get(object $obj, string $propertyOrConstantOrMethod, array $args = [])
     {
