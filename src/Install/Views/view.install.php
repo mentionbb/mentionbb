@@ -5,6 +5,9 @@
         <div class="app-install-block animate slideIn mt-lg-4">
             <div class="app-install position-relative bg-light shadow rounded">
                 <div class="layout">
+                    <div class="progress install-progress rounded-0">
+                        <div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
                     <div class="progress d-none">
                         <div class="indeterminate"></div>
                     </div>

@@ -31,20 +31,25 @@ if (window.jQuery === undefined) jQuery = $ = {};
 						.text('Next');
 
 					setPercent(5);
+					consoleLogger('Setup is starting..');
 
 					break;
 				case ('1b'):
-					$('.app-install .progress').removeClass('d-none');
+					consoleLogger('Checking server requirements..');
+					
+					$('.app-install .progress:not(.install-progress)').removeClass('d-none');
 
 					app.post("install?next", { 'step': 'step1b' }).done(function (response) {
 						if (response.status === "ok") {
 							if (response.error.status === 'fail') {
+								consoleLogger('{fail}');
 								installError('step1b', '66%', '.33;.66', response.error.template);
 							} else {
+								consoleLogger('{ok}');
 								nextStep('step1b', '66%', '.33;.66');
 							}
 
-							$('.app-install .progress').addClass('d-none');
+							$('.app-install .progress:not(.install-progress)').addClass('d-none');
 
 							$('.js-AppInstall-Steps').html(response.template);
 
@@ -83,7 +88,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 	function installError(step, percent, animatePercent, template) {
 		nextStep(step, percent, animatePercent, 'error');
 
-		$('.app-install .progress').addClass('d-none');
+		$('.app-install .progress:not(.install-progress)').addClass('d-none');
 		$('.app-install').addClass('error');
 
 		$('.app-install')
@@ -94,11 +99,31 @@ if (window.jQuery === undefined) jQuery = $ = {};
 	}
 
 	function setPercent(percent) {
-		var realPercent = '%' + percent;
-		
+		var realPercent = percent + '%';
+
+		$('.app-install .progress.install-progress .progress-bar')
+			.attr('aria-valuenow', percent)
+			.css('width', realPercent)
+			.text(realPercent);
+
 		document.title = app.phrase.default_title + " " + realPercent;
 
 		return realPercent;
+	}
+
+	function consoleLogger(message) {
+		var outputFormat = {
+			ok: "color: green;",
+			fail: "color: red"
+		};
+
+		if (message == '{fail}') {
+			console.log('%c FAIL', outputFormat['fail']);
+		} else if (message == '{ok}') {
+			console.log('%c SUCCESS', outputFormat['ok']);
+		} else {
+			console.log(message);
+		}
 	}
 }
 (window.jQuery, window, document);

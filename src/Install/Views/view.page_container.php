@@ -38,11 +38,25 @@
         ],
         '{link_0}' => [
             'attributes' => [
+                'rel' => 'icon',
+                'type' => 'imageg/png',
+                'href' => "{$app->public_dir}/images/logo-favicon.png",
+                'sizes' => '32x32'
+            ]
+        ],
+        '{link_1}' => [
+            'attributes' => [
                 'rel' => 'stylesheet',
                 'href' => "{$app->public_dir}/vendor/vendor.css?v=1644274312"
             ]
         ],
-        '{link_1}' => [
+        '{link_2}' => [
+            'attributes' => [
+                'rel' => 'stylesheet',
+                'href' => "{$app->public_dir}/themes/frontend/assets/rootschema.css"
+            ]
+        ],
+        '{link_3}' => [
             'attributes' => [
                 'rel' => 'stylesheet',
                 'href' => "{$app->public_dir}/vendor/install/style.css?v=" . time()
