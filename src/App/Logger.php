@@ -37,4 +37,19 @@ class Logger
             $filesystem->appendToFile($filename, "\r\n" . \json_encode($data));
         }
     }
+
+    public static function doLogAdv(array $data)
+    {
+        $filesystem = new File();
+
+        $filename = APPLICATION_SELF . '/Logs/' . "PHPError_" . time() . "_" . \App\Uuid::v4() . ".log";
+
+        $data = [
+            'created_at' => time(),
+            'where_page' => (new \App\Repository\Request())->getRequestUri(),
+            'log' => $data
+        ];
+
+        $filesystem->dumpFile($filename, \json_encode($data, JSON_PRETTY_PRINT));
+    }
 }
