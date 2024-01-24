@@ -129,7 +129,6 @@ class Templater
             $template = $matchRegexTemplate[2];
         }
 
-
         if (\is_array($this->_globals))
         {
             if (class_exists('\App\Repository\Set'))
