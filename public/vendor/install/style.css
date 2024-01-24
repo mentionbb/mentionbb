@@ -1,7 +1,3 @@
-@import url('../../themes/frontend/assets/font/nunito.css');
-@import url('../../themes/frontend/assets/colorschema-light.css');
-@import url('../../themes/frontend/assets/colorschema-dark.css');
-
 body {
 	font-family: var(--mention-primary-font-family);
 	background-color: var(--mention-doc-bg-color);
@@ -73,10 +69,6 @@ hr {
 
 .app-container>.container {
 	margin-top: 2.2rem;
-}
-
-.app-install-area {
-	margin-top: 3rem;
 }
 
 .logo {
@@ -208,12 +200,21 @@ hr {
 	position: relative;
 	width: 100%;
 	padding: 10px;
-	padding-top: 13px;
+	padding-top: 40px;
 }
 
 .app-install>.layout p {
 	color: var(--mention-doc-text-color);
 	margin-bottom: 0;
+}
+
+.app-install>.layout>.progress.install-progress {
+	height: 25px;
+	top: -0px;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	font-weight: bold;
 }
 
 .app-install-serverReport .tableContainer {
