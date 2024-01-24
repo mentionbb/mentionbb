@@ -23,7 +23,7 @@ return (function (): \App\Mvc\Pub|bool
     if (!file_exists(FRAMEWORK_LIBS . '/vendor/autoload.php'))
     {
         require($dir . '/bin/RuntimeErrors.php');
-        RuntimeErrors::Show('vendor');
+        \Binaries\RuntimeErrors::Show('vendor');
 
         return false;
     }

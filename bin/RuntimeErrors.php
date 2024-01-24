@@ -1,15 +1,17 @@
 <?php
 
+namespace Binaries;
+
 class RuntimeErrors
 {
-    public static function Show($type)
+    public static function Show($type, array $customParams = [])
     {
         require_once(APPLICATION_SELF . '/Standalone/Templater.php');
-        $templater = new Release\Standalone\Templater();
+        $templater = new \Release\Standalone\Templater();
         $templater->setPath(APPLICATION_SELF . '/Standalone/Errors/Views');
         $templater->addGlobals([
             'app' => [
-                'public_dir' => PUBLIC_DIR,
+                'public_dir' => \App\SubContainer\AppSub::getPublicDir(),
                 'index_dir' => INDEX_DIR
             ]
         ]);
@@ -41,6 +43,10 @@ class RuntimeErrors
                 ],
                 'array'
             );
+        }
+        else if ($type == 'exception')
+        {
+            echo $templater->render('{page_container:exception}', $customParams, 'array');
         }
 
         return;

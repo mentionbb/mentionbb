@@ -1,12 +1,17 @@
 {
     "autoload": {
         "psr-4": {
+            "Binaries\\": "../../bin",
             "Release\\": "../../src",
             "ComponentBundle\\": "../../src/Addons/Mention",
             "App\\": "../../src/App",
             "Addons\\": "../../src/Addons",
-            "Install\\": "../../src/Install"
-        }
+            "Install\\": "../../src/Install",
+			"Symfony\\Component\\ErrorHandler\\ErrorRenderer\\": "../vendor-patch/symfony/error-handler/ErrorRenderer"
+        },
+		"exclude-from-classmap": [
+            "..\\vendor\\symfony\\error-handler\\ErrorRenderer\\HtmlErrorRenderer.php"
+        ]
     },
     "require": {
         "symfony/routing": "^7",
