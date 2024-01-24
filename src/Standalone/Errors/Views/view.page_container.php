@@ -58,7 +58,7 @@
             --highlight-default: #222222;
             --highlight-keyword: #a71d5d;
             --highlight-string: #183691;
-            --base-0: #fff;
+            --base-0: #f7f7f7;
             --base-1: #f5f5f5;
             --base-2: #e0e0e0;
             --base-3: #ccc;
