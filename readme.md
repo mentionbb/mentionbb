@@ -29,6 +29,10 @@
 
 And much much more.
 
+# Status
+
+MentionBB has been in active development for over 3 years. The project you see on GitHub is developed in parallel and in real-time. Goal is to create a new generation forum that complies with completely new standards. You can install and use it on your site in its current status.
+
 # Install
 
 You have to do this manually as the Installer isn't ready yet.
