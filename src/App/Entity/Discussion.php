@@ -82,9 +82,7 @@ class Discussion extends Mapper
 			->setParameter('discussion_id', intval($discussion_id))
 			->setParameter('is_active', 1);
 
-		$fetch = $this->setQuery($query)
-			->executeQuery()
-			->fetchAssociative();
+		$fetch = $query->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
