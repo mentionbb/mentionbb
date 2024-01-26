@@ -7,7 +7,7 @@ use App\Uuid;
 
 use Symfony\Component\Console\Output\OutputInterface;
 
-class loggableOutput
+class LoggableOutput
 {
     public $output;
 
