@@ -5,7 +5,7 @@
     <p class="text-light">If you see this page everything is fine. You just need to install the vendor file, there are two ways to do it.</p>
     <h4 class="text-title">Via composer:</h4>
     <ol>
-        <li>Open the command window and run the <code>php frmwrk/bin/composer.phar update</code> command.</li>
+        <li>Open the command window and run the <code>php bin/console mention:composer update</code> command.</li>
     </ol>
     <h5>OR</h5>
     <ol>

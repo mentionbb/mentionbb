@@ -28,9 +28,7 @@ class Pub
 		{
 			if ($begin['status'] == 'fail')
 			{
-				require(INDEX_DIR . '/bin/RuntimeErrors.php');
 				\Binaries\RuntimeErrors::Show($begin['error']);
-
 				return;
 			}
 		}

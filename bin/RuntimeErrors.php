@@ -6,7 +6,12 @@ class RuntimeErrors
 {
     public static function Show($type, array $customParams = [])
     {
-        require_once(APPLICATION_SELF . '/Standalone/Templater.php');
+        if (!file_exists(FRAMEWORK_LIBS . '/vendor/autoload.php'))
+        {
+            require_once(APPLICATION_SELF . '/Standalone/Templater.php');
+            require_once(APPLICATION_SELF . '/App/SubContainer/AppSub.php');
+        }
+
         $templater = new \Release\Standalone\Templater();
         $templater->setPath(APPLICATION_SELF . '/Standalone/Errors/Views');
         $templater->addGlobals([
