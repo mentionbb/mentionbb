@@ -32,19 +32,11 @@
             <?php endif; ?>
             (line <?= $lineNumber; ?>)
         </span>
-        <?php
-        //Logger
-        $data = [
-            'message' => $_message,
-            'error' => implode(\DIRECTORY_SEPARATOR, array_slice($filePathParts, 0, -1)) . \DIRECTORY_SEPARATOR . end($filePathParts) . " on line " . $lineNumber
-        ];
-        \App\Logger::doLogAdv($data);
-        ?>
     <?php endif; ?>
 </div>
 <?php if ($trace['file']) : ?>
     <div id="trace-html-<?= $prefix . '-' . $i; ?>" class="trace-code sf-toggle-content">
-        <?= strtr(\App\Util\AccessableReflection::get($handler, 'fileExcerpt', [$trace['file'], $trace['line'], 5]), [
+        <?= $trace_code = strtr(\App\Util\AccessableReflection::get($handler, 'fileExcerpt', [$trace['file'], $trace['line'], 5]), [
             '#DD0000' => 'var(--highlight-string)',
             '#007700' => 'var(--highlight-keyword)',
             '#0000BB' => 'var(--highlight-default)',
@@ -52,3 +44,12 @@
         ]); ?>
     </div>
 <?php endif; ?>
+<?php
+//Logger
+$data = [
+    'message' => $_message,
+    'error' => implode(\DIRECTORY_SEPARATOR, array_slice($filePathParts, 0, -1)) . \DIRECTORY_SEPARATOR . end($filePathParts) . " on line " . $lineNumber,
+    'trace_code' => $trace_code
+];
+\App\Logger::doLogAdv($data);
+?>

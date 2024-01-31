@@ -265,9 +265,18 @@ class HtmlErrorRenderer implements ErrorRendererInterface
     {
         if (is_file($file) && is_readable($file))
         {
-            // highlight_file could throw warnings
-            // see https://bugs.php.net/25725
-            $code = @highlight_file($file, true);
+            $data = file_get_contents($file);
+            $ext = pathinfo($file, PATHINFO_EXTENSION);
+            if ($ext == 'tpl' || $ext == 'twig' || $ext == 'html')
+            {
+                $code = highlight_string("<?php {$data} ?>", true);
+                $code = str_replace(['&lt;?php', '?&gt;'], ['', ''], $code);
+            }
+            else
+            {
+                $code = highlight_string($data, true);
+            }
+
             if (\PHP_VERSION_ID >= 80300)
             {
                 // remove main pre/code tags
