@@ -61,14 +61,6 @@
                 <p class="break-long-words trace-message"><?= \App\Util\AccessableReflection::get($handle, 'escape', [$exceptionItem['message']]); ?></p>
             <?php endif; ?>
         </div>
-        <?php if (\count($exceptionItem['data'] ?? [])) : ?>
-            <details class="exception-properties-wrapper">
-                <summary>Show exception properties</summary>
-                <div class="exception-properties">
-                    <?= \App\Util\AccessableReflection::get($handle, 'dumpValue', [$exceptionItem['data']]); ?>
-                </div>
-            </details>
-        <?php endif; ?>
     <?php
     endforeach;
     ?>
