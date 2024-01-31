@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "post-update-cmd": [
+            "cd ..",
+            "php bin/console mention:composer dump-autoload"
+        ]
+    }
+}

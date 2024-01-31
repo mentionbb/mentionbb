@@ -31,7 +31,10 @@
     "extra": {
         "merge-plugin": {
             "include": [
-                "frmwrk/composer/composer.local.json"
+                "frmwrk/MetaFramework_Composer_Autoload.json",
+                "frmwrk/MetaFramework_Composer_Require.json",
+                "frmwrk/MetaFramework_Composer_Scripts.json",
+                "frmwrk/MetaFramework_Composer_Extra.json"
             ],
             "recurse": true,
             "replace": false,
@@ -40,7 +43,7 @@
             "merge-extra": false,
             "merge-extra-deep": false,
             "merge-replace": true,
-            "merge-scripts": false
+            "merge-scripts": true
         }
     }
 }
