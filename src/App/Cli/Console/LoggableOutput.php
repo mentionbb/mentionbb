@@ -47,6 +47,6 @@ class LoggableOutput
         $data = preg_replace($this->outputStylePattern, '', $this->getBuffer());
         $data = preg_replace('/<\/(?:info|comment|question|error)?>/', '', $data);
 
-        $file->dumpFile(APPLICATION_SELF . "/Logs/Console/{$name}.log", "Log date:" . \date('Y-m-d H:i', \time()) . "\n" . "> {$this->commandName} update\n\n{$data}");
+        $file->dumpFile(APPLICATION_SELF . "/Logs/Console/{$name}.log", "Console query id: {$name}\nLog date:" . \date('Y-m-d H:i', \time()) . "\n\n" . "> {$this->commandName} update\n\n{$data}");
     }
 }
