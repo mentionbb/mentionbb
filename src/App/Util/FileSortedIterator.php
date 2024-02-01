@@ -12,7 +12,7 @@ class FileSortedIterator extends \SplHeap
         }
     }
 
-    public function compare($b, $a)
+    public function compare($b, $a): int
     {
         return strcmp($a->getRealpath(), $b->getRealpath());
     }
