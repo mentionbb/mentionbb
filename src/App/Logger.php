@@ -8,7 +8,7 @@ use App\Repository\Request;
 
 class Logger
 {
-    protected static $errorReporting_File = 'PHPError_Last.log';
+    protected static $errorReporting_File = 'PHPWarning_Last.log';
 
     public static function ErrorLogger()
     {
