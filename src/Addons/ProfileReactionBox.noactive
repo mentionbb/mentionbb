@@ -1,0 +1,17 @@
+event_id: '85bcb16f-b011-41e9-999a-3ecf012c1c02'
+name: "ProfileReactionBox"
+title: "Disable Profile Reaction Box"
+description: "Disable the box that displays and counts user reactions in the profile."
+version: '1.00'
+developers:
+  list:
+    name: "ParantezTech"
+    link: "https://mentioncommunity.com"
+application:
+  app: '\Addons\ProfileReactionBox\App\Event'
+  start: '\Addons\ProfileReactionBox\Addon::Event'
+settings:
+  perm_id: "addon"
+  viewing: 0
+  stopping: 0
+  order: 500

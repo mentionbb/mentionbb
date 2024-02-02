@@ -12,19 +12,20 @@ class Event extends DispatcherEvent
      * Allows you to modify templates through the addon.
      * In this function, you can select elements from within the html and manipulate them. (like jQuery)
      * 
-     * @param $event->container->dom \App\Hook\Html Return dom elements.
-     * @param $event->container->routing \App\RouteCollection Access routing collection with page and variables.
-     * @param $event->container->phrase \App\Phrase Various variables and methods.
-     * @param $event->container->settings \App\Entity\Settings::getSettings() Get global settings.
-     * @param $event->container->user \App\Authentication\Auth Visitor and entry controls.
-     * @param $event->container->request \App\Repository\Request HttpRequest library.
-     * @param $event->container->lang \App\SubContainer\Language Get language strings and settings.
-     * @param $event->container->language \App\SubContainer\Language Get language parser.
-     * @param $event->container->loader \Twig\Loader\FilesystemLoader Template loader event.
-     * @param $event->container->template \Twig Template controllers.
+     * @var \App\Hook\Html $event->container->dom Return dom elements.
+     * @var \App\RouteCollection $event->container->routing Access routing collection with page and variables.
+     * @var \App\Phrase $event->container->phrase Various variables and methods.
+     * @var object $event->container->settings Get global settings.
+     * @var \App\Authentication\Auth $event->container->user Visitor and entry controls.
+     * @var \App\Repository\Request $event->container->request HttpRequest library.
+     * @var array $event->container->lang Get language strings and settings.
+     * @var \App\SubContainer\Language $event->container->language Get language parser.
+     * @var \Twig\Loader\FilesystemLoader $event->container->loader Template loader event.
+     * @var \App\Template\Twig\Environment $event->container->template Template controllers.
+     * 
      * @return void
      */
-    public function initTemplateModification($event)
+    public function initTemplateModification(\App\Mvc\EventInterface\EventInterface $event)
     {
         if (\App\App::$dev['_devMode'] || \App\App::$dev['_debug'])
         {

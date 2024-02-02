@@ -1,0 +1,26 @@
+event_id: 'b6161fa1-df7f-491d-a7f4-fb4f66ca6ac7'
+name: "Gestures"
+description: "It allows you to do reactions via gesture."
+version: '1.00'
+developers:
+  list:
+    name: "ParantezTech"
+    link: "https://mentioncommunity.com"
+application:
+  app: '\Addons\Gestures\App\Event'
+  start: '\Addons\Gestures\Addon::Event'
+  prefix: "/"
+  editable: "Templates"
+settings:
+  perm_id: "addon"
+  viewing: 0
+  stopping: 0
+  order: 400
+
+jsItems:
+  script_1:
+    file: 'gestures/app.js'
+
+styleItems:
+  style_1:
+    file: 'gestures/gestures.css'

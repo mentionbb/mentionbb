@@ -1,0 +1,31 @@
+@import 'variables';
+
+.maze-cover {
+  background: $black;
+  height: 100%;
+  position: absolute;
+  visibility: hidden;
+  width: 100%;
+  z-index: 3;
+}
+
+.maze {
+  margin: 0 auto;
+  position: relative;
+}
+
+.maze-img {
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+.maze-row {
+  display: flex;
+}
+
+.dot-container {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
