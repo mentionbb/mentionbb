@@ -41,7 +41,7 @@ class Forum extends Mapper
 
 		$fetch = $this->setQuery($query)
 			->executeQuery()
-			->fetchAllAssociative();
+			->fetchAssociative();
 
 		$this->conn->close();
 
