@@ -25,8 +25,10 @@ class Event extends DispatcherEvent
      * 
      * @return void
      */
-    public function initTemplateModification(\App\Mvc\EventInterface\EventInterface $event)
+    public function initTemplateModification($event)
     {
+        /** @var \App\Mvc\EventInterface\EventInterface $event */
+
         if (\App\App::$dev['_devMode'] || \App\App::$dev['_debug'])
         {
             if ($event->container->user->loggedIn())
@@ -36,7 +38,7 @@ class Event extends DispatcherEvent
                     $event->container->dom->prepend('{hook:pagecontent}', function () use ($event)
                     {
                         $server = new \App\SubContainer\ServerEnvironment();
-                        
+
                         return $event->container->template->render(
                             '{addon:debug}/debug.twig',
                             [

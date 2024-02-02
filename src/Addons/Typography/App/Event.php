@@ -27,8 +27,10 @@ class Event extends DispatcherEvent
      * 
      * @return void
      */
-    public function initTemplateModification(\App\Mvc\EventInterface\EventInterface $event)
+    public function initTemplateModification($event)
     {
+        /** @var \App\Mvc\EventInterface\EventInterface $event */
+
         if ($event->container->dom->isTemplate('discussion'))
         {
             /**

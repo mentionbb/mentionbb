@@ -25,14 +25,16 @@ class Event extends DispatcherEvent
      * 
      * @return void
      */
-    public function initTemplateModification(\App\Mvc\EventInterface\EventInterface $event)
+    public function initTemplateModification($event)
     {
+        /** @var \App\Mvc\EventInterface\EventInterface $event */
+
         if ($event->container->dom->isTemplate('404'))
         {
             $event->container->dom->addStyle('vendor/pacman/style.css?v=1643540572');
-            $event->container->dom->addStyle('vendor/pacman/keyboard.min.css');   
+            $event->container->dom->addStyle('vendor/pacman/keyboard.min.css');
             $event->container->dom->addScript('vendor/pacman/app.js?v=14');
-            
+
             $event->container->dom->insertAfter('#main', function () use ($event)
             {
                 return "<iframe id=\"content\" class=\"pacman\" src=\"about:blank\"></iframe>";
