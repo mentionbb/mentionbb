@@ -72,8 +72,15 @@ hr {
 }
 
 .logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	text-align: center;
 	position: relative;
+}
+
+.logo .js-App-Theme-ModeSwitcher {
+	padding-bottom: 1rem;
 }
 
 .button-highlight {

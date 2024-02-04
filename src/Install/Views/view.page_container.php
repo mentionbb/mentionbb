@@ -66,7 +66,7 @@
     ?>
 </head>
 
-<body class="app-install-container app-night-mode" data-template="<?php echo $this->getName(); ?>">
+<body class="app-install-container <?= (isset($_COOKIE['night_mode']) ? 'app-night-mode' : '') ?>" data-template="<?php echo $this->getName(); ?>">
     <?php echo (!empty($content) ? $content : ''); ?>
 
 

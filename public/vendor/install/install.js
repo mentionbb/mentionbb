@@ -4,6 +4,26 @@ if (window.jQuery === undefined) jQuery = $ = {};
 	"use strict";
 
 	$(function () {
+		Storages.cookieStorage.setConf({
+			expires: 30
+		});
+
+		$(document).on('click', '.js-App-Theme-ModeSwitcher', function (e) {
+			if ($(this).find('input').is(':checked')) {
+				$(this).find('input').attr('checked', true);
+				$('body').addClass('app-night-mode');
+
+				Storages.cookieStorage.set('night_mode', true);
+			} else {
+				$(this).find('input').attr('checked', false);
+				$('body').removeClass('app-night-mode');
+
+				Storages.cookieStorage.remove('night_mode');
+			}
+		});
+	});
+
+	$(function () {
 		$(document).on('click', '.app-install .btn-install-next', function (e) {
 			switch ($(this).attr('data-step')) {
 				case ('1a'):

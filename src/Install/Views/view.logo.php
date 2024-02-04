@@ -1,5 +1,9 @@
 <div class="logo install-index">
     <div class="position-relative">
+        <div class="js-App-Theme-ModeSwitcher custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="app-Theme-ModeSwitcher" autocomplete="off" <?= (isset($_COOKIE['night_mode']) ? 'checked="checked"' : '')?>>
+            <label class="custom-control-label" for="app-Theme-ModeSwitcher">Toggle dark mode</label>
+        </div>
         <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
         <svg version="1.1" id="katman_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1479 416.9" style="enable-background:new 0 0 1479 416.9;" xml:space="preserve">
             <g>

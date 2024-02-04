@@ -495,7 +495,7 @@
     </style>
 </head>
 
-<body class="app-runtimeError-container app-night-mode" data-template="<?php echo $this->getName(); ?>">
+<body class="app-runtimeError-container <?= (isset($_COOKIE['night_mode']) ? 'app-night-mode' : '') ?>" data-template="<?php echo $this->getName(); ?>">
     <div class="container">
         <div class="logo">
             <div>
