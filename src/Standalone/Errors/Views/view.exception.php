@@ -4,7 +4,7 @@
         <div>
             <?php foreach (array_reverse($exception->getAllPrevious(), true) as $index => $previousException) : ?>
                 <span>
-                    <?= $this->abbrClass($previousException->getClass()); ?>
+                <?= \App\Util\AccessableReflection::get($handler, 'abbrClass', [$exception->getClass()]); ?>
                 </span>
             <?php endforeach; ?>
             <span>
@@ -58,7 +58,7 @@
                 </div>
             <?php endif; ?>
             <?php if ($exceptionItem['message'] && $index > 1) : ?>
-                <p class="break-long-words trace-message"><?= \App\Util\AccessableReflection::get($handle, 'escape', [$exceptionItem['message']]); ?></p>
+                <p class="break-long-words trace-message"><?= \App\Util\AccessableReflection::get($handler, 'escape', [$exceptionItem['message']]); ?></p>
             <?php endif; ?>
         </div>
     <?php
