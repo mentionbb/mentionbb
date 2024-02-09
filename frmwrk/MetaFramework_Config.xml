@@ -14,7 +14,7 @@
         </config_dir>
         <dev>
             <dev_editor>Visual Studio Code</dev_editor>
-            <dev_env>Xampp/Wamp</dev_env>
+            <dev_env>Docker</dev_env>
             <code_standart>PSR-12</code_standart>
             <file_format>Application Standarts for Mention Environment</file_format>
             <file_format_version>2.2.12</file_format_version>
