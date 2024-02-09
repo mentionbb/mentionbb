@@ -1,10 +1,10 @@
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)"
-            srcset="https://github.com/mentionbb/mentionbb/blob/master/public/images/logo-nightmode.svg">
+            srcset="https://github.com/mentionbb/mentionbb/blob/master/public/ui/images/logo-nightmode.svg">
         <source media="(prefers-color-scheme: light)"
-            srcset="https://github.com/mentionbb/mentionbb/blob/master/public/images/logo.svg">
-        <img alt="Mention logo" src="https://github.com/mentionbb/mentionbb/blob/master/public/images/logo.svg"
+            srcset="https://github.com/mentionbb/mentionbb/blob/master/public/ui/images/logo.svg">
+        <img alt="Mention logo" src="https://github.com/mentionbb/mentionbb/blob/master/public/ui/images/logo.svg"
             width="500px">
     </picture>
 </p>
