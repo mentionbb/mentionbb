@@ -33,12 +33,12 @@ class DbConfig
         /**
          * Username to use when connecting to the database.
          */
-        'user' => 'root',
+        'user' => 'mention',
 
         /**
          * Password to use when connecting to the database.
          */
-        'password' => ''
+        'password' => 'sfx'
     ];
 
     /**
@@ -53,7 +53,7 @@ class DbConfig
         /**
          * Hostname of the database to connect to.
          */
-        'host' => 'localhost',
+        'host' => 'db',
 
         /**
          * The charset used when connecting to the database.

@@ -9,8 +9,8 @@
             <g>
                 <defs>
                     <linearGradient y2="0%" x2="100%" y1="0%" x1="0%" id="step1a">
-                        <stop offset="33%">
-                            <animate id="step1a-animate" attributeName="offset" values="0;.33" dur="0.5s" fill="freeze" />
+                        <stop offset="100%">
+                            <animate id="step1a-animate" attributeName="offset" values="0;.22" dur="0.5s" fill="freeze" />
                         </stop>
                         <stop offset="0%" />
                     </linearGradient>

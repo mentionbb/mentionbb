@@ -11,16 +11,16 @@ class AppSub
 			$parts = explode('/', self::getFullUrl());
 			if (isset($parts[3]))
 			{
-				return "/{$parts[3]}/public";
+				return "/{$parts[3]}/ui";
 			}
 			else
 			{
-				return '/public';
+				return '/ui';
 			}
 		}
 		else
 		{
-			return '/public';
+			return '/ui';
 		}
 	}
 

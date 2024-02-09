@@ -18,7 +18,7 @@ define('BACKUP_DIR', APPLICATION_SELF . '/Backups');
 define('CACHE_DIR', APPLICATION_SELF . '/Cache');
 
 //This "Public" route.
-define('PUBLIC_DIR', 'public');
+define('PUBLIC_DIR', 'ui');
 
 //Timing
 define('TIMER_START', microtime(true));

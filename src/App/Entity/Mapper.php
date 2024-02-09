@@ -178,9 +178,7 @@ abstract class Mapper
 			->select('*')
 			->from($this->table);
 
-		$fetch = $this->setQuery($query)
-			->executeQuery()
-			->fetchAllAssociative();
+		$fetch = $query->executeQuery()->fetchAllAssociative();
 
 		$this->conn->close();
 

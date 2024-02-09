@@ -50,23 +50,44 @@ if (window.jQuery === undefined) jQuery = $ = {};
 						.find('span')
 						.text('Next');
 
-					setPercent(5);
+					setPercent(3);
 					consoleLogger('Setup is starting..');
 
 					break;
 				case ('1b'):
-					consoleLogger('Checking server requirements..');
-					
+					consoleLogger('License agreement');
+
 					$('.app-install .progress:not(.install-progress)').removeClass('d-none');
 
 					app.post("install?next", { 'step': 'step1b' }).done(function (response) {
 						if (response.status === "ok") {
+							consoleLogger('{ok}');
+							nextStep('step1c', '33%', '.22;.33', false, 'I agree');
+
+							$('.app-install .progress:not(.install-progress)').addClass('d-none');
+
+							$('.js-AppInstall-Steps').html(response.template);
+
+							setPercent(5);
+						}
+					}).fail(function (xhr, status, err) {
+						console.log(status, err);
+					});
+
+					break;
+				case ('1c'):
+					consoleLogger('Checking server requirements..');
+					
+					$('.app-install .progress:not(.install-progress)').removeClass('d-none');
+
+					app.post("install?next", { 'step': 'step1c' }).done(function (response) {
+						if (response.status === "ok") {
 							if (response.error.status === 'fail') {
 								consoleLogger('{fail}');
-								installError('step1b', '66%', '.33;.66', response.error.template);
+								installError('step1d', '66%', '.33;.66', response.error.template);
 							} else {
 								consoleLogger('{ok}');
-								nextStep('step1b', '66%', '.33;.66');
+								nextStep('step1d', '66%', '.33;.66', false);
 							}
 
 							$('.app-install .progress:not(.install-progress)').addClass('d-none');
@@ -84,7 +105,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 		});
 	});
 
-	function nextStep(newStep, percent, animatePercent, error = false) {
+	function nextStep(newStep, percent, animatePercent, error = false, buttonMessage = false) {
 		$('.logo').addClass(newStep);
 
 		var clonedStep = $('svg defs linearGradient:last').clone();
@@ -103,6 +124,21 @@ if (window.jQuery === undefined) jQuery = $ = {};
 		$('svg defs linearGradient:last').after(clonedStep);
 
 		document.getElementById(newStep + '-animate').beginElement();
+
+		$('.app-install .btn-install-next')
+			.attr('data-step', newStep.replace('step', ''));
+
+		if (buttonMessage !== false) {
+			$('.app-install .btn-install-next')
+				.closest('button')
+				.find('span')
+				.text(buttonMessage)
+		} else {
+			$('.app-install .btn-install-next')
+				.closest('button')
+				.find('span')
+				.text('Next')
+		}
 	}
 
 	function installError(step, percent, animatePercent, template) {

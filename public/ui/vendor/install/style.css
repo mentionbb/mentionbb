@@ -60,6 +60,17 @@ hr {
 	border-top: 1px solid var(--mention-light-border-color);
 }
 
+textarea.form-control {
+	background-color: var(--mention-textarea-bg-color);
+	color: var(--mention-textarea-text-color);
+	border-color: var(--mention-textarea-border-color);
+}
+
+textarea.form-control:disabled {
+	background-color: var(--mention-textarea-disabled-bg-color);
+	border-color: var(--mention-textarea-focus-border-color);
+}
+
 .container {
 	margin-right: auto;
 	margin-left: auto;
@@ -147,6 +158,10 @@ hr {
 	fill: url("#step1c");
 }
 
+.logo.install.step1d svg .st0 {
+	fill: url("#step1d");
+}
+
 .logo.install.step2a svg .st1 {
 	fill: url("#step2a");
 }
@@ -227,6 +242,17 @@ hr {
 .app-install-serverReport .tableContainer {
 	max-height: 300px;
 	overflow-y: auto;
+}
+
+.app-install-licenseAgreement .license-output {
+	background-color: var(--mention-textarea-disabled-bg-color);
+	color: var(--mention-textarea-text-color);
+	border: 1px solid var(--mention-textarea-border-color);
+	border-radius: 5px;
+	height: 400px;
+	padding: 10px;
+	margin-top: 1rem;
+	overflow-x: auto;
 }
 
 .btn.btn-app {
