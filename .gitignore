@@ -1,4 +1,5 @@
 .docker
+.devcontainer
 frmwrk/vendor
 mention-22072022-dev.zip
 .vscode
