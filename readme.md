@@ -54,12 +54,6 @@ These extensions are important.
 
 [Download the latest files](https://github.com/mentionbb/mentionbb/releases/latest) and extract them from the Zip file.
 
-### Via Git
-
-```
-git clone https://github.com/mentionbb/mentionbb
-```
-
 After this step, we need to perform a composer update.
 ```
 php bin/console mention:composer update
