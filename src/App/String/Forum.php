@@ -6,7 +6,9 @@ use App\Entity\Forum as ForumEntity;
 
 class Forum
 {
-	public function __construct()
+	private $forum;
+    
+    public function __construct()
 	{
 		$this->forum = new ForumEntity();
 	}

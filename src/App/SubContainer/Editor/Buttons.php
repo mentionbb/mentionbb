@@ -4,6 +4,8 @@ namespace App\SubContainer\Editor;
 
 class Buttons
 {
+    private $buttons;
+    
     public function __construct()
     {
         $this->buttons = new \App\String\EditorButtons();
