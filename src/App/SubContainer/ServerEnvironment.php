@@ -7,10 +7,12 @@ use App\App;
 class ServerEnvironment
 {
     protected $nativeConnection;
+    protected $server;
 
     public function __construct()
     {
         $this->nativeConnection = (new \App\Entity\Native())->getNativeConnection();
+        $this->server = new \App\Repository\Server();
     }
 
     public function getPHPVersion()
@@ -121,6 +123,17 @@ class ServerEnvironment
         }
 
         return false;
+    }
+
+    public function getServerSoftware()
+    {
+        $serverSoftwareExplode = \explode('/', $this->server->get('SERVER_SOFTWARE'));
+
+        return [
+            'text' => \sprintf('%s/%s', $serverSoftwareExplode[0], $serverSoftwareExplode[1]),
+            'name' => $serverSoftwareExplode[0],
+            'version' => $serverSoftwareExplode[1]
+        ];
     }
 
     public function checkRequirement()

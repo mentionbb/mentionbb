@@ -31,6 +31,7 @@ Language:
           feature: "Feature"
           value: "Value"
         rows:
+          server_software: "Server software"
           php_version: "PHP version"
           mysql_version: "MySQL version"
           memory_limit: "memory_limit"

@@ -3,7 +3,11 @@
         <h5>Mention standalone debugging console</h5>
         <small class="d-block">Version: {{ app.build.code }}, Build {{ app.build.id }}</small>
         <div>Memory used: {{ debug.memoryUsed }} / {{ debug.memoryLimit }}</div>
-        <div>Server: PHP <strong>{{ debug.phpVersion }}</strong>, MySQL <strong>{{ debug.mySQLVersion }}</strong></div>
+        <div>
+            Server: {{ debug.serverSoftware.name|upper }} <strong>{{ debug.serverSoftware.version }}</strong>,
+            PHP <strong>{{ debug.phpVersion }}</strong>,
+            MySQL <strong>{{ debug.mySQLVersion }}</strong>
+        </div>
         {% if not debug.serverInfo is null %}
             <div class="py-1">
                 <small>{{ debug.serverInfo }}</small>

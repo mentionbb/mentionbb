@@ -45,6 +45,7 @@ class Event extends DispatcherEvent
                                 'debug' => [
                                     'memoryUsed' => \App\SubContainer\Bytes::formatBytes(memory_get_peak_usage(false)),
                                     'memoryLimit' => $server->getMemoryLimit(),
+                                    'serverSoftware' => $server->getServerSoftware(),
                                     'phpVersion' => $server->getPHPVersion(),
                                     'mySQLVersion' => $server->getServerVersion(),
                                     'calculatePageLoadTime' => (\number_format(\microtime(true) - TIMER_START, 2)),

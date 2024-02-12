@@ -42,11 +42,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>PHP version:</td>
+                        <td>Server software:</td>
+                        <td><?php echo $string['server']->getServerSoftware()['text']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>PHP version</td>
                         <td><?php echo $string['server']->getPHPVersion(); ?></td>
                     </tr>
                     <tr>
-                        <td>MySQL version:</td>
+                        <td>MySQL version</td>
                         <td><?php echo $string['server']->getServerVersion(); ?></td>
                     </tr>
                     <tr>
