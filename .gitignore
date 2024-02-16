@@ -1,6 +1,7 @@
 .docker
 .devcontainer
 .env
+docker-compose.yml
 frmwrk/vendor
 mention-22072022-dev.zip
 .vscode
