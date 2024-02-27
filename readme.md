@@ -47,10 +47,61 @@ You have to do this manually as the Installer isn't ready yet.
 - Iconv
 - Curl
 - Zip
+- GD (Optional)
 
 These extensions are important.
 
-### Via Zip
+### If you are using Nginx server, the sample config file below will be helpful.
+```
+server {
+    listen 80;
+    server_name example.com;
+    root /var/www/public;
+
+    location / {
+        try_files $uri /index.php$is_args$args;
+    }
+
+    location ~ ^/index\.php(/|$) {
+        if ($request_method = 'OPTIONS') {
+            add_header 'Access-Control-Allow-Origin' '*' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, POST, DELETE, OPTIONS' always;
+            add_header 'Access-Control-Allow-Headers' 'Authorization,DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range' always;
+            add_header 'Access-Control-Max-Age' 1728000 always;
+            add_header 'Content-Type' 'text/plain; charset=utf-8' always;
+            add_header 'Content-Length' 0 always;
+            return 204;
+        }
+        add_header 'Access-Control-Allow-Origin' '*' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, DELETE, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'Authorization,DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range' always;
+        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range' always;
+        
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        fastcgi_param DOCUMENT_ROOT $realpath_root;
+        internal;
+    }
+    location ~ \.php$ {
+        return 404;
+    }
+    location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+	
+    include /var/www/.nginx.conf;
+
+    error_log /dev/stdout info;
+    access_log /var/log/nginx/project_access.log;
+}
+```
+
+You need to edit the paths and server name!
+
+### Install Via Zip
 
 [Download the latest files](https://github.com/mentionbb/mentionbb/releases/latest) and extract them from the Zip file.
 
