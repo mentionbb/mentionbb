@@ -2,9 +2,6 @@
 
 define('INDEX_DIR', __DIR__ . '/..');
 
-//Framework library.
-define('FRAMEWORK_LIBS', INDEX_DIR . '/frmwrk');
-
 //Application location.
 define('APPLICATION_SELF', INDEX_DIR . '/src');
 

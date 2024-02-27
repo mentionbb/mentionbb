@@ -29,7 +29,7 @@ class Composer extends Command
 
             $output->writeln('<info>Starting composer update..</info>');
 
-            $process = new Process(['php', FRAMEWORK_LIBS . '/bin/composer.phar', 'update', '-v']);
+            $process = new Process(['php', INDEX_DIR . '/bin/composer.phar', 'update', '-v']);
             $process->run();
 
             if (!$process->isSuccessful())
@@ -48,7 +48,7 @@ class Composer extends Command
         {
             $output->writeln('<info>Starting composer dump autoloading..</info>');
 
-            $process = new Process(['php', FRAMEWORK_LIBS . '/bin/composer.phar', 'dump-autoload', '-o']);
+            $process = new Process(['php', INDEX_DIR . '/bin/composer.phar', 'dump-autoload', '-o']);
             $process->run();
 
             if (!$process->isSuccessful())

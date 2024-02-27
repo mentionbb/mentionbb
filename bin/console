@@ -27,7 +27,7 @@ return (function (): \App\Cli\Run
     /**
      * Run Application
      */
-    require(FRAMEWORK_LIBS . '/vendor/autoload.php');
+    require(APPLICATION_SELF . '/vendor/autoload.php');
     $app = new \App\Cli\Run();
 
     return $app;

@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Binaries\\": "../../bin",
+            "Release\\": "../",
+            "ComponentBundle\\": "../Addons/Mention",
+            "App\\": "../App",
+            "Addons\\": "../Addons",
+            "Install\\": "../Install",
+            "Symfony\\Component\\ErrorHandler\\ErrorRenderer\\": "../vendor-patch/symfony/error-handler/ErrorRenderer"
+        }
+    }
+}

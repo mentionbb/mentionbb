@@ -18,7 +18,7 @@
         }
     ],
     "config": {
-        "vendor-dir": "frmwrk/vendor",
+        "vendor-dir": "./src/vendor",
         "process-timeout": 1800,
         "allow-plugins": {
             "wikimedia/composer-merge-plugin": true
@@ -31,10 +31,10 @@
     "extra": {
         "merge-plugin": {
             "include": [
-                "frmwrk/MetaFramework_Composer_Autoload.json",
-                "frmwrk/MetaFramework_Composer_Require.json",
-                "frmwrk/MetaFramework_Composer_Scripts.json",
-                "frmwrk/MetaFramework_Composer_Extra.json"
+                "./src/Meta/MetaFramework_Composer_Autoload.json",
+                "./src/Meta/MetaFramework_Composer_Require.json",
+                "./src/Meta/MetaFramework_Composer_Scripts.json",
+                "./src/Meta/MetaFramework_Composer_Extra.json"
             ],
             "recurse": true,
             "replace": false,

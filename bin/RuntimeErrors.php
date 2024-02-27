@@ -6,7 +6,7 @@ class RuntimeErrors
 {
     public static function Show($type, array $customParams = [])
     {
-        if (!file_exists(FRAMEWORK_LIBS . '/vendor/autoload.php'))
+        if (!file_exists(APPLICATION_SELF . '/vendor/autoload.php'))
         {
             require_once(APPLICATION_SELF . '/Standalone/Templater.php');
             require_once(APPLICATION_SELF . '/App/SubContainer/AppSub.php');

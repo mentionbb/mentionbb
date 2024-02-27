@@ -13,7 +13,7 @@ final class ClassFinder
         self::$composer = null;
         self::$classes  = [];
 
-        self::$composer = require FRAMEWORK_LIBS . '/vendor/autoload.php';
+        self::$composer = require APPLICATION_SELF . '/vendor/autoload.php';
 
         if (false === empty(self::$composer))
         {

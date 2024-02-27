@@ -3,13 +3,13 @@
     <framework>
         <name>Par2</name>
         <sname>ForumWorks for MentionBB(Par2)</sname>
-        <ver>2.2.12</ver>
+        <ver>2.2.13</ver>
         <config_dir>
-            <root>../</root>
+            <root>../..</root>
             <init>{$root}/src</init>
             <bin>{$root}/bin</bin>
             <console>{$root}/bin/console</console>
-            <vendor>vendor</vendor>
+            <vendor>v{$init}/vendor</vendor>
             <application>{$init}/App</application>
         </config_dir>
         <dev>
@@ -17,7 +17,7 @@
             <dev_env>Docker</dev_env>
             <code_standart>PSR-12</code_standart>
             <file_format>Application Standarts for Mention Environment</file_format>
-            <file_format_version>2.2.12</file_format_version>
+            <file_format_version>2.2.13</file_format_version>
             <framework_config_ext>XML</framework_config_ext>
             <app_config_ext>YAML</app_config_ext>
             <routing>Symfony</routing>

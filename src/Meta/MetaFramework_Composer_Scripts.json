@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "post-update-cmd": [
+            "cd ..",
+            "[ ! -f ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php ] || mv ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php.patched",
+            "php ./bin/console mention:composer dump-autoload"
+        ]
+    }
+}

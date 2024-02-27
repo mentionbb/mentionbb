@@ -2,10 +2,8 @@
 .devcontainer
 .env
 docker-compose.yml
-frmwrk/vendor
-mention-22072022-dev.zip
+src/vendor
 .vscode
-mention.code-workspace
 src/Cache
 src/Backups/Modification
 src/Dev
