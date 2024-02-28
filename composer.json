@@ -1,7 +1,7 @@
 {
     "name": "par274/mentionbb",
     "description": "A classic forum system with next-gen.",
-    "version": "1.0.17",
+    "version": "1.0.19-beta1",
     "type": "project",
     "keywords": [
         "forum",
@@ -26,6 +26,7 @@
     },
     "require": {
         "php": ">=8.2",
+        "composer-runtime-api": "^2.1",
         "wikimedia/composer-merge-plugin": "dev-master"
     },
     "extra": {
