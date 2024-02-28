@@ -120,7 +120,7 @@ For Composer installation: [https://getcomposer.org/doc/00-intro.md#installation
 
 If you have Windows on local: [https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
 
-If you cannot install, download the ready vendor file then extract and move it to the `frmwrk` folder.
+If you cannot install, download the ready vendor file then extract and move it to the `src` folder.
 [Vendor.zip](https://github.com/mentionbb/mentionbb/raw/master/vendor.zip)
 
 After that, you need to set the database.
