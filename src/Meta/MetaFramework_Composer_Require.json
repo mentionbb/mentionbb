@@ -29,7 +29,7 @@
         "voku/portable-utf8": "^6",
         "symfony/dependency-injection": "^7",
         "symfony/mailer": "^7",
-        "nikic/php-parser": "^4.13",
+        "nikic/php-parser": "^4",
         "symfony/console": "^7",
         "nelexa/zip": "^4.0",
         "symfony/finder": "^7",
