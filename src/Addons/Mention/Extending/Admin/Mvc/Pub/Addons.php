@@ -130,7 +130,7 @@ class Addons extends ApplicationDefinitions implements Pub
     {
         $post = new PostRepo();
 
-        $parser = (new \PhpParser\ParserFactory)->create(\PhpParser\ParserFactory::PREFER_PHP7);
+        $parser = (new \PhpParser\ParserFactory())->createForNewestSupportedVersion();
         try
         {
             $parser->parse(
