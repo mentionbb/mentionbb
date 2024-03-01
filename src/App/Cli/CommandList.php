@@ -11,6 +11,8 @@ class CommandList
 
     const CLEAR_CACHE = 'mention:clear-cache';
 
+    const BUILD_HASHES = 'mention:build-hashes';
+
     const CREATE_ADDON = 'mention:addon-create';
     const REBUILDING_ADDONS = 'mention:addon-build';
     const INSTALL_ADDON = 'mention:addon-install';
