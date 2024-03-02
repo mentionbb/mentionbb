@@ -49,7 +49,7 @@ You have to do this manually as the Installer isn't ready yet.
 - Zip
 - GD (Optional)
 
-These extensions are important.
+If you are on Docker: [mentionbb-dockerized](https://github.com/mentionbb/mentionbb-dockerized)
 
 ### If you are using Nginx server, the sample config file below will be helpful.
 ```
