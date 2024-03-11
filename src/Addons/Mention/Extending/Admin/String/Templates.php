@@ -2,72 +2,81 @@
 
 namespace ComponentBundle\Extending\Admin\String;
 
+use Symfony\Component\Finder\Finder;
+
 class Templates
 {
     public function getTemplates(): array
     {
-        $all_files  = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(APPLICATION_SELF));
-        $all_files = new \RegexIterator($all_files, '/\.twig$/', \RegexIterator::MATCH);
-        $all_files = new \App\Util\FileSortedIterator($all_files);
-
         $files = [];
-        foreach ($all_files as $file)
+
+        $finder = new Finder();
+        $finder->files()
+            ->in(APPLICATION_SELF)
+            ->name('*.twig')
+            ->ignoreVCSIgnored(true)
+            ->sortByType();
+
+        if ($finder->hasResults())
         {
-            if ($file->isFile())
+            foreach ($finder as $file)
             {
-				if (preg_match('/(templates|Templates|template|templates)/', $file->getRealPath(), $matchTemplates))
+                if ($file->isFile())
                 {
-                    if (preg_match('/Addons/', $file->getRealPath(), $matchAddonTemplate))
+                    if (preg_match('/(templates|Templates|template|templates)/', $file->getRealPath(), $matchTemplates))
                     {
-                        $path = explode('Addons', $file->getRealPath(), 2)[1];
-                        $path = "Addons/{$path}";
-                    }
-                    else
-                    {
-                        $path = explode('Templates', $file->getRealPath(), 2)[1];
-                        $path = "Templates/{$path}";
-                    }
-                    $path = str_replace(['\\', '//'], ['/', '/'], $path);
-
-                    $explode = explode('/', $path);
-                    $parent = $explode[1];
-                    if ($explode[2] !== 'Templates')
-                    {
-                        if (isset($explode[4]))
+                        if (preg_match('/Addons/', $file->getRealPath(), $matchAddonTemplate))
                         {
-                            $child = "{$explode[3]}/{$explode[4]}";
+                            $path = explode('Addons', $file->getRealPath(), 2)[1];
+                            $path = "Addons/{$path}";
                         }
                         else
                         {
-                            $child = "{$parent}/{$explode[2]}";
+                            $path = explode('Templates', $file->getRealPath(), 2)[1];
+                            $path = "Templates/{$path}";
                         }
-                    }
-                    else
-                    {
-                        if (isset($explode[4]))
+                        $path = str_replace(['\\', '//'], ['/', '/'], $path);
+
+                        $explode = explode('/', $path);
+                        $parent = $explode[1];
+                        if ($explode[2] !== 'Templates')
                         {
-                            $child = "{$explode[3]}/{$explode[4]}";
+                            if (isset($explode[4]))
+                            {
+                                $child = "{$explode[3]}/{$explode[4]}";
+                            }
+                            else
+                            {
+                                $child = "{$parent}/{$explode[2]}";
+                            }
                         }
                         else
                         {
-                            $child = "{$parent}/{$explode[3]}";
+                            if (isset($explode[4]))
+                            {
+                                $child = "{$explode[3]}/{$explode[4]}";
+                            }
+                            else
+                            {
+                                $child = "{$parent}/{$explode[3]}";
+                            }
                         }
-                    }
-                    $explode = explode('/', $child);
+                        $explode = explode('/', $child);
 
-                    if (!preg_match('/\.twig/', $explode[1], $matchTpl))
-                    {
-                        $files[$explode[0]][$explode[1]][$file->getFileName()] = [
-                            'name' => $file->getFileName(),
-                            'path' => $path
-                        ];
-                    }
-                    else
-                    {
-                        $files[$explode[0]]['_file'][$explode[1]][$file->getFileName()] = [
-                            'name' => $file->getFileName(),
-                            'path' => $path
-                        ];
+                        if (!preg_match('/\.twig/', $explode[1], $matchTpl))
+                        {
+                            $files[$explode[0]][$explode[1]][$file->getFileName()] = [
+                                'name' => $file->getFileName(),
+                                'path' => $path
+                            ];
+                        }
+                        else
+                        {
+                            $files[$explode[0]]['_file'][$explode[1]][$file->getFileName()] = [
+                                'name' => $file->getFileName(),
+                                'path' => $path
+                            ];
+                        }
                     }
                 }
             }
