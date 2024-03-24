@@ -1,9 +1,4 @@
-.docker
-.devcontainer
-.env
-docker-compose.yml
 src/vendor
-.vscode
 src/Cache
 src/Backups/Modification
 src/Dev
