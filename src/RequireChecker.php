@@ -11,6 +11,8 @@ class RequireChecker
     private $excludeDirs = ['.docker', '.git', '.devcontainer', '.vscode', 'vendor', 'Cache', 'Dev', 'Patches', 'ui'];
     private $excludeFiles = ['docker-compose.yml', 'composer.lock', '_hashes.json', 'DbConfig.php', 'InitialConfig.php'];
 
+    private $hashFile = APPLICATION_SELF . '/_hashes.json';
+
     public function buildHashes($dumpFile = true)
     {
         $files = [];
@@ -20,7 +22,8 @@ class RequireChecker
             ->in(INDEX_DIR)
             ->exclude($this->excludeDirs)
             ->name(['*.php', '*.twig', '*.json', '*.yml', '*.yaml', '*.lock'])
-            ->ignoreVCSIgnored(true);
+            ->ignoreVCSIgnored(true)
+            ->ignoreUnreadableDirs();
 
         $finder->sort(static function (\SplFileInfo $a, \SplFileInfo $b)
         {
@@ -35,29 +38,44 @@ class RequireChecker
                 if (!in_array($file->getBasename(), $this->excludeFiles))
                 {
                     $relativePath = (\strlen($file->getRelativePath()) > 0) ? $file->getRelativePath() : '/';
-                    $hash = \hash_hmac_file('md5', $file->getRealPath(), $this->staticKeyV4);
+                    $hash = \hash_hmac_file('sha256', $file->getRealPath(), $this->staticKeyV4);
 
                     $files[$relativePath][$hash] = [
                         'filename' => $file->getFilename(),
-                        'path' => $file->getRelativePathname()
+                        'path' => "./" . $file->getRelativePathname()
                     ];
                 }
             }
         }
 
-        $this->saveHashes($files);
+        if ($dumpFile)
+        {
+            $this->saveHashes($files);
+        }
 
         return $files;
+    }
+
+    public function getHashData()
+    {
+        if (!file_exists($this->hashFile))
+        {
+            $this->buildHashes();
+        }
+
+        return json_decode($this->hashFile, true);
     }
 
     private function saveHashes($hashes)
     {
         $data = [
             'created_on' => (new \DateTime())->format(\DateTimeInterface::RFC7231),
+            'iv4' => $this->staticKeyV4,
+            'algo' => 'SHA256',
             'v_for' => \App\App::versionNaming(),
             'data' => $hashes
         ];
 
-        return (new \App\Util\File())->dumpFile(APPLICATION_SELF . '/_hashes.json', json_encode($data, JSON_PRETTY_PRINT));
+        return (new \App\Util\File())->dumpFile($this->hashFile, json_encode($data, JSON_PRETTY_PRINT));
     }
 }
