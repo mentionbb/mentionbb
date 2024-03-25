@@ -2,7 +2,6 @@
     RewriteEngine On
 	
     RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_URI} !public/
 	
     RewriteRule ^(.*)$ /public/index.php [QSA,L]
 </IfModule>
