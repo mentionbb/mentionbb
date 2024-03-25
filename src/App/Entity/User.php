@@ -53,9 +53,7 @@ class User extends Mapper
 			->setParameter(0, $user_id)
 			->setMaxResults(1);
 
-			$fetch = $this->setQuery($query)
-			->executeQuery()
-			->fetchAssociative();
+			$fetch = $query->executeQuery()->fetchAssociative();
 
 		$this->conn->close();
 
