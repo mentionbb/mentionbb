@@ -1,5 +1,5 @@
 {
-    "created_on": "Sun, 24 Mar 2024 18:42:27 GMT",
+    "created_on": "Mon, 25 Mar 2024 02:17:32 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.19 Beta 1",
@@ -12,6 +12,10 @@
             "5ebde48da236ff8739ebc4cd6423d8fef1e88a7dcb3c6056d234098bacaa6e9a": {
                 "filename": "composer.json",
                 "path": ".\/composer.json"
+            },
+            "2c0e85809f2dc1e7bf1a63194478364c99ca6854b78a5a27af6f8e09d68a425d": {
+                "filename": "composer.lock",
+                "path": ".\/composer.lock"
             }
         },
         "bin": {
@@ -31,7 +35,7 @@
             }
         },
         "src": {
-            "679e9fac7586815270931b2c3d8be46f3e24523371ecd4e9717554c48c082fef": {
+            "f1d300f5da88a89b29e9411098c3caedfe24b18d1fddb3494f4fd5f16ad9cfbb": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },

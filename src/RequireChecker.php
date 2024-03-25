@@ -8,8 +8,8 @@ class RequireChecker
 {
     private $staticKeyV4 = "c1ade9d2-374a-41f7-bb7c-56bd516de1e3";
 
-    private $excludeDirs = ['.docker', '.git', '.devcontainer', '.vscode', 'vendor', 'Cache', 'Dev', 'Patches', 'ui'];
-    private $excludeFiles = ['docker-compose.yml', 'composer.lock', '_hashes.json', 'DbConfig.php', 'InitialConfig.php'];
+    private $excludeDirs = ['vendor', 'Cache', 'Dev', 'Patches', 'ui'];
+    private $excludeFiles = ['_hashes.json', 'DbConfig.php', 'InitialConfig.php'];
 
     private $hashFile = APPLICATION_SELF . '/_hashes.json';
 
