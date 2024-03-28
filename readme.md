@@ -59,7 +59,7 @@ If you are on Docker: [mentionbb-dockerized](https://github.com/mentionbb/mentio
 
 ### If you are using Nginx server, the sample config file below will be helpful
 
-```
+```text
 server {
     listen 80;
     server_name example.com;
