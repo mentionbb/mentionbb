@@ -1,3 +1,5 @@
+# A classic forum system with next-gen
+
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)"
@@ -10,13 +12,15 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/github/license/mentionbb/mentionbb" />
-    <img src="https://img.shields.io/github/repo-size/mentionbb/mentionbb" />
-    <img src="https://img.shields.io/github/commit-activity/w/mentionbb/mentionbb" />
+    <img alt="license" src="https://img.shields.io/github/license/mentionbb/mentionbb" />
+    <img alt="repoSize" src="https://img.shields.io/github/repo-size/mentionbb/mentionbb" />
+    <img alt="commityActivity" src="https://img.shields.io/github/commit-activity/w/mentionbb/mentionbb" />
 </p>
 
-# A classic forum system with next-gen.
+## MentionBB?
+
 [Mention](https://mentionbb.com/community) is an advanced forum community software. It is based on the balance between the classic forum software and the new generation ones. In this context, it has made it essential to add revolutionary innovations with developing technologies.
+
 - **Flexible and fast.** Despite using advanced algorithms, Mention is a very lightweight software thanks to its caching technologies. On the other hand, it contains highly complex and previously unseen components.
 
 - **Addons and modular support.** Mention uses a unique plugin system. There is a system where you can add an add-on to almost every part of it without difficulty. Plugin system works via HTML/CSS marker. In addition, with its advanced infrastructure and modular structure, you will never have any difficulties in your projects. Want a Portal? You can add. Blog? You can add.
@@ -29,20 +33,22 @@
 
 And much much more.
 
-# Status
+## Status
 
 MentionBB has been in active development for over 3 years. The project you see on GitHub is developed in parallel and in real-time. Goal is to create a new generation forum that complies with completely new standards. You can install and use it on your site in its current status.
 
-# Install
+## Install
 
 You have to do this manually as the Installer isn't ready yet.
 
 ## Requirements
+
 - PHP 8.2+
 - Composer
 - Git (Optional)
 
 ## Requirements PHP Extensions
+
 - Mbstring
 - Iconv
 - Curl
@@ -51,7 +57,8 @@ You have to do this manually as the Installer isn't ready yet.
 
 If you are on Docker: [mentionbb-dockerized](https://github.com/mentionbb/mentionbb-dockerized)
 
-### If you are using Nginx server, the sample config file below will be helpful.
+### If you are using Nginx server, the sample config file below will be helpful
+
 ```
 server {
     listen 80;
@@ -91,7 +98,7 @@ server {
         log_not_found off;
         access_log off;
     }
-	
+ 
     include /var/www/.nginx.conf;
 
     error_log /dev/stdout info;
@@ -106,7 +113,8 @@ You need to edit the paths and server name!
 [Download the latest files](https://github.com/mentionbb/mentionbb/releases/latest) and extract them from the Zip file.
 
 After this step, we need to perform a composer update.
-```
+
+```bash
 composer update
 ```
 
@@ -151,18 +159,18 @@ We recommend that you turn this setting off. Because with template changes, your
 
 ``` php
 public static $dev = [
-	'_devMode' => false,
-    ...
+    '_devMode' => false,
 ];
 ```
 
-# Framework
+## Framework
 
 Mention has been developed under an custom application framework called Par2. I have also used it in my previous projects, but this is a much improved version.
 
 In general, Symfony Components are used.
 
-# Packages used in this project
+## Packages used in this project
+
 - [Symfony/Routing](https://symfony.com/doc/current/create_framework/routing.html)
 - [Symfony/HttpFoundation](https://symfony.com/doc/current/components/http_foundation.html)
 - [Symfony/Yaml](https://symfony.com/doc/current/components/yaml.html)
@@ -182,6 +190,6 @@ In general, Symfony Components are used.
 
 These are the main packages that have been used. We used a lot of things to create Mention. Thank you for all.
 
-# License
+### License
 
 Mention is a open-source project and licensed under the MIT License(MIT). Please read the [license file](https://github.com/mentionbb/mentionbb/blob/master/license.md).
