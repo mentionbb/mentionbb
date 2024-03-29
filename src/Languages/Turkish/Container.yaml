@@ -22,7 +22,7 @@ Language:
 
     quick_menu: "Hızlı Erişim"
 
-    welcome_message: 'Hoşgeldiniz, forumumuzda bilgi alışverişinde bulunmak, özel mesaj yazmak, bildirim almak ve konu oluşturmak için lütfen <a class="text-light font-weight-bold" data-ui="register-attempt" href="#">Kayıt</a> olunuz.'
+    welcome_message: 'Hoşgeldiniz, forumumuzda bilgi alışverişinde bulunmak, özel mesaj yazmak, bildirim almak ve konu oluşturmak için lütfen <a class="text-white font-weight-bold" data-ui="register-attempt" href="#">Kayıt</a> olunuz.'
     cookie_text: 'Bu site, içeriği kişiselleştirmek, deneyiminizi geliştirmek ve ayrıca Kayıt ve Giriş gibi işlemler için çerezleri kullanır.Sitemizi kullanarak bunu kabul etmiş olursunuz.<a class="text-white u" href="{1}/privacy">Gizlilik politikamız.</a>'
 
     buttons:

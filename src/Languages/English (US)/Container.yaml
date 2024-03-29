@@ -22,7 +22,7 @@ Language:
 
     quick_menu: "Quick menu"
 
-    welcome_message: 'Welcome, to exchange information, write private messages, receive notifications and create posts on our forum, please be <a class="text-light font-weight-bold" data-ui="register-attempt" href="#">register</a>'
+    welcome_message: 'Welcome, to exchange information, write private messages, receive notifications and create posts on our forum, please be <a class="text-white font-weight-bold" data-ui="register-attempt" href="#">register</a>'
     cookie_text: 'This site uses cookies to personalize content, improve your experience and also for actions such as Registration and Login. By using our site you accept this: <a class="text-white u" href="{1}/privacy">Our Privacy Policy.</a>'
 
     buttons:
