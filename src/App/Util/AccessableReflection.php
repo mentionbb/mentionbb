@@ -12,9 +12,14 @@ class AccessableReflection
      * @param  array $args
      * @return mixed
      */
-    public static function get(object $obj, string $propertyOrConstantOrMethod, array $args = [])
+    public static function get(object $obj, string $propertyOrConstantOrMethod, array $args = [], $parentClass = false)
     {
         $refl = new \ReflectionObject($obj);
+
+        if ($parentClass)
+        {
+            $refl = $refl->getParentClass();
+        }
 
         if ($refl->hasProperty($propertyOrConstantOrMethod))
         {
