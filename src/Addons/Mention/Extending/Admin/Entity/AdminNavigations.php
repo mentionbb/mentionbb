@@ -2,9 +2,9 @@
 
 namespace ComponentBundle\Extending\Admin\Entity;
 
-use App\Entity\Mapper;
+use App\Db\Layer;
 
-class AdminNavigations extends Mapper
+class AdminNavigations extends Layer
 {
     public function __construct()
     {
@@ -15,7 +15,7 @@ class AdminNavigations extends Mapper
 
     public function getNavigations($parent_id = 0)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from($this->table)
             ->where('parent_id = ?')
@@ -26,14 +26,14 @@ class AdminNavigations extends Mapper
             ->executeQuery()
             ->fetchAllAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function getNavigationByName($name)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from($this->table)
             ->where('name = ?')
@@ -43,14 +43,14 @@ class AdminNavigations extends Mapper
             ->executeQuery()
             ->fetchAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function getNavigationByLink($link)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from($this->table)
             ->where('link = ?')
@@ -60,14 +60,14 @@ class AdminNavigations extends Mapper
             ->executeQuery()
             ->fetchAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function getNavigationById($nav_id)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from($this->table)
             ->where('nav_id = ?')
@@ -77,7 +77,7 @@ class AdminNavigations extends Mapper
             ->executeQuery()
             ->fetchAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }

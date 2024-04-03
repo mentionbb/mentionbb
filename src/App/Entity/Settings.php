@@ -2,90 +2,90 @@
 
 namespace App\Entity;
 
-use App\Entity\Mapper;
+use App\Db\Layer;
 
-class Settings extends Mapper
+class Settings extends Layer
 {
-	public function __construct()
-	{
-		parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
 
-		/**
-		 * Set current table 'settings'.
-		 */
-		$this->setTable('settings');
-	}
+        /**
+         * Set current table 'settings'.
+         */
+        $this->setTable('settings');
+    }
 
-	/**
-	 * [getSettings Get app main settings]
-	 * @return [object]
-	 */
-	public function getSettings()
-	{
-		/**
-		 * @template {{ app.settings.name }}
-		 */
-		$result = $this->findAll();
+    /**
+     * [getSettings Get app main settings]
+     * @return [object]
+     */
+    public function getSettings()
+    {
+        /**
+         * @template {{ app.settings.name }}
+         */
+        $result = $this->findAll(false);
 
-		foreach ($result as $settings)
-		{
-			$item[$settings['name']] = $settings['value'];
-		}
+        foreach ($result as $settings)
+        {
+            $item[$settings['name']] = $settings['value'];
+        }
 
-		return \App\Repository\Set::setObject($item);
-	}
+        return \App\Repository\Set::setObject($item);
+    }
 
-	/**
-	 * [setSettings Set app main settings]
-	 * @param [string] $name  [Settings column name]
-	 * @param [string] $value [New value for column]
-	 */
-	public function setSettings($name, $value)
-	{
-		$query = $this->conn->createQueryBuilder()->update($this->table)
-			->set('value', '?')
-			->where('name = ?')
-			->setParameter(0, $value)
-			->setParameter(1, $name)
-			->executeQuery();
+    /**
+     * [setSettings Set app main settings]
+     * @param [string] $name  [Settings column name]
+     * @param [string] $value [New value for column]
+     */
+    public function setSettings($name, $value)
+    {
+        $query = $this->createQueryBuilder()->update($this->table)
+            ->set('value', '?')
+            ->where('name = ?')
+            ->setParameter(0, $value)
+            ->setParameter(1, $name)
+            ->executeQuery();
 
-		$this->conn->close();
+        $this->close();
 
-		return $query;
-	}
+        return $query;
+    }
 
-	/**
-	 * [getSettings Get app main setting groups]
-	 * @return [object]
-	 */
-	public function getSettingGroups()
-	{
-		$query = $this->conn->createQueryBuilder()->select("*")
-			->from($this->table)
-			->groupBy('group_name')
-			->executeQuery()
-			->fetchAllAssociative();
+    /**
+     * [getSettings Get app main setting groups]
+     * @return [object]
+     */
+    public function getSettingGroups()
+    {
+        $query = $this->createQueryBuilder()->select("*")
+            ->from($this->table)
+            ->groupBy('group_name')
+            ->executeQuery()
+            ->fetchAllAssociative();
 
-		$this->conn->close();
+        $this->close();
 
-		return $query;
-	}
+        return $query;
+    }
 
-	/**
-	 * [getSettings Get app main settings from group_nane]
-	 * @return [object]
-	 */
-	public function getSettingsFromGroupName(string $group_name)
-	{
-		$query = $this->conn->createQueryBuilder()->select("*")
-			->from($this->table)
-			->where('group_name = ?')
-			->setParameter(0, $group_name)
-			->executeQuery()
-			->fetchAllAssociative();
+    /**
+     * [getSettings Get app main settings from group_nane]
+     * @return [object]
+     */
+    public function getSettingsFromGroupName(string $group_name)
+    {
+        $query = $this->createQueryBuilder()->select("*")
+            ->from($this->table)
+            ->where('group_name = ?')
+            ->setParameter(0, $group_name)
+            ->executeQuery()
+            ->fetchAllAssociative();
 
-		$this->conn->close();
+        $this->close();
 
-		return $query;
-	}
+        return $query;
+    }
 }

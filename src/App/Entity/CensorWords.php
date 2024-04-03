@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Entity\Mapper;
+use App\Db\Layer;
 
-class CensorWords extends Mapper
+class CensorWords extends Layer
 {
     public function __construct()
     {
@@ -15,26 +15,26 @@ class CensorWords extends Mapper
 
     public function getWords()
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from($this->table)
             ->executeQuery()
             ->fetchAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $query['word_list'];
     }
 
     public function editWords($words)
-	{
-		$query = $this->conn->createQueryBuilder()->update($this->table)
-			->set('word_list', '?')
-			->setParameter(0, $words)
-			->executeQuery();
+    {
+        $query = $this->createQueryBuilder()->update($this->table)
+            ->set('word_list', '?')
+            ->setParameter(0, $words)
+            ->executeQuery();
 
-		$this->conn->close();
+        $this->close();
 
-		return $query;
-	}
+        return $query;
+    }
 }

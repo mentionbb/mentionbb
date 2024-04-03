@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Entity\Mapper;
+use App\Db\Layer;
 
-class LinkPreviews extends Mapper
+class LinkPreviews extends Layer
 {
     public function __construct()
     {
@@ -15,24 +15,26 @@ class LinkPreviews extends Mapper
 
     public function getPreview($uniq_id, $post_id)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from($this->table)
             ->where('post_id = ?')
             ->andWhere('uniq_id = ?')
+            ->setFirstResult(1)
             ->setParameter(0, $post_id)
             ->setParameter(1, $uniq_id);
 
-        $fetch = $query->executeQuery()->fetchAssociative();
+        $fetch = $query->executeQuery()
+            ->fetchAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function createLinkPreview(string $uniq_id, string $json, int $post_id)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->insert($this->table)
             ->values([
                 'uniq_id' => '?',
@@ -44,7 +46,7 @@ class LinkPreviews extends Mapper
             ->setParameter(2, $post_id)
             ->executeQuery();
 
-        $this->conn->close();
+        $this->close();
 
         return $query;
     }

@@ -2,12 +2,12 @@
 
 namespace Install\Table;
 
-use App\Entity\Mapper;
-use App\Entity\Native;
+use App\Db\Layer;
+use App\Db\Native;
 
 use Doctrine\DBAL\Schema\Table as TableSchema;
 
-class Tables extends Mapper
+class Tables extends Layer
 {
     private function getTables()
     {
@@ -627,7 +627,7 @@ class Tables extends Mapper
 
     public function createTables()
     {
-        $schema = $this->conn->createSchemaManager();
+        $schema = $this->createSchemaManager();
         $tables = $this->getTables();
 
         $native = new Native();

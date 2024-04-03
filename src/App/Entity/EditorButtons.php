@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Entity\Mapper;
+use App\Db\Layer;
 
-class EditorButtons extends Mapper
+class EditorButtons extends Layer
 {
     public function __construct()
     {
@@ -15,7 +15,7 @@ class EditorButtons extends Mapper
 
     public function buttonList($is_active = true)
     {
-        $query = $this->conn->createQueryBuilder();
+        $query = $this->createQueryBuilder();
         $query->select('b.*', 't.*')
             ->from($this->table, 'b')
             ->leftJoin('b', 'editor_toolbars', 't', 't.toolbar_id = b.toolbar_id');
@@ -32,14 +32,14 @@ class EditorButtons extends Mapper
             ->executeQuery()
             ->fetchAllAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function toolbarList()
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from('editor_toolbars')
             ->where('is_active = ?')
@@ -50,14 +50,14 @@ class EditorButtons extends Mapper
             ->executeQuery()
             ->fetchAllAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function toolbarNonactiveList()
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from('editor_toolbars')
             ->where('is_active = ?')
@@ -68,7 +68,7 @@ class EditorButtons extends Mapper
             ->executeQuery()
             ->fetchAllAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
@@ -79,7 +79,7 @@ class EditorButtons extends Mapper
         {
             foreach ($data as $id => $order)
             {
-                $query = $this->conn->createQueryBuilder()->update('editor_toolbars')
+                $query = $this->createQueryBuilder()->update('editor_toolbars')
                     ->set('order_by', '?')
                     ->set('is_active', '?')
                     ->where('toolbar_id = ?')
@@ -89,7 +89,7 @@ class EditorButtons extends Mapper
 
                 $query->executeQuery();
 
-                $this->conn->close();
+                $this->close();
             }
         }
 
@@ -98,7 +98,7 @@ class EditorButtons extends Mapper
 
     public function getButton($button_id)
     {
-        $query = $this->conn->createQueryBuilder();
+        $query = $this->createQueryBuilder();
         $query->select('b.*', 't.*')
             ->from($this->table, 'b')
             ->leftJoin('b', 'editor_toolbars', 't', 't.toolbar_id = b.toolbar_id')
@@ -109,14 +109,14 @@ class EditorButtons extends Mapper
             ->executeQuery()
             ->fetchAllAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function editToolbars(string $toolbar, string $alias, string $button, string $icon, int $order_by, int $id)
     {
-        $query = $this->conn->createQueryBuilder()->update('editor_toolbars')
+        $query = $this->createQueryBuilder()->update('editor_toolbars')
             ->set('toolbar', '?')
             ->set('alias', '?')
             ->set('button', '?')
@@ -132,12 +132,12 @@ class EditorButtons extends Mapper
 
         $query->executeQuery();
 
-        $this->conn->close();
+        $this->close();
     }
 
     public function editToolbarsFull(string $toolbar, string $alias, string $button, string $icon, int $order_by, int $is_active, int $id)
     {
-        $query = $this->conn->createQueryBuilder()->update('editor_toolbars')
+        $query = $this->createQueryBuilder()->update('editor_toolbars')
             ->set('toolbar', '?')
             ->set('alias', '?')
             ->set('button', '?')
@@ -155,12 +155,12 @@ class EditorButtons extends Mapper
 
         $query->executeQuery();
 
-        $this->conn->close();
+        $this->close();
     }
 
     public function editButtons(string $tag, string $replace_text, string $bbcode, int $is_string, int $is_single, int $button_id, int $is_active)
     {
-        $query = $this->conn->createQueryBuilder()->update($this->table)
+        $query = $this->createQueryBuilder()->update($this->table)
             ->set('tag', '?')
             ->set('replace_text', '?')
             ->set('bbcode', '?')
@@ -178,6 +178,6 @@ class EditorButtons extends Mapper
 
         $query->executeQuery();
 
-        $this->conn->close();
+        $this->close();
     }
 }

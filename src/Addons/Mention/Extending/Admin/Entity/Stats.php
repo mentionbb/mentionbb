@@ -2,9 +2,9 @@
 
 namespace ComponentBundle\Extending\Admin\Entity;
 
-use App\Entity\Mapper;
+use App\Db\Layer;
 
-class Stats extends Mapper
+class Stats extends Layer
 {
     public function __construct()
     {
@@ -18,7 +18,7 @@ class Stats extends Mapper
 
     public function get24HoursVisitor()
     {
-        $query = $this->conn->createQueryBuilder();
+        $query = $this->createQueryBuilder();
         $query->select('*')
             ->from($this->table)
             ->where(
@@ -29,7 +29,7 @@ class Stats extends Mapper
 
         $fetch = $query->executeQuery()->fetchAllAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }

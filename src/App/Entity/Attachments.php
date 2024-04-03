@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Entity\Mapper;
+use App\Db\Layer;
 
-class Attachments extends Mapper
+class Attachments extends Layer
 {
     public function __construct()
     {
@@ -15,7 +15,7 @@ class Attachments extends Mapper
 
     public function getAttachment(int $attach_id)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from($this->table)
             ->where('attach_id = ?')
@@ -25,14 +25,14 @@ class Attachments extends Mapper
             ->executeQuery()
             ->fetchAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function getPostAttachmentList(int $post_id)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->select('*')
             ->from($this->table)
             ->where('post_id = ?')
@@ -42,14 +42,14 @@ class Attachments extends Mapper
             ->executeQuery()
             ->fetchAllAssociative();
 
-        $this->conn->close();
+        $this->close();
 
         return $fetch;
     }
 
     public function createAttachment(string $filename, string $unique_id, int $post_id, int $user_id)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->insert($this->table)
             ->values([
                 'filename' => '?',
@@ -63,20 +63,20 @@ class Attachments extends Mapper
             ->setParameter(3, $user_id)
             ->executeQuery();
 
-        $this->conn->close();
+        $this->close();
 
         return $query;
     }
 
     public function removeAttachment(int $attach_id)
     {
-        $query = $this->conn->createQueryBuilder()
+        $query = $this->createQueryBuilder()
             ->delete($this->table)
             ->where('attach_id = ?')
             ->setParameter(0, $attach_id)
             ->executeQuery();
 
-        $this->conn->close();
+        $this->close();
 
         return $query;
     }

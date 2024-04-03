@@ -11,7 +11,7 @@ class ServerEnvironment
 
     public function __construct()
     {
-        $this->nativeConnection = (new \App\Entity\Native())->getNativeConnection();
+        $this->nativeConnection = (new \App\Db\Native())->getNativeConnection();
         $this->server = new \App\Repository\Server();
     }
 
