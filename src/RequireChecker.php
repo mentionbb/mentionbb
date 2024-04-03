@@ -11,10 +11,13 @@ class RequireChecker
     private $excludeDirs = ['vendor', 'Cache', 'Dev', 'Patches', 'ui'];
     private $excludeFiles = ['_hashes.json', 'DbConfig.php', 'InitialConfig.php'];
 
+    private $gitignoreFile = APPLICATION_SELF . '/Addons/.gitignore';
     private $hashFile = APPLICATION_SELF . '/_hashes.json';
 
     public function buildHashes($dumpFile = true)
     {
+        $this->createTemporaryGitignore();
+
         $files = [];
 
         $finder = new Finder();
@@ -53,6 +56,8 @@ class RequireChecker
             $this->saveHashes($files);
         }
 
+        (new \App\Util\File())->remove($this->gitignoreFile);
+
         return $files;
     }
 
@@ -64,6 +69,17 @@ class RequireChecker
         }
 
         return json_decode($this->hashFile, true);
+    }
+
+    private function createTemporaryGitignore()
+    {
+        $data = "/*\n\n";
+        $data .= "!.gitignore\n";
+        $data .= "!Mention.yaml\n";
+        $data .= "!PublicApp.yaml\n";
+        $data .= "!Mention/**";
+
+        return (new \App\Util\File())->dumpFile($this->gitignoreFile, $data);
     }
 
     private function saveHashes($hashes)
