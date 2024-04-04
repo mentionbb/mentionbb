@@ -42,7 +42,7 @@ class Builder extends QueryBuilder
         $exc = \App\Util\AccessableReflection::get($this, 'connection', [], true)->executeQuery(
             $this->getSQL(),
             \App\Util\AccessableReflection::get($this, 'params', [], true),
-            \App\Util\AccessableReflection::get($this, 'paramTypes', [], true),
+            \App\Util\AccessableReflection::get($this, 'types', [], true),
             \App\Util\AccessableReflection::get($this, 'resultCacheProfile', [], true)
         );
 
