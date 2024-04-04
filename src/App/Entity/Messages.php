@@ -158,7 +158,7 @@ class Messages extends Layer
 
         $fetch = $this->setQuery($query)
             ->executeQuery()
-            ->fetchAssociative();
+            ->fetchAllAssociative();
 
         $this->close();
 
