@@ -11,162 +11,195 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class Request
 {
-	private $request;
-	private $response;
+    private $request;
+    private $response;
 
-	public function __construct()
-	{
-		$this->request = HttpRequest::createFromGlobals();
-		$this->response = new HttpResponse();
-	}
+    public function __construct()
+    {
+        $this->request = HttpRequest::createFromGlobals();
+        $this->response = new HttpResponse();
+    }
 
-	public function getRequestUri()
-	{
-		return $this->request->getRequestUri();
-	}
+    public function getRequestUri()
+    {
+        return $this->request->getRequestUri();
+    }
 
-	public function getUri()
-	{
-		return $this->request->getUri();
-	}
+    public function getUri()
+    {
+        $uri = $this->request->getUri();
 
-	public function getPathInfo()
-	{
-		return $this->request->getPathInfo();
-	}
+        if (
+            preg_match('/(http)/', $uri, $matchHttpsProtocolButUriIsHttp)
+            && $this->getServerProtocol() == 'https://'
+        )
+        {
+            $uri = \str_replace(
+                'http',
+                'https',
+                $uri
+            );
+        }
 
-	public function setRequestUri()
-	{
-		$base  = dirname($this->request->server->get('PHP_SELF'));
+        return $uri;
+    }
 
-		if (ltrim($base, '/'))
-		{
-			$this->request->server->set('REQUEST_URI', $this->getPathInfo());
-		}
+    public function getPathInfo()
+    {
+        return $this->request->getPathInfo();
+    }
 
-		$this->request->overrideGlobals();
+    public function setRequestUri()
+    {
+        $base  = dirname($this->request->server->get('PHP_SELF'));
 
-		return $this->getRequestUri();
-	}
+        if (ltrim($base, '/'))
+        {
+            $this->request->server->set('REQUEST_URI', $this->getPathInfo());
+        }
 
-	public function getHttpReferer()
-	{
-		return $this->request->server->get('HTTP_REFERER');
-	}
+        $this->request->overrideGlobals();
 
-	public function getRemoteAddr()
-	{
-		return $this->request->server->get('REMOTE_ADDR');
-	}
+        return $this->getRequestUri();
+    }
 
-	public function getServerName()
-	{
-		return $this->request->server->get('SERVER_NAME');
-	}
+    public function getHttpReferer()
+    {
+        return $this->request->server->get('HTTP_REFERER');
+    }
 
-	public function getRequestMethod()
-	{
-		return $this->request->server->get('REQUEST_METHOD');
-	}
+    public function getRemoteAddr()
+    {
+        return $this->request->server->get('REMOTE_ADDR');
+    }
 
-	public function getUserAgent()
-	{
-		return $this->request->headers->get('User-Agent');
-	}
+    public function getServerName()
+    {
+        return $this->request->server->get('SERVER_NAME');
+    }
 
-	public function isXmlHttpRequest()
-	{
-		return $this->request->isXmlHttpRequest();
-	}
+    public function getRequestMethod()
+    {
+        return $this->request->server->get('REQUEST_METHOD');
+    }
 
-	public function getCsrf()
-	{
-		if ($this->request->headers->has('X-CSRF'))
-		{
-			return $this->request->headers->get('X-CSRF');
-		}
+    public function getUserAgent()
+    {
+        return $this->request->headers->get('User-Agent');
+    }
 
-		return false;
-	}
+    public function isXmlHttpRequest()
+    {
+        return $this->request->isXmlHttpRequest();
+    }
 
-	public function setContentDisposition($filename, $file, $contentType, $attachment = false)
-	{
-		$fileContent = $file;
-		$response = new BinaryFileResponse($fileContent);
+    public function getCsrf()
+    {
+        if ($this->request->headers->has('X-CSRF'))
+        {
+            return $this->request->headers->get('X-CSRF');
+        }
 
-		$response->headers->set('Content-Type', $contentType);
-		if ($attachment)
-		{
-			$disposition = HeaderUtils::makeDisposition(
-				HeaderUtils::DISPOSITION_ATTACHMENT,
-				$filename
-			);
+        return false;
+    }
 
-			$response->headers->set('Content-Disposition', $disposition);
-		}
+    public function setContentDisposition($filename, $file, $contentType, $attachment = false)
+    {
+        $fileContent = $file;
+        $response = new BinaryFileResponse($fileContent);
 
-		return $response->send();
-	}
+        $response->headers->set('Content-Type', $contentType);
+        if ($attachment)
+        {
+            $disposition = HeaderUtils::makeDisposition(
+                HeaderUtils::DISPOSITION_ATTACHMENT,
+                $filename
+            );
 
-	public function setContentDispositionStreamed($filename, $data, $contentType, $attachment = false)
-	{
-		$response = new StreamedResponse();
-		$response->setCallback(function () use ($data)
-		{
-			echo $data;
-		});
+            $response->headers->set('Content-Disposition', $disposition);
+        }
 
-		$response->headers->set('Content-Type', $contentType);
-		if ($attachment)
-		{
-			$disposition = HeaderUtils::makeDisposition(
-				HeaderUtils::DISPOSITION_ATTACHMENT,
-				$filename
-			);
+        return $response->send();
+    }
 
-			$response->headers->set('Content-Disposition', $disposition);
-		}
+    public function setContentDispositionStreamed($filename, $data, $contentType, $attachment = false)
+    {
+        $response = new StreamedResponse();
+        $response->setCallback(function () use ($data)
+        {
+            echo $data;
+        });
 
-		return $response->send();
-	}
+        $response->headers->set('Content-Type', $contentType);
+        if ($attachment)
+        {
+            $disposition = HeaderUtils::makeDisposition(
+                HeaderUtils::DISPOSITION_ATTACHMENT,
+                $filename
+            );
 
-	public function setContentType($contentType)
-	{
-		$this->response->headers->set('Content-Type', $contentType);
+            $response->headers->set('Content-Disposition', $disposition);
+        }
 
-		//$this->response->prepare($this->request);
-		//$this->response->send();
-	}
+        return $response->send();
+    }
 
-	public function redirect($location = false, $site_url = true)
-	{
-		$settings = $settings = (new \App\Entity\Settings)->getSettings();
-		$referer = $this->getHttpReferer();
+    public function setContentType($contentType)
+    {
+        $this->response->headers->set('Content-Type', $contentType);
 
-		if (!$location)
-		{
-			$this->redirectResponse($referer);
-			exit();
-		}
-		else
-		{
-			if ($site_url)
-			{
-				$this->redirectResponse("{$settings->site_url}/{$location}");
-				exit();
-			}
-			else
-			{
-				$this->redirectResponse($location);
-				exit();
-			}
-		}
-	}
+        //$this->response->prepare($this->request);
+        //$this->response->send();
+    }
 
-	protected function redirectResponse($url): RedirectResponse
-	{
-		$response = new RedirectResponse($url, 301);
+    public function redirect($location = false, $site_url = true)
+    {
+        $settings = $settings = (new \App\Entity\Settings)->getSettings();
+        $referer = $this->getHttpReferer();
 
-		return $response->send();
-	}
+        if (!$location)
+        {
+            $this->redirectResponse($referer);
+            exit();
+        }
+        else
+        {
+            if ($site_url)
+            {
+                $this->redirectResponse("{$settings->site_url}/{$location}");
+                exit();
+            }
+            else
+            {
+                $this->redirectResponse($location);
+                exit();
+            }
+        }
+    }
+
+    protected function redirectResponse($url): RedirectResponse
+    {
+        $response = new RedirectResponse($url, 301);
+
+        return $response->send();
+    }
+
+    public function getServerProtocol()
+    {
+        if (
+            isset($_SERVER['HTTPS']) &&
+            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https'
+        )
+        {
+            $protocol = 'https://';
+        }
+        else
+        {
+            $protocol = 'http://';
+        }
+
+        return $protocol;
+    }
 }
