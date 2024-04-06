@@ -21,13 +21,13 @@ class Webp
         {
             $image = imagecreatefrompng($path);
         }
-        if ($fileType == IMAGETYPE_GIF)
+        else if ($fileType == IMAGETYPE_GIF)
         {
             $image = imagecreatefromgif($path);
         }
-        if ($fileType == IMAGETYPE_WEBP)
+        else if ($fileType == IMAGETYPE_WEBP || $fileType == IMAGETYPE_AVIF)
         {
-            $image = imagecreatefromwebp($path);
+            return true;
         }
 
         \imagewebp($image, $target, $quality);
