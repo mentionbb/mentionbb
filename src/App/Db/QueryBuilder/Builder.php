@@ -39,12 +39,13 @@ class Builder extends QueryBuilder
             $this->cache->clear();
         }
 
-        $exc = \App\Util\AccessableReflection::get($this, 'connection', [], true)->executeQuery(
-            $this->getSQL(),
-            \App\Util\AccessableReflection::get($this, 'params', [], true),
-            \App\Util\AccessableReflection::get($this, 'types', [], true),
-            \App\Util\AccessableReflection::get($this, 'resultCacheProfile', [], true)
-        );
+        $exc = \App\Util\AccessableReflection::get($this, 'connection', [], true)
+            ->executeQuery(
+                $this->getSQL(),
+                \App\Util\AccessableReflection::get($this, 'params', [], true),
+                \App\Util\AccessableReflection::get($this, 'types', [], true),
+                \App\Util\AccessableReflection::get($this, 'resultCacheProfile', [], true)
+            );
 
         return $exc;
     }
@@ -54,24 +55,9 @@ class Builder extends QueryBuilder
         $query = \App\Util\AccessableReflection::get($this, 'type', [], true);
 
         $type = null;
-        if (is_int($query))
+        if (is_object($query))
         {
-            if ($query == 0)
-            {
-                $type = 'select';
-            }
-            else if ($query == 1)
-            {
-                $type = 'delete';
-            }
-            else if ($query == 2)
-            {
-                $type = 'update';
-            }
-            else if ($query == 3)
-            {
-                $type = 'insert';
-            }
+            return \strtolower($query->name);
         }
 
         return $type;
