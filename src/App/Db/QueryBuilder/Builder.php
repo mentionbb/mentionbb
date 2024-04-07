@@ -39,15 +39,7 @@ class Builder extends QueryBuilder
             $this->cache->clear();
         }
 
-        $exc = \App\Util\AccessableReflection::get($this, 'connection', [], true)
-            ->executeQuery(
-                $this->getSQL(),
-                \App\Util\AccessableReflection::get($this, 'params', [], true),
-                \App\Util\AccessableReflection::get($this, 'types', [], true),
-                \App\Util\AccessableReflection::get($this, 'resultCacheProfile', [], true)
-            );
-
-        return $exc;
+        return parent::executeQuery();
     }
 
     public function getQueryType()
