@@ -75,7 +75,7 @@ hr {
 
 .form-control:disabled,
 .form-control[readonly] {
-    background-color: var(--mention-input-bg-color);
+    background-color: var(--mention-textarea-disabled-bg-color);
     cursor: not-allowed;
 }
 

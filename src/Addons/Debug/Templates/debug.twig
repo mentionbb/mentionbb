@@ -17,6 +17,6 @@
     </div>
     <div class="col-lg-6 col-sm-12 d-flex justify-content-lg-end pt-lg-0 pl-lg-3 pt-3">
         <textarea style="resize: none;" class="form-control"
-            rows="5">page: {{ debug.page.self.getPath() }}{{ '&#13;&#10;'|raw }}{% for key, item in debug.page.matchingPath %}{{ key }}: {{ item }}{{ '&#13;&#10;'|raw }}{% else %}404{% endfor %}</textarea>
+            rows="5" disabled>page: {{ debug.page.self.getPath() }}{{ '&#13;&#10;'|raw }}{% for key, item in debug.page.matchingPath %}{{ key }}: {{ item }}{{ '&#13;&#10;'|raw }}{% else %}404{% endfor %}</textarea>
     </div>
 </div>
