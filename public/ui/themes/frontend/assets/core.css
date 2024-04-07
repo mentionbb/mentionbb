@@ -675,6 +675,10 @@ input:focus {
     margin: -10px 5px;
 }
 
+.app-forums .list-group-item.sub.active:before {
+    border-left: 1px dashed var(--mention-border-color);
+}
+
 .app-forums .list-group-item.icon:before {
     font-family: "Font Awesome 6 Free";
     padding-right: 8px;
