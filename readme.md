@@ -19,6 +19,17 @@
 
 ## MentionBB?
 
+<p align="center">
+    <picture>
+        <source media="(prefers-color-scheme: dark)"
+            srcset="https://raw.githubusercontent.com/mentionbb/.github/main/screenshots/index-01-dark-2.jpg">
+        <source media="(prefers-color-scheme: light)"
+            srcset="https://raw.githubusercontent.com/mentionbb/.github/main/screenshots/index-02.jpg">
+        <img alt="Mention Index" src="https://raw.githubusercontent.com/mentionbb/.github/main/screenshots/index-02.jpg"
+            width="700px">
+    </picture>
+</p>
+
 [Mention](https://mentionbb.com/community) is an advanced forum community software. It is based on the balance between the classic forum software and the new generation ones. In this context, it has made it essential to add revolutionary innovations with developing technologies.
 
 - **Flexible and fast.** Despite using advanced algorithms, Mention is a very lightweight software thanks to its caching technologies. On the other hand, it contains highly complex and previously unseen components.
