@@ -210,7 +210,25 @@ if (window.jQuery === undefined) jQuery = $ = {};
 	});
 
 	$(function() {
-		$('.app-theme-mode').on('click', function() {
+        $('.auto-switch').on('click', function() {
+            if($(this).hasClass('active')) {
+                $(this).removeClass('active');
+
+                $('.app-theme-mode').removeClass('disable');
+                $('.app-theme-mode input').attr('disabled', false);
+
+                Storages.cookieStorage.remove('theme_mode_auto');
+            } else {
+                $(this).addClass('active');
+
+                $('.app-theme-mode').addClass('disable');
+                $('.app-theme-mode input').attr('disabled', true);
+                
+                Storages.cookieStorage.set('theme_mode_auto', true);
+            }
+        });
+
+        $('.app-theme-mode').on('click', function() {
 			if($('.app-theme-mode input').is(':checked')) {
 				$(this).addClass('active');
 				$('.app-theme-mode input').attr('checked', true);
@@ -378,7 +396,19 @@ if (window.jQuery === undefined) jQuery = $ = {};
 	});
 
 	$(document).ready(function() {
-		userTooltipInit();
+        if (Storages.cookieStorage.get("theme_mode_auto")) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                if (!$('.app-theme-mode input').is(':checked')) {
+                    $('.app-theme-mode input').click();
+                }
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                if ($('.app-theme-mode input').is(':checked')) {
+                    $('.app-theme-mode input').click();
+                }
+            };
+        };
+
+        userTooltipInit();
 	});
 }
 (window.jQuery, window, document);
