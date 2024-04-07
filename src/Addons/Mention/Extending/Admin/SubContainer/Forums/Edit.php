@@ -12,7 +12,7 @@ class Edit
 
         $forum = new Forum;
 
-        if($forum->editForum($input->forum_id, $input->parent_id, $input->forum_title, $input->forum_order, $input->forum_description))
+        if ($forum->editForum($input->forum_id, $input->parent_id, $input->forum_title, $input->forum_order, $input->forum_description, $input->forum_icon))
         {
             return true;
         }

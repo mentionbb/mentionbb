@@ -32,3 +32,6 @@ Language:
       order:
         title: "Forum order"
         desc: "Display order"
+      icon:
+        title: "Forum icon"
+        desc: "You can give an icon to the forum. <br /> <a href=\"https://fontawesome.com/v6/icons?o=r&m=free\">https://fontawesome.com/v6/icons?o=r&m=free</a>"

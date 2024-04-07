@@ -48,19 +48,22 @@ class Forum extends Layer
         return $fetch;
     }
 
-    public function editForum(int $forum_id, int $parent_id, string $title, int $order, string $description)
+    public function editForum(int $forum_id, int $parent_id, string $title, int $order, string $description, string $icon)
     {
-        $query = $this->createQueryBuilder()->update($this->table)
+        $query = $this->createQueryBuilder()
+            ->update($this->table)
             ->set('parent_id', '?')
             ->set('title', '?')
             ->set('forum_order', '?')
             ->set('forum_description', '?')
+            ->set('icon', '?')
             ->where('forum_id = ?')
             ->setParameter(0, $parent_id)
             ->setParameter(1, $title)
             ->setParameter(2, $order)
             ->setParameter(3, $description)
-            ->setParameter(4, $forum_id)
+            ->setParameter(4, $icon)
+            ->setParameter(5, $forum_id)
             ->executeQuery();
 
         $this->close();
@@ -68,7 +71,7 @@ class Forum extends Layer
         return $query;
     }
 
-    public function createForum(int $parent_id, string $title, string $description, int $order)
+    public function createForum(int $parent_id, string $title, string $description, int $order, string $icon)
     {
         $query = $this->createQueryBuilder()
             ->insert($this->table)
@@ -77,13 +80,13 @@ class Forum extends Layer
                 'title' => '?',
                 'forum_description' => '?',
                 'forum_order' => '?',
-                'icon_id' => '?'
+                'icon' => '?'
             ])
             ->setParameter(0, $parent_id)
             ->setParameter(1, $title)
             ->setParameter(2, $description)
             ->setParameter(3, $order)
-            ->setParameter(4, 1)
+            ->setParameter(4, $icon)
             ->executeQuery();
 
         $this->close();

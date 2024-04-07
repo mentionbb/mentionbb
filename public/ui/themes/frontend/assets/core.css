@@ -638,7 +638,7 @@ input:focus {
 }
 
 .list-group.scrollable {
-    max-height: 320px;
+    max-height: 450px;
     overflow-y: auto;
 }
 
@@ -665,6 +665,14 @@ input:focus {
     font-size: 14px;
     background-color: var(--mention-primary-bg-color);
     margin-bottom: 0;
+}
+
+.app-forums .list-group-item.sub:before {
+    content: "";
+    position: absolute;
+    border-left: 1px dashed var(--mention-light-border-color);
+    height: 90%;
+    margin: -10px 5px;
 }
 
 .app-forums .list-group-item.icon:before {

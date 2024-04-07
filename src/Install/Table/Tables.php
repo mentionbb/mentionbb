@@ -222,9 +222,7 @@ class Tables extends Layer
                 'length' => 40
             ]);
             $table->addColumn('forum_description', 'text');
-            $table->addColumn('icon_id', 'integer', [
-                'length' => 11
-            ]);
+            $table->addColumn('icon', 'text');
             $table->addColumn('forum_order', 'integer', [
                 'length' => 11
             ]);

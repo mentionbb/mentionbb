@@ -12,7 +12,7 @@ class Create
 
         $forum = new Forum;
 
-        if($forum->createForum($input->parent_id, $input->forum_title, $input->forum_description, $input->forum_order))
+        if ($forum->createForum($input->parent_id, $input->forum_title, $input->forum_description, $input->forum_order, $input->forum_icon))
         {
             return true;
         }

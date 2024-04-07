@@ -19,14 +19,36 @@
 							{% if not app.user.loggedIn() %}
 								<div class="d-none" data-no-refresh="true"></div>
 							{% endif %}
-							<a href="#" data-forum-id="0" data-ui="quick-forum-posts" class="list-group-item active">{{ app.sub.lang.string.index.forums.news }}<span class="float-right badge badge-dark round">{{ string.post.getForumPostCount() }}</span>  </a>
+							<a href="#" data-forum-id="0" data-ui="quick-forum-posts" class="list-group-item active">
+                                <i class="fa-solid fa-border-all pr-2 text-success"></i>
+                                {{ app.sub.lang.string.index.forums.news }}
+                                <span class="float-right badge badge-dark round">{{ string.post.getForumPostCount() }}</span>
+                            </a>
 							{% for item in app.string.forum.getForumList() %}
 								{{ string.post.setForumId(item.forum_id) }}
-								<a href="{{ app.phrase.buildLink('forum', {'forum_id': item.forum_id, 'title': item.title}) }}" data-forum-id="{{ item.forum_id }}" data-ui="quick-forum-posts" class="list-group-item">{{ item.title }} <span class="float-right badge badge-dark round">{{ string.post.getForumPostCount() }}</span>  </a>
+                                {% if not item.icon is same as ('') %}
+                                    {% set forum_icon = item.icon|split(':') %}
+                                {% endif %}
+								<a href="{{ app.phrase.buildLink('forum', {'forum_id': item.forum_id, 'title': item.title}) }}" data-forum-id="{{ item.forum_id }}" data-ui="quick-forum-posts" class="list-group-item">
+                                    {% if not item.icon is same as ('') %}
+                                        <i style="color: {{ forum_icon[1] }}" class="{{ forum_icon[0] }} pr-2"></i>
+                                    {% endif %}
+                                    {{ item.title }}
+                                    <span class="float-right badge badge-dark round">{{ string.post.getForumPostCount() }}</span>
+                                </a>
 								{{ string.post.unsetForumId() }}
 								{% for sub in app.string.forum.getForumList(item.forum_id) %}
 									{{ string.post.setForumId(sub.forum_id) }}
-									<a href="{{ app.phrase.buildLink('forum', {'forum_id': sub.forum_id, 'title': sub.title}) }}" data-forum-id="{{ sub.forum_id }}" data-ui="quick-forum-posts" class="sub list-group-item">-- {{ sub.title }} <span class="float-right badge badge-dark round">{{ string.post.getForumPostCount() }}</span>  </a>
+                                    {% if not item.icon is same as ('') %}
+                                        {% set forum_icon = sub.icon|split(':') %}
+                                    {% endif %}
+									<a href="{{ app.phrase.buildLink('forum', {'forum_id': sub.forum_id, 'title': sub.title}) }}" data-forum-id="{{ sub.forum_id }}" data-ui="quick-forum-posts" class="sub list-group-item">
+                                        {% if not sub.icon is same as ('') %}
+                                            <i style="color: {{ forum_icon[1] }}" class="{{ forum_icon[0] }} pl-3 pr-2"></i>
+                                        {% endif %}
+                                        {{ sub.title }}
+                                        <span class="float-right badge badge-dark round">{{ string.post.getForumPostCount() }}</span>
+                                    </a>
 									{{ string.post.unsetForumId() }}
 								{% endfor %}
 							{% endfor %}

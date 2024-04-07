@@ -9,7 +9,7 @@ Language:
     forms:
       name:
         title: "ID"
-        desc: "It is a unique name. It should be written in all lowercase letters. <br /> Also, the name here will determine the icon. <br /> <a href=\"https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands&m=free\">https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands&m=free</a>"
+        desc: "It is a unique name. It should be written in all lowercase letters. <br /> Also, the name here will determine the icon. <br /> <a href=\"https://fontawesome.com/v6/icons?o=r&m=free\">https://fontawesome.com/v6/icons?o=r&m=free</a>"
       title:
         title: "Title"
         desc: "The title to be used will appear on the registration/login page."

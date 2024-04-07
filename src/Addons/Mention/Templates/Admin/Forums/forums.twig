@@ -58,12 +58,20 @@
                                 </div>
                             </div>
                         </div>
-                    </div>       
+                    </div>
                     <div id="nodeAccordion" class="js-forum-sortable-group w-100 rounded">
                     {% for item in app.string.forum.getForumList() %}
+                        {% if not item.icon is same as ('') %}
+                            {% set forum_icon = item.icon|split(':') %}
+                        {% endif %}
                         <div class="setting-group list bg-white text-dark shadow-sm position-relative rounded">
                             <div class="nested-items" data-forum-id="{{ item.forum_id }}" data-order="{{ item.forum_order }}">
                                 <span class="icon"></span>
+                                <div class="h5 d-flex justify-content-center mb-0">
+                                    {% if not item.icon is same as ('') %}
+                                        <i style="color: {{ forum_icon[1] }}" class="{{ forum_icon[0] }} pr-2"></i>
+                                    {% endif %}
+                                </div>
                                 <a class="title d-flex flex-column justify-content-center mr-auto w-100 collapsed" href="#">
                                     <div class="h5">{{ item.title }}</div>
                                     <small class="d-none d-lg-block">{{ item.forum_description }}</small>
@@ -71,9 +79,17 @@
                                 <a class="append-btn" href="#" data-ui="admin-remove-node">{{ app.sub.lang.string.container.buttons.delete }}</a>
                             </div>
                             {% for sub in app.string.forum.getForumList(item.forum_id) %}
+                                {% if not sub.icon is same as ('') %}
+                                    {% set forum_icon = sub.icon|split(':') %}
+                                {% endif %}
                                 <div class="nested-items sub" data-forum-id="{{ sub.forum_id }}" data-parent-id="{{ sub.parent_id }}" data-order="{{ sub.forum_order }}">
                                     <span class="icon sub"></span>
                                     <span class="icon"></span>
+                                    <div class="h5 d-flex justify-content-center mb-0">
+                                        {% if not sub.icon is same as ('') %}
+                                            <i style="color: {{ forum_icon[1] }}" class="{{ forum_icon[0] }} pr-2"></i>
+                                        {% endif %}
+                                    </div>
                                     <a class="title d-flex flex-column justify-content-center mr-auto w-100 collapsed" href="#">
                                         <div class="h5">{{ sub.title }}</div>
                                         <small class="d-none d-lg-block">{{ sub.forum_description }}</small>

@@ -432,6 +432,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                     dataString.append('forum_title', formd.find('input[name="forum_title"]').val());
                     dataString.append('forum_order', formd.find('input[name="forum_order"]').val());
                     dataString.append('forum_description', formd.find('input[name="forum_description"]').val());
+                    dataString.append('forum_icon', formd.find('input[name="forum_icon"]').val());
 
                     app.post("admin/forums?updateNode", dataString, false, false).done(function (response) {
                         if (response.status === "ok") {
@@ -439,45 +440,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
                             $('.app-box .progress').addClass('d-none');
 
-                            elem.find('.title .h5').text(
-                                formd.find('input[name="forum_title"]').val()
-                            );
-                            elem.find('.title small').text(
-                                formd.find('input[name="forum_description"]').val()
-                            );
-
-                            if (formd.find('input[name="forum_order"]').val() != elem.data('order')) {
-                                window.location.reload();
-                            }
-
-                            elem.attr('data-order', formd.find('input[name="forum_order"]').val());
-                            if (default_parent_id != formd.find('select[name="forum_parent"]').val()) {
-                                if (formd.find('select[name="forum_parent"]').val() != 0) {
-                                    elem.find('.icon').before('<span class="icon sub"></span>');
-
-                                    var clone_node = elem.clone();
-                                    $('#adminNodeEdit').remove();
-                                    elem.closest('.list').remove();
-
-                                    $('#nodeAccordion').find('[data-forum-id="' + formd.find('select[name="forum_parent"]').val() + '"]').after(
-                                        clone_node
-                                    );
-                                } else {
-                                    elem.find('.icon.sub').remove();
-                                    formd.find('select[name="forum_parent"] option[value="0"]').attr('selected', true);
-
-                                    var clone_node = elem.clone();
-                                    $('#adminNodeEdit').remove();
-                                    elem.remove();
-
-                                    $('#nodeAccordion').find('.list').after(
-                                        '<div class="setting-group list bg-white text-dark shadow-sm position-relative rounded new"></div>'
-                                    );
-                                    $('#nodeAccordion').find('.list.new').html(clone_node);
-
-                                    $('#nodeAccordion').find('.list.new').removeClass('new');
-                                }
-                            }
+                            window.location.reload();
                         }
                     });
                 }
@@ -500,6 +463,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                 dataString.append('forum_title', $('#admin_forums_new input[name="forum_title"]').val());
                 dataString.append('forum_order', $('#admin_forums_new input[name="forum_order"]').val());
                 dataString.append('forum_description', $('#admin_forums_new input[name="forum_description"]').val());
+                dataString.append('forum_icon', $('#admin_forums_new input[name="forum_icon"]').val());
 
                 app.post("admin/forums?addNode", dataString, false, false).done(function (response) {
                     if (response.status === "ok") {

@@ -99,6 +99,7 @@ class Forums extends ApplicationDefinitions implements Pub
             'forum_title' => $post->get('forum_title'),
             'forum_order' => $post->get('forum_order'),
             'forum_description' => $post->get('forum_description'),
+            'forum_icon' => $post->get('forum_icon'),
         ];
         \ComponentBundle\Extending\Admin\SubContainer\Forums\Edit::Do($data);
 
@@ -115,6 +116,7 @@ class Forums extends ApplicationDefinitions implements Pub
             'parent_id' => $post->get('parent_id'),
             'forum_title' => $post->get('forum_title'),
             'forum_description' => $post->get('forum_description'),
+            'forum_icon' => $post->get('forum_icon'),
             'forum_order' => $post->get('forum_order')
         ];
         \ComponentBundle\Extending\Admin\SubContainer\Forums\Create::Do($data);

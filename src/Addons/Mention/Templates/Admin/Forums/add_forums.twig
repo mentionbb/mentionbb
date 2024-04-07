@@ -85,6 +85,13 @@
                                                 <small id="help_title" class="form-text text-muted">{{ app.sub.lang.string.admin.forums.forms.description.desc }}</small>
                                             </div>
                                         </div>
+                                        <div class="col-lg-6 col-sm-12">
+                                            <label for="static_title" class="col-form-label">{{ app.sub.lang.string.admin.forums.forms.icon.title }}</label>
+                                            <div>
+                                                <input class="form-control" name="forum_icon" id="static_title" type="text" aria-label="{{ app.sub.lang.string.admin.forums.forms.icon.desc }}" aria-describedby="help_icon" spellcheck="false">
+                                                <small id="help_title" class="form-text text-muted">{{ app.sub.lang.string.admin.forums.forms.icon.desc|raw }}</small>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div>
                                         <button type="submit" class="btn btn-app-discussion no-anim-ui icon plus">{{ app.sub.lang.string.container.buttons.save }}</button>
