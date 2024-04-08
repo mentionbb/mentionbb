@@ -221,6 +221,16 @@ if (window.jQuery === undefined) jQuery = $ = {};
             } else {
                 $(this).addClass('active');
 
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    if (!$('.app-theme-mode input').is(':checked')) {
+                        $('.app-theme-mode input').click();
+                    }
+                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                    if ($('.app-theme-mode input').is(':checked')) {
+                        $('.app-theme-mode input').click();
+                    }
+                };
+
                 $('.app-theme-mode').addClass('disable');
                 $('.app-theme-mode input').attr('disabled', true);
                 
