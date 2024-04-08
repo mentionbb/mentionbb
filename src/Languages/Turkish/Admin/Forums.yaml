@@ -32,3 +32,6 @@ Language:
       order:
         title: "Forum sırası"
         desc: "Görüntülenme sırası"
+      icon:
+        title: "Forum ikonu"
+        desc: "Foruma bir ikon verebilirsiniz. <br /> <a href=\"https://fontawesome.com/v6/icons?o=r&m=free\">https://fontawesome.com/v6/icons?o=r&m=free</a>"

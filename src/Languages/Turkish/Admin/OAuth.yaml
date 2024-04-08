@@ -9,7 +9,7 @@ Language:
     forms:
       name:
         title: "ID"
-        desc: "Benzersiz ad, tamamı küçük harfle yazılmalıdır. <br /> Ayrıca buradaki isim ikonu da belirleyecektir. <br /> <a href=\"https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands&m=free\">https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands&m=free</a>"
+        desc: "Benzersiz ad, tamamı küçük harfle yazılmalıdır. <br /> Ayrıca buradaki isim ikonu da belirleyecektir. <br /> <a href=\"https://fontawesome.com/v6/icons?o=r&m=free\">https://fontawesome.com/v6/icons?o=r&m=free</a>"
       title:
         title: "Başlık"
         desc: "Kullanılacak başlık, kayıt/giriş sayfasında gözükecek."
