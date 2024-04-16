@@ -1383,6 +1383,11 @@ button.btn-app-account {
     word-wrap: break-word;
 }
 
+.app-discussion>.post-layout>.post-content>.discussion-text>article ol,
+.app-discussion>.post-layout>.post-content>.discussion-text>article ul {
+    margin: 1rem auto;
+}
+
 .app-discussion>.post-layout>.post-content>.discussion-text>.app-post-doubletap-like {
     position: absolute;
     width: 100%;
@@ -4850,6 +4855,41 @@ code.error {
 
 .tox .tox-dialog {
     background-color: var(--mention-editor-bg-color) !important;
+}
+
+.tox .tox-pop__dialog {
+    background-color: var(--mention-editor-btn-select-bg-color) !important;
+    border: 1px solid var(--mention-light-border-color) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 0 2px 0 rgba(34, 47, 62, .2), 0 4px 8px 0 rgba(34, 47, 62, .15) !important;
+}
+
+.tox-pop .tox-pop__dialog .tox-toolbar {
+    padding: 7px 3px !important;
+}
+
+.tox .tox-pop.tox-pop--top:before {
+    border-color: transparent transparent var(--mention-light-border-color) transparent !important;
+}
+
+.tox .tox-pop.tox-pop--top:after {
+    border-color: transparent transparent var(--mention-editor-bg-color) transparent !important;
+}
+
+.tox .tox-pop.tox-pop--bottom:before {
+    border-color: var(--mention-light-border-color) transparent transparent transparent !important;
+}
+
+.tox .tox-pop.tox-pop--bottom:after {
+    border-color: var(--mention-editor-bg-color) transparent transparent transparent !important;
+}
+
+.tox .tox-pop__dialog .tox-toolbar {
+    margin-bottom: 0 !important;
+}
+
+.tox .tox-pop__dialog .tox-toolbar__group {
+    padding-top: 0 !important;
 }
 
 .tox .tox-dialog__header {

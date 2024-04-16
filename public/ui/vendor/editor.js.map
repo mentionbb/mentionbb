@@ -15,6 +15,7 @@
 		"12": "plugins/table/plugin.min.js",
 		"13": "plugins/autosave/plugin.min.js",
 		"14": "plugins/autolink/plugin.min.js",
-		"15": "plugins/paste/plugin.min.js"
+		"15": "plugins/paste/plugin.min.js",
+        "16": "plugins/quickbars/plugin.min.js"
 	}
 }
