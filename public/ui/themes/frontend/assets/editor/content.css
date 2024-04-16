@@ -4,9 +4,9 @@ body {
 
 .sandboxed ul,
 .sandboxed ol {
-	margin: 0;
 	font-size: 14px;
 	word-wrap: break-word;
+    margin: 1rem auto;
 }
 
 .sandboxed .bbWrapper_reddit {
