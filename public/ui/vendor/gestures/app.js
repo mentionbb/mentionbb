@@ -1,137 +1,135 @@
 if (window.jQuery === undefined) jQuery = $ = {};
 
-!function($, window, document)
-{
-	"use strict";
+!function ($, window, document) {
+    "use strict";
 
-	window.addEventListener('wheel', function (e) {
-		Math.sign(e.deltaY);
-	});
-	
-	function mentionGestureRenderer() {
-		$('[data-template="discussion"] .post-content').each(function (index) {
-			var elem = $(this).closest('.post');
+    window.addEventListener('wheel', function (e) {
+        Math.sign(e.deltaY);
+    });
 
-			var likeContainer = (function (likeType, $) {
-				if (elem.find('[data-ui="take-like-post"]').length === 0) {
-					elem.find('[data-ui="like-post"] [data-ui="like-post"][data-reaction="' + likeType + '"]').click();
+    function mentionGestureRenderer() {
+        $('[data-template="discussion"] .post-content').each(function (index) {
+            var elem = $(this).closest('.post');
 
-					elem.find('.app-post-doubletap-like .app-reactions .reaction.' + likeType + '').removeClass('d-none');
-					elem.find('.app-post-doubletap-like').removeClass('d-none');
-					elem.find('.app-post-doubletap-like').addClass('show');
+            var likeContainer = (function (likeType, $) {
+                if (elem.find('[data-ui="take-like-post"]').length === 0) {
+                    elem.find('[data-ui="like-post"] [data-ui="like-post"][data-reaction="' + likeType + '"]').click();
 
-					setTimeout(function () {
-						elem.find('.app-post-doubletap-like').addClass('d-none')
-							.removeClass('show');
-						elem.find('.app-post-doubletap-like .app-reactions .reaction.' + likeType + '').addClass('d-none');
-					}, 1000);
-				}
-			});
+                    elem.find('.app-post-doubletap-like .app-reactions .reaction.' + likeType + '').removeClass('d-none');
+                    elem.find('.app-post-doubletap-like').removeClass('d-none');
+                    elem.find('.app-post-doubletap-like').addClass('show');
 
-			var h = new Hammer.Manager(this, {
-				recognizers: [
-					[Hammer.Swipe,{ direction: Hammer.DIRECTION_HORIZONTAL }]
-				]
-			});
-			
-			var Press = new Hammer.Press({
-				time: 500
-			});
+                    setTimeout(function () {
+                        elem.find('.app-post-doubletap-like').addClass('d-none')
+                            .removeClass('show');
+                        elem.find('.app-post-doubletap-like .app-reactions .reaction.' + likeType + '').addClass('d-none');
+                    }, 1000);
+                }
+            });
 
-			var DoubleTap = new Hammer.Tap({
-				event: 'doubletap',
-				taps: 2
-			});
+            var h = new Hammer.Manager(this, {
+                recognizers: [
+                    [Hammer.Swipe, { direction: Hammer.DIRECTION_HORIZONTAL }]
+                ]
+            });
 
-			var TripleTap = new Hammer.Tap({
-				event: 'tripletap',
-				taps: 3
-			});
+            var Press = new Hammer.Press({
+                time: 500
+            });
 
-			h.add([Press, DoubleTap, TripleTap]);
+            var DoubleTap = new Hammer.Tap({
+                event: 'doubletap',
+                taps: 2
+            });
 
-			TripleTap.recognizeWith(DoubleTap);
-			
-			DoubleTap.requireFailure(TripleTap);
+            var TripleTap = new Hammer.Tap({
+                event: 'tripletap',
+                taps: 3
+            });
 
-			h.on('doubletap', function (event) {
-				likeContainer('like');
-			});
+            h.add([Press, DoubleTap, TripleTap]);
 
-			h.on('tripletap', function (event) {
-				likeContainer('dislike');
-			});
+            TripleTap.recognizeWith(DoubleTap);
 
-			h.on('press', function (event) {
-				elem.find('[data-ui="take-like-post"]').click();
-			});
+            DoubleTap.requireFailure(TripleTap);
 
-			if (!app.isMobile()) {
-				h.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-				h.on('swipeleft', function (event) {
-					likeContainer('wow');
-				});
+            h.on('doubletap', function (event) {
+                likeContainer('like');
+            });
 
-				h.on('swiperight', function (event) {
-					likeContainer('angry');
-				});
+            h.on('tripletap', function (event) {
+                likeContainer('dislike');
+            });
 
-				h.on('swipeup', function (event) {
-					likeContainer('haha');
-				});
+            h.on('press', function (event) {
+                elem.find('[data-ui="take-like-post"]').click();
+            });
 
-				h.on('swipedown', function (event) {
-					likeContainer('sad');
-				});
-			}
+            if (!app.isMobile()) {
+                h.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+                h.on('swipeleft', function (event) {
+                    likeContainer('wow');
+                });
 
-			elem.on('click', '[data-ui="mention-gesture"][data-mode="disable"]', function (e) {
-				e.preventDefault();
-		
-				if ($(this).hasClass('active')) {
-					$(this).closest('.post-content').removeAttr('style');
+                h.on('swiperight', function (event) {
+                    likeContainer('angry');
+                });
 
-					h.get('swipe').set({
-						direction: Hammer.DIRECTION_NONE
-					});
+                h.on('swipeup', function (event) {
+                    likeContainer('haha');
+                });
 
-					$(this).removeClass('active')
-						.addClass('disable');
+                h.on('swipedown', function (event) {
+                    likeContainer('sad');
+                });
+            }
 
-					$(this).attr('data-mode', 'enable');
-				}
-			});
+            elem.on('click', '[data-ui="mention-gesture"][data-mode="disable"]', function (e) {
+                e.preventDefault();
 
-			elem.on('click', '[data-ui="mention-gesture"][data-mode="enable"]', function (e) {
-				e.preventDefault();
+                if ($(this).hasClass('active')) {
+                    $(this).closest('.post-content').removeAttr('style');
 
-				if ($(this).hasClass('disable')) {
-					$(this).closest('.post-content').css({
-						'touch-action': 'none',
-						'user-select': 'none',
-						'-webkit-user-drag': 'none',
-						'-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)'
-					});
+                    h.get('swipe').set({
+                        direction: Hammer.DIRECTION_NONE
+                    });
 
-					h.get('swipe').set({
-						direction: Hammer.DIRECTION_ALL
-					});
+                    $(this).removeClass('active')
+                        .addClass('disable');
 
-					$(this).removeClass('disable')
-						.addClass('active');
+                    $(this).attr('data-mode', 'enable');
+                }
+            });
 
-					$(this).attr('data-mode', 'disable');
-				}
-			});
-		});
-	};
+            elem.on('click', '[data-ui="mention-gesture"][data-mode="enable"]', function (e) {
+                e.preventDefault();
 
-    $(document).bind('ajaxStop', function() {
-		mentionGestureRenderer();
-	});
+                if ($(this).hasClass('disable')) {
+                    $(this).closest('.post-content').css({
+                        'touch-action': 'none',
+                        'user-select': 'none',
+                        '-webkit-user-drag': 'none',
+                        '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)'
+                    });
 
-	$(document).ready(function() {
-		mentionGestureRenderer();
-	});
-}
-(window.jQuery, window, document);
+                    h.get('swipe').set({
+                        direction: Hammer.DIRECTION_ALL
+                    });
+
+                    $(this).removeClass('disable')
+                        .addClass('active');
+
+                    $(this).attr('data-mode', 'disable');
+                }
+            });
+        });
+    };
+
+    $(document).bind('ajaxStop', function () {
+        mentionGestureRenderer();
+    });
+
+    $(document).ready(function () {
+        mentionGestureRenderer();
+    });
+}(window.jQuery, window, document);

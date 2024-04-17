@@ -1,185 +1,184 @@
 if (window.jQuery === undefined) jQuery = $ = {};
 
 !function ($, window, document) {
-	"use strict";
+    "use strict";
 
-	$(function () {
-		Storages.cookieStorage.setConf({
-			expires: 30
-		});
+    $(function () {
+        Storages.cookieStorage.setConf({
+            expires: 30
+        });
 
-		$(document).on('click', '.js-App-Theme-ModeSwitcher', function (e) {
-			if ($(this).find('input').is(':checked')) {
-				$(this).find('input').attr('checked', true);
-				$('body').addClass('app-night-mode');
+        $(document).on('click', '.js-App-Theme-ModeSwitcher', function (e) {
+            if ($(this).find('input').is(':checked')) {
+                $(this).find('input').attr('checked', true);
+                $('body').addClass('app-night-mode');
 
-				Storages.cookieStorage.set('night_mode', true);
-			} else {
-				$(this).find('input').attr('checked', false);
-				$('body').removeClass('app-night-mode');
+                Storages.cookieStorage.set('night_mode', true);
+            } else {
+                $(this).find('input').attr('checked', false);
+                $('body').removeClass('app-night-mode');
 
-				Storages.cookieStorage.remove('night_mode');
-			}
-		});
-	});
+                Storages.cookieStorage.remove('night_mode');
+            }
+        });
+    });
 
-	$(function () {
-		$(document).on('click', '.app-install .btn-install-next', function (e) {
-			switch ($(this).attr('data-step')) {
-				case ('1a'):
-					$('.hello-logo').addClass('d-none');
-					$('.step1a p').text('Proceed to installation.');
+    $(function () {
+        $(document).on('click', '.app-install .btn-install-next', function (e) {
+            switch ($(this).attr('data-step')) {
+                case ('1a'):
+                    $('.hello-logo').addClass('d-none');
+                    $('.step1a p').text('Proceed to installation.');
 
-					$(this).addClass('button-highlight');
+                    $(this).addClass('button-highlight');
 
-					$('.logo:not(.hello-logo)').fadeIn('fast');
+                    $('.logo:not(.hello-logo)').fadeIn('fast');
 
-					$('.logo:not(.hello-logo)')
-						.removeClass('install-index')
-						.addClass('install')
-						.addClass('step1a');
+                    $('.logo:not(.hello-logo)')
+                        .removeClass('install-index')
+                        .addClass('install')
+                        .addClass('step1a');
 
-					document.getElementById('step1a-animate').beginElement();
+                    document.getElementById('step1a-animate').beginElement();
 
-					$(this)
-						.attr('data-step', '1b')
-						.find('i')
-						.removeClass('fa-check-circle')
-						.addClass('fa-arrow-alt-circle-right')
-						.closest('button')
-						.find('span')
-						.text('Next');
+                    $(this)
+                        .attr('data-step', '1b')
+                        .find('i')
+                        .removeClass('fa-check-circle')
+                        .addClass('fa-arrow-alt-circle-right')
+                        .closest('button')
+                        .find('span')
+                        .text('Next');
 
-					setPercent(3);
-					consoleLogger('Setup is starting..');
+                    setPercent(3);
+                    consoleLogger('Setup is starting..');
 
-					break;
-				case ('1b'):
-					consoleLogger('License agreement');
+                    break;
+                case ('1b'):
+                    consoleLogger('License agreement');
 
-					$('.app-install .progress:not(.install-progress)').removeClass('d-none');
+                    $('.app-install .progress:not(.install-progress)').removeClass('d-none');
 
-					app.post("install?next", { 'step': 'step1b' }).done(function (response) {
-						if (response.status === "ok") {
-							consoleLogger('{ok}');
-							nextStep('step1c', '33%', '.22;.33', false, 'I agree');
+                    app.post("install?next", { 'step': 'step1b' }).done(function (response) {
+                        if (response.status === "ok") {
+                            consoleLogger('{ok}');
+                            nextStep('step1c', '33%', '.22;.33', false, 'I agree');
 
-							$('.app-install .progress:not(.install-progress)').addClass('d-none');
+                            $('.app-install .progress:not(.install-progress)').addClass('d-none');
 
-							$('.js-AppInstall-Steps').html(response.template);
+                            $('.js-AppInstall-Steps').html(response.template);
 
-							setPercent(5);
-						}
-					}).fail(function (xhr, status, err) {
-						console.log(status, err);
-					});
+                            setPercent(5);
+                        }
+                    }).fail(function (xhr, status, err) {
+                        console.log(status, err);
+                    });
 
-					break;
-				case ('1c'):
-					consoleLogger('Checking server requirements..');
-					
-					$('.app-install .progress:not(.install-progress)').removeClass('d-none');
+                    break;
+                case ('1c'):
+                    consoleLogger('Checking server requirements..');
 
-					app.post("install?next", { 'step': 'step1c' }).done(function (response) {
-						if (response.status === "ok") {
-							if (response.error.status === 'fail') {
-								consoleLogger('{fail}');
-								installError('step1d', '66%', '.33;.66', response.error.template);
-							} else {
-								consoleLogger('{ok}');
-								nextStep('step1d', '66%', '.33;.66', false);
-							}
+                    $('.app-install .progress:not(.install-progress)').removeClass('d-none');
 
-							$('.app-install .progress:not(.install-progress)').addClass('d-none');
+                    app.post("install?next", { 'step': 'step1c' }).done(function (response) {
+                        if (response.status === "ok") {
+                            if (response.error.status === 'fail') {
+                                consoleLogger('{fail}');
+                                installError('step1d', '66%', '.33;.66', response.error.template);
+                            } else {
+                                consoleLogger('{ok}');
+                                nextStep('step1d', '66%', '.33;.66', false);
+                            }
 
-							$('.js-AppInstall-Steps').html(response.template);
+                            $('.app-install .progress:not(.install-progress)').addClass('d-none');
 
-							setPercent(15);
-						}
-					}).fail(function (xhr, status, err) {
-						console.log(status, err);
-					});
+                            $('.js-AppInstall-Steps').html(response.template);
 
-					break;
-			}
-		});
-	});
+                            setPercent(15);
+                        }
+                    }).fail(function (xhr, status, err) {
+                        console.log(status, err);
+                    });
 
-	function nextStep(newStep, percent, animatePercent, error = false, buttonMessage = false) {
-		$('.logo').addClass(newStep);
+                    break;
+            }
+        });
+    });
 
-		var clonedStep = $('svg defs linearGradient:last').clone();
+    function nextStep(newStep, percent, animatePercent, error = false, buttonMessage = false) {
+        $('.logo').addClass(newStep);
 
-		$(clonedStep)
-			.attr('id', newStep)
-			.attr('offset', percent)
-			.find('animate').attr('values', animatePercent).attr('id', newStep + '-animate');
+        var clonedStep = $('svg defs linearGradient:last').clone();
 
-		if (error) {
-			$(clonedStep)
-				.find('stop:first')
-				.attr('stop-color', '#e53935');
-		}
+        $(clonedStep)
+            .attr('id', newStep)
+            .attr('offset', percent)
+            .find('animate').attr('values', animatePercent).attr('id', newStep + '-animate');
 
-		$('svg defs linearGradient:last').after(clonedStep);
+        if (error) {
+            $(clonedStep)
+                .find('stop:first')
+                .attr('stop-color', '#e53935');
+        }
 
-		document.getElementById(newStep + '-animate').beginElement();
+        $('svg defs linearGradient:last').after(clonedStep);
 
-		$('.app-install .btn-install-next')
-			.attr('data-step', newStep.replace('step', ''));
+        document.getElementById(newStep + '-animate').beginElement();
 
-		if (buttonMessage !== false) {
-			$('.app-install .btn-install-next')
-				.closest('button')
-				.find('span')
-				.text(buttonMessage)
-		} else {
-			$('.app-install .btn-install-next')
-				.closest('button')
-				.find('span')
-				.text('Next')
-		}
-	}
+        $('.app-install .btn-install-next')
+            .attr('data-step', newStep.replace('step', ''));
 
-	function installError(step, percent, animatePercent, template) {
-		nextStep(step, percent, animatePercent, 'error');
+        if (buttonMessage !== false) {
+            $('.app-install .btn-install-next')
+                .closest('button')
+                .find('span')
+                .text(buttonMessage)
+        } else {
+            $('.app-install .btn-install-next')
+                .closest('button')
+                .find('span')
+                .text('Next')
+        }
+    }
 
-		$('.app-install .progress:not(.install-progress)').addClass('d-none');
-		$('.app-install').addClass('error');
+    function installError(step, percent, animatePercent, template) {
+        nextStep(step, percent, animatePercent, 'error');
 
-		$('.app-install')
-			.find('.btn-install-next')
-			.remove();
+        $('.app-install .progress:not(.install-progress)').addClass('d-none');
+        $('.app-install').addClass('error');
 
-		$('.app-install-block .app-install').before(template);
-	}
+        $('.app-install')
+            .find('.btn-install-next')
+            .remove();
 
-	function setPercent(percent) {
-		var realPercent = percent + '%';
+        $('.app-install-block .app-install').before(template);
+    }
 
-		$('.app-install .progress.install-progress .progress-bar')
-			.attr('aria-valuenow', percent)
-			.css('width', realPercent)
-			.text(realPercent);
+    function setPercent(percent) {
+        var realPercent = percent + '%';
 
-		document.title = app.phrase.default_title + " " + realPercent;
+        $('.app-install .progress.install-progress .progress-bar')
+            .attr('aria-valuenow', percent)
+            .css('width', realPercent)
+            .text(realPercent);
 
-		return realPercent;
-	}
+        document.title = app.phrase.default_title + " " + realPercent;
 
-	function consoleLogger(message) {
-		var outputFormat = {
-			ok: "color: green;",
-			fail: "color: red"
-		};
+        return realPercent;
+    }
 
-		if (message == '{fail}') {
-			console.log('%c FAIL', outputFormat['fail']);
-		} else if (message == '{ok}') {
-			console.log('%c SUCCESS', outputFormat['ok']);
-		} else {
-			console.log(message);
-		}
-	}
-}
-(window.jQuery, window, document);
+    function consoleLogger(message) {
+        var outputFormat = {
+            ok: "color: green;",
+            fail: "color: red"
+        };
+
+        if (message == '{fail}') {
+            console.log('%c FAIL', outputFormat['fail']);
+        } else if (message == '{ok}') {
+            console.log('%c SUCCESS', outputFormat['ok']);
+        } else {
+            console.log(message);
+        }
+    }
+}(window.jQuery, window, document);

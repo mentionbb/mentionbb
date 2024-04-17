@@ -4,8 +4,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
     "use strict";
 
     $.fn.extend({
-        isChanged: function() { 
-            return this.data("changed"); 
+        isChanged: function () {
+            return this.data("changed");
         },
 
         //https://stackoverflow.com/a/8015864
@@ -18,8 +18,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
             return false;
         },
 
-        trackChanges: function() {
-            $(":input",this).change(function() {
+        trackChanges: function () {
+            $(":input", this).change(function () {
                 $(this.form).data("changed", true);
             });
         },
@@ -384,25 +384,25 @@ if (window.jQuery === undefined) jQuery = $ = {};
             }
         },
 
-        replaceText: function(search, replace, text_only) {
-            return this.each(function(){
+        replaceText: function (search, replace, text_only) {
+            return this.each(function () {
                 var node = this.firstChild,
-                val, new_val, remove = [];
-                if ( node ) {
+                    val, new_val, remove = [];
+                if (node) {
                     do {
-                        if ( node.nodeType === 3 ) {
-                        val = node.nodeValue;
-                        new_val = val.replace( search, replace );
-                        if ( new_val !== val ) {
-                                if ( !text_only && /</.test( new_val ) ) {
-                                    $(node).before( new_val );
-                                    remove.push( node );
+                        if (node.nodeType === 3) {
+                            val = node.nodeValue;
+                            new_val = val.replace(search, replace);
+                            if (new_val !== val) {
+                                if (!text_only && /</.test(new_val)) {
+                                    $(node).before(new_val);
+                                    remove.push(node);
                                 } else {
                                     node.nodeValue = new_val;
                                 }
                             }
                         }
-                    } while ( node = node.nextSibling );
+                    } while (node = node.nextSibling);
                 }
                 remove.length && $(remove).remove();
             });
@@ -413,7 +413,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
         path: '/',
         expires: 30
     });
-    
+
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
             navigator.serviceWorker.register(app.config.settings.site_url + '/service-worker.js').then(function (registration) {
@@ -441,7 +441,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
     });
 
     $(document).on("click", '[data-ui="show-editor"], .app-post-create .bootstrap-select > .dropdown-menu a', function () {
-        if(!tinymce.get('post-editor') || $(".app-post-create .app-writer-area").hasClass('d-none')) {
+        if (!tinymce.get('post-editor') || $(".app-post-create .app-writer-area").hasClass('d-none')) {
             $(".app-post-create .progress").removeClass("d-none");
 
             app.editorConfig("#post-editor");
@@ -470,7 +470,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                     .removeClass("slideIn");
             }, 500);
 
-            if($(".app-writer-area").closest('.app-post-container').length) {
+            if ($(".app-writer-area").closest('.app-post-container').length) {
                 setTimeout(function () {
                     $(".app-post-container")
                         .removeClass("animate")
@@ -480,9 +480,9 @@ if (window.jQuery === undefined) jQuery = $ = {};
         }
     });
 
-    $(function() {
+    $(function () {
         $(".navbar .search-container :input").donetyping(function () {
-            if($(this).val().length > 0 && $(this).val() != ' ') {
+            if ($(this).val().length > 0 && $(this).val() != ' ') {
                 $('.navbar .search-container').addClass('show');
 
                 $('.navbar .search-container > .search-results').addClass('animate');
@@ -496,24 +496,24 @@ if (window.jQuery === undefined) jQuery = $ = {};
                     keyword: $(this).val()
                 };
 
-                if($('body .search-results-backdrop').length < 1) {
+                if ($('body .search-results-backdrop').length < 1) {
                     $('body').append('<div class="modal-backdrop search-results-backdrop show"></div>');
                 }
-                
+
                 $(".navbar").css("z-index", "1041");
                 $(".navbar").addClass('sticky-top');
 
-                app.post("search/quick-search", dataString).done(function(response) {
-                    if(response.status === "ok") {
+                app.post("search/quick-search", dataString).done(function (response) {
+                    if (response.status === "ok") {
                         $('.navbar .search-container > .search-results .load-area').removeClass('d-block');
                         $('.navbar .search-container > .search-results .load-area').addClass('d-none');
 
                         $('.navbar .search-container > .search-results .load-area').after(response.template);
 
-                        $('.navbar .search-container > .search-results .discussions a > span').replaceText(new RegExp('('+dataString.keyword+')', 'gi'), '<span class="font-weight-bold">$1</span>');
-                        $('.navbar .search-container > .search-results .users a > span').replaceText(new RegExp('('+dataString.keyword+')', 'gi'), '<span class="font-weight-bold">$1</span>');
+                        $('.navbar .search-container > .search-results .discussions a > span').replaceText(new RegExp('(' + dataString.keyword + ')', 'gi'), '<span class="font-weight-bold">$1</span>');
+                        $('.navbar .search-container > .search-results .users a > span').replaceText(new RegExp('(' + dataString.keyword + ')', 'gi'), '<span class="font-weight-bold">$1</span>');
                     }
-                }).fail(function(xhr, status, err) {
+                }).fail(function (xhr, status, err) {
                     console.log(status, err);
                 });
             }
@@ -524,7 +524,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
         $('.navbar .search-container').removeClass('show');
 
         //$('.navbar .search-container > .search-results .load-area').nextAll().remove();
-        
+
         $('.navbar .search-container > .search-results').addClass('d-none');
 
         $('.navbar .search-container > .search-results').removeClass('animate');
@@ -553,7 +553,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
     });
 
     $(document).on('click', '.navbar .search-container input[type="text"]', function (e) {
-        if($('.navbar .search-container > .search-results .load-area').nextAll().length > 0) {
+        if ($('.navbar .search-container > .search-results .load-area').nextAll().length > 0) {
             $('.navbar .search-container').addClass('show');
 
             $('.navbar .search-container > .search-results').removeClass('d-none');
@@ -561,29 +561,29 @@ if (window.jQuery === undefined) jQuery = $ = {};
             $('.navbar .search-container > .search-results').addClass('animate');
             $('.navbar .search-container > .search-results').addClass('fadeIn');
 
-            if($('body .search-results-backdrop').length < 1) {
+            if ($('body .search-results-backdrop').length < 1) {
                 $('body').append('<div class="modal-backdrop search-results-backdrop show"></div>');
             }
-            
+
             $(".navbar").css("z-index", "1041");
             $(".navbar").addClass('sticky-top');
         }
     });
 
     $(document).on('click', '.notification .friendship-request-buttons > button', function (e) {
-        if($(this).hasClass('approve')) {
+        if ($(this).hasClass('approve')) {
             var elem = $(this);
 
             var dataString = {
                 sender_id: $(this).closest('.friendship-request-buttons').data('sender-id')
             };
 
-            app.post("account/approve-request-friend", dataString).done(function(response) {
-                if(response.status === "ok") {
+            app.post("account/approve-request-friend", dataString).done(function (response) {
+                if (response.status === "ok") {
                     elem.closest('.friendship-request-buttons').find('.approved-friendship-request').show();
                     elem.closest('.friendship-request-buttons').find('button').remove();
                 }
-            }).fail(function(xhr, status, err) {
+            }).fail(function (xhr, status, err) {
                 console.log(status, err);
             });
         } else {
@@ -593,19 +593,19 @@ if (window.jQuery === undefined) jQuery = $ = {};
                 sender_id: $(this).closest('.friendship-request-buttons').data('sender-id')
             };
 
-            app.post("account/remove-friend", dataString).done(function(response) {
-                if(response.status === "ok") {
+            app.post("account/remove-friend", dataString).done(function (response) {
+                if (response.status === "ok") {
                     elem.closest('.friendship-request-buttons').find('.removed-friendship-request').show();
                     elem.closest('.friendship-request-buttons').find('button').remove();
                 }
-            }).fail(function(xhr, status, err) {
+            }).fail(function (xhr, status, err) {
                 console.log(status, err);
             });
         }
     });
 
-    $('.checkbox.switcher > label').on('click', function() {
-        if(!$(this).find('input').is(':checked')) {
+    $('.checkbox.switcher > label').on('click', function () {
+        if (!$(this).find('input').is(':checked')) {
             $(this).find('input').removeAttr('checked');
         } else {
             $(this).find('input').attr('checked', true);
@@ -625,7 +625,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
         });
     });
 
-    $(function() {
+    $(function () {
         var cookieAlert = document.querySelector(".cookiealert");
         var acceptCookies = document.querySelector(".acceptcookies");
 
@@ -649,17 +649,17 @@ if (window.jQuery === undefined) jQuery = $ = {};
         }
     });
 
-    $(document).on('focusin', function(e) {
+    $(document).on('focusin', function (e) {
         if ($(e.target).closest(".tox-tinymce, .tox-tinymce-aux, .moxman-window, .tam-assetmanager-root").length) {
             e.stopImmediatePropagation();
         }
     });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         app.initTooltip();
     });
 
-    $(document).bind('ajaxStop', function() {
+    $(document).bind('ajaxStop', function () {
         app.initTooltip();
     });
 })(window.jQuery, window, document);

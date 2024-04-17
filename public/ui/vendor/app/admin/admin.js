@@ -312,19 +312,19 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
                 var optionsArray = {};
                 $('#route_filters_edit [name^="options"]').each(function (index) {
-                    var routeName = /\[([a-zA-Z0-9_]+)\]/g.exec($(this).attr('name'))[1];                        
+                    var routeName = /\[([a-zA-Z0-9_]+)\]/g.exec($(this).attr('name'))[1];
 
-                    $('#route_filters_edit [name^="options['+ routeName +']"]').each(function (index) {
+                    $('#route_filters_edit [name^="options[' + routeName + ']"]').each(function (index) {
                         var name = $(this).attr('name').split('[').pop().replace(']', '');
                         optionsArray[routeName] = {
                             path: {
-                                value: $('#route_filters_edit [name="options['+ routeName +'][path]"]').val()
+                                value: $('#route_filters_edit [name="options[' + routeName + '][path]"]').val()
                             },
                             controller: {
-                                value: $('#route_filters_edit [name="options['+ routeName +'][controller]"]').val()
+                                value: $('#route_filters_edit [name="options[' + routeName + '][controller]"]').val()
                             }
                         };
-                    });     
+                    });
                 });
 
                 dataString.append('options', JSON.stringify(optionsArray));
@@ -419,7 +419,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                 submitHandler: function (form, e) {
                     e.preventDefault();
 
-                    if(!formd.isChanged()) {
+                    if (!formd.isChanged()) {
                         return false;
                     }
 
@@ -481,69 +481,69 @@ if (window.jQuery === undefined) jQuery = $ = {};
     });
 
     $(document).on('click', '[data-template="@ComponentBundle/admin/forums"] [data-ui="admin-remove-node"]', function (e) {
-		e.preventDefault();
-		e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
 
-		var dataString = {
-			forum_id: $(this).closest('[data-forum-id]').data('forum-id')
-		};
+        var dataString = {
+            forum_id: $(this).closest('[data-forum-id]').data('forum-id')
+        };
 
-		var elem = $(this);
+        var elem = $(this);
 
-		$('.app-box .progress').removeClass('d-none');  
+        $('.app-box .progress').removeClass('d-none');
 
-		app.post("admin/forums?removeNode", dataString).done(function(response) {
-			if(response.status === "ok") {
-				$('.app-box .progress').addClass('d-none');     
+        app.post("admin/forums?removeNode", dataString).done(function (response) {
+            if (response.status === "ok") {
+                $('.app-box .progress').addClass('d-none');
 
-				if($('#forum-delete[data-forum-id="'+dataString.forum_id+'"]').length < 1) {
-					$('body').append(response.template);
+                if ($('#forum-delete[data-forum-id="' + dataString.forum_id + '"]').length < 1) {
+                    $('body').append(response.template);
 
-					$('#forum-delete[data-forum-id="'+dataString.forum_id+'"]').modal();
-				} else {
-					$('#forum-delete[data-forum-id="'+dataString.forum_id+'"]').modal();
-				}
-			}
-		}).fail(function(xhr, status, err) {
-			console.log(status, err);
-		});
-	});
+                    $('#forum-delete[data-forum-id="' + dataString.forum_id + '"]').modal();
+                } else {
+                    $('#forum-delete[data-forum-id="' + dataString.forum_id + '"]').modal();
+                }
+            }
+        }).fail(function (xhr, status, err) {
+            console.log(status, err);
+        });
+    });
 
-    $(document).bind('ajaxStop', function() {
-		$('#forum-delete form').each(function() {
-			var forum_id = $(this).closest('#forum-delete').data('forum-id');
+    $(document).bind('ajaxStop', function () {
+        $('#forum-delete form').each(function () {
+            var forum_id = $(this).closest('#forum-delete').data('forum-id');
 
-			$(this).validate({
-				onfocusout: false,
-				submitHandler: function(form,e) {
-					e.preventDefault();
+            $(this).validate({
+                onfocusout: false,
+                submitHandler: function (form, e) {
+                    e.preventDefault();
 
-					var elem = $('#forum-delete[data-forum-id="'+forum_id+'"]');
+                    var elem = $('#forum-delete[data-forum-id="' + forum_id + '"]');
 
-					elem.find('button').attr('disabled', true);
+                    elem.find('button').attr('disabled', true);
 
-					var dataString = {
-						forum_id: forum_id
-					};
+                    var dataString = {
+                        forum_id: forum_id
+                    };
 
-					app.post("admin/forums?removeNodeComplete", dataString).done(function(response) {
-						if(response.status === "ok") {
-							elem.find('button').addClass('succeeded');
-							elem.find('button').text(elem.find('button').data('complete-text'));
+                    app.post("admin/forums?removeNodeComplete", dataString).done(function (response) {
+                        if (response.status === "ok") {
+                            elem.find('button').addClass('succeeded');
+                            elem.find('button').text(elem.find('button').data('complete-text'));
 
-							elem.find('span.close').click();
+                            elem.find('span.close').click();
 
-                            $('[data-forum-id="'+dataString.forum_id+'"]').closest('.list').remove();
+                            $('[data-forum-id="' + dataString.forum_id + '"]').closest('.list').remove();
 
-							app.flashMessage(app.phrases.alert_messages.forum_delete_successfull);
-						}
-					}).fail(function(xhr, status, err) {
-						console.log(status, err);
-					});
-				}
-			});
-		});
-	});
+                            app.flashMessage(app.phrases.alert_messages.forum_delete_successfull);
+                        }
+                    }).fail(function (xhr, status, err) {
+                        console.log(status, err);
+                    });
+                }
+            });
+        });
+    });
 
     $(function () {
         $("#admin_users_new").validate({
@@ -586,76 +586,76 @@ if (window.jQuery === undefined) jQuery = $ = {};
             submitHandler: function (form, e) {
                 e.preventDefault();
 
-                if($("#admin_users_edit").isChanged() || $('#admin_users_edit .profile-picture img').data('default') == true) {
-					$('.app-box .progress').removeClass('d-none');
+                if ($("#admin_users_edit").isChanged() || $('#admin_users_edit .profile-picture img').data('default') == true) {
+                    $('.app-box .progress').removeClass('d-none');
 
-					var dataString = new FormData();
+                    var dataString = new FormData();
 
                     dataString.append('username', $('#admin_users_edit input[name="username"]').val());
 
-                    if($('#admin_users_edit input[name="password"]').val()) {
-						dataString.append('password', $('#admin_users_edit input[name="password"]').val());
-					}
+                    if ($('#admin_users_edit input[name="password"]').val()) {
+                        dataString.append('password', $('#admin_users_edit input[name="password"]').val());
+                    }
 
-					if($('#admin_users_edit input[name="title"]').val()) {
-						dataString.append('title', $('#admin_users_edit input[name="title"]').val());
-					}
+                    if ($('#admin_users_edit input[name="title"]').val()) {
+                        dataString.append('title', $('#admin_users_edit input[name="title"]').val());
+                    }
 
-					if($("#admin_users_edit #profile_picture").val()) {
-						dataString.append('acs_profile_picture', $("#admin_users_edit #profile_picture").get(0).files[0]);
-						if ($("#admin_users_edit #profile_picture").get(0).files[0] > app.config.settings.profile_photo_max_size) {
-							$('.app-box .progress').addClass('d-none');
-							app.flashMessage(app.phrases.profile_photo_max_size, 'warning');
-							return false;
-						}
+                    if ($("#admin_users_edit #profile_picture").val()) {
+                        dataString.append('acs_profile_picture', $("#admin_users_edit #profile_picture").get(0).files[0]);
+                        if ($("#admin_users_edit #profile_picture").get(0).files[0] > app.config.settings.profile_photo_max_size) {
+                            $('.app-box .progress').addClass('d-none');
+                            app.flashMessage(app.phrases.profile_photo_max_size, 'warning');
+                            return false;
+                        }
 
                         $('#admin_users_edit .profile-picture img').attr('data-default', false);
-					}
+                    }
 
-					if($('#admin_users_edit .profile-picture img').data('default') == true) {
-						dataString.append('profile_picture_ready', $('#admin_users_edit .profile-picture img').data('name'));
-					}
+                    if ($('#admin_users_edit .profile-picture img').data('default') == true) {
+                        dataString.append('profile_picture_ready', $('#admin_users_edit .profile-picture img').data('name'));
+                    }
 
-					if($('#admin_users_edit input[name="mail"]').val()) {
-						dataString.append('mail', $('#admin_users_edit input[name="mail"]').val());
-					}
+                    if ($('#admin_users_edit input[name="mail"]').val()) {
+                        dataString.append('mail', $('#admin_users_edit input[name="mail"]').val());
+                    }
 
                     dataString.append('role', $('#admin_users_edit select[name="role"]').val());
 
                     dataString.append('user_id', $('#admin_users_edit input[name="user_id"]').val());
 
-					app.post("admin/users?edit", dataString, false, false).done(function(response) {
-						if(response.status === "ok") {
-							$('.app-box .progress').addClass('d-none');
+                    app.post("admin/users?edit", dataString, false, false).done(function (response) {
+                        if (response.status === "ok") {
+                            $('.app-box .progress').addClass('d-none');
 
-							app.flashMessage(app.phrases.alert_messages.user_edit_successfull);
+                            app.flashMessage(app.phrases.alert_messages.user_edit_successfull);
 
                             window.location.replace(
                                 $('.app-box[data-tab="users"] a.back').attr('href')
                             );
-						}
-					}).fail(function(xhr, status, err) {
-						console.log(status, err);
-					});
-				}
+                        }
+                    }).fail(function (xhr, status, err) {
+                        console.log(status, err);
+                    });
+                }
             }
         });
     });
 
-    $(document).on('change', '[data-template="@ComponentBundle/admin/edit_user"] #profile_picture', function() {
-		var reader = new FileReader();
-		reader.onload = function (e) {
-			$('#admin_users_edit .profile-picture > label > img').attr('src', e.target.result);
-		}
+    $(document).on('change', '[data-template="@ComponentBundle/admin/edit_user"] #profile_picture', function () {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#admin_users_edit .profile-picture > label > img').attr('src', e.target.result);
+        }
 
-		reader.readAsDataURL($(this).get(0).files[0]);
-	});
+        reader.readAsDataURL($(this).get(0).files[0]);
+    });
 
     $(document).on('click', '[data-template="@ComponentBundle/admin/edit_user"] [data-ui="remove-pp"]', function (e) {
         e.preventDefault();
-		e.stopPropagation();
+        e.stopPropagation();
 
-        $(this).closest('.profile-picture').find('img').attr('src', 
+        $(this).closest('.profile-picture').find('img').attr('src',
             $(this).closest('.profile-picture').data('default')
         );
         $(this).closest('.profile-picture').find('img').attr('data-default', true);
@@ -696,8 +696,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
         $('.app-box .progress').removeClass('d-none');
 
         var dataString = {
-			ban_id: $(this).closest('.app-banning-flag').data('ban-id')
-		};
+            ban_id: $(this).closest('.app-banning-flag').data('ban-id')
+        };
 
         app.post("admin/users?unban", dataString).done(function (response) {
             if (response.status === "ok") {
@@ -710,12 +710,12 @@ if (window.jQuery === undefined) jQuery = $ = {};
         });
     });
 
-    $(document).on('change', '[data-template="@ComponentBundle/admin/addons/list"] [data-ui="addon-switcher"] [type="checkbox"]', function() {
+    $(document).on('change', '[data-template="@ComponentBundle/admin/addons/list"] [data-ui="addon-switcher"] [type="checkbox"]', function () {
         $('.app-box .progress').removeClass('d-none');
 
         var dataString = {
-			addon_name: $(this).closest('.app-addon').data('name')
-		};
+            addon_name: $(this).closest('.app-addon').data('name')
+        };
 
         if (!this.checked) {
             app.post("admin/addons?disableAddon", dataString).done(function (response) {
@@ -779,7 +779,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                 value: $('.content').text()
             });
         }
-        
+
         $("#admin_addons_app").validate({
             submitHandler: function (form, e) {
                 e.preventDefault();
@@ -810,13 +810,13 @@ if (window.jQuery === undefined) jQuery = $ = {};
             e.preventDefault();
 
             $('.app-box .progress').removeClass('d-none');
-    
+
             $('#editor').addClass('d-none');
             $('.sticky-button').addClass('d-none');
 
             $('#originalContent-editor').show();
             $('#originalContent-editor').addClass('show');
-            if($('#originalContent-editor').html().trim().length < 1) {
+            if ($('#originalContent-editor').html().trim().length < 1) {
                 var originalModel = monaco.editor.createModel(
                     $('.originalContent').text(),
                     'php'
@@ -834,7 +834,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                 diffEditor.setModel({
                     original: originalModel,
                     modified: modifiedModel
-                });                
+                });
             }
 
             $(this).addClass('d-none');
@@ -988,7 +988,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                         $('.app-style-editor').find('.head-title > span').text(dataString.file);
 
                         editor.setValue(response.content);
-                        editor.setScrollPosition({scrollTop: 0});
+                        editor.setScrollPosition({ scrollTop: 0 });
                     }
                 });
             });
@@ -996,18 +996,18 @@ if (window.jQuery === undefined) jQuery = $ = {};
             $("#admin_theme_editor").validate({
                 submitHandler: function (form, e) {
                     e.preventDefault();
-    
+
                     $('.progress').removeClass('d-none');
-    
+
                     var dataString = new FormData();
-    
+
                     dataString.append('name', $('.js-AppAdmin_ThemeStyleSelector select').val());
                     dataString.append('content', editor.getValue());
-    
+
                     app.post("admin/theme?updateCssFile", dataString, false, false).done(function (response) {
                         if (response.status === "ok") {
                             $('.progress').addClass('d-none');
-    
+
                             app.flashMessage(app.phrases.alert_messages.saved_successfull);
                         }
                     });
@@ -1016,9 +1016,9 @@ if (window.jQuery === undefined) jQuery = $ = {};
         }
     });
 
-    $(function() {
+    $(function () {
         $(document).on('click', '.directory-list li.folder > span', function (e) {
-            if($(this).hasClass('active')) {
+            if ($(this).hasClass('active')) {
                 $(this).next('ul').addClass('d-none');
                 $(this).removeClass('active');
             } else {
@@ -1042,93 +1042,93 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
             $(document).on('click', '.directory-list li:not(.folder) > span', function (e) {
                 var elem = $(this);
-    
+
                 $('.app-box .progress').removeClass('d-none');
-    
+
                 var dataString = {
                     template: $(this).data('template'),
                     file: $(this).data('path')
                 };
-    
+
                 app.post("admin/templates?getTemplate", dataString).done(function (response) {
                     if (response.status === "ok") {
                         $('.app-box .progress').addClass('d-none');
-    
+
                         $('.app-template-editor').find('.head-title > span').text(dataString.template);
                         $('.directory-list li:not(.folder) > span').removeClass('active');
                         elem.addClass('active');
-    
+
                         editor.setValue(response.content);
-                        editor.setScrollPosition({scrollTop: 0});
-                        
-                        if(response.originalContent) {
+                        editor.setScrollPosition({ scrollTop: 0 });
+
+                        if (response.originalContent) {
                             $('.app-template-editor').find('.head-title').next().removeClass('d-none');
-    
+
                             $('#originalContent-editor').after('<div class="originalContent d-none"></div>');
                             $('.originalContent').text(response.originalContent);
                         } else {
-                            if(!$('.app-template-editor').find('.head-title').next().hasClass('d-none')) {
+                            if (!$('.app-template-editor').find('.head-title').next().hasClass('d-none')) {
                                 $('.app-template-editor').find('.head-title').next().addClass('d-none');
                             }
-    
+
                             $('.originalContent').remove();
                         }
-    
+
                         window.history.pushState(null, null, app.config.settings.admin_url + '/templates?path=[' + dataString.file + ']');
                     }
                 });
             });
-    
+
             $("#admin_template_editor").validate({
                 submitHandler: function (form, e) {
                     e.preventDefault();
-    
+
                     $('.progress').removeClass('d-none');
-    
+
                     var dataString = new FormData();
-    
+
                     dataString.append('name', $('.js-AppAdmin_TemplateSelector .directory-list span.active:not(.folder-name)').data('template'));
                     dataString.append('path', $('.js-AppAdmin_TemplateSelector .directory-list span.active:not(.folder-name)').data('path'));
                     dataString.append('content', editor.getValue());
-    
+
                     app.post("admin/templates?updateTemplate", dataString, false, false).done(function (response) {
                         if (response.status === "ok") {
                             $('.progress').addClass('d-none');
-    
+
                             app.flashMessage(app.phrases.alert_messages.saved_successfull);
                         } else if (response.status === "exception-twig-syntax") {
                             $('.progress').addClass('d-none');
-    
+
                             $('#twig-syntax-exception').find('code').text(response.message);
                             $('#twig-syntax-exception').modal();
                         }
                     });
                 }
             });
-    
+
             var templateName_regex = /path=\[(.*?)\.twig\]$/g;
-    
+
             if (window.location.href.match(templateName_regex)) {
                 var templateName_id = templateName_regex.exec(window.location.href);
-    
+
                 $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + templateName_id[1] + '.twig"]').click();
                 $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + templateName_id[1] + '.twig"]').closest('ul').prev('span').click();
             } else {
                 $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + $('.js-AppAdmin_TemplateSelector').data('default') + '"]').click();
                 $('.js-AppAdmin_TemplateSelector .directory-list span[data-path="' + $('.js-AppAdmin_TemplateSelector').data('default') + '"]').closest('ul').prev('span').click();
             }
-    
+
             $(document).on('click', '[data-template="@ComponentBundle/admin/theme/templates/editor"] a[data-ui="app-show-originalContent"]', function (e) {
                 e.preventDefault();
-    
+
                 $('.app-box .progress').removeClass('d-none');
-        
+
                 $('#editor').addClass('d-none');
                 $('.sticky-button').addClass('d-none');
-    
+
                 $('#originalContent-editor').show();
                 $('#originalContent-editor').addClass('show');
-                if($('#originalContent-editor').html().trim().length < 1) {
+                if ($('#originalContent-editor').html().trim().length < 1) {
                     var originalModel = monaco.editor.createModel(
                         $('.originalContent').text(),
                         'twig'
@@ -1137,7 +1137,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                         editor.getValue(),
                         'twig'
                     );
-    
+
                     var diffEditor = monaco.editor.createDiffEditor(document.getElementById('originalContent-editor'), {
                         enableSplitViewResizing: false,
                         renderSideBySide: false,
@@ -1148,27 +1148,27 @@ if (window.jQuery === undefined) jQuery = $ = {};
                         modified: modifiedModel
                     });
                 }
-    
+
                 $(this).addClass('d-none');
                 $(this).next().removeClass('d-none');
-    
+
                 $('.app-box .progress').addClass('d-none');
             });
-    
+
             $(document).on('click', '[data-template="@ComponentBundle/admin/theme/templates/editor"] a[data-ui="app-show-content"]', function (e) {
                 e.preventDefault();
-    
+
                 $('.app-box .progress').removeClass('d-none');
-    
+
                 $('#editor').removeClass('d-none');
                 $('.sticky-button').removeClass('d-none');
-    
+
                 $('#originalContent-editor').remove();
                 $('.originalContent').after('<div id="originalContent-editor"></div>');
-    
+
                 $(this).addClass('d-none');
                 $(this).prev().removeClass('d-none');
-    
+
                 $('.app-box .progress').addClass('d-none');
             });
         };
@@ -1250,7 +1250,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
         $(".js-AppAdmin_QuickSearchLanguage_Phrases").find(".form-control-clear").click(function () {
             $(".app-language-phrase .head-title").find('.text').addClass('d-none');
-            $(".app-language-phrase .head-title .phrase").each(function() {
+            $(".app-language-phrase .head-title .phrase").each(function () {
                 $(this).html(
                     $(this).data('text')
                 );
@@ -1260,14 +1260,14 @@ if (window.jQuery === undefined) jQuery = $ = {};
         });
     });
 
-    $(document).on('change', '[data-template="@ComponentBundle/admin/languages/list"] [data-ui="language-switcher"] [type="checkbox"]', function() {
+    $(document).on('change', '[data-template="@ComponentBundle/admin/languages/list"] [data-ui="language-switcher"] [type="checkbox"]', function () {
         $('.app-box .progress').removeClass('d-none');
 
         var elem = $(this);
 
         var dataString = {
-			name: $(this).closest('.app-language').find('[data-language-id]').data('language-id')
-		};
+            name: $(this).closest('.app-language').find('[data-language-id]').data('language-id')
+        };
 
         if (!this.checked) {
             $(this).prop('checked', true);
@@ -1348,34 +1348,34 @@ if (window.jQuery === undefined) jQuery = $ = {};
         if ($('[data-template="@ComponentBundle/admin/languages/sentences"]').length) {
             $(document).on('click', '.directory-list li:not(.folder) > span', function (e) {
                 var elem = $(this);
-    
+
                 $('.app-box .progress').removeClass('d-none');
-    
+
                 var dataString = {
                     connectLanguage: $(this).data('language'),
                     language: $(this).data('file'),
                     file: $(this).data('path')
                 };
-    
+
                 app.post("admin/languages?getLanguage", dataString).done(function (response) {
                     if (response.status === "ok") {
                         $('.app-box .progress').addClass('d-none');
-    
+
                         $('.js-AppAdmin_LanguagesSentence_List .app-phrase-search').nextAll().remove();
                         $('.js-AppAdmin_LanguagesSentence_List .app-phrase-search').after(response.template);
                         $('.directory-list li:not(.folder) > span').removeClass('active');
                         elem.addClass('active');
-    
+
                         window.history.pushState(null, null, app.config.settings.admin_url + '/languages?sentences&path=[' + dataString.file + ']');
                     }
                 });
             });
 
             var languageName_regex = /path=\[(.*?)\.yaml\]$/g;
-    
+
             if (window.location.href.match(languageName_regex)) {
                 var languageName_id = languageName_regex.exec(window.location.href);
-    
+
                 $('.js-AppAdmin_LanguagesSentence .directory-list span[data-path="' + languageName_id[1] + '.yaml"]').click();
                 $('.js-AppAdmin_LanguagesSentence .directory-list span[data-path="' + languageName_id[1] + '.yaml"]').closest('ul').prev('span').click();
             } else {
@@ -1385,14 +1385,14 @@ if (window.jQuery === undefined) jQuery = $ = {};
         }
     });
 
-    $(function() {
+    $(function () {
         $(document).on('click', '.js-AppAdmin_QuickSearchSentences .app-searchSentences-selectLanguages [data-language]', function (e) {
             e.preventDefault();
 
             $('.js-AppAdmin_QuickSearchSentences .app-searchSentences-selectLanguages [data-language]').removeClass('active');
             $(this).addClass('active');
 
-            if($(this).data('language') !== '__default') {
+            if ($(this).data('language') !== '__default') {
                 $(this).closest('.dropdown-menu').prev('button').html(
                     $(this).find('.text').html()
                 );
@@ -1411,7 +1411,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
             $('.js-AppAdmin_QuickSearchSentences .app-searchSentences-selectAddon [data-addon]').removeClass('active');
             $(this).addClass('active');
 
-            if($(this).data('addon') !== '__default') {
+            if ($(this).data('addon') !== '__default') {
                 $(this).closest('.dropdown-menu').prev('button').html(
                     $(this).find('.text').text()
                 );
@@ -1442,8 +1442,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
                     $('.app-sentenceList').html(response.template);
                     $('.app-sentenceList').find('span.fi[data-language]').each(function (index, domEle) {
                         $(this)
-                        .addClass('fi-' + $('.app-searchSentences-selectLanguages [data-language="' + $(this).data('language') + '"]').data('flag'))
-                        .addClass('--xs');
+                            .addClass('fi-' + $('.app-searchSentences-selectLanguages [data-language="' + $(this).data('language') + '"]').data('flag'))
+                            .addClass('--xs');
                     });
 
                     $('.app-sentenceList .text').each(function (index, domEle) {
@@ -1469,7 +1469,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
         $(document).on('keypress', '.js-AppAdmin_QuickSearchSentences input', function (e) {
             if (e.which == 13) {
                 e.preventDefault();
-                
+
                 if ($('.js-AppAdmin_QuickSearchSentences input').val().length > 0) {
                     return searchSentences();
                 }
@@ -1481,7 +1481,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
         });
     });
 
-    $(function() {
+    $(function () {
         $(document).on('click', '.app-newLanguage-selectMain [data-language]', function (e) {
             e.preventDefault();
 
@@ -1499,7 +1499,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                     $('.app-box .progress').addClass('d-none');
 
                     $('#admin_languages_new').find('input[name="options[dir]"]').val(response.data.text_direction);
-                    $('#admin_languages_new').find('select[name="options[zone]"] option[value="'+response.data.timer.zone+'"]').attr('selected', 'selected');
+                    $('#admin_languages_new').find('select[name="options[zone]"] option[value="' + response.data.timer.zone + '"]').attr('selected', 'selected');
                     $('#admin_languages_new').find('input[name="options[format]"]').val(response.data.timer.format);
                     $('#admin_languages_new').find('input[name="options[date_format]"]').val(response.data.timer.date_format);
                     $('#admin_languages_new').find('input[name="options[date_format_simple]"]').val(response.data.timer.date_format_simple);
@@ -1530,7 +1530,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
                     optionsArray[name] = $(this).val();
                 });
-                
+
                 if ($('.app-newLanguage-selectMain [data-language].active').length > 0) {
                     dataString.append('copyLanguageName', $('.app-newLanguage-selectMain [data-language].active').data('language'));
                 } else {
@@ -1555,74 +1555,74 @@ if (window.jQuery === undefined) jQuery = $ = {};
     });
 
     $(document).on('click', '[data-template="@ComponentBundle/admin/languages/list"] [data-ui="admin-remove-language"]', function (e) {
-		e.preventDefault();
-		e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
 
-        if($(this).closest('[data-language-id]').find('[data-ui="language-switcher"] input').is(':checked')) {
+        if ($(this).closest('[data-language-id]').find('[data-ui="language-switcher"] input').is(':checked')) {
             app.flashMessage(app.phrases.alert_messages.language_remove_default_error, 'warning');
             return false;
         }
 
-		var dataString = {
-			language: $(this).closest('[data-language-id]').data('language-id')
-		};
+        var dataString = {
+            language: $(this).closest('[data-language-id]').data('language-id')
+        };
 
-		var elem = $(this);
+        var elem = $(this);
 
-		$('.app-box .progress').removeClass('d-none');  
+        $('.app-box .progress').removeClass('d-none');
 
-		app.post("admin/languages?remove", dataString).done(function(response) {
-			if(response.status === "ok") {
-				$('.app-box .progress').addClass('d-none');     
+        app.post("admin/languages?remove", dataString).done(function (response) {
+            if (response.status === "ok") {
+                $('.app-box .progress').addClass('d-none');
 
-				if($('#language-delete[data-language-id="'+dataString.language+'"]').length < 1) {
-					$('body').append(response.template);
+                if ($('#language-delete[data-language-id="' + dataString.language + '"]').length < 1) {
+                    $('body').append(response.template);
 
-					$('#language-delete[data-language-id="'+dataString.language+'"]').modal();
-				} else {
-					$('#language-delete[data-language-id="'+dataString.language+'"]').modal();
-				}
-			}
-		}).fail(function(xhr, status, err) {
-			console.log(status, err);
-		});
-	});
+                    $('#language-delete[data-language-id="' + dataString.language + '"]').modal();
+                } else {
+                    $('#language-delete[data-language-id="' + dataString.language + '"]').modal();
+                }
+            }
+        }).fail(function (xhr, status, err) {
+            console.log(status, err);
+        });
+    });
 
-    $(document).bind('ajaxStop', function() {
-		$('#language-delete form').each(function() {
-			var language_id = $(this).closest('#language-delete').data('language-id');
+    $(document).bind('ajaxStop', function () {
+        $('#language-delete form').each(function () {
+            var language_id = $(this).closest('#language-delete').data('language-id');
 
-			$(this).validate({
-				onfocusout: false,
-				submitHandler: function(form,e) {
-					e.preventDefault();
+            $(this).validate({
+                onfocusout: false,
+                submitHandler: function (form, e) {
+                    e.preventDefault();
 
-					var elem = $('#language-delete[data-language-id="'+language_id+'"]');
+                    var elem = $('#language-delete[data-language-id="' + language_id + '"]');
 
-					elem.find('button').attr('disabled', true);
+                    elem.find('button').attr('disabled', true);
 
-					var dataString = {
-						language_id: language_id
-					};
+                    var dataString = {
+                        language_id: language_id
+                    };
 
-					app.post("admin/languages?removeLanguageComplete", dataString).done(function(response) {
-						if(response.status === "ok") {
-							elem.find('button').addClass('succeeded');
-							elem.find('button').text(elem.find('button').data('complete-text'));
+                    app.post("admin/languages?removeLanguageComplete", dataString).done(function (response) {
+                        if (response.status === "ok") {
+                            elem.find('button').addClass('succeeded');
+                            elem.find('button').text(elem.find('button').data('complete-text'));
 
-							elem.find('span.close').click();
+                            elem.find('span.close').click();
 
-                            $('[data-language-id="'+dataString.language_id+'"]').closest('.list').remove();
+                            $('[data-language-id="' + dataString.language_id + '"]').closest('.list').remove();
 
-							app.flashMessage(app.phrases.alert_messages.saved_successfull);
-						}
-					}).fail(function(xhr, status, err) {
-						console.log(status, err);
-					});
-				}
-			});
-		});
-	});
+                            app.flashMessage(app.phrases.alert_messages.saved_successfull);
+                        }
+                    }).fail(function (xhr, status, err) {
+                        console.log(status, err);
+                    });
+                }
+            });
+        });
+    });
 
     $(function () {
         $("#admin_language_install").trackChanges();
@@ -1649,7 +1649,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                             );
                         } else if (response.status === "language-is-exist") {
                             $('.app-box .progress').addClass('d-none');
-                            
+
                             app.flashMessage(app.phrases.alert_messages.language_is_exist, "warning");
                         }
                     });
@@ -1812,13 +1812,13 @@ if (window.jQuery === undefined) jQuery = $ = {};
     });
 
     $(function () {
-        if($('.sticky-button').length) {
+        if ($('.sticky-button').length) {
             $('.sticky-button').width(
                 $('.sticky-button').closest('form').width()
             );
         }
 
-        if($('.app-box').height() >= '1000') {
+        if ($('.app-box').height() >= '1000') {
             $('.sticky-button').addClass('is-sticky');
         }
     });
@@ -1847,5 +1847,4 @@ if (window.jQuery === undefined) jQuery = $ = {};
             });
         }
     });
-}
-(window.jQuery, window, document);
+}(window.jQuery, window, document);
