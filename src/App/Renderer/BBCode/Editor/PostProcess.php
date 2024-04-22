@@ -108,7 +108,7 @@ class PostProcess
                 'option' => 'gi'
             ];
         }
-        $this->setOption([47, 49], 'si');
+        //$this->setOption([47, 49], 'si');
 
         return $this->modifications;
     }
