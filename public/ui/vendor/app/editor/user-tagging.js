@@ -1,10 +1,9 @@
- if (window.jQuery === undefined) jQuery = $ = {};
+if (window.jQuery === undefined) jQuery = $ = {};
 
- !function($, window, document)
- {
+!function ($, window, document) {
     "use strict";
 
-    $(function() {
+    $(function () {
         tinymce.PluginManager.add("userTagging", function (editor, url) {
             editor.ui.registry.addAutocompleter('autocompleter-user-tagging', {
                 ch: '@',
@@ -16,8 +15,8 @@
                             pattern: pattern
                         }
 
-                        app.post("post/user-tagging", dataString).done(function(response) {
-                            if(response.status === "ok") {
+                        app.post("post/user-tagging", dataString).done(function (response) {
+                            if (response.status === "ok") {
                                 var data = response.data;
                                 var results = [];
 
@@ -27,7 +26,7 @@
                                     results.push({
                                         value: result.username,
                                         text: result.username,
-                                        icon: '<img class="rounded-circle w-100" src="'+app.config.settings.public_dir+'/uploads/profile_picture/'+result.profile_picture+'" />'
+                                        icon: '<img class="rounded-circle w-100" src="' + app.config.settings.public_dir + '/uploads/profile_picture/' + result.profile_picture + '" />'
                                     });
                                 };
 
@@ -35,28 +34,26 @@
                                     var x = a.text.toLowerCase();
                                     var y = b.text.toLowerCase();
 
-                                    if (x < y)
-                                    {
+                                    if (x < y) {
                                         return -1;
                                     }
 
-                                    if (x > y)
-                                    {
+                                    if (x > y) {
                                         return 1;
                                     }
-                                    
+
                                     return 0;
                                 });
 
                                 resolve(results);
                             }
-                        }).fail(function(xhr, status, err) {
+                        }).fail(function (xhr, status, err) {
                             console.log(status, err);
                         });
                     });
                 },
                 onAction: function (autocompleteApi, rng, value) {
-                    var render = '<span style="color: rgb(53, 152, 219);"><strong>@'+value+';</strong></span>';
+                    var render = '<span style="color: rgb(53, 152, 219);"><strong>@' + value + ';</strong></span>';
 
                     editor.selection.setRng(rng);
                     editor.insertContent(render);
@@ -76,5 +73,4 @@
             };
         });
     });
-}
-(window.jQuery, window, document);
+}(window.jQuery, window, document);

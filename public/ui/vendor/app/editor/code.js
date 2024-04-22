@@ -57,8 +57,8 @@ if (window.jQuery === undefined) jQuery = $ = {};
                 var dataString = {
                     content: api.getData().code
                 };
-        
-                app.post("editor?parsePostProcess", dataString).done(function(response) {
+
+                app.post("editor?parsePostProcess", dataString).done(function (response) {
                     setContent(editor, response.content);
                 });
 
@@ -100,5 +100,4 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
     Plugin();
 
-}
-(window.jQuery, window, document);
+}(window.jQuery, window, document);
