@@ -2829,6 +2829,10 @@ h5.app-title.user:before {
     transition: .2s opacity;
 }
 
+.modal-backdrop.no-bg {
+    background-color: #000;
+}
+
 .modal-backdrop.search-results-backdrop,
 .modal-backdrop.app-search-results-backdrop {
     background: rgb(0 0 0 / 68%);
@@ -4754,6 +4758,11 @@ code.error {
 
 .tox .tox-toolbar-overlord {
     background-color: var(--mention-editor-bg-color) !important;
+}
+
+.tox.tox-fullscreen .tox-toolbar__overflow,
+.tox.tox-fullscreen .tox-toolbar__primary {
+    justify-content: center;
 }
 
 .tox .tox-tbtn {

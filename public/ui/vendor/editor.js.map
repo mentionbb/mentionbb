@@ -16,6 +16,8 @@
 		"13": "plugins/autosave/plugin.min.js",
 		"14": "plugins/autolink/plugin.min.js",
 		"15": "plugins/paste/plugin.min.js",
-        "16": "plugins/quickbars/plugin.min.js"
+        "16": "plugins/quickbars/plugin.min.js",
+        "17": "plugins/textpattern/plugin.min.js",
+        "18": "plugins/wordcount/plugin.min.js"
 	}
 }

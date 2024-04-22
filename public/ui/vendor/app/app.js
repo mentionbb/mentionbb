@@ -1,6 +1,6 @@
 var app = {};
 
-(function(context) {
+(function (context) {
 
     context.post = function (url, data, processData = true, contentType = "application/x-www-form-urlencoded") {
         var promise = $.ajax({
@@ -14,7 +14,7 @@ var app = {};
             processData: processData,
             contentType: contentType
         }).done(function (responseData, status, xhr) {
-            if(responseData.status == 'fail_security_x_token') {
+            if (responseData.status == 'fail_security_x_token') {
                 app.flashMessage('A security error has occurred. <br /><br /><kbd>The X-CSRF header is incorrect or corrupted. Please refresh the browser.</kbd>', 'danger');
                 return;
             }
@@ -69,13 +69,15 @@ var app = {};
             skin_url: app.config.settings.public_dir + "/vendor/tinymce/skins/ui/" + theme,
             content_css: [
                 app.config.settings.public_dir + "/vendor/tinymce/skins/content/" + content_theme + "/content.min.css",
-                app.config.settings.public_dir + "/themes/frontend/assets/editor/content.css?v=6"
+                app.config.settings.public_dir + "/themes/frontend/assets/editor/content.css?v=6.1"
             ],
 
             language: 'app_EditorLanguage',
 
-            plugins: "bbcodeCustom code autoresize imagetools autolink link image customEmoticons lists codesample media table autosave userTagging spoiler quoteMessage paste preview fullscreen quickbars",
+            plugins: "bbcodeCustom code autoresize imagetools autolink link image customEmoticons lists codesample media table autosave userTagging spoiler quoteMessage paste preview fullscreen quickbars textpattern wordcount",
             toolbar: app.setupEditorToolbars(),
+
+            inline_boundaries: false,
 
             quickbars_insert_toolbar: false,
             quickbars_selection_toolbar: 'bold italic underline | formatselect | bullist numlist | quicklink | quoteMessage',
@@ -123,6 +125,20 @@ var app = {};
 
             entity_encoding: "raw",
 
+            textpattern_patterns: [
+                { start: '*', end: '*', format: 'italic' },
+                { start: '**', end: '**', format: 'bold' },
+                { start: '#', format: 'h1' },
+                { start: '##', format: 'h2' },
+                { start: '###', format: 'h3' },
+                { start: '####', format: 'h4' },
+                { start: '#####', format: 'h5' },
+                { start: '######', format: 'h6' },
+                { start: '1. ', cmd: 'InsertOrderedList' },
+                { start: '* ', cmd: 'InsertUnorderedList' },
+                { start: '- ', cmd: 'InsertUnorderedList' }
+            ],
+
             setup: function (editor) {
                 $.each(app.setupEditorButtons(), function (i, item) {
                     var content = item.bbcode;
@@ -139,7 +155,7 @@ var app = {};
                 $.each(app.setupEditorToolbarIcons(), function (i, item) {
                     editor.ui.registry.addIcon(item.name, item.icon);
                 });
-                
+
                 editor.on('init', function (e) {
                     $('.tox-tbtn').tooltip({
                         boundary: 'window',
@@ -152,8 +168,58 @@ var app = {};
                     });
 
                     $('.tox-statusbar__branding').html('<a href="https://www.tiny.cloud/powered-by-tiny?utm_campaign=poweredby&amp;utm_source=tiny&amp;utm_medium=referral&amp;utm_content=v5" rel="noopener" target="_blank" aria-label="Powered by Tiny" tabindex="-1"><svg width="50px" height="16px" viewBox="0 0 50 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.143 0c2.608.015 5.186 2.178 5.186 5.331 0 0 .077 3.812-.084 4.87-.361 2.41-2.164 4.074-4.65 4.496-1.453.284-2.523.49-3.212.623-.373.071-.634.122-.785.152-.184.038-.997.145-1.35.145-2.732 0-5.21-2.04-5.248-5.33 0 0 0-3.514.03-4.442.093-2.4 1.758-4.342 4.926-4.963 0 0 3.875-.752 4.036-.782.368-.07.775-.1 1.15-.1Zm1.826 2.8L5.83 3.989v2.393l-2.455.475v5.968l6.137-1.189V9.243l2.456-.476V2.8ZM5.83 6.382l3.682-.713v3.574l-3.682.713V6.382Zm27.173-1.64-.084-1.066h-2.226v9.132h2.456V7.743c-.008-1.151.998-2.064 2.149-2.072 1.15-.008 1.987.92 1.995 2.072v5.065h2.455V7.359c-.015-2.18-1.657-3.929-3.837-3.913a3.993 3.993 0 0 0-2.908 1.296Zm-6.3-4.266L29.16 0v2.387l-2.456.475V.476Zm0 3.2v9.132h2.456V3.676h-2.456Zm18.179 11.787L49.11 3.676H46.58l-1.612 4.527-.46 1.382-.384-1.382-1.611-4.527H39.98l3.3 9.132L42.15 16l2.732-.537ZM22.867 9.738c0 .752.568 1.075.921 1.075.353 0 .668-.047.998-.154l.537 1.765c-.23.154-.92.537-2.225.537-1.305 0-2.655-.997-2.686-2.686a136.877 136.877 0 0 1 0-4.374H18.8V3.676h1.612v-1.98l2.455-.476v2.456h2.302V5.9h-2.302v3.837Z"></path></svg></a>&nbsp;<span>Customized for MentionBB</span>');
-                
-                    $('.mce-content-body').addClass('scrollable');
+                });
+
+                editor.on('keydown', function (e) {
+                    if (e.keyCode == 13 || e.keyCode == 32) {
+                        $sel = editor.selection;
+
+                        $.each(app.setupEditorRealtimeParser(), function (key, value) {
+                            $pattern = new RegExp(key, 'gm');
+
+                            if ($pattern.test($sel.getNode().innerText)) {
+                                $node = $sel.getNode();
+                                $text = $node.innerText;
+
+                                $sel.getNode().replaceWith('');
+
+                                $needNodes = ['li'];
+                                if ($.inArray($node.nodeName.toLowerCase(), $needNodes) !== -1) {
+                                    $sel.setContent(
+                                        `<${$node.nodeName}>${$text.replace($pattern, value)}</${$node.nodeName}>`
+                                    );
+                                } else {
+                                    $sel.setContent(
+                                        $text.replace($pattern, value)
+                                    );
+                                }
+                            }
+                        });
+                    }
+                });
+
+                editor.on('FullscreenStateChanged', function (e) {
+                    if (e.state) {
+                        editor.dom.addClass(
+                            editor.dom.select('body'), 'mention-tox-fs'
+                        );
+
+                        if (!$('.modal-backdrop').length) {
+                            $('body').append('<div class="modal-backdrop show"></div>');
+                        }
+
+                        $('.modal-backdrop.show').addClass('no-bg');
+                    } else {
+                        editor.dom.removeClass(
+                            editor.dom.select('body'), 'mention-tox-fs'
+                        );
+
+                        $('.modal-backdrop.show').removeClass('no-bg');
+
+                        if (!$('.modal.show').length) {
+                            $('.modal-backdrop').remove();
+                        }
+                    }
                 });
             },
 
@@ -267,6 +333,15 @@ var app = {};
             };
 
             input.click();
+        };
+    };
+
+    context.setupEditorRealtimeParser = function () {
+        return {
+            "\\{\\username\\}": app.visitor.username,
+            "\\[(?!\\!)([^\\n]+)\\]\\(([^\\n]+)\\)": "<a href=\"$2\">$1</a>",
+            "\\[([^\\]]+)\\]\\((\\S+)\\)": "<img alt=\"$1\" src=\"$2\" />",
+            "```(html|xml|js|javascript|css|php|twig|ruby|python|java|c|c\\#|c\\+\\+)\\n([\\s\\S]*?)```": "<pre class=\"language-$1\"><code>$2</code></pre>"
         };
     };
 
