@@ -144,7 +144,7 @@ class Posts extends Layer
 
                 $query->where('p.is_active = :is_active');
 
-                if ($group_by)
+                if ($group_by || !is_null($user_id))
                 {
                     $query->andWhere('d.discussion_id IS NOT NULL');
                 }
