@@ -1,5 +1,5 @@
 {
-    "created_on": "Thu, 04 Apr 2024 02:30:37 GMT",
+    "created_on": "Fri, 26 Apr 2024 16:56:01 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.19",
@@ -13,7 +13,7 @@
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "e01b2c827b40eaab8e5bfea28cfb7a41df5d3cdb893acedebd900b0c3a7f7b59": {
+            "093ad041aa38f981df768ee0e692686c487c5fb0e12b2f54928a39241e0c3f68": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -35,7 +35,7 @@
             }
         },
         "src": {
-            "04ec19b18cf87e72976df93ec4311f2e94b079aabaeca2494359759b882411cb": {
+            "74e3134891c0bfda589828adcc3d70352b72cb46e35c4a89fdfa6876fb284c84": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
@@ -67,7 +67,7 @@
                 "filename": "Logger.php",
                 "path": ".\/src\/App\/Logger.php"
             },
-            "31e9d2b8d67885b703740cfdaa87374505d4e53394c0e2564ccdb37428f5a657": {
+            "fb31240edfee342cb8cabb9b7419bb532e0906f12285dc6e41f73c2a60679866": {
                 "filename": "Phrase.php",
                 "path": ".\/src\/App\/Phrase.php"
             },
@@ -121,7 +121,7 @@
                 "filename": "MetaFramework_Composer_Extra.json",
                 "path": ".\/src\/Meta\/MetaFramework_Composer_Extra.json"
             },
-            "97d226323bc92bae36646224411c2c47b54a41b85dc86dd3639ed41bdbe604c1": {
+            "dd52b6b978d41fe8ff15d962bf4ac6a3c96888ab833996b2a1dfa4109cd22780": {
                 "filename": "MetaFramework_Composer_Require.json",
                 "path": ".\/src\/Meta\/MetaFramework_Composer_Require.json"
             },
@@ -209,7 +209,7 @@
                 "filename": "EditorButtons.php",
                 "path": ".\/src\/App\/Entity\/EditorButtons.php"
             },
-            "f8908b34d1dad286982515cdc5b7a5fd18e1a2b65f53453468354bd3c65b5885": {
+            "d13a6594a2b454cd418419491e6e1e363fa445c99f2633d9c188f93f01101351": {
                 "filename": "Forum.php",
                 "path": ".\/src\/App\/Entity\/Forum.php"
             },
@@ -217,7 +217,7 @@
                 "filename": "LinkPreviews.php",
                 "path": ".\/src\/App\/Entity\/LinkPreviews.php"
             },
-            "23d96e6b53dd9f52d49f6e135d7cea3abcab1fa1ed517e7d54456a324cc7200f": {
+            "4326be437d71f58b015fab47232af38d826c9285f2186c72b6d91b4df53afe0f": {
                 "filename": "Messages.php",
                 "path": ".\/src\/App\/Entity\/Messages.php"
             },
@@ -229,7 +229,7 @@
                 "filename": "PostReports.php",
                 "path": ".\/src\/App\/Entity\/PostReports.php"
             },
-            "e89903371197044cad0acb3fb6fd8e0be959d00bb2595c50ed78fd1dec91da68": {
+            "186e5e4d2605773dbac403d76c36fa560e8239048f064c7254bd4f6990263c3c": {
                 "filename": "Posts.php",
                 "path": ".\/src\/App\/Entity\/Posts.php"
             },
@@ -305,7 +305,7 @@
                 "filename": "Post.php",
                 "path": ".\/src\/App\/Repository\/Post.php"
             },
-            "dce41c04feaef5bebb51ffeaa9d97124ef49e2e5789bf533a9b6aa3d4b511587": {
+            "090f3ce0f1cf59c39c6a562f76c6a55273f93d197b23b4345d37dd28b996805a": {
                 "filename": "Request.php",
                 "path": ".\/src\/App\/Repository\/Request.php"
             },
@@ -465,7 +465,7 @@
                 "filename": "Html.php",
                 "path": ".\/src\/App\/Util\/Html.php"
             },
-            "9578e83d8caeb2f6cc45ca4ee2ed910631cac1265c3114dc728d4aeb6ee3b8c9": {
+            "c25e0d4e21a217aa28e4cb70cfe1a906643a406bcec940e2b2ce60b7eafb102c": {
                 "filename": "Webp.php",
                 "path": ".\/src\/App\/Util\/Webp.php"
             },
@@ -495,7 +495,7 @@
             }
         },
         "src\/Install\/Table": {
-            "5ee4a64cfa41389409d339b52675ffb4b9e02597d6e66582e088e2e1b9d0b9b3": {
+            "d35c4446e47ebf0cd5bb005d888ce61762a59395a0640a20e41b50aa96a5b93f": {
                 "filename": "Tables.php",
                 "path": ".\/src\/Install\/Table\/Tables.php"
             }
@@ -639,7 +639,7 @@
             }
         },
         "src\/App\/Db\/QueryBuilder": {
-            "346e350a87b3a838a1de4c200fef33316d9f41e3e5984c10b23cf06535286197": {
+            "bd5715b117521d6f72ab06e7f8796a4406e74a60b19c36bbca6e9b6d4544d16c": {
                 "filename": "Builder.php",
                 "path": ".\/src\/App\/Db\/QueryBuilder\/Builder.php"
             }
@@ -651,7 +651,7 @@
             }
         },
         "src\/App\/Hook\/Filter": {
-            "1159d575dbc9d75aec3ae7ba5a5623680001f9ee2091839d9e015ef3dd652da7": {
+            "9af33877d9e1c26953bce43ba744a28aa4416f33d21ae494afce3acf3d612a97": {
                 "filename": "FilterTag.php",
                 "path": ".\/src\/App\/Hook\/Filter\/FilterTag.php"
             }
@@ -1011,7 +1011,7 @@
                 "filename": "Editor.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Admin\/Editor.yaml"
             },
-            "42acca7c729bd5d4843c21dfc575ea0ba9a8dde10729d3ac5429476c22b81a6f": {
+            "ebbd1fa81a3562e9f730507197d3f671d908e6e6f778388aa1c6e0ae932c3c8a": {
                 "filename": "Forums.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Admin\/Forums.yaml"
             },
@@ -1027,7 +1027,7 @@
                 "filename": "NativeApi.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Admin\/NativeApi.yaml"
             },
-            "cb447e78091bf31e978adfcb9794a8e2abbc52ba6b00bb9d82cbf94289aa6ef9": {
+            "583b85a2de95321641e33d752b6b86350cb2ff9cf9c701d2582c88da17224ed5": {
                 "filename": "OAuth.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Admin\/OAuth.yaml"
             },
@@ -1081,7 +1081,7 @@
                 "filename": "Editor.yaml",
                 "path": ".\/src\/Languages\/Turkish\/Admin\/Editor.yaml"
             },
-            "9669bccd0691e83451113dd0455376e14b8abcc4caaddaa785a41838456cfd46": {
+            "7794f99c7c2932085b5807ba2ff4416bbc6e15c507e0f265bd117c52f0997d68": {
                 "filename": "Forums.yaml",
                 "path": ".\/src\/Languages\/Turkish\/Admin\/Forums.yaml"
             },
@@ -1097,7 +1097,7 @@
                 "filename": "NativeApi.yaml",
                 "path": ".\/src\/Languages\/Turkish\/Admin\/NativeApi.yaml"
             },
-            "5fc3771d8852ff6fb5edb6105763d6835f02875034b686d9073f9d601426adb2": {
+            "cf845be8bd7df0091db496586793d6f3b5fa58d8f6c3c656b6d01eec9e7fa5ce": {
                 "filename": "OAuth.yaml",
                 "path": ".\/src\/Languages\/Turkish\/Admin\/OAuth.yaml"
             },
@@ -1177,7 +1177,7 @@
             }
         },
         "src\/Templates\/Default\/Index": {
-            "4998b0c8cbe4ba5ee810191a5a26f68a99e3534f14a410aa900a6ed223f1c05f": {
+            "f21c9c262623b3a900d190c9f523a6cf44f27c077ce5fe3c90e37daad7889014": {
                 "filename": "index.twig",
                 "path": ".\/src\/Templates\/Default\/Index\/index.twig"
             },
@@ -1207,7 +1207,7 @@
                 "filename": "social_login_buttons.twig",
                 "path": ".\/src\/Templates\/Default\/Layout\/social_login_buttons.twig"
             },
-            "34229dc2be1e343707c3deb98957c2313af1ae96878ba3e4545ececef137d9ee": {
+            "f35cb809af20df138c2ee5db86ed66e13be021b05c67f25745031a85a64065d2": {
                 "filename": "usermenu_member.twig",
                 "path": ".\/src\/Templates\/Default\/Layout\/usermenu_member.twig"
             },
@@ -1381,7 +1381,7 @@
                 "filename": "Parser.php",
                 "path": ".\/src\/App\/Renderer\/BBCode\/Editor\/Parser.php"
             },
-            "586ddedf192eab09e45a93ba48d98c5769cecc1a7766020332b09911f775f40d": {
+            "4423219be1092ff02452d98cf70063c7ecb4e7f5530baef800ea643090ceb791": {
                 "filename": "PostProcess.php",
                 "path": ".\/src\/App\/Renderer\/BBCode\/Editor\/PostProcess.php"
             }
@@ -1419,7 +1419,7 @@
                 "filename": "CensorWords.php",
                 "path": ".\/src\/App\/Renderer\/BBCode\/Str\/CensorWords.php"
             },
-            "ee7a38853961bb6fff321b9875e10e0600e2ceaaf1bbef7483aace2479bab784": {
+            "4a38bac5bb4dbcade994b0340e5cf06f86beaa661dda1d25b87418fbdb3ab3fc": {
                 "filename": "Emoticons.php",
                 "path": ".\/src\/App\/Renderer\/BBCode\/Str\/Emoticons.php"
             }
@@ -1701,15 +1701,15 @@
             }
         },
         "src\/Addons\/Mention\/Templates\/Admin\/Forums": {
-            "1af4277cc62db9fbc124b25a021cd766b6e3501f77bbb815f0f7c02bf439d492": {
+            "d8a3b608b2a6a291a7fab1901b97e352d362078db7cbda7ad544510e0232eb14": {
                 "filename": "add_forums.twig",
                 "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Forums\/add_forums.twig"
             },
-            "7833490141b38cff1091cf312b9606fdb04164a2d4021775c9aee2299c4f9639": {
+            "6104d3368c43b18647363e45cf055d1802d7eab872de873dd4268c5cfa0c6d30": {
                 "filename": "edit_forum_accordion.twig",
                 "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Forums\/edit_forum_accordion.twig"
             },
-            "a60f0f1a98ef1b327c2aa38f9d622c637e723f7be1c84be07ec0b707b6d737f1": {
+            "89eaadd019e8b3035b2636be656313918ba440a2ad6acacf587de282d832cf85": {
                 "filename": "forums.twig",
                 "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Forums\/forums.twig"
             },
@@ -1857,7 +1857,7 @@
                 "filename": "Editor.php",
                 "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Editor.php"
             },
-            "8ff9020304fb2ebbdbaf1e80dc9a97891f4668e4d6b98415371c351eb17aa257": {
+            "0d17d4f1b1c050dd8b84228bd1cae11886f9d644ae3c409820101c4127f0bdcc": {
                 "filename": "Forums.php",
                 "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Forums.php"
             },
@@ -1935,7 +1935,7 @@
             }
         },
         "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Forums": {
-            "c03e22e0f709511308293b350e6132853494fc2b2b9b0d4f68b4ad7e5497908c": {
+            "26dbe069f2c41b3fcdded1be85092b9b2a136d94c47971c1f39d85599b3a3310": {
                 "filename": "Create.php",
                 "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Forums\/Create.php"
             },
@@ -1943,7 +1943,7 @@
                 "filename": "Delete.php",
                 "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Forums\/Delete.php"
             },
-            "b9006ac61bf81d744f37bc57e536d02be8dc8d49bf05fdbcd2b0719f4e740af5": {
+            "cfd926e2cb38e336ec8f504dc46e4cbdf069953661ccc471e755d28d56303f47": {
                 "filename": "Edit.php",
                 "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Forums\/Edit.php"
             }
