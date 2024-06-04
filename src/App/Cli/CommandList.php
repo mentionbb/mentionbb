@@ -7,8 +7,6 @@ class CommandList
     const INSTALL = 'mention:install';
     const UPGRADE = 'mention:upgrade';
 
-    const COMPOSER = 'mention:composer';
-
     const CLEAR_CACHE = 'mention:clear-cache';
 
     const BUILD_HASHES = 'mention:build-hashes';
