@@ -11,6 +11,8 @@ class RequireChecker
     private $excludeDirs = ['vendor', 'Cache', 'Dev', 'Patches', 'ui'];
     private $excludeFiles = ['_hashes.json', 'DbConfig.php', 'InitialConfig.php'];
 
+    private $targetExtensions = ['*.php', '*.twig', '*.json', '*.yml', '*.yaml', '*.lock'];
+
     private $gitignoreFile = APPLICATION_SELF . '/Addons/.gitignore';
     private $hashFile = APPLICATION_SELF . '/_hashes.json';
 
@@ -24,7 +26,7 @@ class RequireChecker
         $finder->files()
             ->in(INDEX_DIR)
             ->exclude($this->excludeDirs)
-            ->name(['*.php', '*.twig', '*.json', '*.yml', '*.yaml', '*.lock'])
+            ->name($this->targetExtensions)
             ->ignoreVCSIgnored(true)
             ->ignoreUnreadableDirs();
 
