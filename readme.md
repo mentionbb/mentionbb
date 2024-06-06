@@ -1,3 +1,6 @@
+[![en](https://img.shields.io/badge/lang-en-blue)](https://github.com/mentionbb/mentionbb/blob/master/readme.md)
+[![tr](https://img.shields.io/badge/dil-tr-red)](https://github.com/mentionbb/mentionbb/blob/master/readme.tr-tr.md)
+
 # A classic forum system with next-gen
 
 <p align="center">
