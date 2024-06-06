@@ -1,5 +1,5 @@
 {
-    "created_on": "Fri, 26 Apr 2024 16:56:01 GMT",
+    "created_on": "Thu, 06 Jun 2024 16:04:18 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.19",
@@ -9,11 +9,11 @@
                 "filename": "app.php",
                 "path": ".\/app.php"
             },
-            "5ebde48da236ff8739ebc4cd6423d8fef1e88a7dcb3c6056d234098bacaa6e9a": {
+            "808487729956e71d95fec1c1dacaeca075fe76ca94d4294ad998bb82738d0815": {
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "093ad041aa38f981df768ee0e692686c487c5fb0e12b2f54928a39241e0c3f68": {
+            "ab73cced7a47386ca5119dac7c441fbf977c7df7fa01255726468b47da64169d": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -35,7 +35,7 @@
             }
         },
         "src": {
-            "74e3134891c0bfda589828adcc3d70352b72cb46e35c4a89fdfa6876fb284c84": {
+            "bf501ef3da745832a1b6256fc7b94dbe7ddcf6daf90e6aaa20bac826e3e7bf1f": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
@@ -112,24 +112,6 @@
                 "path": ".\/src\/Languages\/Turkish.yaml"
             }
         },
-        "src\/Meta": {
-            "094952762ef3ea7198dc1027e5d807f916a806bdbbfe598792088e55d9e5efe9": {
-                "filename": "MetaFramework_Composer_Autoload.json",
-                "path": ".\/src\/Meta\/MetaFramework_Composer_Autoload.json"
-            },
-            "77085a792b18f57c6cfa9fef54423284b8e2ecaaea34f3c9318e5a60e60ad778": {
-                "filename": "MetaFramework_Composer_Extra.json",
-                "path": ".\/src\/Meta\/MetaFramework_Composer_Extra.json"
-            },
-            "dd52b6b978d41fe8ff15d962bf4ac6a3c96888ab833996b2a1dfa4109cd22780": {
-                "filename": "MetaFramework_Composer_Require.json",
-                "path": ".\/src\/Meta\/MetaFramework_Composer_Require.json"
-            },
-            "b0b62bc8adde9ace4c2335965afce6b9ebffb213a2a03faebea2dfcb49e9589b": {
-                "filename": "MetaFramework_Composer_Scripts.json",
-                "path": ".\/src\/Meta\/MetaFramework_Composer_Scripts.json"
-            }
-        },
         "src\/Standalone": {
             "22aa8a9339d5b37c15b1bde8b9b844cec60084d1f58276615f3b4bc0ff5dac01": {
                 "filename": "Templater.php",
@@ -155,7 +137,7 @@
             }
         },
         "src\/App\/Cli": {
-            "b39a13b9d123c09358d025562d7761a4bec291f83bdfda1dddbb9a959b0af347": {
+            "a0c6559ee5b2a373bcdd2ea6981ac2ac304e44cf39e3d2952243261b5b55c06e": {
                 "filename": "CommandList.php",
                 "path": ".\/src\/App\/Cli\/CommandList.php"
             },
@@ -1364,12 +1346,6 @@
             "4028eae43c066cb6903791056f847db56ec32af7b9d8dc30ed5e303b7e60a285": {
                 "filename": "BuildHashes.php",
                 "path": ".\/src\/App\/Cli\/Command\/Build\/BuildHashes.php"
-            }
-        },
-        "src\/App\/Cli\/Command\/Composer": {
-            "3fecca4d05ed497894657f616abb8bf1315a25d409862351e2d534372c3a4d41": {
-                "filename": "Composer.php",
-                "path": ".\/src\/App\/Cli\/Command\/Composer\/Composer.php"
             }
         },
         "src\/App\/Renderer\/BBCode\/Editor": {
