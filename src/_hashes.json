@@ -1,5 +1,5 @@
 {
-    "created_on": "Thu, 06 Jun 2024 16:04:18 GMT",
+    "created_on": "Fri, 07 Jun 2024 14:38:18 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.19",
@@ -9,7 +9,7 @@
                 "filename": "app.php",
                 "path": ".\/app.php"
             },
-            "808487729956e71d95fec1c1dacaeca075fe76ca94d4294ad998bb82738d0815": {
+            "a4b43c9db18cbb1ad5d741489e27670f8c6d685a4e702d8fea75f5fa6502c491": {
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
@@ -1512,6 +1512,12 @@
             "311d6a9fa3baf43f628e1b8afa57708265637cb5a88af5d6308090b3eae41244": {
                 "filename": "HtmlErrorRenderer.php",
                 "path": ".\/src\/vendor-patch\/symfony\/error-handler\/ErrorRenderer\/HtmlErrorRenderer.php"
+            }
+        },
+        "src\/vendor-patch\/symfony\/finder\/Iterator": {
+            "4852d00edd5ce99ddb34ddd22092b4f7620509bfa6d89db6a6d0ac13743be3cd": {
+                "filename": "VcsIgnoredFilterIterator.php",
+                "path": ".\/src\/vendor-patch\/symfony\/finder\/Iterator\/VcsIgnoredFilterIterator.php"
             }
         },
         "src\/Addons\/Mention\/App\/Builder\/Metadata": {

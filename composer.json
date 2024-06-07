@@ -75,12 +75,14 @@
             "App\\": "./src/App",
             "Addons\\": "./src/Addons",
             "Install\\": "./src/Install",
-            "Symfony\\Component\\ErrorHandler\\ErrorRenderer\\": "./src//vendor-patch/symfony/error-handler/ErrorRenderer"
+            "Symfony\\Component\\ErrorHandler\\ErrorRenderer\\": "./src/vendor-patch/symfony/error-handler/ErrorRenderer",
+            "Symfony\\Component\\Finder\\Iterator\\": "./src/vendor-patch/symfony/finder/Iterator"
         }
     },
     "scripts": {
         "post-update-cmd": [
             "[ ! -f ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php ] || mv ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php.patched",
+            "[ ! -f ./src/vendor/symfony/finder/Iterator/VcsIgnoredFilterIterator.php ] || mv ./src/vendor/symfony/finder/Iterator/VcsIgnoredFilterIterator.php ./src/vendor/symfony/finder/Iterator/VcsIgnoredFilterIterator.php.patched",
             "composer dump-autoload -o"
         ]
     },
