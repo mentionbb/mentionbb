@@ -1,0 +1,57 @@
+--- /dev/null
++++ ../ErrorRenderer/HtmlErrorRenderer.php
+@@ -81,6 +81,8 @@
+     }
+ 
+     /**
++     * * @deprecated deprecated for Mention.
++     * 
+      * Gets the stylesheet associated with the given exception.
+      */
+     public function getStylesheet(): string
+@@ -128,22 +130,16 @@
+         $statusText = $this->escape($exception->getStatusText());
+         $statusCode = $this->escape($exception->getStatusCode());
+ 
+-        if (!$debug) {
+-            return $this->include(self::$template, [
+-                'statusText' => $statusText,
+-                'statusCode' => $statusCode,
+-            ]);
+-        }
+-
+         $exceptionMessage = $this->escape($exception->getMessage());
+ 
+-        return $this->include($debugTemplate, [
++        return (string) \Binaries\RuntimeErrors::Show('exception', [
++            'handler' => $this,
+             'exception' => $exception,
+             'exceptionMessage' => $exceptionMessage,
+             'statusText' => $statusText,
+             'statusCode' => $statusCode,
+-            'logger' => null !== $this->logger && class_exists(DebugLoggerConfigurator::class) ? DebugLoggerConfigurator::getDebugLogger($this->logger) : null,
+-            'currentContent' => \is_string($this->outputBuffer) ? $this->outputBuffer : ($this->outputBuffer)(),
++            'logger' => DebugLoggerConfigurator::getDebugLogger($this->logger),
++            'currentContent' => \is_string($this->outputBuffer) ? $this->outputBuffer : ($this->outputBuffer)()
+         ]);
+     }
+ 
+@@ -333,6 +329,9 @@
+         return '<path d="'.self::GHOST_ADDONS[date('m-d')].'" fill="#fff" fill-opacity="0.6"></path>';
+     }
+ 
++    /**
++     * @deprecated deprecated for Mention.
++     */ 
+     private function include(string $name, array $context = []): string
+     {
+         extract($context, \EXTR_SKIP);
+@@ -344,6 +343,8 @@
+     }
+ 
+     /**
++     * @deprecated deprecated for Mention.
++     * 
+      * Allows overriding the default non-debug template.
+      *
+      * @param string $template path to the custom template file to render

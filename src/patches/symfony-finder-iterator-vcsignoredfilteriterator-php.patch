@@ -1,0 +1,22 @@
+--- /dev/null
++++ ../Iterator/VcsIgnoredFilterIterator.php
+@@ -37,13 +37,15 @@
+     {
+         $this->baseDir = $this->normalizePath($baseDir);
+ 
+-        foreach ([$this->baseDir, ...$this->parentDirectoriesUpwards($this->baseDir)] as $directory) {
+-            if (@is_dir("{$directory}/.git")) {
+-                $this->baseDir = $directory;
++        foreach ($this->parentDirectoriesUpwards($this->baseDir) as $parentDirectory)
++        {
++            if (@is_dir("{$parentDirectory}/.git"))
++            {
++                $this->baseDir = $parentDirectory;
+                 break;
+             }
+         }
+-
++        
+         parent::__construct($iterator);
+     }
+ 

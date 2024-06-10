@@ -19,7 +19,10 @@
     ],
     "config": {
         "vendor-dir": "./src/vendor",
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "allow-plugins": {
+            "cweagans/composer-patches": true
+        }
     },
     "require": {
         "php": ">=8.2",
@@ -65,7 +68,9 @@
         "symfony/twig-bundle": "^7"
     },
     "require-dev": {
-        "symfony/var-dumper": "^7"
+        "symfony/var-dumper": "^7",
+        "cweagans/composer-patches": "^1.7",
+        "symplify/vendor-patches": "^11.3"
     },
     "autoload": {
         "psr-4": {
@@ -74,17 +79,22 @@
             "ComponentBundle\\": "./src/Addons/Mention",
             "App\\": "./src/App",
             "Addons\\": "./src/Addons",
-            "Install\\": "./src/Install",
-            "Symfony\\Component\\ErrorHandler\\ErrorRenderer\\": "./src/vendor-patch/symfony/error-handler/ErrorRenderer",
-            "Symfony\\Component\\Finder\\Iterator\\": "./src/vendor-patch/symfony/finder/Iterator"
+            "Install\\": "./src/Install"
         }
     },
     "scripts": {
         "post-update-cmd": [
-            "[ ! -f ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php ] || mv ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php ./src/vendor/symfony/error-handler/ErrorRenderer/HtmlErrorRenderer.php.patched",
-            "[ ! -f ./src/vendor/symfony/finder/Iterator/VcsIgnoredFilterIterator.php ] || mv ./src/vendor/symfony/finder/Iterator/VcsIgnoredFilterIterator.php ./src/vendor/symfony/finder/Iterator/VcsIgnoredFilterIterator.php.patched",
             "composer dump-autoload -o"
         ]
     },
-    "extra": {}
+    "extra": {
+        "patches": {
+            "symfony/error-handler": [
+                "./src/patches/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch"
+            ],
+            "symfony/finder": [
+                "./src/patches/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
+            ]
+        }
+    }
 }
