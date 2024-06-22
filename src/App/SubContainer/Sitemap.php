@@ -47,7 +47,7 @@ class Sitemap
 		}
 		$urlBuilder->flush();
 
-		foreach ((new User())->findAll() as $user)
+		foreach ((new User())->findAll(false) as $user)
 		{
 			$urlBuilder->addUrl(
 				$phrase->buildLink('profile', [
