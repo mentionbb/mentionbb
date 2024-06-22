@@ -100,6 +100,7 @@ class Discussion extends Layer
             ->leftJoin('d', 'posts', 'p', 'p.post_id = d.firstpost_id')
             ->leftJoin('d', 'users', 'u', 'u.user_id = p.user_id')
             ->where('d.is_active = :is_active')
+            ->andWhere('p.discussion_id IS NOT NULL')
             ->orderBy('p.dateline')
             ->setParameter('is_active', 1);
 
