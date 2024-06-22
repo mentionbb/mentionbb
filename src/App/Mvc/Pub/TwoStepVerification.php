@@ -8,68 +8,71 @@ use App\Repository\Post as PostRepo;
 
 class TwoStepVerification extends Controller implements Pub
 {
-	public function container($option)
-	{
-		if ($this->request->getRequestMethod() == "GET")
-		{
-			if ($this->user->loggedIn())
-			{
-				if ($this->verifyTwoStep())
-				{
-					echo $this->template->render(
-						'two_step_verification.twig',
-						[]
-					);
-				}
-				else
-				{
-					return $this->request->redirect($this->settings->site_url, false);
-				}
-			}
-			else
-			{
-				return $this->request->redirect($this->settings->site_url, false);
-			}
-		}
-		elseif ($this->request->getRequestMethod() == "POST")
-		{
-			if ($this->request->getPathInfo() == '/two-step-verification/verify')
-			{
-				return $this->verifyStage();
-			}
-		}
-	}
+    public function container($option)
+    {
+        if ($this->request->getRequestMethod() == "GET")
+        {
+            if ($this->user->loggedIn())
+            {
+                if ($this->verifyTwoStep())
+                {
+                    $template = $this->template->render(
+                        'two_step_verification.twig',
+                        []
+                    );
 
-	private function verifyStage()
-	{
-		if (!$this->user->loggedIn())
-		{
-			return false;
-		}
+                    return $this->phrase->render('html')->prepare($template)
+                        ->render();
+                }
+                else
+                {
+                    return $this->request->redirect($this->settings->site_url, false);
+                }
+            }
+            else
+            {
+                return $this->request->redirect($this->settings->site_url, false);
+            }
+        }
+        elseif ($this->request->getRequestMethod() == "POST")
+        {
+            if ($this->request->getPathInfo() == '/two-step-verification/verify')
+            {
+                return $this->verifyStage();
+            }
+        }
+    }
 
-		$post = new PostRepo();
+    private function verifyStage()
+    {
+        if (!$this->user->loggedIn())
+        {
+            return false;
+        }
 
-		$auth = new \App\SubContainer\Auth\TwoStepVerification($this->default_language, $this->languageInit);
+        $post = new PostRepo();
 
-		if ($auth->verify($post->get('twofa_code')))
-		{
-			\App\Repository\CookieEncrypt::getInstance()->set([
-				'name' => '2fa',
-				'data' => $this->user->visitor()->login_key,
-				'cookie_time' => $this->datetime->getTimestamp() + (7 * 24 * 60 * 60),
-				'cookie_path' => '/',
-				'encrypted' => true
-			]);
+        $auth = new \App\SubContainer\Auth\TwoStepVerification($this->default_language, $this->languageInit);
 
-			return $this->phrase->render('json')->serialize(
-				[]
-			)->render();
-		}
-		else
-		{
-			return $this->phrase->render('json')->serialize([
-				'status' => 'fail'
-			])->render();
-		}
-	}
+        if ($auth->verify($post->get('twofa_code')))
+        {
+            \App\Repository\CookieEncrypt::getInstance()->set([
+                'name' => '2fa',
+                'data' => $this->user->visitor()->login_key,
+                'cookie_time' => $this->datetime->getTimestamp() + (7 * 24 * 60 * 60),
+                'cookie_path' => '/',
+                'encrypted' => true
+            ]);
+
+            return $this->phrase->render('json')->serialize(
+                []
+            )->render();
+        }
+        else
+        {
+            return $this->phrase->render('json')->serialize([
+                'status' => 'fail'
+            ])->render();
+        }
+    }
 }

@@ -122,7 +122,7 @@ class Request
         return $response->send();
     }
 
-    public function setContentDispositionStreamed($filename, $data, $contentType, $attachment = false)
+    public function setContentDispositionStreamed($filename, $data, $contentType, $attachment = false, array $headers = [])
     {
         $response = new StreamedResponse();
         $response->setCallback(function () use ($data)
@@ -139,6 +139,14 @@ class Request
             );
 
             $response->headers->set('Content-Disposition', $disposition);
+        }
+
+        if (!empty($headers))
+        {
+            foreach ($headers as $option => $content)
+            {
+                $response->headers->set($option, $content);
+            }
         }
 
         return $response->send();

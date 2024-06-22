@@ -128,6 +128,11 @@ class Phrase
 
     public function render($callback)
     {
+        if ($callback !== 'json' && $callback !== 'xml' && $callback !== 'html')
+        {
+            throw new \Exception('Response type is not valid.');
+        }
+
         $callback = ucwords($callback);
 
         $callback = $this->getContainer("\App\Renderer\Response\\$callback", $this->request);

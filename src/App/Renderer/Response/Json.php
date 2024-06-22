@@ -76,11 +76,24 @@ class Json extends ResponseRenderer
 
     public function render()
     {
-        $this->request->setContentDispositionStreamed(
-            'ApplicationRenderer_Json_Temp_' . \App\Uuid::v4(),
-            $this->serialize,
-            $this->contentType
-        );
+        if ($this->request->isXmlHttpRequest())
+        {
+            $this->request->setContentDispositionStreamed(
+                'ApplicationRenderer_Json_Temp_' . \App\Uuid::v4(),
+                $this->serialize,
+                $this->contentType,
+                false,
+                $this->initSecurelyHeaders()
+            );
+        }
+        else
+        {
+            $this->request->setContentDispositionStreamed(
+                'ApplicationRenderer_Json_Temp_' . \App\Uuid::v4(),
+                $this->serialize,
+                $this->contentType
+            );
+        }
     }
 
     public function useCsrf()

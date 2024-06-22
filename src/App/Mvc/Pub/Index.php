@@ -12,25 +12,28 @@ use App\String\Reaction as ReactionString;
 
 class Index extends Controller implements Pub
 {
-	public function container($option)
-	{
-		if ($this->request->getRequestMethod() == "GET")
-		{
-			echo $this->template->render(
-				'index.twig',
-				[
-					'option' => $option,
-					'string' => [
-						'post' => new PostString,
-						'discussion' => new DiscussionString,
-						'stats' => new StatsString,
-						'reaction' => new ReactionString
-					]
-				]
-			);
-		}
-		elseif ($this->request->getRequestMethod() == "POST")
-		{
-		}
-	}
+    public function container($option)
+    {
+        if ($this->request->getRequestMethod() == "GET")
+        {
+            $template = $this->template->render(
+                'index.twig',
+                [
+                    'option' => $option,
+                    'string' => [
+                        'post' => new PostString,
+                        'discussion' => new DiscussionString,
+                        'stats' => new StatsString,
+                        'reaction' => new ReactionString
+                    ]
+                ]
+            );
+
+            return $this->phrase->render('html')->prepare($template)
+                ->render();
+        }
+        elseif ($this->request->getRequestMethod() == "POST")
+        {
+        }
+    }
 }

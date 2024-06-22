@@ -8,66 +8,72 @@ use App\Repository\Post as PostRepo;
 
 class Pages extends Controller implements Pub
 {
-	public function container($option)
-	{
-		if ($this->request->getRequestMethod() == "GET")
-		{
-			if ($this->request->getPathInfo() == '/pages/faq')
-			{
-				echo $this->template->render(
-					'faq.twig',
-					[
-						'option' => $option,
-						'string' => []
-					]
-				);
-			}
-			elseif ($this->request->getPathInfo() == '/pages/privacy')
-			{
-				echo $this->template->render(
-					'privacy.twig',
-					[
-						'option' => $option,
-						'string' => []
-					]
-				);
-			}
-			elseif ($this->request->getPathInfo() == '/pages/contact')
-			{
-				echo $this->template->render(
-					'contact.twig',
-					[
-						'option' => $option,
-						'string' => []
-					]
-				);
-			}
-		}
-		elseif ($this->request->getRequestMethod() == "POST")
-		{
-			if ($this->request->getPathInfo() == '/pages/contact')
-			{
-				$this->contact();
-			}
-		}
-	}
+    public function container($option)
+    {
+        if ($this->request->getRequestMethod() == "GET")
+        {
+            if ($this->request->getPathInfo() == '/pages/faq')
+            {
+                $template = $this->template->render(
+                    'faq.twig',
+                    [
+                        'option' => $option,
+                        'string' => []
+                    ]
+                );
 
-	private function contact()
-	{
-		$post = new PostRepo();
+                return $this->phrase->render('html')->prepare($template)
+                    ->render();
+            }
+            elseif ($this->request->getPathInfo() == '/pages/privacy')
+            {
+                $template = $this->template->render(
+                    'privacy.twig',
+                    [
+                        'option' => $option,
+                        'string' => []
+                    ]
+                );
 
-		$send = (new \App\SubContainer\Mailer())->Send(
-			$post->get('title'),
-			[$post->get('mail')],
-			[$this->settings->site_mail],
-			$post->get('text')
-		);
+                return $this->phrase->render('html')->prepare($template)
+                    ->render();
+            }
+            elseif ($this->request->getPathInfo() == '/pages/contact')
+            {
+                $template = $this->template->render(
+                    'contact.twig',
+                    [
+                        'option' => $option,
+                        'string' => []
+                    ]
+                );
+            }
+        }
+        elseif ($this->request->getRequestMethod() == "POST")
+        {
+            if ($this->request->getPathInfo() == '/pages/contact')
+            {
+                $this->contact();
+            }
+        }
+    }
 
-		if ($send)
-		{
-			return $this->phrase->render('json')->serialize(
-				[]
-			)->render();
-		}
-	}
+    private function contact()
+    {
+        $post = new PostRepo();
+
+        $send = (new \App\SubContainer\Mailer())->Send(
+            $post->get('title'),
+            [$post->get('mail')],
+            [$this->settings->site_mail],
+            $post->get('text')
+        );
+
+        if ($send)
+        {
+            return $this->phrase->render('json')->serialize(
+                []
+            )->render();
+        }
+    }
 }
