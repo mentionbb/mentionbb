@@ -75,12 +75,18 @@
     "autoload": {
         "psr-4": {
             "Binaries\\": "./bin",
-            "Release\\": "./src",
             "ComponentBundle\\": "./src/Addons/Mention",
             "App\\": "./src/App",
             "Addons\\": "./src/Addons",
             "Install\\": "./src/Install"
-        }
+        },
+        "classmap": [
+            "src"
+        ],
+        "exclude-from-classmap": [
+            "./src/cache",
+            "./src/vendor"
+        ]
     },
     "scripts": {
         "post-update-cmd": [

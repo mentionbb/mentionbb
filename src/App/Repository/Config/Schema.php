@@ -2,6 +2,8 @@
 
 namespace App\Repository\Config;
 
+use InitialConfig;
+
 use App\Util\Yaml;
 
 class Schema
@@ -36,7 +38,7 @@ class Schema
 			$events["AppId_{$event['event_id']}"] = $event;
 			$events["AppId_{$event['event_id']}"]['file'] = pathinfo($file, PATHINFO_EXTENSION);
 
-			if (\Release\InitialConfig::Disable_All_Addons)
+			if (InitialConfig::Disable_All_Addons)
 			{
 				if ($event['event_id'] != 'e4888e0e-364f-4feb-88b9-e961088460c4')
 				{

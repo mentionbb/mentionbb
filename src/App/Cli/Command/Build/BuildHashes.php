@@ -18,7 +18,7 @@ class BuildHashes extends Command
     {
         $output->writeln('<info>Building hash..</info>');
 
-        (new \Release\RequireChecker())->buildHashes();
+        (new \RequireChecker())->buildHashes();
 
         $output->writeln('<info>Hashes created</info>');
 

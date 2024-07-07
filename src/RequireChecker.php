@@ -1,7 +1,5 @@
 <?php
 
-namespace Release;
-
 use Symfony\Component\Finder\Finder;
 
 class RequireChecker

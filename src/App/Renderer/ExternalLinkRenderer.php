@@ -2,6 +2,8 @@
 
 namespace App\Renderer;
 
+use InitialConfig;
+
 use App\String\Post as PostString;
 
 use GuzzleHttp\HandlerStack;
@@ -26,7 +28,7 @@ class ExternalLinkRenderer
 		self::$post_id = $post_id;
 		$stack = self::addCache();
 
-		if (\Release\InitialConfig::Disable_ExternalLink_Preview)
+		if (InitialConfig::Disable_ExternalLink_Preview)
 		{
 			return [
 				'status' => 'exception',

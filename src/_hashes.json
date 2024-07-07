@@ -1,5 +1,5 @@
 {
-    "created_on": "Mon, 10 Jun 2024 18:02:24 GMT",
+    "created_on": "Sun, 07 Jul 2024 14:50:49 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.19",
@@ -9,11 +9,11 @@
                 "filename": "app.php",
                 "path": ".\/app.php"
             },
-            "9b7ec2623ba61ad9cf5203e5d6fcb5347ac11edeec9228247b9f83af1bc69870": {
+            "e6af78af66bca110e3fce93ae3fe9ee8e4ba0b9c1ffa64ea63c79dcdca38573a": {
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "17d6a74820d4017e0ba38c2df8328644f62021adc9ff1a39e8080c213d3e8e70": {
+            "5c67fb1c502ebc1f1e14dec540241a2a49a52ed891590ab4b6945a8a4436c532": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -35,7 +35,7 @@
             }
         },
         "src": {
-            "bf501ef3da745832a1b6256fc7b94dbe7ddcf6daf90e6aaa20bac826e3e7bf1f": {
+            "355d5677dfe2cc4ce293b8139cd1d50c7a186361b0ebddf6dc8c080a8ce94b48": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
@@ -67,7 +67,7 @@
                 "filename": "Logger.php",
                 "path": ".\/src\/App\/Logger.php"
             },
-            "fb31240edfee342cb8cabb9b7419bb532e0906f12285dc6e41f73c2a60679866": {
+            "ea552e9941d5bbec613bda24265859016a44b69a2caa701601899db8150e1c3d": {
                 "filename": "Phrase.php",
                 "path": ".\/src\/App\/Phrase.php"
             },
@@ -153,7 +153,7 @@
             }
         },
         "src\/App\/Db": {
-            "9737c9f20b395f08755e98f877d936c33c08bdc5284a36c35aed938ab13da7d1": {
+            "da6afda340a34cc27e327c14ad2526068533185382d0054a7773bcc5be38636b": {
                 "filename": "Layer.php",
                 "path": ".\/src\/App\/Db\/Layer.php"
             },
@@ -183,7 +183,7 @@
                 "filename": "DateTime.php",
                 "path": ".\/src\/App\/Entity\/DateTime.php"
             },
-            "bdb3213c7f086653b7ed9e35026c1477f18e12fbd8cb4d244769c90eeb0f1036": {
+            "3c89acfea6101112557b8b156749127d365703c51d9266825ff6c50ecdc35673": {
                 "filename": "Discussion.php",
                 "path": ".\/src\/App\/Entity\/Discussion.php"
             },
@@ -257,7 +257,7 @@
             }
         },
         "src\/App\/Renderer": {
-            "50554a51bdb759ad59e33a45fdb44c12999ebc0f9ca7498f105ac9beb16f25c0": {
+            "37bbca0ce2f8f74140f0c412a12c5b3793b00674018db3e19ca828c8731a25f8": {
                 "filename": "ExternalLinkRenderer.php",
                 "path": ".\/src\/App\/Renderer\/ExternalLinkRenderer.php"
             },
@@ -287,7 +287,7 @@
                 "filename": "Post.php",
                 "path": ".\/src\/App\/Repository\/Post.php"
             },
-            "090f3ce0f1cf59c39c6a562f76c6a55273f93d197b23b4345d37dd28b996805a": {
+            "964d7ec29f9dc350cae608e6b833fadd2a5bf0e4e8dad3d96ecc8e5ff978f822": {
                 "filename": "Request.php",
                 "path": ".\/src\/App\/Repository\/Request.php"
             },
@@ -421,7 +421,7 @@
                 "filename": "ServerEnvironment.php",
                 "path": ".\/src\/App\/SubContainer\/ServerEnvironment.php"
             },
-            "d0766384b51291b93413fc3ac82375bc408b8ada5d7ed1402de93789612f1bdf": {
+            "0a8b6a4dc865fe854b949cf78bedd5bbf8450f45da00e08fd40d96f9a2ec4545": {
                 "filename": "Sitemap.php",
                 "path": ".\/src\/App\/SubContainer\/Sitemap.php"
             }
@@ -671,15 +671,15 @@
             }
         },
         "src\/App\/Mvc\/Pub": {
-            "ef92987241e8a58f39d3a0955bf4489e658332dcd898239de9d3e698ee5482fc": {
+            "cbad3a6afd370958f2fefa7759fb4b86a0acc8d866e33a2c1eb69a0fbad1c5df": {
                 "filename": "Account.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Account.php"
             },
-            "0692d119fa1c43a57dc92e42542a0ab3c49415f856baac8d4620532debe72d58": {
+            "75b5b04773148b5797fe3d0cc3c520be23f3a4fb771bd3b16daeacae333f152e": {
                 "filename": "AppException.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/AppException.php"
             },
-            "1b3c67724bf1a8e4716634713b698d329753d1f05a963441f8fccf95bd707e51": {
+            "5cff3fa3c18e00b65fbed077bf272c023556f8603eb36595db6e710868f9f57e": {
                 "filename": "Attachment.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Attachment.php"
             },
@@ -687,7 +687,7 @@
                 "filename": "Auth.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Auth.php"
             },
-            "4e70f1de25cef72b0a7cc920d0d2ad767234f03f34f7e24a10ad724d883707b7": {
+            "89a4bfab3c743658380f2966f41b6c92d1a19859dc1ead2c6117a522b14625df": {
                 "filename": "Discussion.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Discussion.php"
             },
@@ -695,11 +695,11 @@
                 "filename": "Editor.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Editor.php"
             },
-            "080fd1d7d754111992e68e07620e31e347bcb7855039345f1ba20d1d796ae3ee": {
+            "9f732b11ba540e7383e42e5f37b73faccd0dba5bc40bcf9af34c3c64cb4132d0": {
                 "filename": "Index.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Index.php"
             },
-            "c07f7e20a0188ae8c82ba649c687661bad2932dcb5a838ffb4fd4202fcfe9899": {
+            "a6762fae861c8396d4c07b0e4acbe47a2872f0ec441ee3c52d49c728a0bb469e": {
                 "filename": "Messages.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Messages.php"
             },
@@ -707,7 +707,7 @@
                 "filename": "Moderation.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Moderation.php"
             },
-            "c2efcb0f679077f3c83b260af88f01f97d94680aa64a42438f39c2adc7049680": {
+            "f453a9d035f4bde0572156803447428080e1a941918c15a5a8071378d664d66a": {
                 "filename": "Pages.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Pages.php"
             },
@@ -715,7 +715,7 @@
                 "filename": "Post.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Post.php"
             },
-            "ab6111e70e3502df2759cb7aa856780d12d93525187a6e6bcc6bbfe4f87385b1": {
+            "93728c3fddedad24cbdac1bb656cdaebbe6d3a57ff76f2c4f6dd7db16011b30c": {
                 "filename": "Profile.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Profile.php"
             },
@@ -723,7 +723,7 @@
                 "filename": "Search.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Search.php"
             },
-            "354d40e182da4a47485c97822218b2d92e0a9fb889c7898e5de2c3e2afe5b0da": {
+            "c388374301cf115d4d748e653ea48fca757662fa2c9f1bc19e2b1b6c7f37916f": {
                 "filename": "Shortcode.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Shortcode.php"
             },
@@ -735,7 +735,7 @@
                 "filename": "Test.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Test.php"
             },
-            "88285969d7b0c5358610c7416fedbbf7520019a8e2f3b7f905ccc62eafb28a2d": {
+            "cd5e96fb7e97dfcb9b4bfde2d058fcce048e043a0307d53fbc41fe153e33db3b": {
                 "filename": "TwoStepVerification.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/TwoStepVerification.php"
             },
@@ -763,11 +763,15 @@
             }
         },
         "src\/App\/Renderer\/Response": {
-            "0989b6386a96deb506d8fb3b256b23f033c294f3d9853f02418ff387b6963088": {
+            "3211d75cd71e5b897a7d50268546309fcc7489d5f670839cb605d632cdda2513": {
+                "filename": "Html.php",
+                "path": ".\/src\/App\/Renderer\/Response\/Html.php"
+            },
+            "2a5299b304b5b97516455a009d2fbd00f7802006f42e90568e49fe2c90da0845": {
                 "filename": "Json.php",
                 "path": ".\/src\/App\/Renderer\/Response\/Json.php"
             },
-            "eb7af952f50377116c2d4b9458c6ae7985542ea9409781772cc0651bf8d5beeb": {
+            "02a59b0b3f9e76acfa21795f69d522ac5f6b004eeef4c5b3691aa58e25d5f8c9": {
                 "filename": "ResponseRenderer.php",
                 "path": ".\/src\/App\/Renderer\/Response\/ResponseRenderer.php"
             },
@@ -783,13 +787,13 @@
             }
         },
         "src\/App\/Repository\/Config": {
-            "d99c135c72da1da405a70bd8e28575371aa4cf19d0826cd4e58de7704daa06df": {
+            "538300dabac962e2dd25a699a7d459f179576d29d00a528efff194950531fddd": {
                 "filename": "Schema.php",
                 "path": ".\/src\/App\/Repository\/Config\/Schema.php"
             }
         },
         "src\/App\/SubContainer\/Attachment": {
-            "be1c900849564a6fd3d512962ba8f02710b10879f0e95a7a065c5112d2f2e308": {
+            "e4af600bab6beda6fb7dc04f3938a5a5eacd7efbff59f4998299987a5a391623": {
                 "filename": "Attachment.php",
                 "path": ".\/src\/App\/SubContainer\/Attachment\/Attachment.php"
             },
@@ -1343,7 +1347,7 @@
             }
         },
         "src\/App\/Cli\/Command\/Build": {
-            "4028eae43c066cb6903791056f847db56ec32af7b9d8dc30ed5e303b7e60a285": {
+            "e061e03f7521d22447d120c9d1c9aac67f1590dba6c2d9a679cf01ea85853c1b": {
                 "filename": "BuildHashes.php",
                 "path": ".\/src\/App\/Cli\/Command\/Build\/BuildHashes.php"
             }

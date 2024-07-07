@@ -8,6 +8,9 @@
 
 namespace App\Db;
 
+use DbConfig;
+use InitialConfig;
+
 use Doctrine\DBAL\Configuration as DoctrineConfiguration;
 use Doctrine\DBAL\DriverManager as DoctrineDriverManager;
 use Doctrine\DBAL\Logging\Middleware as DoctrineMiddleware;
@@ -39,29 +42,29 @@ abstract class Layer
     public function __construct()
     {
         $connectionParams = null;
-        if (\Release\DbConfig::DB_Params['driver'] == 'pdo_mysql')
+        if (DbConfig::DB_Params['driver'] == 'pdo_mysql')
         {
-            $connectionParams = \Release\DbConfig::DB_Params_PDO_MySQL;
+            $connectionParams = DbConfig::DB_Params_PDO_MySQL;
         }
-        else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_sqlite')
+        else if (DbConfig::DB_Params['driver'] == 'pdo_sqlite')
         {
-            $connectionParams = \Release\DbConfig::DB_PARAMS_PDO_SQLite;
+            $connectionParams = DbConfig::DB_PARAMS_PDO_SQLite;
         }
-        else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_pgsql' && \Release\DbConfig::DB_Params['driver'] == 'pgsql')
+        else if (DbConfig::DB_Params['driver'] == 'pdo_pgsql' && DbConfig::DB_Params['driver'] == 'pgsql')
         {
-            $connectionParams = \Release\DbConfig::DB_PARAMS_PgSQL;
+            $connectionParams = DbConfig::DB_PARAMS_PgSQL;
         }
-        else if (\Release\DbConfig::DB_Params['driver'] == 'pdo_sqlsrv' && \Release\DbConfig::DB_Params['driver'] == 'sqlsrv')
+        else if (DbConfig::DB_Params['driver'] == 'pdo_sqlsrv' && DbConfig::DB_Params['driver'] == 'sqlsrv')
         {
-            $connectionParams = \Release\DbConfig::DB_PARAMS_SQLSrv;
+            $connectionParams = DbConfig::DB_PARAMS_SQLSrv;
         }
-        else if (\Release\DbConfig::DB_Params['driver'] == 'mysqli')
+        else if (DbConfig::DB_Params['driver'] == 'mysqli')
         {
-            $connectionParams = \Release\DbConfig::DB_PARAMS_MySQLi;
+            $connectionParams = DbConfig::DB_PARAMS_MySQLi;
         }
-        else if (\Release\DbConfig::DB_Params['driver'] == 'sqlite3')
+        else if (DbConfig::DB_Params['driver'] == 'sqlite3')
         {
-            $connectionParams = \Release\DbConfig::DB_PARAMS_SQLite3;
+            $connectionParams = DbConfig::DB_PARAMS_SQLite3;
         }
 
         if (is_null($connectionParams))
@@ -71,7 +74,7 @@ abstract class Layer
 
         $connectionParams = \array_merge(
             $connectionParams,
-            \Release\DbConfig::DB_Params
+            DbConfig::DB_Params
         );
 
         /**
@@ -91,42 +94,42 @@ abstract class Layer
 
         $cache = null;
 
-        if (\Release\InitialConfig::Cache_Standard['adapter'] == 'ApcuAdapter')
+        if (InitialConfig::Cache_Standard['adapter'] == 'ApcuAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\ApcuAdapter(
                 $cacheConfig['namespace'],
-                \Release\InitialConfig::Cache_Standard['config']['defaultLifetime'],
-                \Release\InitialConfig::Cache_Standard['config']['version']
+                InitialConfig::Cache_Standard['config']['defaultLifetime'],
+                InitialConfig::Cache_Standard['config']['version']
             );
         }
-        else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'ArrayAdapter')
+        else if (InitialConfig::Cache_Standard['adapter'] == 'ArrayAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\ArrayAdapter(
-                \Release\InitialConfig::Cache_Standard['config']['defaultLifetime'],
-                \Release\InitialConfig::Cache_Standard['config']['storeSerialized'],
-                \Release\InitialConfig::Cache_Standard['config']['maxLifetime'],
-                \Release\InitialConfig::Cache_Standard['config']['maxItems']
+                InitialConfig::Cache_Standard['config']['defaultLifetime'],
+                InitialConfig::Cache_Standard['config']['storeSerialized'],
+                InitialConfig::Cache_Standard['config']['maxLifetime'],
+                InitialConfig::Cache_Standard['config']['maxItems']
             );
         }
-        else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'MemcachedAdapter')
+        else if (InitialConfig::Cache_Standard['adapter'] == 'MemcachedAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\MemcachedAdapter(
                 \Symfony\Component\Cache\Adapter\MemcachedAdapter::createConnection(
-                    \Release\InitialConfig::Cache_Standard['config']['url']
+                    InitialConfig::Cache_Standard['config']['url']
                 ),
                 $cacheConfig['namespace'],
-                \Release\InitialConfig::Cache_Standard['config']['defaultLifetime']
+                InitialConfig::Cache_Standard['config']['defaultLifetime']
             );
         }
         else if (
-            \Release\InitialConfig::Cache_Standard['adapter'] == 'DoctrineDbalAdapter'
-            || \Release\InitialConfig::Cache_Standard['adapter'] == 'default'
+            InitialConfig::Cache_Standard['adapter'] == 'DoctrineDbalAdapter'
+            || InitialConfig::Cache_Standard['adapter'] == 'default'
         )
         {
             $cache = new \Symfony\Component\Cache\Adapter\DoctrineDbalAdapter(
                 $this->conn,
                 $cacheConfig['namespace'],
-                \Release\InitialConfig::Cache_Standard['config']['defaultLifetime'],
+                InitialConfig::Cache_Standard['config']['defaultLifetime'],
                 [
                     'db_table' => 'dbquery_cache_items',
                     'db_id_col' => 'item_id',
@@ -136,26 +139,26 @@ abstract class Layer
                 ]
             );
         }
-        else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'PhpFilesAdapter')
+        else if (InitialConfig::Cache_Standard['adapter'] == 'PhpFilesAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\PhpFilesAdapter(
                 $cacheConfig['namespace'],
-                \Release\InitialConfig::Cache_Standard['config']['defaultLifetime'],
+                InitialConfig::Cache_Standard['config']['defaultLifetime'],
                 APPLICATION_SELF . '/Cache'
             );
         }
-        else if (\Release\InitialConfig::Cache_Standard['adapter'] == 'RedisAdapter')
+        else if (InitialConfig::Cache_Standard['adapter'] == 'RedisAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\RedisAdapter(
                 \Symfony\Component\Cache\Adapter\RedisAdapter::createConnection(
-                    \Release\InitialConfig::Cache_Standard['config']['url']
+                    InitialConfig::Cache_Standard['config']['url']
                 ),
                 $cacheConfig['namespace'],
-                \Release\InitialConfig::Cache_Standard['config']['defaultLifetime']
+                InitialConfig::Cache_Standard['config']['defaultLifetime']
             );
         }
 
-        if (empty(\Release\InitialConfig::Cache_Standard['adapter']) || is_null($cache))
+        if (empty(InitialConfig::Cache_Standard['adapter']) || is_null($cache))
         {
             throw new \Exception('Cache not set. Please use a cacher or set it by default.');
         }
