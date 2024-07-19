@@ -6,10 +6,10 @@ class RequireChecker
 {
     private $staticKeyV4 = "c1ade9d2-374a-41f7-bb7c-56bd516de1e3";
 
-    private $excludeDirs = ['vendor', 'Cache', 'Dev', 'Patches', 'ui'];
+    private $excludeDirs = ['src/vendor', 'Cache', 'Dev', 'Patches', 'ui/editor', 'ui/images', 'ui/themes', 'ui/uploads'];
     private $excludeFiles = ['_hashes.json', 'DbConfig.php', 'InitialConfig.php'];
 
-    private $targetExtensions = ['*.php', '*.twig', '*.json', '*.yml', '*.yaml', '*.lock'];
+    private $targetExtensions = ['*.php', '*.twig', '*.json', '*.yml', '*.yaml', '*.lock', '*.js', '*.map', '*.css'];
 
     private $gitignoreFile = APPLICATION_SELF . '/Addons/.gitignore';
     private $hashFile = APPLICATION_SELF . '/_hashes.json';
@@ -27,6 +27,17 @@ class RequireChecker
             ->name($this->targetExtensions)
             ->ignoreVCSIgnored(true)
             ->ignoreUnreadableDirs();
+
+        $finder->filter(static function (\SplFileInfo $file)
+        {
+            if ($file->isFile() && preg_match('/public\/ui\/vendor/', $file->getPathname()))
+            {
+                if (!preg_match('/\/public\/ui\/vendor\/app|\/public\/ui\/vendor\/install|vendor\.js|vendor\.css|admin\.js.\.map|admin-vendor\.css|core\.js\.map|editor\.admin\.js\.map|editor\.js\.map|install\.js\.map|monaco\.editor\.admin\.js\.map/', $file->getPathname()))
+                {
+                    return false;
+                }
+            }
+        });
 
         $finder->sort(static function (\SplFileInfo $a, \SplFileInfo $b)
         {
