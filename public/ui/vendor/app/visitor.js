@@ -215,7 +215,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                 $('.app-theme-mode').removeClass('disable');
                 $('.app-theme-mode input').attr('disabled', false);
 
-                Storages.cookieStorage.remove('theme_mode_auto');
+                Storages.cookieStorage.set('theme_mode_auto', 'off');
             } else {
                 $(this).addClass('active');
 
@@ -403,7 +403,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
     });
 
     $(document).ready(function () {
-        if (Storages.cookieStorage.get("theme_mode_auto")) {
+        if (Storages.cookieStorage.get("theme_mode_auto") === true) {
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 if (!$('.app-theme-mode input').is(':checked')) {
                     $('.app-theme-mode input').click();
@@ -413,6 +413,10 @@ if (window.jQuery === undefined) jQuery = $ = {};
                     $('.app-theme-mode input').click();
                 }
             };
+        };
+
+        if (!Storages.cookieStorage.get("theme_mode_auto") && !Storages.cookieStorage.get("night_mode")) {
+            $('.auto-switch').click();
         };
 
         userTooltipInit();
