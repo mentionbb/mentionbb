@@ -1,5 +1,5 @@
 {
-    "created_on": "Sun, 07 Jul 2024 14:50:49 GMT",
+    "created_on": "Fri, 19 Jul 2024 17:33:49 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.19",
@@ -13,7 +13,7 @@
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "5c67fb1c502ebc1f1e14dec540241a2a49a52ed891590ab4b6945a8a4436c532": {
+            "42631632cd9714784b95bc69420337e98a5751fe5575a4db0d6ad32f1f5e05f4": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -32,10 +32,14 @@
             "1270eb94c1bdcda89d7e5775079c663426e0fe8fbf44ad21e9740b7aa0af69d1": {
                 "filename": "index.php",
                 "path": ".\/public\/index.php"
+            },
+            "ca7dec8a22c59af525f881605fd80718aa9009b7f0757ead87654f75f399b5eb": {
+                "filename": "service-worker.js",
+                "path": ".\/public\/service-worker.js"
             }
         },
         "src": {
-            "355d5677dfe2cc4ce293b8139cd1d50c7a186361b0ebddf6dc8c080a8ce94b48": {
+            "dbe343eeaf62a29bdebe1d4bfa4369535ff3939143902e9c8391a8fb9a29933d": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
@@ -116,6 +120,40 @@
             "22aa8a9339d5b37c15b1bde8b9b844cec60084d1f58276615f3b4bc0ff5dac01": {
                 "filename": "Templater.php",
                 "path": ".\/src\/Standalone\/Templater.php"
+            }
+        },
+        "public\/ui\/vendor": {
+            "98dce6b2b09a25d09cd4e61ad456fa7f2703c57692574c79f735ae992b3b84f0": {
+                "filename": "admin-vendor.css",
+                "path": ".\/public\/ui\/vendor\/admin-vendor.css"
+            },
+            "f922518b3b8ffb24b0af16b2df991142e2a73969e08fa41617bee9da64604e30": {
+                "filename": "core.js.map",
+                "path": ".\/public\/ui\/vendor\/core.js.map"
+            },
+            "a979c9a12767b745dbccf616b15825a68795dfbffd1b6500be2b6d5d412e287e": {
+                "filename": "editor.admin.js.map",
+                "path": ".\/public\/ui\/vendor\/editor.admin.js.map"
+            },
+            "26d6b5d5108980692a66f5174bc856e99a222b90b962d2d9f6df4f1e5476b284": {
+                "filename": "editor.js.map",
+                "path": ".\/public\/ui\/vendor\/editor.js.map"
+            },
+            "dece2f40cdbc61153640fb85f01426af6dc9fee462555bfd6cf2a08f1219e388": {
+                "filename": "install.js.map",
+                "path": ".\/public\/ui\/vendor\/install.js.map"
+            },
+            "1a87c2b9d18658c0367712a137c9f8cd26ae0c8d0795fc5ed751c0c36e93f7b3": {
+                "filename": "monaco.editor.admin.js.map",
+                "path": ".\/public\/ui\/vendor\/monaco.editor.admin.js.map"
+            },
+            "27f2a6206bae2fcd96e88f8acf49d85ff0c76c94108298566488b86d69f2483a": {
+                "filename": "vendor.css",
+                "path": ".\/public\/ui\/vendor\/vendor.css"
+            },
+            "a5001a593d727f8a925f477b8cfc83e32396accb776986644cd2816edf16fbb1": {
+                "filename": "vendor.js",
+                "path": ".\/public\/ui\/vendor\/vendor.js"
             }
         },
         "src\/Addons\/Mention": {
@@ -600,6 +638,58 @@
             "1405f2cc5724fafe103e15d32f5c3665d9ac5469de1b1bdba0fe4b3415896125": {
                 "filename": "container.twig",
                 "path": ".\/src\/Templates\/Default\/container.twig"
+            }
+        },
+        "public\/ui\/vendor\/app": {
+            "a7bce6481ae4506f6f8bb23589f8cbf5b3b6df61f56a0353d0a86e110acfba96": {
+                "filename": "account.js",
+                "path": ".\/public\/ui\/vendor\/app\/account.js"
+            },
+            "08ceb1557f74fe63e472fff8e55e4e98710b3278e94c360de3531ca09eaa9878": {
+                "filename": "app.js",
+                "path": ".\/public\/ui\/vendor\/app\/app.js"
+            },
+            "d807c2918812de3ba5c174a2d7a709284205950dd324f25cdc38cf3576dc52ac": {
+                "filename": "core.js",
+                "path": ".\/public\/ui\/vendor\/app\/core.js"
+            },
+            "e5c27431a95d79e742eebe22445b3e7bbed73c2de1149f3d6750a96ff0738bf8": {
+                "filename": "discussion.js",
+                "path": ".\/public\/ui\/vendor\/app\/discussion.js"
+            },
+            "d9decdd2ae9c893e0888158dc0bd14a0d216e366a51de0381b4232c2137dc5a6": {
+                "filename": "index.js",
+                "path": ".\/public\/ui\/vendor\/app\/index.js"
+            },
+            "bb136978d60542451d29f164e86b5b5188fa188f016f7c5c1e793dfbacb2febc": {
+                "filename": "messages.js",
+                "path": ".\/public\/ui\/vendor\/app\/messages.js"
+            },
+            "cc80855bf4532dde49803b697530d5fe4ce3e82677a7149a955f4ff8cb39e72f": {
+                "filename": "pages.js",
+                "path": ".\/public\/ui\/vendor\/app\/pages.js"
+            },
+            "a9e60ac1722ac558fc00ad3a6e871d38e6fa5e07e674a4dc606781b6974a181e": {
+                "filename": "post.js",
+                "path": ".\/public\/ui\/vendor\/app\/post.js"
+            },
+            "e387a1ea5a7b0dd093f03eddf58d1e2031c018828b978620e392f41813ce499b": {
+                "filename": "profile.js",
+                "path": ".\/public\/ui\/vendor\/app\/profile.js"
+            },
+            "0864bf6dff2724062fb8be930c78babb4f7e29820929908e3b1efae9e0cdb5ba": {
+                "filename": "visitor.js",
+                "path": ".\/public\/ui\/vendor\/app\/visitor.js"
+            }
+        },
+        "public\/ui\/vendor\/install": {
+            "18918e8a40b2d973b7cb34f11672b97a345b382c050593116117e5399ac633d3": {
+                "filename": "install.js",
+                "path": ".\/public\/ui\/vendor\/install\/install.js"
+            },
+            "3f92a8e448d9ef85afb429846e42e800ce6150892e8415f9ebe29a1058026288": {
+                "filename": "style.css",
+                "path": ".\/public\/ui\/vendor\/install\/style.css"
             }
         },
         "src\/Addons\/Mention\/App": {
@@ -1326,6 +1416,50 @@
             "63e20aba8126552d9d99142f7fa69fc8d0ce2cd12124b87daa462e8b311a7963": {
                 "filename": "two_step_verification.twig",
                 "path": ".\/src\/Templates\/Default\/User\/two_step_verification.twig"
+            }
+        },
+        "public\/ui\/vendor\/app\/admin": {
+            "681246a7556041f8d1b7dedff7897f28f2d67ed7564d54345445d994598cab0b": {
+                "filename": "admin.js",
+                "path": ".\/public\/ui\/vendor\/app\/admin\/admin.js"
+            },
+            "fbe313ee56e98ebfd08adda8e3bd3b49d062e05f5db1c0d58ad3d5b353890045": {
+                "filename": "vendor.js",
+                "path": ".\/public\/ui\/vendor\/app\/admin\/vendor.js"
+            }
+        },
+        "public\/ui\/vendor\/app\/editor": {
+            "e9a6eb71c776699cef7be40abaf7ca7746ec8f841437f5e86ecb5e8fd8b01b26": {
+                "filename": "bbcode.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/bbcode.js"
+            },
+            "9c6d99d6ad7753f980657ea0b2c5bf63dfbff83e063ccc91ea2afff4328b45ba": {
+                "filename": "code.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/code.js"
+            },
+            "82a3833492ab2bb9c0e95427de5c5d505f2cdbe63723a8a65d7658f4b98dcab6": {
+                "filename": "emoticons.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/emoticons.js"
+            },
+            "114c1077f6508d8fc1f5e17f92a678e3fb74ae267cccf392135ad60919da9ebb": {
+                "filename": "fullscreen.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/fullscreen.js"
+            },
+            "725c9c764e9423d059fb99bbd8bf72ca02d6012ea3e69b4ab280f1cd2db483d2": {
+                "filename": "preview.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/preview.js"
+            },
+            "1022eec1bfea8944afec462456c280028b6594433eebe2b9becfd24cd6a51390": {
+                "filename": "quote-message.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/quote-message.js"
+            },
+            "93c30068110ff425dee75e122b38a067418285c725e0117f87ff6a0136abe0f7": {
+                "filename": "spoiler.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/spoiler.js"
+            },
+            "f2f005a052f66b6b348a67b31cc5ddf91abb3edcfc1774a9e44dd4b63c3a320f": {
+                "filename": "user-tagging.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/user-tagging.js"
             }
         },
         "src\/Addons\/Mention\/App\/Config": {
