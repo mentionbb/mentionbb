@@ -428,7 +428,7 @@
         .trace-code li code {
             background-color: transparent;
             color: var(--base-6);
-            white-space: nowrap;
+            white-space: pre;
         }
 
         .trace-as-text .stacktrace {
