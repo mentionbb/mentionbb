@@ -80,7 +80,11 @@
             "Addons\\": "./src/Addons",
             "Install\\": "./src/Install"
         },
-        "classmap": ["./src/InitialConfig.php", "./src/DbConfig.php", "./src/RequireChecker.php"]
+        "classmap": [
+            "./src/InitialConfig.php",
+            "./src/DbConfig.php",
+            "./src/RequireChecker.php"
+        ]
     },
     "scripts": {
         "post-update-cmd": [
@@ -89,6 +93,9 @@
     },
     "extra": {
         "patches": {
+            "phpgangsta/googleauthenticator": [
+                "./src/patches/phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch"
+            ],
             "symfony/error-handler": [
                 "./src/patches/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch"
             ],
