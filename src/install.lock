@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "versionId": "11019000",
+    "versionId": "11020000",
     "versionTitle": "1.0 developer preview",
     "contains": {
         "status": "stable-beta",
