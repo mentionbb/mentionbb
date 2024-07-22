@@ -5,6 +5,7 @@ namespace App\SubContainer\Auth;
 class Social
 {
 	private $settings;
+    private $service;
 
 	private $provider;
 	private $name;
