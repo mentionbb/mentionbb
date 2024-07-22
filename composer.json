@@ -80,13 +80,7 @@
             "Addons\\": "./src/Addons",
             "Install\\": "./src/Install"
         },
-        "classmap": [
-            "src"
-        ],
-        "exclude-from-classmap": [
-            "./src/cache",
-            "./src/vendor"
-        ]
+        "classmap": ["./src/InitialConfig.php", "./src/DbConfig.php", "./src/RequireChecker.php"]
     },
     "scripts": {
         "post-update-cmd": [
