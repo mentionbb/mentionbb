@@ -29,10 +29,8 @@
              'exceptionMessage' => $exceptionMessage,
              'statusText' => $statusText,
              'statusCode' => $statusCode,
--            'logger' => null !== $this->logger && class_exists(DebugLoggerConfigurator::class) ? DebugLoggerConfigurator::getDebugLogger($this->logger) : null,
--            'currentContent' => \is_string($this->outputBuffer) ? $this->outputBuffer : ($this->outputBuffer)(),
-+            'logger' => DebugLoggerConfigurator::getDebugLogger($this->logger),
-+            'currentContent' => \is_string($this->outputBuffer) ? $this->outputBuffer : ($this->outputBuffer)()
+             'logger' => null !== $this->logger && class_exists(DebugLoggerConfigurator::class) ? DebugLoggerConfigurator::getDebugLogger($this->logger) : null,
+             'currentContent' => \is_string($this->outputBuffer) ? $this->outputBuffer : ($this->outputBuffer)(),
          ]);
      }
  
