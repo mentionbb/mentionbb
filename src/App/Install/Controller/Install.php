@@ -1,8 +1,8 @@
 <?php
 
-namespace Install\Controller;
+namespace App\Install\Controller;
 
-use Install\Controller;
+use App\Install\Controller;
 
 class Install extends Controller
 {

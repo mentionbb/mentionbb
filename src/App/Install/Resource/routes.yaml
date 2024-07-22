@@ -1,0 +1,3 @@
+InstallCommonBundle:
+  path: /install
+  controller: '\App\Install\Controller\Install::container'

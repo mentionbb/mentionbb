@@ -1,6 +1,6 @@
 <?php
 
-namespace Install;
+namespace App\Install;
 
 class Resource
 {
@@ -21,7 +21,7 @@ class Resource
             'year' => date('Y', time())
         ];
 
-        $this->_common = \App\Util\Yaml::getFile(APPLICATION_SELF . '/Install/Resource/common.yaml');
+        $this->_common = \App\Util\Yaml::getFile(APPLICATION_SELF . '/App/Install/Resource/common.yaml');
     }
 
     public function getVersionText()

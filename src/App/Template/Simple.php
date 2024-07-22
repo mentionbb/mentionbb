@@ -1,12 +1,12 @@
 <?php
 
-namespace Release\Standalone;
+namespace App\Template;
 
-class Templater
+class Simple
 {
     protected $ext = 'php';
 
-    protected $path = APPLICATION_SELF . '/Install/Views/view.%s.%s';
+    protected $path = APPLICATION_SELF . '/App/Install/Views/view.%s.%s';
     protected $allowedHeadTags = ['title', 'meta', 'link', 'script'];
 
     protected $template;

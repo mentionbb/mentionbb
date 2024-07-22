@@ -4,4 +4,4 @@ app_file:
 
 #Install Routing
 app_install:
-    resource: "../../../../Install/Resource/routes.yaml"
+    resource: "../../../../App/Install/Resource/routes.yaml"

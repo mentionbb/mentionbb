@@ -1,12 +1,12 @@
 <?php
 
-namespace Install;
+namespace App\Install;
 
 use App\Repository\Request;
 use App\Repository\Get as GetRepo;
 use App\Repository\Post as PostRepo;
 use App\Phrase;
-use Release\Standalone\Templater;
+use App\Template\Simple;
 
 abstract class Controller
 {
@@ -33,7 +33,7 @@ abstract class Controller
         $this->phrase->setContainer($this->request);
         $this->phrase->setupRouteParams();
 
-        $this->template = new Templater();
+        $this->template = new Simple();
         $this->templaterController();
 
         $this->post = new PostRepo();
@@ -65,7 +65,7 @@ abstract class Controller
                 'phrase' => $this->phrase,
                 'csrf_token' => (new \App\SecurityProtocols\CrossSiteRequestForgery())->getEncodedToken(),
                 'resource' => [
-                    'common' => new \Install\Resource()
+                    'common' => new \App\Install\Resource()
                 ]
             ]
         ]);

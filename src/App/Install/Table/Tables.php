@@ -1,6 +1,6 @@
 <?php
 
-namespace Install\Table;
+namespace App\Install\Table;
 
 use App\Db\Layer;
 use App\Db\Native;

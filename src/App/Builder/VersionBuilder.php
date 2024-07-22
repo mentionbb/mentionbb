@@ -49,7 +49,7 @@ class VersionBuilder
     public function getBuildList()
     {
         return json_decode(
-            file_get_contents(APPLICATION_SELF . '/Install/versions.json'),
+            file_get_contents(APPLICATION_SELF . '/App/Install/versions.json'),
             true
         );
     }

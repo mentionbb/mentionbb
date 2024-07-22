@@ -141,7 +141,7 @@ class App
 			$buildData = \App\Util\Arr::arrayKeyMaxValue($buildData);
 			self::$build = $buildData;
 
-			if (class_exists(\Install\Controller\Install::class))
+			if (class_exists(\App\Install\Controller\Install::class))
 			{
 				$request = new \App\Repository\Request();
 

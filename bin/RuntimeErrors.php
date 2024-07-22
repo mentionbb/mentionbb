@@ -8,12 +8,12 @@ class RuntimeErrors
     {
         if (!file_exists(APPLICATION_SELF . '/vendor/autoload.php'))
         {
-            require_once(APPLICATION_SELF . '/Standalone/Templater.php');
+            require_once(APPLICATION_SELF . '/App/Template/Simple.php');
             require_once(APPLICATION_SELF . '/App/SubContainer/AppSub.php');
         }
 
-        $templater = new \Release\Standalone\Templater();
-        $templater->setPath(APPLICATION_SELF . '/Standalone/Errors/Views');
+        $templater = new \App\Template\Simple();
+        $templater->setPath(APPLICATION_SELF . '/App/Errors/Views');
         $templater->addGlobals([
             'app' => [
                 'public_dir' => \App\SubContainer\AppSub::getPublicDir(),
