@@ -401,6 +401,7 @@
             padding: 10px;
             overflow-x: auto;
             white-space: nowrap;
+            height: 310px;
         }
 
         .trace-code ol {
@@ -556,6 +557,13 @@
             </div>
         </div>
     </div>
+    <script>
+        document.querySelector('li.selected').scrollIntoView({
+            behavior: 'auto',
+            block: 'center',
+            inline: 'center'
+        });
+    </script>
 </body>
 
 </html>

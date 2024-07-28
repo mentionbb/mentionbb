@@ -35,8 +35,8 @@
     <?php endif; ?>
 </div>
 <?php if ($trace['file']) : ?>
-    <div id="trace-html-<?= $prefix . '-' . $i; ?>" class="trace-code sf-toggle-content">
-        <?= $trace_code = strtr(\App\Util\AccessableReflection::get($handler, 'fileExcerpt', [$trace['file'], $trace['line'], 5]), [
+    <div id="trace-view trace-html-<?= $prefix . '-' . $i; ?>" class="trace-code sf-toggle-content">
+        <?= $trace_code = strtr(\App\Util\AccessableReflection::get($handler, 'fileExcerpt', [$trace['file'], $trace['line'], 10]), [
             '#DD0000' => 'var(--highlight-string)',
             '#007700' => 'var(--highlight-keyword)',
             '#0000BB' => 'var(--highlight-default)',
