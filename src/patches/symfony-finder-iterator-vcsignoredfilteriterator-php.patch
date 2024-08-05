@@ -1,6 +1,6 @@
 --- /dev/null
 +++ ../Iterator/VcsIgnoredFilterIterator.php
-@@ -37,13 +37,15 @@
+@@ -37,9 +37,11 @@
      {
          $this->baseDir = $this->normalizePath($baseDir);
  
@@ -15,8 +15,12 @@
                  break;
              }
          }
--
-+        
-         parent::__construct($iterator);
-     }
+@@ -76,7 +78,7 @@
+ 
+             $fileRelativePath = substr($fileRealPath, \strlen($parentDirectory) + 1);
+ 
+-            if (null === $regexps = $this->readGitignoreFile("{$parentDirectory}/.gitignore")) {
++            if (null === $regexps = $this->readGitignoreFile("{$parentDirectory}/gitignore.custom")) {
+                 continue;
+             }
  

@@ -93,14 +93,14 @@
     },
     "extra": {
         "patches": {
+            "symfony/finder": [
+                "./src/patches/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
+            ],
             "phpgangsta/googleauthenticator": [
                 "./src/patches/phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch"
             ],
             "symfony/error-handler": [
                 "./src/patches/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch"
-            ],
-            "symfony/finder": [
-                "./src/patches/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
             ]
         }
     }
