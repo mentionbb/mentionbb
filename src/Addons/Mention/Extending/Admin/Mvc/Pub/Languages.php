@@ -76,15 +76,7 @@ class Languages extends ApplicationDefinitions implements Pub
                 $text = $this->languageString->getLanguagePhrase($file, $phrase);
                 if ($text)
                 {
-                    $modifiedText = $this->languageString->getModifiedText($this->languageInit, $phrasePathWithPhrase);
-                    if ($modifiedText !== $text)
-                    {
-                        $modifiedText = $modifiedText;
-                    }
-                    else
-                    {
-                        $modifiedText = '';
-                    }
+                    $modifiedText = $this->languageString->getLanguagePhrase("{$phraseQuery['language']}/Modification.yaml", "modification.{$phrase}");
 
                     echo $this->template->render(
                         $this->getTemplate('Languages/phrase.twig'),
