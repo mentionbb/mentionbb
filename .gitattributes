@@ -1,4 +1,4 @@
 # Fix syntax highlighting for custom framework extensions.
-src/install.lock linguist-language=Json-With-Comments
+src/install.lock linguist-language=Json
 src/Addons/*.noactive linguist-language=Yaml
 src/Addons/gitignore.custom linguist-language=Ignore-List
