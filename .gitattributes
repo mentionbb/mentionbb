@@ -1,3 +1,3 @@
 # Fix syntax highlighting for custom framework extensions.
-./src/Addons/*.noactive linguist-language=Yaml
-./src/Addons/gitignore.custom linguist-language=Git-Config
+src/Addons/*.noactive linguist-language=Yaml
+src/Addons/gitignore.custom linguist-language=Git-Config
