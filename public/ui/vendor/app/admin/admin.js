@@ -1375,9 +1375,10 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
             if (window.location.href.match(languageName_regex)) {
                 var languageName_id = languageName_regex.exec(window.location.href);
+                var languagePath = decodeURI(languageName_id[1]);
 
-                $('.js-AppAdmin_LanguagesSentence .directory-list span[data-path="' + languageName_id[1] + '.yaml"]').click();
-                $('.js-AppAdmin_LanguagesSentence .directory-list span[data-path="' + languageName_id[1] + '.yaml"]').closest('ul').prev('span').click();
+                $('.js-AppAdmin_LanguagesSentence .directory-list span[data-path="' + languagePath + '.yaml"]').click();
+                $('.js-AppAdmin_LanguagesSentence .directory-list span[data-path="' + languagePath + '.yaml"]').closest('ul').prev('span').click();
             } else {
                 $('.js-AppAdmin_LanguagesSentence .directory-list span[data-path="' + $('.js-AppAdmin_LanguagesSentence_List').data('default') + '"]').click();
                 $('.js-AppAdmin_LanguagesSentence .directory-list span[data-path="' + $('.js-AppAdmin_LanguagesSentence_List').data('default') + '"]').closest('ul').prev('span').click();
