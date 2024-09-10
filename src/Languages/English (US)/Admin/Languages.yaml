@@ -49,7 +49,7 @@ Language:
         modification:
           title: "Edited sentence"
           desc: "If you want to change the sentence, write it in this section. This will not change the original sentence, it will only modify the language pack and as a result the sentence edited by you will be based on."
-          placeholder: "Cümlenin düzenlenmiş versiyonu"
+          placeholder: "Edited version of the phrase."
         text: "Expressions such as <code>{1}</code>, <code>{2}</code> used inside sentences represent variables. <br /> For example: <code>{1} before</code> converts the variable <code>{1}</code> to <code>a little</code> or <code>an hour</code> and We'll get the output as <code>just now</code>.<br /><br /> If you are going to use html and you want to use it in a template file, you must first write it in Twig in a defined form. Example <code>{{ foo.bar|raw }}</code> <br /> For detailed information: <a target=\"blank\" href=\"https://twig.symfony.com/doc/ 3.x/filters/raw.html\">https://twig.symfony.com/doc/3.x/filters/raw.html</a>"
 
     forms:
