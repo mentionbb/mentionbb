@@ -1,5 +1,5 @@
 {
-    "created_on": "Mon, 05 Aug 2024 15:26:57 GMT",
+    "created_on": "Wed, 23 Oct 2024 17:14:24 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.20",
@@ -13,7 +13,7 @@
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "c531a9a06f5c456782a2b8bcf480f59dbdf193957f3e3f6b5dd2a4769f3002d6": {
+            "d6aff071a558934623cd4091e646e2ecd96145c5095d0d3522eebfd13ae4787d": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -601,7 +601,7 @@
                 "filename": "core.js",
                 "path": ".\/public\/ui\/vendor\/app\/core.js"
             },
-            "e5c27431a95d79e742eebe22445b3e7bbed73c2de1149f3d6750a96ff0738bf8": {
+            "04a458199ee077836cedfee10ff1fa16717c6159851361dd808549dc0b94a01f": {
                 "filename": "discussion.js",
                 "path": ".\/public\/ui\/vendor\/app\/discussion.js"
             },
@@ -1121,7 +1121,7 @@
                 "filename": "Index.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Admin\/Index.yaml"
             },
-            "e1687faa69cb9ce56e9b6e04ce4efbdf91904932cef99220ec6331553e00d269": {
+            "471cea487fc3a4be2df2031d1511c5a4d15e36264f9d5d80bfd110985ead6f07": {
                 "filename": "Languages.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Admin\/Languages.yaml"
             },
@@ -1419,7 +1419,7 @@
             }
         },
         "public\/ui\/vendor\/app\/admin": {
-            "681246a7556041f8d1b7dedff7897f28f2d67ed7564d54345445d994598cab0b": {
+            "dc4fb38b86f8fa69b6c73dcaf37408e29161ae38099ce877ff98ee6637341fd2": {
                 "filename": "admin.js",
                 "path": ".\/public\/ui\/vendor\/app\/admin\/admin.js"
             },
@@ -1973,7 +1973,7 @@
                 "filename": "Index.php",
                 "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Index.php"
             },
-            "816a753ea7b2ad4a9d3d548810d6bfce213ba28654cfbc36eed22f7a388e3d20": {
+            "ac97cc3885e73441f1cc22fefb0010909bca16b21c14b75bfc6abebd2d290380": {
                 "filename": "Languages.php",
                 "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Languages.php"
             },
