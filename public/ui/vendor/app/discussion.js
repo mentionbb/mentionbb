@@ -1314,7 +1314,7 @@ if (window.jQuery === undefined) jQuery = $ = {};
                                 url: matchingUrl[0]
                             }
 
-                            var html = "<div class=\"js-appExternalLink d-flex shadow-sm rounded mb-3\" data-id=\"" + elem_id + "\"><div class=\"image mr-2\"><div class=\"post-loader-spin m-0 d-block\"></div></div><div class=\"content\"><h6 class=\"font-weight-bold mb-1\"><a class=\"text-dark\" href=\"#\" target=\"blank\">" + app.phrases.proceed + "</a></h6><div class=\"description\"></div><div class=\"link\"></div></div></div>";
+                            var html = "<div class=\"js-appExternalLink d-flex shadow-sm rounded my-3\" data-id=\"" + elem_id + "\"><div class=\"image mr-2\"><div class=\"post-loader-spin m-0 d-block\"></div></div><div class=\"content\"><h6 class=\"font-weight-bold mb-1\"><a class=\"text-dark\" href=\"#\" target=\"blank\">" + app.phrases.proceed + "</a></h6><div class=\"description\"></div><div class=\"link\"></div></div></div>";
                             elem.after(html);
                             var replacedHtml = elem.next();
 
