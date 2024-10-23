@@ -43,7 +43,7 @@ class Event extends DispatcherEvent
                             '{addon:debug}/debug.twig',
                             [
                                 'debug' => [
-                                    'memoryUsed' => \App\SubContainer\Bytes::formatBytes(memory_get_peak_usage(false)),
+                                    'memoryUsed' => \App\SubContainer\Bytes::formatBytes(memory_get_peak_usage(true)),
                                     'memoryLimit' => $server->getMemoryLimit(),
                                     'serverSoftware' => $server->getServerSoftware(),
                                     'phpVersion' => $server->getPHPVersion(),
