@@ -371,8 +371,6 @@ class Html
         }, $class);
 
         $xpath = new \DOMXPath($this->dom);
-
-        /** @var \DOMElement $nodes */
         $nodes = $xpath->query($this->queryBuilder($class));
 
         return $nodes;
