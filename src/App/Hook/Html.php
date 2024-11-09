@@ -110,6 +110,8 @@ class Html
     public function setAttribute($class, $attribute = [])
     {
         $nodes = $this->getXPath($class);
+        
+        /** @var \DOMElement $node */
         foreach ($nodes as $node)
         {
             $node->setAttribute($attribute[0], $attribute[1]);
@@ -120,6 +122,8 @@ class Html
     {
         $nodes = $this->getXPath($class);
         $attr = [];
+        
+        /** @var \DOMElement $node */
         foreach ($nodes as $node)
         {
             foreach ($attributeName as $attrName)
@@ -135,6 +139,8 @@ class Html
     public function removeAttribute($class, $attribute)
     {
         $nodes = $this->getXPath($class);
+        
+        /** @var \DOMElement $node */
         foreach ($nodes as $node)
         {
             if ($node->hasAttribute($attribute))
@@ -147,6 +153,8 @@ class Html
     public function hasAttribute($class, $attributeName)
     {
         $nodes = $this->getXPath($class);
+        
+        /** @var \DOMElement $node */
         foreach ($nodes as $node)
         {
             if ($node->hasAttribute($attributeName))
@@ -174,6 +182,8 @@ class Html
     public function addClass($class, $newClass)
     {
         $nodes = $this->getXPath($class);
+        
+        /** @var \DOMElement $node */
         foreach ($nodes as $node)
         {
             foreach ($node->attributes as $attribute)
@@ -203,6 +213,8 @@ class Html
         }
 
         $nodes = $this->getXPath($class);
+        
+        /** @var \DOMElement $node */
         foreach ($nodes as $node)
         {
             foreach ($node->attributes as $attribute)
@@ -232,6 +244,8 @@ class Html
     public function setStyle($class, $value)
     {
         $nodes = $this->getXPath($class);
+        
+        /** @var \DOMElement $node */
         foreach ($nodes as $node)
         {
             $node->setAttribute('style', $value);
@@ -349,7 +363,7 @@ class Html
         return $this->dom->saveHTML($this->dom->documentElement);
     }
 
-    public function getXPath($class)
+    public function getXPath($class): \DOMNode|\DOMNodeList|\DOMElement|\DOMAttr
     {
         $class = preg_replace_callback('/\{hook:([a-zA-Z0-9-_]+)\}/', function ($matches)
         {
@@ -357,6 +371,8 @@ class Html
         }, $class);
 
         $xpath = new \DOMXPath($this->dom);
+
+        /** @var \DOMElement $nodes */
         $nodes = $xpath->query($this->queryBuilder($class));
 
         return $nodes;
