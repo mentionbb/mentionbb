@@ -1,5 +1,5 @@
 {
-    "created_on": "Wed, 23 Oct 2024 17:14:24 GMT",
+    "created_on": "Sun, 10 Nov 2024 00:12:45 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.20",
@@ -13,7 +13,7 @@
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "d6aff071a558934623cd4091e646e2ecd96145c5095d0d3522eebfd13ae4787d": {
+            "b2e6bbe19159cd4307edc4b0de70a66783361055e0768b11ff2ae1e91343702b": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -39,7 +39,7 @@
             }
         },
         "src": {
-            "16b45c7f9a4b0244d8f5fec8ff310d291494afe96b83ab53545d3561cbf2af63": {
+            "a5f531a5b2bcd5151ae7b794bf50f8044f8253212d2cb3c94cac1b8492233d18": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
@@ -638,6 +638,12 @@
             "3f92a8e448d9ef85afb429846e42e800ce6150892e8415f9ebe29a1058026288": {
                 "filename": "style.css",
                 "path": ".\/public\/ui\/vendor\/install\/style.css"
+            }
+        },
+        "public\/ui\/vendor\/monaco-editor-extending": {
+            "3e84112950f6b9fdc25c0e1a39a7f616a26d20fb952afd8cdac78a5fc9fe2d55": {
+                "filename": "twig.js",
+                "path": ".\/public\/ui\/vendor\/monaco-editor-extending\/twig.js"
             }
         },
         "src\/Addons\/Mention\/App": {
