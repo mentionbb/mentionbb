@@ -1,8 +1,7 @@
 if (window.jQuery === undefined) jQuery = $ = {};
 
-!function($, window, document)
-{
-	"use strict";
+!function ($, window, document) {
+    "use strict";
 
     function rebuildThemes(name) {
         monaco.editor.defineTheme(name, {
@@ -68,5 +67,4 @@ if (window.jQuery === undefined) jQuery = $ = {};
         }
         setupCustomTokenizer();
     });
-}
-(window.jQuery, window, document);
+}(window.jQuery, window, document);
