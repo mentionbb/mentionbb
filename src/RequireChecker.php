@@ -30,7 +30,7 @@ class RequireChecker
         {
             if ($file->isFile() && preg_match('/public\/ui\/vendor/', $file->getPathname()))
             {
-                if (!preg_match('/\/public\/ui\/vendor\/app|\/public\/ui\/vendor\/install|vendor\.js|vendor\.css|admin\.js.\.map|admin-vendor\.css|core\.js\.map|editor\.admin\.js\.map|editor\.js\.map|install\.js\.map|monaco\.editor\.admin\.js\.map/', $file->getPathname()))
+                if (!preg_match('/\/public\/ui\/vendor\/app|\/public\/ui\/vendor\/install|vendor\.js|vendor\.css|admin\.js.\.map|admin-vendor\.css|core\.js\.map|editor\.admin\.js\.map|editor\.js\.map|install\.js\.map|monaco\.editor\.admin\.js\.map|monaco-editor-extending/', $file->getPathname()))
                 {
                     return false;
                 }
