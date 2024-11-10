@@ -26,31 +26,25 @@ class RequireChecker
             ->ignoreVCSIgnored(true)
             ->ignoreUnreadableDirs();
 
-        $finder->filter(static function (\SplFileInfo $file)
-        {
-            if ($file->isFile() && preg_match('/public\/ui\/vendor/', $file->getPathname()))
-            {
-                if (!preg_match('/\/public\/ui\/vendor\/app|\/public\/ui\/vendor\/install|vendor\.js|vendor\.css|admin\.js.\.map|admin-vendor\.css|core\.js\.map|editor\.admin\.js\.map|editor\.js\.map|install\.js\.map|monaco\.editor\.admin\.js\.map|monaco-editor-extending/', $file->getPathname()))
-                {
+        $finder->filter(static function (\SplFileInfo $file) {
+            if ($file->isFile() && preg_match('/public\/ui\/vendor/', $file->getPathname())) {
+                if (!preg_match('/\/public\/ui\/vendor\/app|\/public\/ui\/vendor\/install|vendor\.js|vendor\.css|admin\.js\.map|admin-vendor\.css|core\.js\.map|editor\.admin\.js\.map|editor\.js\.map|install\.js\.map|monaco\.editor\.admin\.js\.map|monaco-editor-extending/', $file->getPathname())) {
                     return false;
                 }
             }
+            return true; // Return added to ensure function returns a value
         });
 
-        $finder->sort(static function (\SplFileInfo $a, \SplFileInfo $b)
-        {
+        $finder->sort(static function (\SplFileInfo $a, \SplFileInfo $b) {
             $depth = substr_count($a->getRealPath(), '/') - substr_count($b->getRealPath(), '/');
             return ($depth === 0) ? strcmp($a->getRealPath(), $b->getRealPath()) : $depth;
         });
 
-        if ($finder->hasResults())
-        {
-            foreach ($finder as $file)
-            {
-                if (!in_array($file->getBasename(), $this->excludeFiles))
-                {
-                    $relativePath = (\strlen($file->getRelativePath()) > 0) ? $file->getRelativePath() : '/';
-                    $hash = \hash_hmac_file('sha256', $file->getRealPath(), $this->staticKeyV4);
+        if ($finder->hasResults()) {
+            foreach ($finder as $file) {
+                if (!in_array($file->getBasename(), $this->excludeFiles)) {
+                    $relativePath = (strlen($file->getRelativePath()) > 0) ? $file->getRelativePath() : '/';
+                    $hash = hash_hmac_file('sha256', $file->getRealPath(), $this->staticKeyV4);
 
                     $files[$relativePath][$hash] = [
                         'filename' => $file->getFilename(),
@@ -60,8 +54,7 @@ class RequireChecker
             }
         }
 
-        if ($dumpFile)
-        {
+        if ($dumpFile) {
             $this->saveHashes($files);
         }
 
@@ -70,12 +63,11 @@ class RequireChecker
 
     public function getHashData()
     {
-        if (!file_exists($this->hashFile))
-        {
+        if (!file_exists($this->hashFile)) {
             $this->buildHashes();
         }
 
-        return json_decode($this->hashFile, true);
+        return json_decode(file_get_contents($this->hashFile), true); // Corrected to use file_get_contents
     }
 
     private function saveHashes($hashes)
