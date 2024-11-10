@@ -1,7 +1,7 @@
 {
-    "name": "par274/mentionbb",
+    "name": "mentionbb/mentionbb",
     "description": "A classic forum system with next-gen.",
-    "version": "1.0.19-beta1",
+    "version": "1.0.20",
     "type": "project",
     "keywords": [
         "forum",
