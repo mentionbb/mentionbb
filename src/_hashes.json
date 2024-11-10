@@ -1,5 +1,5 @@
 {
-    "created_on": "Sun, 10 Nov 2024 00:12:45 GMT",
+    "created_on": "Sun, 10 Nov 2024 15:33:20 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.20",
@@ -39,7 +39,7 @@
             }
         },
         "src": {
-            "a5f531a5b2bcd5151ae7b794bf50f8044f8253212d2cb3c94cac1b8492233d18": {
+            "ab85e58b90fb3bc8478e9bbcd15b455f52ec2886cd562bbdcd08be3586c5897e": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
@@ -106,6 +106,10 @@
             "98dce6b2b09a25d09cd4e61ad456fa7f2703c57692574c79f735ae992b3b84f0": {
                 "filename": "admin-vendor.css",
                 "path": ".\/public\/ui\/vendor\/admin-vendor.css"
+            },
+            "577e635e9a146480055860b7d1aa9b14a3c935ffab54920c4ea62266ad553ea7": {
+                "filename": "admin.js.map",
+                "path": ".\/public\/ui\/vendor\/admin.js.map"
             },
             "f922518b3b8ffb24b0af16b2df991142e2a73969e08fa41617bee9da64604e30": {
                 "filename": "core.js.map",
@@ -255,7 +259,7 @@
             }
         },
         "src\/App\/Hook": {
-            "3fe9927844da6d866eff625bfa17daa85f738cd492261328a8bb68b864648751": {
+            "15681101470327e54beb084c2cc3e518202cc78ff909134c641b74e3a5bddf6c": {
                 "filename": "Html.php",
                 "path": ".\/src\/App\/Hook\/Html.php"
             }
