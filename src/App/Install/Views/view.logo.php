@@ -10,7 +10,7 @@
                 <defs>
                     <linearGradient y2="0%" x2="100%" y1="0%" x1="0%" id="step1a">
                         <stop offset="100%">
-                            <animate id="step1a-animate" attributeName="offset" values="0;.22" dur="0.5s" fill="freeze" />
+                            <animate id="step1a-animate" attributeName="offset" values="0;.22" dur="0.5s" fill="freeze" begin="indefinite" />
                         </stop>
                         <stop offset="0%" />
                     </linearGradient>
