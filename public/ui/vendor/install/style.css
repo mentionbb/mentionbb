@@ -57,6 +57,41 @@ a.text-dark:focus {
 }
 
 hr {
+    border-top: 1px solid var(--mention-light-border-color);
+}
+
+.form-control {
+    background-color: var(--mention-input-bg-color);
+    border: 1px solid var(--mention-input-border-color);
+    color: var(--mention-text-dark-color);
+}
+
+.form-control:focus {
+    background-color: var(--mention-input-bg-color);
+    color: var(--mention-text-light-color);
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: var(--mention-textarea-disabled-bg-color);
+    cursor: not-allowed;
+}
+
+input:hover,
+input:focus {
+    border: 1px solid var(--mention-input-focus-border-color) !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: var(--mention-primary-bg-color) !important;
+    color: var(--mention-text-dark-color) !important;
+}
+
+select.custom-select, select.custom-select option {
+    background-color: var(--mention-bselect-bg-color);
+    color: var(--mention-text-dark-color);
+}
+
+hr {
 	border-top: 1px solid var(--mention-light-border-color);
 }
 
