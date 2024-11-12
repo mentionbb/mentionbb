@@ -35,6 +35,8 @@ class Install extends Controller
             'step1a',
             'step1b',
             'step1c',
+            'step1d',
+            'step1f',
             'step2a',
             'step2b',
             'step3a',

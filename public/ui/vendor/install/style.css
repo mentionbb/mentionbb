@@ -162,6 +162,10 @@ textarea.form-control:disabled {
 	fill: url("#step1d");
 }
 
+.logo.install.step1f svg .st0 {
+	fill: url("#step1f");
+}
+
 .logo.install.step2a svg .st1 {
 	fill: url("#step2a");
 }
