@@ -26,7 +26,7 @@
     <?php endif; ?>
     <ol>
         <li>If Vendor.zip is not in the directory, download the ready <a href="https://github.com/mentionbb/mentionbb/raw/master/vendor.zip">vendor.zip</a> file.</li>
-        <li>Then extract it and <code>move it to the <b>frmwrk</b> folder.</code></li>
+        <li>Then extract it and <code>move it to the <b>src</b> folder.</code></li>
         <li><b>It should be moved as vendor folder!</b></li>
     </ol>
     <hr>
