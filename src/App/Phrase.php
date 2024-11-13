@@ -169,7 +169,7 @@ class Phrase
 
     public function getPPImageTypes()
     {
-        return "image/x-png, image/jpeg, image/gif, image/webp, image/avif";
+        return $this->allowFormatsForImageUpload();
     }
 
     public static function allowFormatsForImageUpload($returnType = null)
