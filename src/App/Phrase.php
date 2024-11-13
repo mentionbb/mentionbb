@@ -174,16 +174,35 @@ class Phrase
 
     public static function allowFormatsForImageUpload($returnType = null)
     {
+        $avif = false;
+        if (function_exists('imageavif'))
+        {
+            $avif = true;
+        }
+
+        $types = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+        $mimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+        if ($avif)
+        {
+            $types = array_merge($types, ['avif']);
+            $mimeTypes = array_merge($mimeTypes, ['image/avif']);
+        }
+
         if ($returnType == 'array')
         {
-            return ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif'];
+            return $types;
         }
         else if ($returnType == 'extension')
         {
-            return '.jpeg, .jpg, .png, .gif, .webp, .avif';
+            foreach ($types as $typeItems)
+            {
+                $typeArr[] = ".{$typeItems}";
+            }
+
+            return implode(', ', $typeArr);
         }
 
-        return "image/jpeg, image/jpg, image/png, image/gif, image/webp, image/avif";
+        return implode(', ', $mimeTypes);
     }
 
     public function renderPhrase($string)
