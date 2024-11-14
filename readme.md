@@ -155,8 +155,11 @@ php bin/console mention:install-db [--dbadapter DBADAPTER] [--user USER] [--pass
 ```
 *Excluding square brackets
 
+OR
 Rename:
-> src/DbConfig.php
+> `.env.example` to `.env`
+
+Make your database settings here.
 
 Make your database settings in this file.
 
