@@ -41,30 +41,32 @@ abstract class Layer
 
     public function __construct()
     {
+        $dbConfig = $this->deployDbParams();
+
         $connectionParams = null;
-        if (DbConfig::DB_Params['driver'] == 'pdo_mysql')
+        if ($dbConfig['global']['driver'] == 'pdo_mysql')
         {
-            $connectionParams = DbConfig::DB_Params_PDO_MySQL;
+            $connectionParams = $dbConfig['driver:pdo_mysql|mysqli'];
         }
-        else if (DbConfig::DB_Params['driver'] == 'pdo_sqlite')
+        else if ($dbConfig['global']['driver'] == 'pdo_sqlite')
         {
-            $connectionParams = DbConfig::DB_PARAMS_PDO_SQLite;
+            $connectionParams = $dbConfig['driver:pdo_sqlite|sqlite'];
         }
-        else if (DbConfig::DB_Params['driver'] == 'pdo_pgsql' && DbConfig::DB_Params['driver'] == 'pgsql')
+        else if ($dbConfig['global']['driver'] == 'pdo_pgsql' && $dbConfig['global']['driver'] == 'pgsql')
         {
-            $connectionParams = DbConfig::DB_PARAMS_PgSQL;
+            $connectionParams = $dbConfig['driver:pdo_pgsql|pgsql|pdo_sqlsrv|sqlsrv'];
         }
-        else if (DbConfig::DB_Params['driver'] == 'pdo_sqlsrv' && DbConfig::DB_Params['driver'] == 'sqlsrv')
+        else if ($dbConfig['global']['driver'] == 'pdo_sqlsrv' && $dbConfig['global']['driver'] == 'sqlsrv')
         {
-            $connectionParams = DbConfig::DB_PARAMS_SQLSrv;
+            $connectionParams = $dbConfig['driver:pdo_pgsql|pgsql|pdo_sqlsrv|sqlsrv'];
         }
-        else if (DbConfig::DB_Params['driver'] == 'mysqli')
+        else if ($dbConfig['global']['driver'] == 'mysqli')
         {
-            $connectionParams = DbConfig::DB_PARAMS_MySQLi;
+            $connectionParams = $dbConfig['driver:pdo_mysql|mysqli'];
         }
-        else if (DbConfig::DB_Params['driver'] == 'sqlite3')
+        else if ($dbConfig['global']['driver'] == 'sqlite3')
         {
-            $connectionParams = DbConfig::DB_PARAMS_SQLite3;
+            $connectionParams = $dbConfig['driver:pdo_sqlite|sqlite'];
         }
 
         if (is_null($connectionParams))
@@ -74,7 +76,7 @@ abstract class Layer
 
         $connectionParams = \array_merge(
             $connectionParams,
-            DbConfig::DB_Params
+            $dbConfig['global']
         );
 
         /**
@@ -316,5 +318,33 @@ abstract class Layer
     public function createSchemaManager()
     {
         return $this->conn->createSchemaManager();
+    }
+
+    private function deployDbParams()
+    {
+        $dbConfig = [
+            'global' => [
+                'driver' => $_ENV['DBCONFIG_ADAPTER'],
+                'user' => $_ENV['DBCONFIG_USER'],
+                'password' => $_ENV['DBCONFIG_USER_PASSWORD']
+            ],
+            'driver:pdo_mysql|mysqli' => [
+                'host' => $_ENV['DBCONFIG_HOST'],
+                'port' => $_ENV['DBCONFIG_PORT'],
+                'dbname' => $_ENV['DBCONFIG_DBNAME'],
+                'charset' => 'utf8mb4'
+            ],
+            'driver:pdo_pgsql|pgsql|pdo_sqlsrv|sqlsrv' => [
+                'host' => $_ENV['DBCONFIG_HOST'],
+                'port' => $_ENV['DBCONFIG_PORT'],
+                'dbname' => $_ENV['DBCONFIG_DBNAME']
+            ],
+            'driver:pdo_sqlite|sqlite' => [
+                'path' => null,
+                'memory' => false
+            ]
+        ];
+
+        return $dbConfig;
     }
 }
