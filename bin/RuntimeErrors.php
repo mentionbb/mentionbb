@@ -29,6 +29,14 @@ class RuntimeErrors
                 'array'
             );
         }
+        else if ($type == 'env_not_found')
+        {
+            echo $templater->render(
+                '{page_container:env_not_found}',
+                [],
+                'array'
+            );
+        }
         else if ($type == 'unsupported_php_version')
         {
             echo $templater->render(
