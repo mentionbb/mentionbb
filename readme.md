@@ -70,8 +70,10 @@ You have to do this manually as the Installer isn't ready yet.
 - GD (Optional)
 
 If you are on Docker: [mentionbb-dockerized](https://github.com/mentionbb/mentionbb-dockerized)
+If you are on Plesk: [mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
 
 ### If you are using Nginx server, the sample config file below will be helpful
+This step is explained in detail in the Plesk installation
 
 ```text
 server {
