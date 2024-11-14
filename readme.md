@@ -150,7 +150,12 @@ The column you need to change is:
 
 Enter the full address of your site in this column.
 
-Open:
+```bash
+php bin/console mention:install-db [--dbadapter DBADAPTER] [--user USER] [--password PASSWORD] [--dbname DBNAME] [--dbhost DBHOST]
+```
+*Excluding square brackets
+
+Rename:
 > src/DbConfig.php
 
 Make your database settings in this file.
