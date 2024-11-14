@@ -15,3 +15,5 @@ public/ui/themes/frontend/assets/compiled.core.css
 public/ui/vendor/compiled.gestures.gestures.css
 public/ui/vendor/compiled.install.js
 public/ui/vendor/compiled.monaco.editor.admin.js
+
+.env
