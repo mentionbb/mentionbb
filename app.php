@@ -28,6 +28,20 @@ return (function (): \App\Mvc\Pub|bool
 
     require(APPLICATION_SELF . '/vendor/autoload.php');
 
+    if (!file_exists($dir . '/.env'))
+    {
+        require($dir . '/bin/RuntimeErrors.php');
+        \Binaries\RuntimeErrors::Show('env_not_found');
+
+        return false;
+    }
+
+    /**
+     * Parse environment config file
+     */
+    $dotenv = Dotenv\Dotenv::createImmutable($dir);
+    $dotenv->load();
+
     /**
      * Run Application
      */
