@@ -159,11 +159,9 @@ OR
 Rename:
 > `.env.example` to `.env`
 
-Make your database settings here.
-
 Make your database settings in this file.
 
-**You should set the file according to the database driver you want to run on your server. All instructions are in the file.**
+**You should set the file according to the database driver(adapter) you want to run on your server. All instructions are in the file.**
 **By default, pdo_mysql is selected, and the PDO plugin must be installed to use it.**
 
 After that, your site will be up and running.
