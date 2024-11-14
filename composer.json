@@ -83,7 +83,6 @@
         },
         "classmap": [
             "./src/InitialConfig.php",
-            "./src/DbConfig.php",
             "./src/RequireChecker.php"
         ]
     },
