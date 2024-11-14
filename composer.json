@@ -26,7 +26,6 @@
     },
     "require": {
         "php": ">=8.2",
-        "composer-runtime-api": "^2.1",
         "symfony/routing": "^7",
         "symfony/http-foundation": "^7",
         "symfony/yaml": "^7",
