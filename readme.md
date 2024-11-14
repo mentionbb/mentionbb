@@ -55,6 +55,9 @@ MentionBB has been in active development for over 3 years. The project you see o
 
 You have to do this manually as the Installer isn't ready yet.
 
+- If you are on Docker: [mentionbb-dockerized](https://github.com/mentionbb/mentionbb-dockerized)
+- If you are on Plesk: [mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
+
 ## Requirements
 
 - PHP 8.2+
@@ -68,9 +71,6 @@ You have to do this manually as the Installer isn't ready yet.
 - Curl
 - Zip
 - GD (Optional)
-
-- If you are on Docker: [mentionbb-dockerized](https://github.com/mentionbb/mentionbb-dockerized)
-- If you are on Plesk: [mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
 
 ### If you are using Nginx server, the sample config file below will be helpful
 This step is explained in detail in the Plesk installation
