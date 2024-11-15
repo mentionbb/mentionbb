@@ -1,0 +1,30 @@
+name: 🐛 Bug Report
+description: You can report any bugs/errors you see.
+labels: bug
+
+body:
+    - type: textarea
+      id: affected-versions
+      attributes:
+          label: Which MentionBB version?
+          placeholder: x.y.z or release link
+      validations:
+          required: true
+    - type: textarea
+      id: description
+      attributes:
+          label: Description
+          description: A clear description of the problem
+      validations:
+          required: true
+    - type: textarea
+      id: possible-solution
+      attributes:
+          label: Possible Solution
+          description: |
+            Optional: If you know how to solve the problem, you can explain it to us or make a pull request.
+    - type: textarea
+      id: additional-context
+      attributes:
+          label: Additional
+          description: "Optional: any other context about the problem: log messages, screenshots, etc."
