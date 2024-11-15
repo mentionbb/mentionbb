@@ -3,7 +3,7 @@ description: You can report any bugs/errors you see.
 labels: bug
 
 body:
-    - type: textarea
+    - type: input
       id: affected-versions
       attributes:
           label: Which MentionBB version?
