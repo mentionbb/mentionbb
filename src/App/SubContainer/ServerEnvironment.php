@@ -127,22 +127,25 @@ class ServerEnvironment
 
     public function getServerSoftware()
     {
-        if ($this->server->get('SERVER_SOFTWARE') == 'APACHE')
+        $serverSoftware = \trim($this->server->get('SERVER_SOFTWARE'));
+        $serverSoftwareExplode = \explode('/', $serverSoftware);
+
+        if (count($serverSoftwareExplode) > 1)
         {
             return [
-                'text' => $this->server->get('SERVER_SOFTWARE'),
-                'name' => 'Apache',
+                'text' => \sprintf('%s/%s', $serverSoftwareExplode[0], $serverSoftwareExplode[1]),
+                'name' => $serverSoftwareExplode[0],
+                'version' => $serverSoftwareExplode[1]
+            ];
+        }
+        else
+        {
+            return [
+                'text' => $serverSoftware,
+                'name' => $serverSoftware,
                 'version' => ''
             ];
         }
-        
-        $serverSoftwareExplode = \explode('/', $this->server->get('SERVER_SOFTWARE'));
-
-        return [
-            'text' => \sprintf('%s/%s', $serverSoftwareExplode[0], $serverSoftwareExplode[1]),
-            'name' => $serverSoftwareExplode[0],
-            'version' => $serverSoftwareExplode[1]
-        ];
     }
 
     public function checkRequirement()
