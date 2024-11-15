@@ -127,6 +127,15 @@ class ServerEnvironment
 
     public function getServerSoftware()
     {
+        if ($this->server->get('SERVER_SOFTWARE') == 'APACHE')
+        {
+            return [
+                'text' => $this->server->get('SERVER_SOFTWARE'),
+                'name' => 'Apache',
+                'version' => ''
+            ];
+        }
+        
         $serverSoftwareExplode = \explode('/', $this->server->get('SERVER_SOFTWARE'));
 
         return [
