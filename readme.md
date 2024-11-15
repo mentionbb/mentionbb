@@ -150,6 +150,8 @@ The column you need to change is:
 
 Enter the full address of your site in this column.
 
+### Database config
+
 ```bash
 php bin/console mention:install-db [--dbadapter DBADAPTER] [--user USER] [--password PASSWORD] [--dbname DBNAME] [--dbhost DBHOST]
 ```

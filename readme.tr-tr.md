@@ -151,6 +151,8 @@ Bundan sonra veritabanı ayarlarımızı yapalım.
 
 Bu sütuna site adresinizin tamamını yazın. Örnek: https://example.com
 
+### Veri tabanı ayarları
+
 ```bash
 php bin/console mention:install-db [--dbadapter DBADAPTER] [--user USER] [--password PASSWORD] [--dbname DBNAME] [--dbhost DBHOST]
 ```
