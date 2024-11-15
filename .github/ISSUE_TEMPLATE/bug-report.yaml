@@ -1,7 +1,6 @@
 name: 🐛 Bug Report
 description: You can report any bugs/errors you see.
-labels: bug
-
+labels: ["type/bug"]
 body:
     - type: input
       id: affected-versions
