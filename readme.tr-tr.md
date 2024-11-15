@@ -55,6 +55,9 @@ MentionBB 3 yılı aşan bir yıldır geliştirilmeye devam ediliyor. GitHub'da 
 
 Bu kompleks yazılım sürekli geliştirildiğinden dolayı kurulum sihirbazı henüz hazır değil. Kurulumu elle yapmalısınız.
 
+- Docker için kurulum: [mentionbb-dockerized](https://github.com/mentionbb/mentionbb-dockerized)
+- Plesk panel için kurulum: [mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
+
 ## Gerekliler
 
 - PHP 8.2+
@@ -148,10 +151,16 @@ Bundan sonra veritabanı ayarlarımızı yapalım.
 
 Bu sütuna site adresinizin tamamını yazın. Örnek: https://example.com
 
-Açın:
-> src/DbConfig.php
+```bash
+php bin/console mention:install-db [--dbadapter DBADAPTER] [--user USER] [--password PASSWORD] [--dbname DBNAME] [--dbhost DBHOST]
+```
+*köşeli parantezler hariç.
 
-Bu dosya içine veritabanı ayarlarınızı yapacaksınız.
+Veya
+Adını değiştirin:
+> `.env.example` > `.env`
+
+Bu dosya içine veritabanı ayarlarınızı yapabilirsiniz.
 
 **Dosyayı sunucunuzda çalıştırmak istediğiniz veritabanı sürücüsüne göre ayarlamalısınız. Tüm talimatlar dosyada mevcuttur.**
 **Varsayılan olarak pdo_mysql seçilidir ve bunu kullanmak için PDO eklentisinin yüklenmesi gerekir. Eğer PDO uzantısına sahip değilseniz sürücüyü mysqli olarak seçebilirsiniz.**
