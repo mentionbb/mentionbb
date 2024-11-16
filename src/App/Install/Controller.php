@@ -55,7 +55,7 @@ abstract class Controller
                     'title' => \App\App::$build['versionTitle'],
                     'support_php_version' => \App\App::$_supportPhpVersion
                 ],
-                'url' => $this->getUrl(),
+                'url' => \App\SubContainer\AppSub::getFullUrl(),
                 'routing' => $this->routing,
                 'public_dir' => \App\SubContainer\AppSub::getPublicDir(),
                 'ajax_path' => $this->phrase->getAjaxPath(),
@@ -89,14 +89,5 @@ abstract class Controller
         }
 
         return true;
-    }
-
-    protected function getUrl()
-    {
-        $protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === FALSE ? 'http' : 'https';
-        $hostname = $_SERVER['HTTP_HOST'];
-        $uri = rtrim($_SERVER['REQUEST_URI'], '/install?next');
-
-        return "{$protocol}://{$hostname}{$uri}";
     }
 }
