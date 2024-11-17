@@ -85,6 +85,27 @@ class Event extends DispatcherEvent
             }
         }
 
+        if ($event->container->user->loggedIn())
+        {
+            if ($event->container->user->visitor()->is_admin)
+            {
+                if ($event->container->phrase->getSiteUrl() !== \App\SubContainer\AppSub::getFullUrl())
+                {
+                    $event->container->dom->prepend('{hook:pagecontent}', function () use ($event)
+                    {
+                        return $event->container->template->render(
+                            '{addon:mention}/Common/urlwarn.twig',
+                            [
+                                'string' => [
+                                    'full_url' => \App\SubContainer\AppSub::getFullUrl()
+                                ]
+                            ]
+                        );
+                    });
+                }
+            }
+        }
+
         // So let's take the Discussion data and see how we can handle this.
         // First, make sure you are in the Discussion page / template. It acts as a buffer to prevent future errors. Important.
         if ($event->container->dom->isTemplate('discussion'))

@@ -1,0 +1,13 @@
+<div class="app-Mention-urlMismatch-area mb-3">
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            {{ app.sub.lang.string.container.url_mismatch.title }}
+        </h4>
+        {% autoescape 'html' %}
+            <p>{{ app.sub.lang.parse.Parse('container.url_mismatch.content', app.settings.site_url, string.full_url)|raw }}</p>
+        {% endautoescape %}
+        <hr>
+        <p class="mb-0">{{ app.sub.lang.string.container.url_mismatch.how_to_fix }}</p>
+    </div>
+</div>

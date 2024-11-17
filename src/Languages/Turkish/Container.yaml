@@ -224,3 +224,8 @@ Language:
         title: "Sayfa bulunamadı"
         breadcrumb: "404"
         text: "Aradığınız sayfa bulunamadı."
+    
+    url_mismatch:
+      title: "Kritik uyarı!"
+      content: "Site adresi ayarlarda <code>{1}</code> olarak belirtilmiş. Ancak sitenin geçerli adresi <code>{2}</code>. Bu, birçok sayfada 404 hatası almanıza neden olabilecek kritik bir hatadır."
+      how_to_fix: "Lütfen yazılımı yüklediğiniz yeri doğrulayın veya ayarlar kısmına sitenizin tam adresini doğru girin."

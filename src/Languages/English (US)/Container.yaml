@@ -224,3 +224,8 @@ Language:
         title: "Page not found"
         breadcrumb: "404"
         text: "The page you were looking for could not be found."
+
+    url_mismatch:
+      title: "Warning!"
+      content: "The site address is specified as <code>{1}</code> in the settings. However, the current address of the site is <code>{2}</code>. This is a critical error that can cause you to receive a 404 error on many pages."
+      how_to_fix: "Please verify the location where you installed the software or enter the full url of your site in the settings correctly."
