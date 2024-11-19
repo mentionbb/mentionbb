@@ -28,7 +28,7 @@ class ExternalLinkRenderer
 		self::$post_id = $post_id;
 		$stack = self::addCache();
 
-		if (InitialConfig::Disable_ExternalLink_Preview)
+		if ($_ENV['DISABLE_EXTERNAL_LINK_PREVIEW'])
 		{
 			return [
 				'status' => 'exception',

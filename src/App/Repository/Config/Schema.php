@@ -38,8 +38,8 @@ class Schema
 			$events["AppId_{$event['event_id']}"] = $event;
 			$events["AppId_{$event['event_id']}"]['file'] = pathinfo($file, PATHINFO_EXTENSION);
 
-			if (InitialConfig::Disable_All_Addons)
-			{
+            if ($_ENV['DISABLE_ALL_ADDONS'])
+            {
 				if ($event['event_id'] != 'e4888e0e-364f-4feb-88b9-e961088460c4')
 				{
 					unset($events["AppId_{$event['event_id']}"]);

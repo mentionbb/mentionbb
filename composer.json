@@ -81,7 +81,6 @@
             "Install\\": "./src/Install"
         },
         "classmap": [
-            "./src/InitialConfig.php",
             "./src/RequireChecker.php"
         ]
     },

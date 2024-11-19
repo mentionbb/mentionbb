@@ -90,77 +90,68 @@ abstract class Layer
                 new DoctrineMiddleware(new \Psr\Log\NullLogger())
             ]);
 
-        $cacheConfig = [
-            'namespace' => 'DBQuaries'
-        ];
+        $cacheConfig = $this->deployDbCache();
 
         $cache = null;
-
-        if (InitialConfig::Cache_Standard['adapter'] == 'ApcuAdapter')
+        if ($cacheConfig['adapter'] == 'ApcuAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\ApcuAdapter(
                 $cacheConfig['namespace'],
-                InitialConfig::Cache_Standard['config']['defaultLifetime'],
-                InitialConfig::Cache_Standard['config']['version']
+                $cacheConfig['defaultLifetime'],
+                $cacheConfig['cache-adapter:ApcuAdapter']['version']
             );
         }
-        else if (InitialConfig::Cache_Standard['adapter'] == 'ArrayAdapter')
+        else if ($cacheConfig['adapter'] == 'ArrayAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\ArrayAdapter(
-                InitialConfig::Cache_Standard['config']['defaultLifetime'],
-                InitialConfig::Cache_Standard['config']['storeSerialized'],
-                InitialConfig::Cache_Standard['config']['maxLifetime'],
-                InitialConfig::Cache_Standard['config']['maxItems']
+                $cacheConfig['defaultLifetime'],
+                $cacheConfig['cache-adapter:ArrayAdapter']['storeSerialized'],
+                $cacheConfig['maxLifetime'],
+                $cacheConfig['cache-adapter:ArrayAdapter']['maxItems']
             );
         }
-        else if (InitialConfig::Cache_Standard['adapter'] == 'MemcachedAdapter')
+        else if ($cacheConfig['adapter'] == 'MemcachedAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\MemcachedAdapter(
                 \Symfony\Component\Cache\Adapter\MemcachedAdapter::createConnection(
-                    InitialConfig::Cache_Standard['config']['url']
+                    $cacheConfig['cache-adapter:MemcachedAdapter']['url']
                 ),
                 $cacheConfig['namespace'],
-                InitialConfig::Cache_Standard['config']['defaultLifetime']
+                $cacheConfig['defaultLifetime']
             );
         }
         else if (
-            InitialConfig::Cache_Standard['adapter'] == 'DoctrineDbalAdapter'
-            || InitialConfig::Cache_Standard['adapter'] == 'default'
+            $cacheConfig['adapter'] == 'DoctrineDbalAdapter'
+            || $cacheConfig['adapter'] == 'default'
         )
         {
             $cache = new \Symfony\Component\Cache\Adapter\DoctrineDbalAdapter(
                 $this->conn,
                 $cacheConfig['namespace'],
-                InitialConfig::Cache_Standard['config']['defaultLifetime'],
-                [
-                    'db_table' => 'dbquery_cache_items',
-                    'db_id_col' => 'item_id',
-                    'db_item_col' => 'item_data',
-                    'db_lifetime_col' => 'item_lifetime',
-                    'db_time_col' => 'item_time'
-                ]
+                $cacheConfig['defaultLifetime'],
+                $cacheConfig['cache-adapter:DoctrineDbalAdapter,default']['tables']
             );
         }
-        else if (InitialConfig::Cache_Standard['adapter'] == 'PhpFilesAdapter')
+        else if ($cacheConfig['adapter'] == 'PhpFilesAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\PhpFilesAdapter(
                 $cacheConfig['namespace'],
-                InitialConfig::Cache_Standard['config']['defaultLifetime'],
-                APPLICATION_SELF . '/Cache'
+                $cacheConfig['defaultLifetime'],
+                $cacheConfig['cache-adapter:PhpFilesAdapter']['directory']
             );
         }
-        else if (InitialConfig::Cache_Standard['adapter'] == 'RedisAdapter')
+        else if ($cacheConfig['adapter'] == 'RedisAdapter')
         {
             $cache = new \Symfony\Component\Cache\Adapter\RedisAdapter(
                 \Symfony\Component\Cache\Adapter\RedisAdapter::createConnection(
-                    InitialConfig::Cache_Standard['config']['url']
+                    $cacheConfig['cache-adapter:RedisAdapter']['url']
                 ),
                 $cacheConfig['namespace'],
-                InitialConfig::Cache_Standard['config']['defaultLifetime']
+                $cacheConfig['defaultLifetime']
             );
         }
 
-        if (empty(InitialConfig::Cache_Standard['adapter']) || is_null($cache))
+        if (empty($cacheConfig['adapter']) || is_null($cache))
         {
             throw new \Exception('Cache not set. Please use a cacher or set it by default.');
         }
@@ -322,7 +313,7 @@ abstract class Layer
 
     private function deployDbParams()
     {
-        $dbConfig = [
+        return [
             'global' => [
                 'driver' => $_ENV['DBCONFIG_ADAPTER'],
                 'user' => $_ENV['DBCONFIG_USER'],
@@ -344,7 +335,41 @@ abstract class Layer
                 'memory' => false
             ]
         ];
+    }
 
-        return $dbConfig;
+    private function deployDbCache()
+    {
+        return [
+            'namespace' => 'DBQuaries',
+            'adapter' => $_ENV['CACHE_ADAPTER'],
+            'defaultLifetime' => $_ENV['CACHE_DEFAULT_LIFETIME'],
+            'cache-adapter:ApcuAdapter' => [
+                'version' => (isset($_ENV['CACHE_APCU_VERSION']) ? $_ENV['CACHE_APCU_VERSION'] : '')
+            ],
+            'cache-adapter:ArrayAdapter' => [
+                'storeSerialized' => (isset($_ENV['CACHE_ARRAY_STORE_SERIALIZED']) ? $_ENV['CACHE_ARRAY_STORE_SERIALIZED'] : ''),
+                'maxItems' => (isset($_ENV['CACHE_ARRAY_MAX_ITEMS']) ? $_ENV['CACHE_ARRAY_MAX_ITEMS'] : '')
+            ],
+            'cache-adapter:MemcachedAdapter' => [
+                'url' => (isset($_ENV['CACHE_MEMCACHED_URL']) ? $_ENV['CACHE_MEMCACHED_URL'] : '')
+            ],
+            'cache-adapter:DoctrineDbalAdapter,default' => [
+                'tables' => [
+                    [
+                        'db_table' => 'dbquery_cache_items',
+                        'db_id_col' => 'item_id',
+                        'db_item_col' => 'item_data',
+                        'db_lifetime_col' => 'item_lifetime',
+                        'db_time_col' => 'item_time'
+                    ]
+                ]
+            ],
+            'cache-adapter:PhpFilesAdapter' => [
+                'directory' => APPLICATION_SELF . '/Cache'
+            ],
+            'cache-adapter:RedisAdapter' => [
+                'url' => (isset($_ENV['CACHE_REDIS_URL']) ? $_ENV['CACHE_REDIS_URL'] : '')
+            ]
+        ];
     }
 }

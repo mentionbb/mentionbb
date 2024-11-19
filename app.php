@@ -39,7 +39,7 @@ return (function (): \App\Mvc\Pub|bool
     /**
      * Parse environment config file
      */
-    $dotenv = Dotenv\Dotenv::createImmutable($dir);
+    $dotenv = Dotenv\Dotenv::createImmutable($dir, ['.env', '.env.init'], false);
     $dotenv->load();
 
     /**
