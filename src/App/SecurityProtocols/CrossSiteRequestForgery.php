@@ -48,11 +48,6 @@ class CrossSiteRequestForgery
 
         if (is_array($csrfTokenData))
         {
-            if ($this->request->getRemoteAddr() !== $csrfTokenData['ip'])
-            {
-                return false;
-            }
-
             if (($csrfTokenData['time'] + 1800) <= \App\Entity\DateTime::getTimeStamp())
             {
                 return false;
