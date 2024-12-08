@@ -446,36 +446,38 @@ if (window.jQuery === undefined) jQuery = $ = {};
 
             app.editorConfig("#post-editor");
 
-            setTimeout(function () {
-                $(".app-post-create .app-writer-area").removeClass("d-none");
-                $('.app-post-create .post-content [name="post-title"]').focus();
+            if (tinyMCE.activeEditor !== null) {
+                setTimeout(function () {
+                    $(".app-post-create .app-writer-area").removeClass("d-none");
+                    $('.app-post-create .post-content [name="post-title"]').focus();
 
-                if ($(".title-area.in-discussion").length) {
-                    $(".title-area.in-discussion").removeClass("d-flex");
-                    $(".title-area.in-discussion").hide();
+                    if ($(".title-area.in-discussion").length) {
+                        $(".title-area.in-discussion").removeClass("d-flex");
+                        $(".title-area.in-discussion").hide();
 
-                    if ($(this).data("scroll")) {
-                        app.scrollTopAnchor($(".app-post-create"));
+                        if ($(this).data("scroll")) {
+                            app.scrollTopAnchor($(".app-post-create"));
+                        }
+
+                        tinyMCE.activeEditor.focus();
                     }
 
-                    tinyMCE.activeEditor.focus();
-                }
+                    $(".app-post-create .progress").addClass("d-none");
+                }, 200);
 
-                $(".app-post-create .progress").addClass("d-none");
-            }, 200);
-
-            setTimeout(function () {
-                $(".app-writer-area")
-                    .removeClass("animate")
-                    .removeClass("slideIn");
-            }, 500);
-
-            if ($(".app-writer-area").closest('.app-post-container').length) {
                 setTimeout(function () {
-                    $(".app-post-container")
+                    $(".app-writer-area")
                         .removeClass("animate")
                         .removeClass("slideIn");
                 }, 500);
+
+                if ($(".app-writer-area").closest('.app-post-container').length) {
+                    setTimeout(function () {
+                        $(".app-post-container")
+                            .removeClass("animate")
+                            .removeClass("slideIn");
+                    }, 500);
+                }
             }
         }
     });
