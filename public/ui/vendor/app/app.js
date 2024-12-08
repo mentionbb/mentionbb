@@ -156,6 +156,10 @@ var app = {};
                     editor.ui.registry.addIcon(item.name, item.icon);
                 });
 
+                editor.on('focus', function (e) {
+                    $('.tox-tinymce').addClass('--focus');
+                });
+
                 editor.on('init', function (e) {
                     $('.tox-tbtn').tooltip({
                         boundary: 'window',
