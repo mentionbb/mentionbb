@@ -148,5 +148,15 @@
             "installable": "true",
             "upgradable": "true"
         }
+    },
+    "build:11021101": {
+        "version": 1,
+        "versionId": "11021101",
+        "versionTitle": "1.0 developer preview",
+        "contains": {
+            "status": "beta",
+            "installable": "true",
+            "upgradable": "true"
+        }
     }
 }
