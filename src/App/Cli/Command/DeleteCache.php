@@ -2,7 +2,7 @@
 
 namespace App\Cli\Command;
 
-use App\Cli\Console\loggableOutput;
+use App\Cli\Console\LoggableOutput;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,7 +20,7 @@ class DeleteCache extends Command
 
 	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
-		$output = new loggableOutput($this->getName(), $output);
+		$output = new LoggableOutput($this->getName(), $output);
 		
 		$filesystem = new Filesystem();
 		$filesystem->remove(['symlink', APPLICATION_SELF . "/Cache/DBQuaries/"]);
