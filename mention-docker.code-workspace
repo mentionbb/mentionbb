@@ -1,0 +1,171 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "intelephense.environment.phpVersion": "8.4",
+        "editor.mouseWheelScrollSensitivity": 2.0,
+        "workbench.editor.enablePreview": false,
+        "files.associations": {
+            "*.tpl": "html",
+            "*.master": "twig"
+        },
+        "emmet.includeLanguages": {
+            "twig": "html"
+        },
+        "[php]": {
+            "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+        },
+        "intelephense.phpdoc.classTemplate": {
+            "summary": "$1",
+            "tags": [
+                "@package ${1:$SYMBOL_NAMESPACE}"
+            ]
+        },
+        "[javascript]": {
+            "editor.defaultFormatter": "vscode.typescript-language-features"
+        },
+        "auto-close-tag.activationOnLanguage": [
+            "xml",
+            "php",
+            "blade",
+            "ejs",
+            "jinja",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "plaintext",
+            "markdown",
+            "vue",
+            "liquid",
+            "erb",
+            "lang-cfml",
+            "cfml",
+            "HTML (EEx)",
+            "HTML (Eex)",
+            "twig",
+            "plist"
+        ],
+        "auto-rename-tag.activationOnLanguage": [
+            "html",
+            "tpl"
+        ],
+        "intelephense.format.braces": "allman",
+        "[html]": {
+            "editor.defaultFormatter": "vscode.html-language-features"
+        },
+        "redhat.telemetry.enabled": true,
+        "git.autofetch": true,
+        "editor.unicodeHighlight.allowedCharacters": {
+            "ı": true,
+            "ü": true
+        },
+        "git.ignoreRebaseWarning": true,
+        "vscodeGoogleTranslate.preferredLanguage": "Turkish",
+        "workbench.colorTheme": "Default Dark+",
+        "diffEditor.ignoreTrimWhitespace": false,
+        "intelephense.stubs": [
+            "apache",
+            "bcmath",
+            "bz2",
+            "calendar",
+            "com_dotnet",
+            "Core",
+            "ctype",
+            "curl",
+            "date",
+            "dba",
+            "dom",
+            "enchant",
+            "exif",
+            "FFI",
+            "fileinfo",
+            "filter",
+            "fpm",
+            "ftp",
+            "gd",
+            "gettext",
+            "gmp",
+            "hash",
+            "iconv",
+            "imap",
+            "intl",
+            "json",
+            "ldap",
+            "libxml",
+            "mbstring",
+            "meta",
+            "mysqli",
+            "oci8",
+            "odbc",
+            "openssl",
+            "pcntl",
+            "pcre",
+            "PDO",
+            "pdo_ibm",
+            "pdo_mysql",
+            "pdo_pgsql",
+            "pdo_sqlite",
+            "pgsql",
+            "Phar",
+            "posix",
+            "pspell",
+            "random",
+            "readline",
+            "Reflection",
+            "session",
+            "shmop",
+            "SimpleXML",
+            "snmp",
+            "soap",
+            "sockets",
+            "sodium",
+            "SPL",
+            "sqlite3",
+            "standard",
+            "superglobals",
+            "sysvmsg",
+            "sysvsem",
+            "sysvshm",
+            "tidy",
+            "tokenizer",
+            "xml",
+            "xmlreader",
+            "xmlrpc",
+            "xmlwriter",
+            "xsl",
+            "Zend OPcache",
+            "zip",
+            "zlib",
+            "sqlsrv"
+        ],
+        "twig-language.indentLevel": 4,
+        "twig-language.formatObject": "indent",
+        "twig-language.formatArray": "indent",
+        "twig-language.forceIndent": true,
+        "twig-language-2.indentStyle": "space",
+        "twig-language.indentStyle": "space",
+        "[latte]": {
+            "editor.defaultFormatter": "vscode.html-language-features"
+        },
+        "[jsonc]": {
+            "editor.defaultFormatter": "vscode.json-language-features"
+        },
+        "git.ignoreMissingGitWarning": true,
+        "extensions.ignoreRecommendations": true,
+        "dev.containers.defaultFeatures": {},
+        "markdownlint.config": {
+            "MD033": {
+                "allowed_elements": [
+                    "p",
+                    "img",
+                    "picture",
+                    "source"
+                ]
+            }
+        },
+    }
+}
