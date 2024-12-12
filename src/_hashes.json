@@ -1,19 +1,19 @@
 {
-    "created_on": "Wed, 20 Nov 2024 00:20:01 GMT",
+    "created_on": "Thu, 12 Dec 2024 20:48:32 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
-    "v_for": "1.0.20",
+    "v_for": "1.0.21 Beta 1",
     "data": {
         "\/": {
             "6419a784d324c874ec38a20700131631e08e6318bdffa8e802cea9b9d560ef18": {
                 "filename": "app.php",
                 "path": ".\/app.php"
             },
-            "b413bc7208ced56aa4f27907a85cca261ef184f77700d11c6be455cc0329f991": {
+            "9b6ae8406df674835e437b94a71295bf6fc53f153c13ec598f6eae051bcd816c": {
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "7421223eeaef6b24470b21c5c2ebc515e7d5607a7f9e08c947cd98fafc76972a": {
+            "e061d61afef098be3229cda16bcf9085f26bf920adf92c86a57faaadaddfd5b2": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -39,11 +39,11 @@
             }
         },
         "src": {
-            "92140e8e1dfeeff5219da1664948acc2e4b0cb7cca04cf5b52dd9ab11233ad73": {
+            "d239f13bc1f1983d23f9c58a5965d513308e16a87cdcb5cd521578ec8f8acc3c": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
-            "4ff7726c75251a77411af9aa2efd37c7e0e4cc277e824bff1f5a937f79100b8d": {
+            "702595adf6e2aff61599305723e8d0df5f6b6a73fd2071987fd76ae06ea693ef": {
                 "filename": "install.lock",
                 "path": ".\/src\/install.lock"
             }
@@ -100,6 +100,24 @@
             "4f168755bdab533c07a360328445e79a03a00fcd03b7caa183b8e2ecc2d96312": {
                 "filename": "Turkish.yaml",
                 "path": ".\/src\/Languages\/Turkish.yaml"
+            }
+        },
+        "src\/patches": {
+            "1c3bb18829d2e37ba5dfba0331d4cc2db8108f97aa355637c3dd333cd4fabf7a": {
+                "filename": "phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch",
+                "path": ".\/src\/patches\/phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch"
+            },
+            "1f074fa0518da9999d54b46afb0fcbde6c97f4d060c62171ae2957977d73b00f": {
+                "filename": "symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch",
+                "path": ".\/src\/patches\/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch"
+            },
+            "0d275781a46d888e4eeeb2b414abb807ce75363a8874d995341fc6b9df8f9a88": {
+                "filename": "symfony-finder-iterator-vcsignoredfilteriterator-php.patch",
+                "path": ".\/src\/patches\/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
+            },
+            "4efa63d1193248f863c22735a7d84feba40a2a4e49ba56eec71d6365c97bff5a": {
+                "filename": "voku-portable-utf8-src-voku-helper-utf8-php.patch",
+                "path": ".\/src\/patches\/voku-portable-utf8-src-voku-helper-utf8-php.patch"
             }
         },
         "public\/ui\/vendor": {
@@ -175,7 +193,7 @@
             }
         },
         "src\/App\/Db": {
-            "5e05a5e701ef322b91645a5f9cff499de24f755053c2bf80e56ccc6d83f870c4": {
+            "78537acae16fe06059c1fde0dc414f7b7caa396dbd3c4a38ce9f310082f39a39": {
                 "filename": "Layer.php",
                 "path": ".\/src\/App\/Db\/Layer.php"
             },
@@ -273,7 +291,7 @@
                 "filename": "Resource.php",
                 "path": ".\/src\/App\/Install\/Resource.php"
             },
-            "f52da4b915614c18a3e5a9567c2cfd86516cfaf3089c93356e7886991c68721c": {
+            "4b11ca429c969ccdb75a85a74838dd6d8551c4d42c0527aec2d912b0e952b80b": {
                 "filename": "versions.json",
                 "path": ".\/src\/App\/Install\/versions.json"
             }
@@ -292,8 +310,14 @@
                 "path": ".\/src\/App\/Mvc\/Pub.php"
             }
         },
+        "src\/App\/Params": {
+            "a9600797a02fa54b89401d1c6f49f4021f79592e05fa44304dc36e24f705742b": {
+                "filename": "Env.php",
+                "path": ".\/src\/App\/Params\/Env.php"
+            }
+        },
         "src\/App\/Renderer": {
-            "e7379c00dded9b0fd0846312a4f50e376765f3d4d5ab5cb94e1f7cf482e5ae1f": {
+            "68b47e7bb52fd46460d3b0f685e8461ad21b66ee71d56f3d1f37eabd94b84046": {
                 "filename": "ExternalLinkRenderer.php",
                 "path": ".\/src\/App\/Renderer\/ExternalLinkRenderer.php"
             },
@@ -351,7 +375,7 @@
             }
         },
         "src\/App\/SecurityProtocols": {
-            "26567a62c8468de1584ea40383f2087795fd77eea67998546df8e7302eef5615": {
+            "1e375724277e950dae11580538685d5c978b109d7c76e9b030b5105be3d78873": {
                 "filename": "CrossSiteRequestForgery.php",
                 "path": ".\/src\/App\/SecurityProtocols\/CrossSiteRequestForgery.php"
             }
@@ -597,11 +621,11 @@
                 "filename": "account.js",
                 "path": ".\/public\/ui\/vendor\/app\/account.js"
             },
-            "08ceb1557f74fe63e472fff8e55e4e98710b3278e94c360de3531ca09eaa9878": {
+            "98ce0d963c3f032d4f2082849c999ffd5c4f58d0f8d37f1ed2a507568c403a8e": {
                 "filename": "app.js",
                 "path": ".\/public\/ui\/vendor\/app\/app.js"
             },
-            "d807c2918812de3ba5c174a2d7a709284205950dd324f25cdc38cf3576dc52ac": {
+            "07496ea4930a40b8ffd8a9e80da90208f32daf381c62031c6e13796d4a6f6c5e": {
                 "filename": "core.js",
                 "path": ".\/public\/ui\/vendor\/app\/core.js"
             },
@@ -882,6 +906,16 @@
                 "path": ".\/src\/App\/Mvc\/Pub\/WebManifest.php"
             }
         },
+        "src\/App\/Params\/Deploy": {
+            "30ef8fd4142763c642c4b33d86005e16049d396a567d6002048772a22fbc058b": {
+                "filename": "Config.php",
+                "path": ".\/src\/App\/Params\/Deploy\/Config.php"
+            },
+            "2459d10f42170d35bd89791afa423cb2401367bd2e86f2a3d4a18ae9a992bfad": {
+                "filename": "Db.php",
+                "path": ".\/src\/App\/Params\/Deploy\/Db.php"
+            }
+        },
         "src\/App\/Renderer\/BBCode": {
             "4bc56370832bb861bc937f470c4990a40d6fc644e3e456e290a5550a72348013": {
                 "filename": "Parser.php",
@@ -925,13 +959,13 @@
             }
         },
         "src\/App\/Repository\/Config": {
-            "8f55fa930f63188af832ea69f9ca47cb50a07f6acb3621808d92f0205bcada06": {
+            "b59750eb1af26a8c03f8a4d803cdc9524a918c9e276ea07458b654502006ab8d": {
                 "filename": "Schema.php",
                 "path": ".\/src\/App\/Repository\/Config\/Schema.php"
             }
         },
         "src\/App\/SubContainer\/Attachment": {
-            "6a56a00d3c2cae3455b2ca5083a8746fc0b65fbab7790eaa0aa1d362069a96c4": {
+            "55aaf77953d47acb06f3702d52c4c31b9db30fc48dc4c4a595df00b9ba5e9f62": {
                 "filename": "Attachment.php",
                 "path": ".\/src\/App\/SubContainer\/Attachment\/Attachment.php"
             },
