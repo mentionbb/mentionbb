@@ -91,6 +91,9 @@
     },
     "extra": {
         "patches": {
+            "voku/portable-utf8": [
+                "./src/patches/voku-portable-utf8-src-voku-helper-utf8-php.patch"
+            ],
             "symfony/finder": [
                 "./src/patches/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
             ],
