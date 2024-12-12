@@ -2,7 +2,7 @@
 
 namespace App\Repository\Config;
 
-use InitialConfig;
+use App\Params\Deploy\Config as InitialConfig;
 
 use App\Util\Yaml;
 
@@ -38,7 +38,7 @@ class Schema
 			$events["AppId_{$event['event_id']}"] = $event;
 			$events["AppId_{$event['event_id']}"]['file'] = pathinfo($file, PATHINFO_EXTENSION);
 
-            if ($_ENV['DISABLE_ALL_ADDONS'])
+            if (InitialConfig::deployConfigParams()['is_disable_all_addons'])
             {
 				if ($event['event_id'] != 'e4888e0e-364f-4feb-88b9-e961088460c4')
 				{

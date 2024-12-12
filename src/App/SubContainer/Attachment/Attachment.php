@@ -2,7 +2,7 @@
 
 namespace App\SubContainer\Attachment;
 
-use InitialConfig;
+use App\Params\Deploy\Config as InitialConfig;
 
 use App\Uuid;
 
@@ -101,7 +101,7 @@ class Attachment
 			/**
 			 * If PHP_GD library enabled all images converts to WEBP format.
 			 */
-			if (function_exists('imagewebp') && $_ENV['ENABLE_CONVERT_WEBP'])
+			if (function_exists('imagewebp') && InitialConfig::deployConfigParams()['is_enable_convert_webp'])
 			{
 				$outputName = \pathinfo($name, PATHINFO_FILENAME) . ".webp";
 				$outputDir = \App\SubContainer\AppSub::getPublicDir() . "/editor/{$outputName}";

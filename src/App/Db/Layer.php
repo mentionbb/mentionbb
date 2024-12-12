@@ -8,8 +8,7 @@
 
 namespace App\Db;
 
-use DbConfig;
-use InitialConfig;
+use App\Params\Deploy\Db as DbDeploy;
 
 use Doctrine\DBAL\Configuration as DoctrineConfiguration;
 use Doctrine\DBAL\DriverManager as DoctrineDriverManager;
@@ -41,7 +40,8 @@ abstract class Layer
 
     public function __construct()
     {
-        $dbConfig = $this->deployDbParams();
+        $dbDeploy = new DbDeploy();
+        $dbConfig = $dbDeploy->deployConnectParams();
 
         $connectionParams = null;
         if ($dbConfig['global']['driver'] == 'pdo_mysql')
@@ -90,7 +90,7 @@ abstract class Layer
                 new DoctrineMiddleware(new \Psr\Log\NullLogger())
             ]);
 
-        $cacheConfig = $this->deployDbCache();
+        $cacheConfig = $dbDeploy->deployCacheParams();
 
         $cache = null;
         if ($cacheConfig['adapter'] == 'ApcuAdapter')
@@ -309,67 +309,5 @@ abstract class Layer
     public function createSchemaManager()
     {
         return $this->conn->createSchemaManager();
-    }
-
-    private function deployDbParams()
-    {
-        return [
-            'global' => [
-                'driver' => $_ENV['DBCONFIG_ADAPTER'],
-                'user' => $_ENV['DBCONFIG_USER'],
-                'password' => $_ENV['DBCONFIG_USER_PASSWORD']
-            ],
-            'driver:pdo_mysql|mysqli' => [
-                'host' => $_ENV['DBCONFIG_HOST'],
-                'port' => $_ENV['DBCONFIG_PORT'],
-                'dbname' => $_ENV['DBCONFIG_DBNAME'],
-                'charset' => 'utf8mb4'
-            ],
-            'driver:pdo_pgsql|pgsql|pdo_sqlsrv|sqlsrv' => [
-                'host' => $_ENV['DBCONFIG_HOST'],
-                'port' => $_ENV['DBCONFIG_PORT'],
-                'dbname' => $_ENV['DBCONFIG_DBNAME']
-            ],
-            'driver:pdo_sqlite|sqlite' => [
-                'path' => null,
-                'memory' => false
-            ]
-        ];
-    }
-
-    private function deployDbCache()
-    {
-        return [
-            'namespace' => 'DBQuaries',
-            'adapter' => $_ENV['CACHE_ADAPTER'],
-            'defaultLifetime' => $_ENV['CACHE_DEFAULT_LIFETIME'],
-            'cache-adapter:ApcuAdapter' => [
-                'version' => (isset($_ENV['CACHE_APCU_VERSION']) ? $_ENV['CACHE_APCU_VERSION'] : '')
-            ],
-            'cache-adapter:ArrayAdapter' => [
-                'storeSerialized' => (isset($_ENV['CACHE_ARRAY_STORE_SERIALIZED']) ? $_ENV['CACHE_ARRAY_STORE_SERIALIZED'] : ''),
-                'maxItems' => (isset($_ENV['CACHE_ARRAY_MAX_ITEMS']) ? $_ENV['CACHE_ARRAY_MAX_ITEMS'] : '')
-            ],
-            'cache-adapter:MemcachedAdapter' => [
-                'url' => (isset($_ENV['CACHE_MEMCACHED_URL']) ? $_ENV['CACHE_MEMCACHED_URL'] : '')
-            ],
-            'cache-adapter:DoctrineDbalAdapter,default' => [
-                'tables' => [
-                    [
-                        'db_table' => 'dbquery_cache_items',
-                        'db_id_col' => 'item_id',
-                        'db_item_col' => 'item_data',
-                        'db_lifetime_col' => 'item_lifetime',
-                        'db_time_col' => 'item_time'
-                    ]
-                ]
-            ],
-            'cache-adapter:PhpFilesAdapter' => [
-                'directory' => APPLICATION_SELF . '/Cache'
-            ],
-            'cache-adapter:RedisAdapter' => [
-                'url' => (isset($_ENV['CACHE_REDIS_URL']) ? $_ENV['CACHE_REDIS_URL'] : '')
-            ]
-        ];
     }
 }

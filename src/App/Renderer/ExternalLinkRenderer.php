@@ -2,8 +2,7 @@
 
 namespace App\Renderer;
 
-use InitialConfig;
-
+use App\Params\Deploy\Config as InitialConfig;
 use App\String\Post as PostString;
 
 use GuzzleHttp\HandlerStack;
@@ -28,11 +27,11 @@ class ExternalLinkRenderer
 		self::$post_id = $post_id;
 		$stack = self::addCache();
 
-		if ($_ENV['DISABLE_EXTERNAL_LINK_PREVIEW'])
+		if (InitialConfig::deployConfigParams()['is_disable_external_link_preview'])
 		{
 			return [
 				'status' => 'exception',
-				'message' => 'This feature(ExternalLink_Renderer) is disabled by Config File.'
+				'message' => 'This feature(ExternalLink_Renderer) is disabled by .env.init File.'
 			];
 		}
 
