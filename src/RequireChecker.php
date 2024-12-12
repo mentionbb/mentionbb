@@ -6,10 +6,10 @@ class RequireChecker
 {
     private $staticKeyV4 = "c1ade9d2-374a-41f7-bb7c-56bd516de1e3";
 
-    private $excludeDirs = ['src/vendor', 'Cache', 'Dev', 'Patches', 'ui/editor', 'ui/images', 'ui/themes', 'ui/uploads'];
+    private $excludeDirs = ['src/vendor', 'Cache', 'Dev', 'ui/editor', 'ui/images', 'ui/themes', 'ui/uploads'];
     private $excludeFiles = ['_hashes.json', '.env', '.env.example', '.env.init'];
 
-    private $targetExtensions = ['*.php', '*.twig', '*.json', '*.yml', '*.yaml', '*.lock', '*.js', '*.map', '*.css'];
+    private $targetExtensions = ['*.php', '*.patch', '*.twig', '*.json', '*.yml', '*.yaml', '*.lock', '*.js', '*.map', '*.css'];
 
     private $hashFile = APPLICATION_SELF . '/_hashes.json';
 
