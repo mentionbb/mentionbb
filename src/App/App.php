@@ -57,7 +57,7 @@ class App
 		$_phpVersion = \PHP_VERSION;
 		if (version_compare($_phpVersion, self::$_supportPhpVersion, '<='))
 		{
-			if ($_phpVersion < '8.2')
+			if ($_phpVersion <= '8.1')
 			{
 				throw new \Exception("Your PHP version is '$_phpVersion' is does not support.Support PHP version is '" . self::$_supportPhpVersion . "'.");
 			}
