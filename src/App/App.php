@@ -21,7 +21,13 @@ class App
 
 	public static $session;
 
-	public static $_supportPhpVersion = '8.2';
+	/**
+     * Minimum supported php version.
+     * 
+     * You are currently allowed to change this. However, we would like to point out that the software has not been tested on php versions below this version.
+     * We definitely do not recommend you try it, especially under 8.1.
+     */
+    public static $_supportPhpVersion = '8.3';
 
 	public static $variable = [
 		'session' => [
@@ -57,7 +63,7 @@ class App
 		$_phpVersion = \PHP_VERSION;
 		if (version_compare($_phpVersion, self::$_supportPhpVersion, '<='))
 		{
-			if ($_phpVersion <= '8.1')
+			if ($_phpVersion < '8.1')
 			{
 				throw new \Exception("Your PHP version is '$_phpVersion' is does not support.Support PHP version is '" . self::$_supportPhpVersion . "'.");
 			}
