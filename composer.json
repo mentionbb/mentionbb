@@ -25,7 +25,7 @@
         }
     },
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.3",
         "symfony/routing": "^7",
         "symfony/http-foundation": "^7",
         "symfony/yaml": "^7",
