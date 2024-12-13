@@ -91,7 +91,7 @@ class Auth extends Controller implements Pub
 		{
 			$post = new PostRepo();
 
-			if (\App\SubContainer\Captcha::isValid($post->get('g-recaptcha-response')))
+			if (\App\SubContainer\Captcha::isValid($post))
 			{
 				if (\App\SubContainer\User\UsernameControl::isExist($post->get('username')))
 				{

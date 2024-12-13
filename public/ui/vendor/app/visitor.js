@@ -4,23 +4,25 @@ if (window.jQuery === undefined) jQuery = $ = {};
     "use strict";
 
     $(function () {
-        window.verifyRecaptchaCallback = function (response) {
-            $('#register-attempt input[data-recaptcha]').val(response).trigger('change');
+        if ($('#register-attempt input[data-recaptcha]').length) {
+            window.verifyRecaptchaCallback = function (response) {
+                $('#register-attempt input[data-recaptcha]').val(response).trigger('change');
 
-            $('#register-attempt form').addClass('validated');
-        }
-
-        window.expiredRecaptchaCallback = function () {
-            $('#register-attempt input[data-recaptcha]').val("").trigger('change');
-
-            $('#register-attempt form').removeClass('validated');
-        }
-
-        $(document).on('click', '#register-attempt [name="login-submit"]', function () {
-            if ($('#register-attempt form.validated').length < 1) {
-                $('#register-attempt #g-recaptcha-error').removeClass('d-none');
+                $('#register-attempt form').addClass('validated');
             }
-        });
+
+            window.expiredRecaptchaCallback = function () {
+                $('#register-attempt input[data-recaptcha]').val("").trigger('change');
+
+                $('#register-attempt form').removeClass('validated');
+            }
+
+            $(document).on('click', '#register-attempt [name="login-submit"]', function () {
+                if ($('#register-attempt form.validated').length < 1) {
+                    $('#register-attempt #g-recaptcha-error').removeClass('d-none');
+                }
+            });
+        }
     });
 
     $(function () {

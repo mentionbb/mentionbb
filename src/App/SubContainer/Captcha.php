@@ -13,7 +13,7 @@ use Turnstile\Turnstile;
 
 class Captcha
 {
-    public static function isValid($response)
+    public static function isValid($post)
     {
         $settings = Phrase::getSettings();
         $request = (new Request());
@@ -31,7 +31,7 @@ class Captcha
 
             $recaptcha = new GoogleReCaptcha($settings->gr_secret_key);
             $resp = $recaptcha->setExpectedHostname($hostname)->verify(
-                $response,
+                $post->get('g-recaptcha-response'),
                 $request->getRemoteAddr()
             );
 
@@ -46,7 +46,7 @@ class Captcha
         }
         else if ($settings->recaptcha_using == 'cloudflare_turnstile')
         {
-            if (is_null($response))
+            if (is_null($post->get('cf-turnstile-response')))
             {
                 return false;
             }
@@ -57,7 +57,7 @@ class Captcha
             );
 
             $response = $turnstile->verify(
-                $response,
+                $post->get('cf-turnstile-response'),
                 $_SERVER['REMOTE_ADDR'],
             );
 
