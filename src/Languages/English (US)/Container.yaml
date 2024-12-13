@@ -77,7 +77,7 @@ Language:
         quick_login_title: "Quick login"
         desc: "Choose your password as reliable, if you wish, you can turn on two-step verification after registration, so you can log in with the Google Authentication application."
         or_login: 'If you have an account <a class="login" href="#">You can login now.</a>'
-        agreement: 'I have read and accept<a target="_blank" href="{1}/faq">the terms</a> and <a target="_blank" href="{1}/privacy">privacy agreement</a>.'
+        agreement: 'I have read and accept <a target="_blank" href="{1}/faq">the terms</a> and <a target="_blank" href="{1}/privacy">privacy agreement</a>.'
         please_verify_captcha: "Please verify that you are not a robot."
       login:
         title: "Login"
