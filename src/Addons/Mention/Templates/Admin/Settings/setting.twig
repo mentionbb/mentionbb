@@ -81,6 +81,11 @@
                                                         <option value="{{ theme }}" {% if app.settings.default_theme is same as(theme) %}selected {% endif %}>{{ theme }}</option>
                                                     {% endfor %}
                                                 {% endif %}
+                                                {% if item.name is same as('recaptcha_using') %}
+                                                    <option value="none" {% if app.settings.recaptcha_using is same as("none") %}selected {% endif %}>{{ app.sub.lang.string.admin.settings.forms.recaptcha.recaptcha_none }}</option>
+                                                    <option value="google" {% if app.settings.recaptcha_using is same as("google") %}selected {% endif %}>Google</option>
+                                                    <option value="cloudflare_turnstile" {% if app.settings.recaptcha_using is same as("cloudflare_turnstile") %}selected {% endif %}>Cloudflare Turnstile</option>
+                                                {% endif %}
                                             </select>
                                             <small id="help_{{ item.name }}" class="form-text text-muted">{{ app.sub.lang.string.admin.settings.forms[item.group_name][item.name].desc|raw }}</small>
                                         </div>

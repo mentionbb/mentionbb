@@ -63,12 +63,16 @@ Language:
           desc: "The maximum file size to attach to the message."
 
       recaptcha:
+        recaptcha_using:
+          name: "ReCaptcha API"
+          desc: "The ReCaptcha API you want to use. Or turn off captcha."
+        recaptcha_none: "I don't want to use captcha."
         gr_secret_key:
           name: "secret key"
-          desc: "Google reCaptcha secret key."
+          desc: "ReCaptcha secret key."
         gr_site_key:
           name: "Site key"
-          desc: "Google reCaptcha site key."
+          desc: "ReCaptcha site key."
 
       styles:
         site_logo:
