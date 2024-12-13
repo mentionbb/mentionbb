@@ -1,5 +1,6 @@
 name: 🚀 Feature Request
 description: New features and improvements
+labels: ["feature request"]
 body:
     - type: textarea
       id: description
