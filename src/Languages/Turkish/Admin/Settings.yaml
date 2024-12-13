@@ -63,12 +63,16 @@ Language:
           desc: "Mesaja eklenecek maksimum dosya boyutu."
 
       recaptcha:
+        recaptcha_using:
+          name: "ReCaptcha/Doğrulama API"
+          desc: "Kullanmak istediğiniz ReCaptcha API seçebilirsiniz veya kullanmak istemiyorsanız kapatabilirsiniz."
+        recaptcha_none: "Doğrulama kullanmak istemiyorum."
         gr_secret_key:
           name: "Gizli anahtar"
-          desc: "Google reCaptcha gizli anahtarı."
+          desc: "ReCaptcha gizli anahtarı."
         gr_site_key:
           name: "Site anahtarı"
-          desc: "Google reCaptcha site anahtarı."
+          desc: "ReCaptcha site anahtarı."
 
       styles:
         site_logo:
