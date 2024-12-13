@@ -167,5 +167,9 @@
                 ]
             }
         },
+        "terminal.integrated.smoothScrolling": true,
+        "editor.smoothScrolling": true,
+        "workbench.list.smoothScrolling": true,
+        "editor.cursorSmoothCaretAnimation": "on",
     }
 }
