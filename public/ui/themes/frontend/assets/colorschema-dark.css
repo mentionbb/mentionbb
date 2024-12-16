@@ -110,6 +110,11 @@ body.app-night-mode {
 	--mention-post-count-text-color: #7777bf;
 	--mention-post-views-text-color: #269626;
 
+    --mention-code-title-bg-color: #0d1117;
+    --mention-code-title-text-color: #a7a7a7;
+    --mention-code-bg-color: #0d1117;
+    --mention-code-text-color: #bbb;
+
 	--mention-user-status-online-border-color: #53c72e;
 	--mention-user-status-offline-border-color: #6b6b6b;
 

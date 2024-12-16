@@ -3953,14 +3953,14 @@ h5.app-title.user:before {
 }
 
 .bbContainer_appCodeBlock {
-    background: var(--mention-light-bg-color);
+    background: var(--mention-code-title-bg-color);
 }
 
 .bbContainer_appCodeBlock>.codeBlockTitle {
-    padding: 1em;
+    padding: 10px;
     padding-bottom: 0;
     font-weight: var(--mention-root-font-weight-bold);
-    color: var(--mention-text-dark-color);
+    color: var(--mention-code-title-text-color);
 }
 
 .js-appExternalLink {
@@ -4034,7 +4034,7 @@ h5.app-title.user:before {
 
 code[class*="language-"],
 pre[class*="language-"] {
-    color: var(--mention-text-dark-color);
+    color: var(--mention-code-text-color);
     background: none;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;
@@ -4078,14 +4078,14 @@ code[class*="language-"] ::selection {
 }
 
 pre[class*="language-"] {
-    padding: 1em;
+    padding: 10px;
     margin: 0.5em 0;
     overflow: auto;
 }
 
 :not(pre)>code[class*="language-"],
 pre[class*="language-"] {
-    background: var(--mention-dark-bg-color);
+    background: var(--mention-code-bg-color);
 }
 
 :not(pre)>code[class*="language-"] {
