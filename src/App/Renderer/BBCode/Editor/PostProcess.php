@@ -60,6 +60,7 @@ class PostProcess
             '<li>(.*?)<\/li>' => '[li]$1[/li]',
 
             '<p style="text-align: (.*?);">(.*?)<\/p>' => '[align=$1]$2[/align]',
+            '<p dir="(auto|ltr|rtl)">' => '',
             '<p>' => '',
             '<\/p>' => '',
 
@@ -68,6 +69,7 @@ class PostProcess
             '<span style="background-color: (.*?);">(.*?)<\/span>' => '[background=$1]$2[/background]',
 
             '<pre class="language-(.*?)"><code>(.*?)<\/code><\/pre>' => '[code=$1]$2[/code]',
+            '<pre class="notranslate" lang="(.*)"><code>(.*?)<\/code><\/pre>' => '[code=$1]$2[/code]',
 
             '<h(1|2|3|4|5|6)(.*?)?>(.*?)<\/h(1|2|3|4|5|6)>' => '[heading=$1]$3[/heading]',
             '<pre>(.*?)<\/pre>' => '[pre]$1[/pre]',
@@ -108,7 +110,7 @@ class PostProcess
                 'option' => 'gi'
             ];
         }
-        //$this->setOption([47, 49], 'si');
+        $this->setOption([48, 49], 'gs');
 
         return $this->modifications;
     }
