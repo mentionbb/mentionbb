@@ -42,11 +42,14 @@ class ExternalLinkRenderer
 
 		if ($linkData)
 		{
-			$json = \json_decode($linkData['json'], true);
-			if (!in_array('HTTP/1.1 200 OK', get_headers($json['image'])))
-			{
-				$json['image'] = null;
-			}
+            $json = \json_decode($linkData['json'], true);
+            if (!is_null($json['image']))
+            {
+                if (!in_array('HTTP/1.1 200 OK', get_headers($json['image'])))
+                {
+                    $json['image'] = null;
+                }
+            }
 
 			return [
 				'data' => $json,

@@ -48,7 +48,7 @@
         "google/recaptcha": "1.2",
         "symfony/dom-crawler": "^7",
         "symfony/css-selector": "^7",
-        "kevinrob/guzzle-cache-middleware": "^3.3",
+        "kevinrob/guzzle-cache-middleware": "^5",
         "symfony/event-dispatcher": "^7",
         "masterminds/html5": "^2.7",
         "symfony/uid": "^7",

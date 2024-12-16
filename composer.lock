@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccc1dd42d70830fa4bb1454fa7d501d8",
+    "content-hash": "de663ed63f1d890bbaea2cf3913f936b",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -930,35 +930,37 @@
         },
         {
             "name": "kevinrob/guzzle-cache-middleware",
-            "version": "v3.5.0",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Kevinrob/guzzle-cache-middleware.git",
-                "reference": "c699f4623a7be6c92468876a1b2404d499a4f22f"
+                "reference": "6bd64dbbe5155107d84a0f67140a8822a709c6d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Kevinrob/guzzle-cache-middleware/zipball/c699f4623a7be6c92468876a1b2404d499a4f22f",
-                "reference": "c699f4623a7be6c92468876a1b2404d499a4f22f",
+                "url": "https://api.github.com/repos/Kevinrob/guzzle-cache-middleware/zipball/6bd64dbbe5155107d84a0f67140a8822a709c6d0",
+                "reference": "6bd64dbbe5155107d84a0f67140a8822a709c6d0",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.0 || ^7.0",
+                "guzzlehttp/promises": "^1.4 || ^2.0",
                 "guzzlehttp/psr7": "^1.7.0 || ^2.0.0",
-                "php": ">=5.5.0"
+                "php": ">=7.2.0"
             },
             "require-dev": {
                 "cache/array-adapter": "^0.4 || ^0.5 || ^1.0",
                 "cache/simple-cache-bridge": "^0.1 || ^1.0",
-                "doctrine/cache": "^1.0",
+                "doctrine/cache": "^1.10",
                 "illuminate/cache": "^5.0",
-                "league/flysystem": "^1.0",
-                "phpunit/phpunit": "^4.8.36 || ^5.0",
+                "league/flysystem": "^2.5",
+                "phpunit/phpunit": "^8.5.15 || ^9.5",
                 "psr/cache": "^1.0",
+                "symfony/cache": "^4.4 || ^5.0",
                 "symfony/phpunit-bridge": "^4.4 || ^5.0"
             },
             "suggest": {
-                "doctrine/cache": "This library has a lot of ready-to-use cache storage (to be used with Kevinrob\\GuzzleCache\\Storage\\DoctrineCacheStorage).",
+                "doctrine/cache": "This library has a lot of ready-to-use cache storage (to be used with Kevinrob\\GuzzleCache\\Storage\\DoctrineCacheStorage). Use only versions >=1.4.0 < 2.0.0",
                 "guzzlehttp/guzzle": "For using this library. It was created for Guzzle6 (but you can use it with any PSR-7 HTTP client).",
                 "laravel/framework": "To be used with Kevinrob\\GuzzleCache\\Storage\\LaravelCacheStorage",
                 "league/flysystem": "To be used with Kevinrob\\GuzzleCache\\Storage\\FlysystemStorage",
@@ -1007,9 +1009,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Kevinrob/guzzle-cache-middleware/issues",
-                "source": "https://github.com/Kevinrob/guzzle-cache-middleware/tree/v3.5.0"
+                "source": "https://github.com/Kevinrob/guzzle-cache-middleware/tree/v5.1.0"
             },
-            "time": "2022-01-04T16:40:46+00:00"
+            "time": "2023-11-09T06:53:45+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
