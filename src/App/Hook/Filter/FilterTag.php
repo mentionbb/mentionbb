@@ -2,6 +2,8 @@
 
 namespace App\Hook\Filter;
 
+use Symfony\Component\DomCrawler\Crawler;
+
 class FilterTag
 {
     /**
@@ -17,7 +19,7 @@ class FilterTag
         $content = preg_replace('/<(br|hr)>/si', '<$1 />', $content);
         $content = preg_replace('/<img(.*?)>/si', '<img$1 />', $content);
 
-        $content = preg_replace('/(disabled|required|selected)/si', '$1="$1"', $content);
+        $content = preg_replace('/(disabled|selected|required)>/si', '$1="$2">', $content);
 
         return $content;
     }
