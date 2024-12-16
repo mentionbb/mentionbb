@@ -205,11 +205,11 @@ class Link
 
 		if (substr(strrchr($this->user->profile_picture, "."), 1))
 		{
-			$path = AppSub::getPublicDir() . "/uploads/profile_picture/{$this->user->profile_picture}\"";
+			$path = AppSub::getPublicDir() . "/uploads/profile_picture/{$this->user->profile_picture}";
 		}
 		else
 		{
-			$path = AppSub::getPublicDir() . "/images/avatars/{$this->user->profile_picture}.svg\"";
+			$path = AppSub::getPublicDir() . "/images/avatars/{$this->user->profile_picture}.svg";
 		}
 
 		return "<img title=\"{$info}\" alt=\"{$this->user->username}\" class=\"rounded-circle {$statusInfo} {$extraClasses}\" src=\"{$path}\" data-user-id=\"{$this->user->user_id}\" />";
