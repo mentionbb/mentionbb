@@ -13,7 +13,11 @@
                 <small>{{ debug.serverInfo }}</small>
             </div>
         {% endif %}
-        <div>Page loaded in <strong>{{ debug.calculatePageLoadTime }}</strong> seconds.</div>
+        {% if debug.domRenderer is same as ('php84-html5') %}
+            <div>Page from <code>{{ debug.domRenderer }}</code> was loaded in <strong>{{ debug.calculatePageLoadTime }}</strong> seconds.</div>
+        {% else %}
+            <div>Page loaded in <strong>{{ debug.calculatePageLoadTime }}</strong> seconds.</div>
+        {% endif %}
     </div>
     <div class="col-lg-6 col-sm-12 d-flex justify-content-lg-end pt-lg-0 pl-lg-3 pt-3">
         <textarea style="resize: none;" class="form-control"

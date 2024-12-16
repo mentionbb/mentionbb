@@ -2,6 +2,8 @@
 
 namespace App\Hook;
 
+use App\Params\Deploy\Config as InitialConfig;
+
 use App\Hook\Helper\Discussion as DiscussionHook;
 use App\Hook\Helper\Faq as FaqHook;
 use App\Hook\Helper\Feature;
@@ -21,22 +23,57 @@ class Html
     protected $html;
     protected $feature;
 
+    protected $xpath;
+
     public function __construct($name, $html, $container = null)
     {
         $this->name = $name;
         $this->feature = new Feature($this);
 
-        $this->html5 = new HTML5();
-        $this->dom = $this->html5->loadHTML($html);
+        /**
+         * FINALLY, PHP supports HTML5 with 8.4 release. We have integrated this experimental version into MentionBB.
+         * Thanks to this, we will now be able to perform much faster, more compact and compatible dom operations.
+         * https://wiki.php.net/rfc/domdocument_html5_parser
+         * https://www.php.net/manual/en/class.dom-document.php
+         * 
+         * For versions below 8.4, we will continue to use the Masterminds/html5-php.
+         * And, added a setting that allows switching to the legacy in case of any problems.
+         */
+        if (\PHP_VERSION >= '8.4' && !InitialConfig::deployConfigParams()['is_enable_legacy_dom_filter'])
+        {
+            /**
+             * These classes do not defined to Intelephense yet: \Dom\HTMLDocument
+             * 
+             * @disregard P1009 Undefined type
+             */
+            $this->html5 = \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8');
+            $this->dom = $this->html5;
+
+            /**
+             * These classes do not defined to Intelephense yet: \DOM\XPath
+             * 
+             * @disregard P1009 Undefined type
+             */
+            $this->xpath = new \DOM\XPath($this->dom);
+
+            $this->setAttribute("{hook:htmlbody}", ['dom-renderer', 'php84-html5']);
+        }
+        else
+        {
+            $this->html5 = new HTML5();
+            $this->dom = $this->html5->loadHTML($html);
+
+            $this->xpath = new \DOMXPath($this->dom);
+
+            $this->setAttribute("{hook:htmlbody}", ['dom-renderer', 'legacy']);
+        }
 
         if (!is_null($container))
         {
             $this->addDispatch($container);
         }
 
-        $this->html = $this->htmltoTemplate(
-            $this->html5->saveHTML($this->dom)
-        );
+        $this->html = $this->htmltoTemplate();
     }
 
     public function setInnerHtml($class, object $replace)
@@ -363,15 +400,19 @@ class Html
         return $this->dom->saveHTML($this->dom->documentElement);
     }
 
-    public function getXPath($class): \DOMNode|\DOMNodeList|\DOMElement|\DOMAttr
+    /**
+     * These classes do not defined to Intelephense yet: \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr
+     * 
+     * @disregard P1009 Undefined type
+     */
+    public function getXPath($class): \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr|\DOMNode|\DOMNodeList|\DOMElement|\DOMAttr
     {
         $class = preg_replace_callback('/\{hook:([a-zA-Z0-9-_]+)\}/', function ($matches)
         {
             return $this->getHook($matches[1]);
         }, $class);
 
-        $xpath = new \DOMXPath($this->dom);
-        $nodes = $xpath->query($this->queryBuilder($class));
+        $nodes = $this->xpath->query($this->queryBuilder($class));
 
         return $nodes;
     }
@@ -393,13 +434,24 @@ class Html
         return $this->html;
     }
 
-    protected function htmltoTemplate($content)
+    protected function htmltoTemplate()
     {
-        $content = str_replace(
-            ['<head>'],
-            ["\r\n<head>"],
-            $content
-        );
+        if ($this->dom !== $this->html5)
+        {
+            $content = str_replace(
+                ['<head>'],
+                ["\r\n<head>", "<!DOCTYPE html>\r\n", ""],
+                $this->html5->saveHTML($this->dom)
+            );
+        }
+        else
+        {
+            $content = str_replace(
+                ['<head>', '<!DOCTYPE html>', '</body>', '</meta>', '</link>', '</img>'],
+                ["\r\n<head>", "<!DOCTYPE html>\r\n", "</body>\r\n", ""],
+                $this->html5->saveHTML()
+            );
+        }
 
         return $content;
     }

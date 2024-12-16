@@ -18,6 +18,7 @@ namespace App\Params;
  * @method string getCacheMemcachedUrl() Get cache Memcached url.
  * @method string getCacheRedisUrl() Get cache Redis url.
  * 
+ * @method int isEnableLegacyDomFilter() Is enable/disable legacy dom filter.
  * @method int getSuperadminId() Get super admin user id.
  * @method int isDisableAllAddons() Is disable all addons on MentionBB.
  * @method int isEnableBetaUpdates() Is enable beta updates.

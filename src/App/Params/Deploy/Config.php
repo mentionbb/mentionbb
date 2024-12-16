@@ -11,6 +11,7 @@ class Config
         $env = new EnvParams();
 
         return [
+            'is_enable_legacy_dom_filter' => $env->isEnableLegacyDomFilter(),
             'superadmin_id' => $env->getSuperadminId(),
             'is_disable_all_addons' => $env->isDisableAllAddons(),
             'is_enable_beta_updates' => $env->isEnableBetaUpdates(),
