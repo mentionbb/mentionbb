@@ -4,6 +4,13 @@ namespace App\Hook\Filter;
 
 class FilterTag
 {
+    private static $nonBooleanAttrs = [
+        'disabled' => 541,
+        'selected' => 233,
+        'required' => 796,
+        'checked' => 603
+    ];
+    
     /**
      * filterSingleTags
      * 
@@ -36,27 +43,26 @@ class FilterTag
         $html = $dom->loadHTML($html);
         $doc = $html['dom'];
 
-        $nodes = $html['xpath']->query(
-            $dom->queryBuilder('[disabled], [selected], [required]')
-        );
-        
-        /** @var \DOMElement|\Dom\Element $node */
-        foreach ($nodes as $node)
+        $attrs = [];
+        foreach (self::$nonBooleanAttrs as $attr => $id)
         {
-            if ($node->hasAttribute('disabled'))
+            $attrs[] = "[$attr]";
+        }
+
+        $nodes = $html['xpath']->query(
+            $dom->queryBuilder(implode(',', $attrs))
+        );
+
+        foreach (self::$nonBooleanAttrs as $attr => $id)
+        {
+            /** @var \DOMElement|\Dom\Element $node */
+            foreach ($nodes as $node)
             {
-                $node->removeAttribute('disabled');
-                $node->setAttribute('non-boolean-attr-541', 'disabled');
-            }
-            else if ($node->hasAttribute('selected'))
-            {
-                $node->removeAttribute('selected');
-                $node->setAttribute('non-boolean-attr-233', 'selected');
-            }
-            else if ($node->hasAttribute('required'))
-            {
-                $node->removeAttribute('required');
-                $node->setAttribute('non-boolean-attr-796', 'required');
+                if ($node->hasAttribute($attr) && $node->getAttribute($attr) !== $attr)
+                {
+                    $node->removeAttribute($attr);
+                    $node->setAttribute("non-boolean-attr-{$id}", $attr);
+                }
             }
         }
 
@@ -72,19 +78,10 @@ class FilterTag
             $html = preg_replace('/<link(.*?)>/si', '<link$1></link>', $html);
         }
 
-        $html = str_replace(
-            [
-                'non-boolean-attr-541',
-                'non-boolean-attr-233',
-                'non-boolean-attr-796'
-            ],
-            [
-                'disabled',
-                'selected',
-                'required'
-            ],
-            $html
-        );
+        foreach (self::$nonBooleanAttrs as $attr => $id)
+        {
+            $html = str_replace("non-boolean-attr-{$id}", $attr, $html);
+        }
 
         $html = str_replace(
             [
