@@ -39,6 +39,8 @@ class FilterTag
         $nodes = $html['xpath']->query(
             $dom->queryBuilder('[disabled], [selected], [required]')
         );
+        
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             if ($node->hasAttribute('disabled'))
@@ -51,7 +53,7 @@ class FilterTag
                 $node->removeAttribute('selected');
                 $node->setAttribute('non-boolean-attr-233', 'selected');
             }
-            if ($node->hasAttribute('required'))
+            else if ($node->hasAttribute('required'))
             {
                 $node->removeAttribute('required');
                 $node->setAttribute('non-boolean-attr-796', 'required');
