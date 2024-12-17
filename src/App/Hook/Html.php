@@ -8,7 +8,7 @@ use App\Hook\Helper\Discussion as DiscussionHook;
 use App\Hook\Helper\Faq as FaqHook;
 use App\Hook\Helper\Feature;
 use App\Hook\Filter\FilterTag;
-
+use App\Util\Arr;
 use Masterminds\HTML5;
 
 use Symfony\Component\DomCrawler\Crawler;
@@ -30,43 +30,13 @@ class Html
         $this->name = $name;
         $this->feature = new Feature($this);
 
-        /**
-         * FINALLY, PHP supports HTML5 with 8.4 release. We have integrated this experimental version into MentionBB.
-         * Thanks to this, we will now be able to perform much faster, more compact and compatible dom operations.
-         * https://wiki.php.net/rfc/domdocument_html5_parser
-         * https://www.php.net/manual/en/class.dom-document.php
-         * 
-         * For versions below 8.4, we will continue to use the Masterminds/html5-php.
-         * And, added a setting that allows switching to the legacy in case of any problems.
-         */
-        if (\PHP_VERSION >= '8.4' && !InitialConfig::deployConfigParams()['is_enable_legacy_dom_filter'])
-        {
-            /**
-             * These classes do not defined to Intelephense yet: \Dom\HTMLDocument
-             * 
-             * @disregard P1009 Undefined type
-             */
-            $this->html5 = \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8');
-            $this->dom = $this->html5;
+        $extractData = $this->loadHTML($html);
+        
+        $this->html5 = $extractData['html5']['doc'];
+        $this->dom = $extractData['dom'];
+        $this->xpath = $extractData['xpath'];
 
-            /**
-             * These classes do not defined to Intelephense yet: \DOM\XPath
-             * 
-             * @disregard P1009 Undefined type
-             */
-            $this->xpath = new \DOM\XPath($this->dom);
-
-            $this->setAttribute("{hook:htmlbody}", ['dom-renderer', 'php84-html5']);
-        }
-        else
-        {
-            $this->html5 = new HTML5();
-            $this->dom = $this->html5->loadHTML($html);
-
-            $this->xpath = new \DOMXPath($this->dom);
-
-            $this->setAttribute("{hook:htmlbody}", ['dom-renderer', 'legacy']);
-        }
+        $this->setAttribute("{hook:htmlbody}", ['dom-renderer', $extractData['html5']['renderer']]);
 
         if (!is_null($container))
         {
@@ -74,6 +44,59 @@ class Html
         }
 
         $this->html = $this->htmltoTemplate();
+    }
+
+    /**
+     * loadHTML
+     *
+     * FINALLY, PHP supports HTML5 with 8.4 release. We have integrated this experimental version into MentionBB.
+     * Thanks to this, we will now be able to perform much faster, more compact and compatible dom operations.
+     * https://wiki.php.net/rfc/domdocument_html5_parser
+     * https://www.php.net/manual/en/class.dom-document.php
+     * 
+     * For versions below 8.4, we will continue to use the Masterminds/html5-php.
+     * And, added a setting that allows switching to the legacy in case of any problems.
+     * @param  mixed $html
+     * @return array
+     */
+    public function loadHTML($html): array
+    {
+        if (\PHP_VERSION >= '8.4' && !InitialConfig::deployConfigParams()['is_enable_legacy_dom_filter'])
+        {
+            /**
+             * These classes do not defined to Intelephense yet: \Dom\HTMLDocument
+             * 
+             * @disregard P1009 Undefined type
+             */
+            $html5 = [
+                'renderer' => 'php84-html5',
+                'doc' => \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8')
+            ];
+            $dom = $html5['doc'];
+
+            /**
+             * These classes do not defined to Intelephense yet: \DOM\XPath
+             * 
+             * @disregard P1009 Undefined type
+             */
+            $xpath = new \DOM\XPath($dom);
+        }
+        else
+        {
+            $html5 = [
+                'renderer' => 'legacy',
+                'doc' => new HTML5()
+            ];
+            $dom = $html5['doc']->loadHTML($html);
+
+            $xpath = new \DOMXPath($dom);
+        }
+
+        return [
+            'html5' => $html5,
+            'dom' => $dom,
+            'xpath' => $xpath
+        ];
     }
 
     public function setInnerHtml($class, object $replace)
@@ -86,7 +109,7 @@ class Html
                 $node->removeChild($node->firstChild);
             }
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
+            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
             $node->appendChild($fragment);
         }
     }
@@ -97,7 +120,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
+            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
             $node->parentNode->insertBefore($fragment, $node);
         }
     }
@@ -108,7 +131,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
+            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
             $node->parentNode->insertBefore($fragment, $node->nextSibling);
         }
     }
@@ -119,7 +142,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
+            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
             $node->appendChild($fragment);
         }
     }
@@ -130,7 +153,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
+            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
             $node->insertBefore($fragment, $node->firstChild);
         }
     }
@@ -211,7 +234,7 @@ class Html
         foreach ($nodes as $node)
         {
             $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace()));
+            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
             $node->parentNode->replaceChild($fragment, $node);
         }
     }
@@ -434,7 +457,7 @@ class Html
         return $this->html;
     }
 
-    protected function htmltoTemplate()
+    public function htmltoTemplate()
     {
         if ($this->dom !== $this->html5)
         {
