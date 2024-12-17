@@ -171,7 +171,7 @@ class Html
     {
         $nodes = $this->getXPath($class);
         
-        /** @var \DOMElement $node */
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             $node->setAttribute($attribute[0], $attribute[1]);
@@ -183,7 +183,7 @@ class Html
         $nodes = $this->getXPath($class);
         $attr = [];
         
-        /** @var \DOMElement $node */
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             foreach ($attributeName as $attrName)
@@ -200,7 +200,7 @@ class Html
     {
         $nodes = $this->getXPath($class);
         
-        /** @var \DOMElement $node */
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             if ($node->hasAttribute($attribute))
@@ -214,7 +214,7 @@ class Html
     {
         $nodes = $this->getXPath($class);
         
-        /** @var \DOMElement $node */
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             if ($node->hasAttribute($attributeName))
@@ -243,7 +243,7 @@ class Html
     {
         $nodes = $this->getXPath($class);
         
-        /** @var \DOMElement $node */
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             foreach ($node->attributes as $attribute)
@@ -274,7 +274,7 @@ class Html
 
         $nodes = $this->getXPath($class);
         
-        /** @var \DOMElement $node */
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             foreach ($node->attributes as $attribute)
@@ -305,7 +305,7 @@ class Html
     {
         $nodes = $this->getXPath($class);
         
-        /** @var \DOMElement $node */
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             $node->setAttribute('style', $value);
