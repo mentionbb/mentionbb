@@ -24,7 +24,7 @@ class Arr
      *
      * @param  mixed $array
      * @param  mixed $parentKey
-     * @return void
+     * @return array
      */
     public static function flattenChildArrays($array, $parentKey = null)
     {
