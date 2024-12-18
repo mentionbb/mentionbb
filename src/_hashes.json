@@ -1,19 +1,19 @@
 {
-    "created_on": "Thu, 12 Dec 2024 20:48:32 GMT",
+    "created_on": "Thu, 19 Dec 2024 02:50:56 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
-    "v_for": "1.0.21 Beta 1",
+    "v_for": "1.0.21",
     "data": {
         "\/": {
             "6419a784d324c874ec38a20700131631e08e6318bdffa8e802cea9b9d560ef18": {
                 "filename": "app.php",
                 "path": ".\/app.php"
             },
-            "9b6ae8406df674835e437b94a71295bf6fc53f153c13ec598f6eae051bcd816c": {
+            "af089312fb659cbca1b977757fd2ef29e02c688fd748aea967dca69d6a3eed11": {
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "e061d61afef098be3229cda16bcf9085f26bf920adf92c86a57faaadaddfd5b2": {
+            "a4c83763b3b0abd91dc2b06cbe56e1c4f88d9f74d8207aa47fc4c03c4705b703": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -43,7 +43,7 @@
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
-            "702595adf6e2aff61599305723e8d0df5f6b6a73fd2071987fd76ae06ea693ef": {
+            "5c6743eea6b9e5a7fe05d01ca5098d198c3736d0e43ed50c3ded29adb4caaba7": {
                 "filename": "install.lock",
                 "path": ".\/src\/install.lock"
             }
@@ -63,7 +63,7 @@
                 "filename": "Addon.php",
                 "path": ".\/src\/App\/Addon.php"
             },
-            "2eb883e38b836dc20117e21f40cde37f8cf7942dc46442e013a1278efb404add": {
+            "33f61edd36d1644aface714cecb217563c73d22f06643fccc1013fc174a6903a": {
                 "filename": "App.php",
                 "path": ".\/src\/App\/App.php"
             },
@@ -277,7 +277,7 @@
             }
         },
         "src\/App\/Hook": {
-            "15681101470327e54beb084c2cc3e518202cc78ff909134c641b74e3a5bddf6c": {
+            "e1b61178da9a2ace09856f82622279cb61bb96dfc34e01aa6a04a587b7e8bcaa": {
                 "filename": "Html.php",
                 "path": ".\/src\/App\/Hook\/Html.php"
             }
@@ -291,7 +291,7 @@
                 "filename": "Resource.php",
                 "path": ".\/src\/App\/Install\/Resource.php"
             },
-            "4b11ca429c969ccdb75a85a74838dd6d8551c4d42c0527aec2d912b0e952b80b": {
+            "06614e393f510e4a1d0df7f951ff537f9451bba2f8a9f9e2af91cbc1939175e8": {
                 "filename": "versions.json",
                 "path": ".\/src\/App\/Install\/versions.json"
             }
@@ -311,13 +311,13 @@
             }
         },
         "src\/App\/Params": {
-            "a9600797a02fa54b89401d1c6f49f4021f79592e05fa44304dc36e24f705742b": {
+            "fee08e8b53fd026fb95d5c71a17b75a22378135a835fca890912fe367cf67a1b": {
                 "filename": "Env.php",
                 "path": ".\/src\/App\/Params\/Env.php"
             }
         },
         "src\/App\/Renderer": {
-            "68b47e7bb52fd46460d3b0f685e8461ad21b66ee71d56f3d1f37eabd94b84046": {
+            "b9909fbbb9a5ebd9bb9eb00b9dfc92568f9bda6514a298f3a51c27cdca55b5fb": {
                 "filename": "ExternalLinkRenderer.php",
                 "path": ".\/src\/App\/Renderer\/ExternalLinkRenderer.php"
             },
@@ -457,7 +457,7 @@
                 "filename": "Bytes.php",
                 "path": ".\/src\/App\/SubContainer\/Bytes.php"
             },
-            "365a355c4b8375f0c1bb44433b44faf167e6811feba72832e9b1a0152804f8ab": {
+            "1ce3da3c5a2f685e1744409621e038e504cc12ba43fef3b8de8fc181636becc3": {
                 "filename": "Captcha.php",
                 "path": ".\/src\/App\/SubContainer\/Captcha.php"
             },
@@ -497,7 +497,7 @@
                 "filename": "AccessableReflection.php",
                 "path": ".\/src\/App\/Util\/AccessableReflection.php"
             },
-            "637c44cc63b2b88b770fcc2feb7582f7a77bdec8977c57203acdc1ba459ef618": {
+            "d11852b26f0df75dd260b4e45df8b1bc5c12726b79560962e279e09b77ebbccf": {
                 "filename": "Arr.php",
                 "path": ".\/src\/App\/Util\/Arr.php"
             },
@@ -531,7 +531,7 @@
                 "filename": "Account.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Account.yaml"
             },
-            "d67f9cf0e7abaca466ecb20b425c2765a963d99b7869e85d98436bba6d787b8e": {
+            "8eac60c5ce384ee49214569191383d085200c3d78b890656942c8b14b1b1b10c": {
                 "filename": "Container.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Container.yaml"
             },
@@ -611,7 +611,7 @@
             }
         },
         "src\/Templates\/Default": {
-            "1405f2cc5724fafe103e15d32f5c3665d9ac5469de1b1bdba0fe4b3415896125": {
+            "b80f08532579e52d922b5dfb53e32783b9e95048983f6e2f05bdf3a4075f1f44": {
                 "filename": "container.twig",
                 "path": ".\/src\/Templates\/Default\/container.twig"
             }
@@ -653,7 +653,7 @@
                 "filename": "profile.js",
                 "path": ".\/public\/ui\/vendor\/app\/profile.js"
             },
-            "0864bf6dff2724062fb8be930c78babb4f7e29820929908e3b1efae9e0cdb5ba": {
+            "dc827bf9c882573c1ea5c4cc2fc4e7114fc5d40c448f47794a8a709fa4b0b3f9": {
                 "filename": "visitor.js",
                 "path": ".\/public\/ui\/vendor\/app\/visitor.js"
             }
@@ -681,7 +681,7 @@
             }
         },
         "src\/App\/Cli\/Command": {
-            "a5063de231488688ea852a0c6fe70d1a6b6f26027e9b1699496c5531e8dc6037": {
+            "2aa4554cd708030ef09e155e2bbc0e67eb48b6d7074c1af1009820796741656d": {
                 "filename": "DeleteCache.php",
                 "path": ".\/src\/App\/Cli\/Command\/DeleteCache.php"
             }
@@ -732,12 +732,6 @@
             "397838d330523e7fde61df4095e93557d5894860bf60c6079ba8c0b0c81964da": {
                 "filename": "Event.php",
                 "path": ".\/src\/App\/Hook\/Dispatcher\/Event.php"
-            }
-        },
-        "src\/App\/Hook\/Filter": {
-            "9af33877d9e1c26953bce43ba744a28aa4416f33d21ae494afce3acf3d612a97": {
-                "filename": "FilterTag.php",
-                "path": ".\/src\/App\/Hook\/Filter\/FilterTag.php"
             }
         },
         "src\/App\/Hook\/Helper": {
@@ -845,7 +839,7 @@
                 "filename": "Attachment.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Attachment.php"
             },
-            "8998c77084d936ebe33a7dc1c819b56f8cac6dbed09142a5e5a2ad7fd552c271": {
+            "8b78563991d665fc4069a0256f43549e64645f4b8d701609095dd2d0ea8979d3": {
                 "filename": "Auth.php",
                 "path": ".\/src\/App\/Mvc\/Pub\/Auth.php"
             },
@@ -907,7 +901,7 @@
             }
         },
         "src\/App\/Params\/Deploy": {
-            "30ef8fd4142763c642c4b33d86005e16049d396a567d6002048772a22fbc058b": {
+            "194a87a9f3c9a452ad3f6a6ea50b5edbe69a8a3e7d96c043ce096497945134d2": {
                 "filename": "Config.php",
                 "path": ".\/src\/App\/Params\/Deploy\/Config.php"
             },
@@ -1129,7 +1123,7 @@
                 "filename": "Friendship.php",
                 "path": ".\/src\/App\/SubContainer\/User\/Friendship.php"
             },
-            "77a150fe9c91305784dc21f2cba4e88120c77a30fceea603986dec61c9219d6e": {
+            "1e63c441daf175c4182b483ac540c1445b503b9b88fda15deecf8200fc614710": {
                 "filename": "Link.php",
                 "path": ".\/src\/App\/SubContainer\/User\/Link.php"
             },
@@ -1193,7 +1187,7 @@
                 "filename": "RouteFilters.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Admin\/RouteFilters.yaml"
             },
-            "f5b17ed71ef64cefc43aa726b3483fbda5805f10efab6233e94b9f479da6890d": {
+            "b64d8e83c5a29bbd2de76c982d784e27dc276beb2edcdf1936a7205354a57bc9": {
                 "filename": "Settings.yaml",
                 "path": ".\/src\/Languages\/English (US)\/Admin\/Settings.yaml"
             },
@@ -1263,7 +1257,7 @@
                 "filename": "RouteFilters.yaml",
                 "path": ".\/src\/Languages\/Turkish\/Admin\/RouteFilters.yaml"
             },
-            "9dcc9d5cb0fc84be2ef192234f8edb5ced4998e97012b90b703217c80031d1c8": {
+            "6a8b2a6a82d69d0974cb1747d228e4e238468d9e6ec9452cecc2ba1475d8b27d": {
                 "filename": "Settings.yaml",
                 "path": ".\/src\/Languages\/Turkish\/Admin\/Settings.yaml"
             },
@@ -1563,7 +1557,7 @@
                 "filename": "Parser.php",
                 "path": ".\/src\/App\/Renderer\/BBCode\/Editor\/Parser.php"
             },
-            "4423219be1092ff02452d98cf70063c7ecb4e7f5530baef800ea643090ceb791": {
+            "51becd8ca361d174f09cbcef896f6fca28f24a5b3c69b9d27d24a0832b189d46": {
                 "filename": "PostProcess.php",
                 "path": ".\/src\/App\/Renderer\/BBCode\/Editor\/PostProcess.php"
             }
@@ -1969,7 +1963,7 @@
                 "filename": "groups.twig",
                 "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Settings\/groups.twig"
             },
-            "9f3260479606cb38b18f2485dab5f16e99696989404cecc2fd2ed9fb3c763cca": {
+            "bb9489ed9b082143e15fb628b6d4d6de957eeca0a924f3e6ff4fe60e3eac4a45": {
                 "filename": "setting.twig",
                 "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Settings\/setting.twig"
             }
