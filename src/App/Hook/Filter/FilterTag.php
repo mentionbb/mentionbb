@@ -35,7 +35,7 @@ class FilterTag
      * Attributes without values/booleans ​​like [disabled], [selected], [required] cause problems in rendering. This method fixes this permanently.
      * 
      * @param  mixed $html
-     * @param  mixed $dom
+     * @param  \App\Hook\Html $dom
      * @return string
      */
     protected static function filterNonBooleanAttr($html, \App\Hook\Html $dom): string
