@@ -7,8 +7,6 @@ use App\Params\Deploy\Config as InitialConfig;
 use App\Hook\Helper\Discussion as DiscussionHook;
 use App\Hook\Helper\Faq as FaqHook;
 use App\Hook\Helper\Feature;
-use App\Hook\Filter\FilterTag;
-use App\Util\Arr;
 use Masterminds\HTML5;
 
 use Symfony\Component\DomCrawler\Crawler;
@@ -30,37 +28,15 @@ class Html
         $this->name = $name;
         $this->feature = new Feature($this);
 
-        $extractData = $this->loadHTML($html);
-        
-        $this->html5 = $extractData['html5']['doc'];
-        $this->dom = $extractData['dom'];
-        $this->xpath = $extractData['xpath'];
-
-        $this->setAttribute("{hook:htmlbody}", ['dom-renderer', $extractData['html5']['renderer']]);
-
-        if (!is_null($container))
-        {
-            $this->addDispatch($container);
-        }
-
-        $this->html = $this->htmltoTemplate();
-    }
-
-    /**
-     * loadHTML
-     *
-     * FINALLY, PHP supports HTML5 with 8.4 release. We have integrated this experimental version into MentionBB.
-     * Thanks to this, we will now be able to perform much faster, more compact and compatible dom operations.
-     * https://wiki.php.net/rfc/domdocument_html5_parser
-     * https://www.php.net/manual/en/class.dom-document.php
-     * 
-     * For versions below 8.4, we will continue to use the Masterminds/html5-php.
-     * And, added a setting that allows switching to the legacy in case of any problems.
-     * @param  mixed $html
-     * @return array
-     */
-    public function loadHTML($html): array
-    {
+        /**
+         * FINALLY, PHP supports HTML5 with 8.4 release. We have integrated this experimental version into MentionBB.
+         * Thanks to this, we will now be able to perform much faster, more compact and compatible dom operations.
+         * https://wiki.php.net/rfc/domdocument_html5_parser
+         * https://www.php.net/manual/en/class.dom-document.php
+         * 
+         * For versions below 8.4, we will continue to use the Masterminds/html5-php.
+         * And, added a setting that allows switching to the legacy in case of any problems.
+         */
         if (\PHP_VERSION >= '8.4' && !InitialConfig::deployConfigParams()['is_enable_legacy_dom_filter'])
         {
             /**
@@ -68,35 +44,34 @@ class Html
              * 
              * @disregard P1009 Undefined type
              */
-            $html5 = [
-                'renderer' => 'php84-html5',
-                'doc' => \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8')
-            ];
-            $dom = $html5['doc'];
+            $this->html5 = \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8');
+            $this->dom = $this->html5;
 
             /**
              * These classes do not defined to Intelephense yet: \DOM\XPath
              * 
              * @disregard P1009 Undefined type
              */
-            $xpath = new \DOM\XPath($dom);
+            $this->xpath = new \DOM\XPath($this->dom);
+
+            $this->setAttribute("{hook:htmlbody}", ['dom-renderer', 'php84-html5']);
         }
         else
         {
-            $html5 = [
-                'renderer' => 'legacy',
-                'doc' => new HTML5()
-            ];
-            $dom = $html5['doc']->loadHTML($html);
+            $this->html5 = new HTML5();
+            $this->dom = $this->html5->loadHTML($html);
 
-            $xpath = new \DOMXPath($dom);
+            $this->xpath = new \DOMXPath($this->dom);
+
+            $this->setAttribute("{hook:htmlbody}", ['dom-renderer', 'legacy']);
         }
 
-        return [
-            'html5' => $html5,
-            'dom' => $dom,
-            'xpath' => $xpath
-        ];
+        if (!is_null($container))
+        {
+            $this->addDispatch($container);
+        }
+
+        $this->html = $this->htmltoTemplate();
     }
 
     public function setInnerHtml($class, object $replace)
@@ -108,9 +83,10 @@ class Html
             {
                 $node->removeChild($node->firstChild);
             }
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->appendChild($fragment);
+            
+            $node->appendChild(
+                $this->dom->createTextNode($replace())
+            );
         }
     }
 
@@ -119,9 +95,10 @@ class Html
         $nodes = $this->getXPath($class);
         foreach ($nodes as $node)
         {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->parentNode->insertBefore($fragment, $node);
+            $node->parentNode->insertBefore(
+                $this->dom->createTextNode($replace()),
+                $node
+            );
         }
     }
 
@@ -130,9 +107,10 @@ class Html
         $nodes = $this->getXPath($class);
         foreach ($nodes as $node)
         {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->parentNode->insertBefore($fragment, $node->nextSibling);
+            $node->parentNode->insertBefore(
+                $this->dom->createTextNode($replace()),
+                $node->nextSibling
+            );
         }
     }
 
@@ -141,9 +119,9 @@ class Html
         $nodes = $this->getXPath($class);
         foreach ($nodes as $node)
         {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->appendChild($fragment);
+            $node->appendChild(
+                $this->dom->createTextNode($replace())
+            );
         }
     }
 
@@ -152,9 +130,10 @@ class Html
         $nodes = $this->getXPath($class);
         foreach ($nodes as $node)
         {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->insertBefore($fragment, $node->firstChild);
+            $node->insertBefore(
+                $this->dom->createTextNode($replace()),
+                $node->firstChild
+            );
         }
     }
 
@@ -233,9 +212,10 @@ class Html
         $nodes = $this->getXPath($class);
         foreach ($nodes as $node)
         {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->parentNode->replaceChild($fragment, $node);
+            $node->parentNode->replaceChild(
+                $this->dom->createTextNode($replace()),
+                $node
+            );
         }
     }
 
@@ -476,7 +456,7 @@ class Html
             );
         }
 
-        return $content;
+        return htmlspecialchars_decode($content);
     }
 
     protected function getHook($domEventName)
