@@ -16,6 +16,12 @@ a:focus {
     color: var(--mention-link-hover-color);
 }
 
+.app-discussion>.post-layout>.post-content>.discussion-text a:hover,
+.app-discussion>.post-layout>.post-content>.discussion-text a:active,
+.app-discussion>.post-layout>.post-content>.discussion-text a:focus {
+    color: var(--mention-link-hover-color) !important;
+}
+
 a.text-dark:hover,
 a.text-dark:focus {
     color: var(--mention-link-hover-color) !important;
@@ -889,6 +895,10 @@ button.btn-app-account {
     width: 8%;
 }
 
+.app-discussion.app-post>.post-layout>.post-user {
+    width: 8%;
+}
+
 .app-post>.post-layout>.post-icon {
     text-align: left;
     padding-top: 3px;
@@ -942,6 +952,10 @@ button.btn-app-account {
     width: 42px;
     border: 2px solid transparent;
     padding: 3px;
+}
+
+.app-discussion.app-post>.post-layout>.post-user img {
+    width: 60px;
 }
 
 .app-post>.post-layout>.post-content {
@@ -1379,7 +1393,7 @@ button.btn-app-account {
 }
 
 .app-discussion>.post-layout>.post-content>.discussion-text {
-    font-size: 14px;
+    font-size: 15px;
     word-wrap: break-word;
 }
 
@@ -1677,7 +1691,7 @@ img.js-Twemoji_MentionEditor {
     background-color: var(--mention-primary-bg-color);
     border-radius: 28px;
     z-index: 100;
-    right: 0;
+    right: -10rem;
     bottom: 20px;
     float: left;
     display: none;
@@ -5121,7 +5135,7 @@ code.error {
     }
 
     .container {
-        max-width: 1190px;
+        max-width: 1300px;
     }
 
     .app-discuss-sub-menu .break,
@@ -5217,6 +5231,10 @@ code.error {
         display: none;
     }
 
+    .app-discussion.app-post > .post-layout > .post-user img {
+        width: 42px;
+    }
+
     .app-post>.post-layout>.post-user>.discussion-post-user {
         display: block;
     }
@@ -5227,6 +5245,10 @@ code.error {
 
     .app-post>.post-layout>.post-content>hr {
         display: block;
+    }
+
+    .app-discussion>.post-layout>.post-content>.discussion-text {
+        font-size: 14px;
     }
 
     .app-post>.post-layout>.post-content .discuss-info {

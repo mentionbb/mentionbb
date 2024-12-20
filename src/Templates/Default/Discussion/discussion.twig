@@ -3,7 +3,7 @@
 {% block app_template_name 'discussion' %}
 
 {% block content %}
-	<aside class="col-sm-10 pr-4">
+	<aside class="col-sm-10 pr-5">
 		<div class="app-discuss-sub-menu d-flex flex-column flex-lg-row mb-lg-3 mb-sm-0 w-100">
 			{% if string.discussion.is_open is same as(1) %}
 				<div class="order-2 order-sm-1">
@@ -54,7 +54,7 @@
 			{% endif %}
 		{% endif %}
 	</aside>
-	<aside class="col-sm-10 pr-4">
+	<aside class="col-sm-10 pr-5">
 		<div hook-action="{Mention:App-domEvent-discussion}" class="app-post-container animate slideIn">
 			{% import 'macro.posts.twig' as macros %}
 			{{ macros.posts(string.discussion, false, true, string) }}
