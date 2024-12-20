@@ -251,16 +251,16 @@ class Html
         if (!is_null($ownerDocument['html5']) && $ownerDocument['html5'] instanceof HTML5)
         {
             $content = str_replace(
-                ['<head>'],
-                ["\r\n<head>", "<!DOCTYPE html>\r\n", ""],
+                ['<head>', '<title>'],
+                ["\r\n<head>", "\t<title>"],
                 $ownerDocument['html5']->saveHTML($ownerDocument['dom'])
             );
         }
         else
         {
             $content = str_replace(
-                ['<head>', '<!DOCTYPE html>', '</body>', '</meta>', '</link>', '</img>'],
-                ["\r\n<head>", "<!DOCTYPE html>\r\n", "</body>\r\n", ""],
+                ['<head>', '<title>', '<!DOCTYPE html>', '</body>', '</meta>', '</link>', '</img>'],
+                ["\r\n<head>", "\r\n\t<title>", "<!DOCTYPE html>\r\n", "</body>\r\n", ""],
                 $ownerDocument['dom']->saveHTML()
             );
         }
