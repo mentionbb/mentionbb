@@ -47,7 +47,7 @@ class Html
             }
 
             $node->appendChild(
-                $this->domman->appendXML($data)
+                $this->domman->insertHtml($data)
             );
         }
     }
@@ -69,7 +69,7 @@ class Html
         foreach ($this->nodes as $node)
         {
             $node->parentNode->replaceChild(
-                $this->domman->appendXML($data),
+                $this->domman->insertHtml($data),
                 $node
             );
         }
@@ -80,7 +80,7 @@ class Html
         foreach ($this->nodes as $node)
         {
             $node->parentNode->insertBefore(
-                $this->domman->appendXML($data),
+                $this->domman->insertHtml($data),
                 $node
             );
         }
@@ -91,7 +91,7 @@ class Html
         foreach ($this->nodes as $node)
         {
             $node->parentNode->insertBefore(
-                $this->domman->appendXML($data),
+                $this->domman->insertHtml($data),
                 $node->nextSibling
             );
         }
@@ -102,7 +102,7 @@ class Html
         foreach ($this->nodes as $node)
         {
             $node->appendChild(
-                $this->domman->appendXML($data)
+                $this->domman->insertHtml($data)
             );
         }
     }
@@ -112,7 +112,7 @@ class Html
         foreach ($this->nodes as $node)
         {
             $node->insertBefore(
-                $this->domman->appendXML($data),
+                $this->domman->insertHtml($data),
                 $node->firstChild
             );
         }

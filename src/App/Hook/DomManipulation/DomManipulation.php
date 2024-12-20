@@ -2,8 +2,6 @@
 
 namespace App\Hook\DomManipulation;
 
-use App\Hook\Filter\FilterTag;
-
 use App\Hook\DomManipulation\Nodes\Html as HtmlNode;
 use App\Hook\DomManipulation\Nodes\Attribute as AttributeNode;
 use App\Hook\DomManipulation\Nodes\HtmlClass as HtmlClassNode;
@@ -31,6 +29,8 @@ class DomManipulation
 
     /** @var StyleNode $style */
     public $style;
+
+    protected $insertTemplate = "<!--{Mention:insert-domId:%s[%s]}-->";
 
     /**
      * __construct
@@ -103,16 +103,25 @@ class DomManipulation
     }
 
     /**
+     * insertHtml
+     * 
+     * An alternative version of appendXML() method.
+     * The biggest problem with the original method is that it causes problems with HTML5 elements.
+     * In this method, simply add the placed element as a "comment" and then convert it to html.
+     *
+     * @param string $data
+     * @return \Dom\DocumentFragment|\DOMDocumentFragment
+     * 
      * These classes do not defined to Intelephense yet: \Dom\DocumentFragment
      * 
      * @disregard P1009 Undefined type
      */
-    public function appendXML(string $data): \Dom\DocumentFragment|\DOMDocumentFragment
+    public function insertHtml(string $data): \Dom\DocumentFragment|\DOMDocumentFragment
     {
         $fragment = $this->dom->createDocumentFragment();
 
         $fragment->appendXML(
-            FilterTag::filterSingleTags($data)
+            sprintf($this->insertTemplate, \App\Uuid::v4(), $data)
         );
 
         return $fragment;
