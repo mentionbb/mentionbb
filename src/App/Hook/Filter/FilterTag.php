@@ -2,6 +2,8 @@
 
 namespace App\Hook\Filter;
 
+use App\Hook\DomManipulation\DomManipulation;
+
 class FilterTag
 {
     /**
@@ -12,9 +14,9 @@ class FilterTag
      * @param  mixed $content
      * @return string
      */
-    public static function filterSingleTags($content, \App\Hook\Html $dom): string
+    public static function filterSingleTags($content): string
     {
-        $content = self::filterNonBooleanAttr($content, $dom);
+        $content = self::filterNonBooleanAttr($content);
 
         $content = preg_replace('/<(br|hr)>/si', '<$1 />', $content);
         $content = preg_replace('/<img(.*?)>/si', '<img$1 />', $content);
@@ -27,18 +29,20 @@ class FilterTag
      *
      * Attributes without values/booleans ​​like [disabled], [selected], [required] cause problems in rendering. This method fixes this permanently.
      * 
-     * @param  mixed $html
-     * @param  mixed $dom
+     * @param mixed $html
+     * @param \App\Hook\Html $dom
      * @return string
      */
-    protected static function filterNonBooleanAttr($html, \App\Hook\Html $dom): string
+    protected static function filterNonBooleanAttr($html): string
     {
-        $html = $dom->loadHTML($html);
-        $doc = $html['dom'];
+        $ownerDocument = \App\Hook\Html::loadHTML($html);
 
-        $nodes = $html['xpath']->query(
-            $dom->queryBuilder('[disabled], [selected], [required]')
-        );
+        $domman = new DomManipulation($ownerDocument);
+        $domman->selector('[disabled], [selected], [required]');
+
+        $nodes = $domman->getNodes();
+
+        /** @var \DOMElement|\Dom\Element $node */
         foreach ($nodes as $node)
         {
             if ($node->hasAttribute('disabled'))
@@ -58,19 +62,19 @@ class FilterTag
             }
         }
 
-        if ($doc !== $html['html5']['doc'])
+        if (!is_null($ownerDocument['html5']) && $ownerDocument['html5'] instanceof \Masterminds\HTML5)
         {
-            $html = $doc->saveHTML($html['dom']);
+            $content = $ownerDocument['html5']->saveHTML($ownerDocument['dom']);
         }
         else
         {
-            $html = $doc->saveHTML();
-
-            $html = preg_replace('/<meta(.*?)>/si', '<meta$1></meta>', $html);
-            $html = preg_replace('/<link(.*?)>/si', '<link$1></link>', $html);
+            $content = $ownerDocument['dom']->saveHTML();
         }
 
-        $html = str_replace(
+        $content = preg_replace('/<meta(.*?)>/si', '<meta$1></meta>', $content);
+        $content = preg_replace('/<link(.*?)>/si', '<link$1></link>', $content);
+
+        $content = str_replace(
             [
                 'non-boolean-attr-541',
                 'non-boolean-attr-233',
@@ -81,10 +85,10 @@ class FilterTag
                 'selected',
                 'required'
             ],
-            $html
+            $content
         );
 
-        $html = str_replace(
+        $content = str_replace(
             [
                 '<!DOCTYPE html>',
                 '<html xmlns="http://www.w3.org/1999/xhtml">',
@@ -96,9 +100,9 @@ class FilterTag
                 '</body>'
             ],
             [""],
-            $html
+            $content
         );
 
-        return $html;
+        return $content;
     }
 }

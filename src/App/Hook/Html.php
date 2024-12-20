@@ -4,46 +4,39 @@ namespace App\Hook;
 
 use App\Params\Deploy\Config as InitialConfig;
 
+use App\Hook\DomManipulation\DomManipulation;
 use App\Hook\Helper\Discussion as DiscussionHook;
 use App\Hook\Helper\Faq as FaqHook;
 use App\Hook\Helper\Feature;
-use App\Hook\Filter\FilterTag;
-use App\Util\Arr;
-use Masterminds\HTML5;
 
-use Symfony\Component\DomCrawler\Crawler;
-use Symfony\Component\CssSelector\CssSelectorConverter;
+use Masterminds\HTML5;
 
 class Html
 {
     public $name;
-    public $dom;
 
-    protected $html5;
-    protected $html;
     protected $feature;
+    protected $domman;
 
-    protected $xpath;
+    protected $html;
 
     public function __construct($name, $html, $container = null)
     {
         $this->name = $name;
         $this->feature = new Feature($this);
 
-        $extractData = $this->loadHTML($html);
+        $ownerDocument = $this->loadHTML($html);
 
-        $this->html5 = $extractData['html5']['doc'];
-        $this->dom = $extractData['dom'];
-        $this->xpath = $extractData['xpath'];
+        $this->domman = new DomManipulation($ownerDocument);
 
-        $this->setAttribute("{hook:htmlbody}", ['dom-renderer', $extractData['html5']['renderer']]);
+        $this->setAttribute("{hook:htmlbody}", ['dom-renderer', $ownerDocument['renderer']]);
 
         if (!is_null($container))
         {
             $this->addDispatch($container);
         }
 
-        $this->html = $this->htmltoTemplate();
+        $this->html = $this->htmltoTemplate($ownerDocument);
     }
 
     /**
@@ -57,303 +50,127 @@ class Html
      * For versions below 8.4, we will continue to use the Masterminds/html5-php.
      * And, added a setting that allows switching to the legacy in case of any problems.
      * @param  mixed $html
-     * @return array
+     * @return array{html5: \Masterminds\HTML5, dom: \Dom\Document|\DOMDocument, xpath: \Dom\XPath|\DOMXPath, renderer: string} $ownerDocument
      */
-    public function loadHTML($html): array
+    public static function loadHTML($html): array
     {
         if (\PHP_VERSION >= '8.4' && !InitialConfig::deployConfigParams()['is_enable_legacy_dom_filter'])
         {
             /**
-             * These classes do not defined to Intelephense yet: \Dom\HTMLDocument
+             * These classes do not defined to Intelephense yet: \Dom\HTMLDocument|\DOM\XPath
              * 
              * @disregard P1009 Undefined type
              */
-            $html5 = [
-                'renderer' => 'php84-html5',
-                'doc' => \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8')
-            ];
-            $dom = $html5['doc'];
+            $dom = \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8');
 
             /**
              * These classes do not defined to Intelephense yet: \DOM\XPath
              * 
              * @disregard P1009 Undefined type
              */
-            $xpath = new \DOM\XPath($dom);
+            $ownerDocument = [
+                'html5' => null,
+                'dom' => $dom,
+                'xpath' => new \DOM\XPath($dom),
+                'renderer' => 'php84-html5'
+            ];
         }
         else
         {
-            $html5 = [
-                'renderer' => 'legacy',
-                'doc' => new HTML5()
-            ];
-            $dom = $html5['doc']->loadHTML($html);
+            $html5 = new HTML5(
+                ['disable_html_ns' => true]
+            );
+            $dom = $html5->loadHTML($html);
 
-            $xpath = new \DOMXPath($dom);
+            $ownerDocument = [
+                'html5' => $html5,
+                'dom' => $dom,
+                'xpath' => new \DOMXPath($dom),
+                'renderer' => 'legacy'
+            ];
         }
 
-        return [
-            'html5' => $html5,
-            'dom' => $dom,
-            'xpath' => $xpath
-        ];
+        return $ownerDocument;
     }
 
     public function setInnerHtml($class, object $replace)
     {
-        $nodes = $this->getXPath($class);
-        foreach ($nodes as $node)
-        {
-            while ($node->childNodes->length)
-            {
-                $node->removeChild($node->firstChild);
-            }
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->appendChild($fragment);
-        }
+        $this->domman->selector($class)->html->setInner($replace());
     }
 
     public function insertBefore($class, object $replace)
     {
-        $nodes = $this->getXPath($class);
-        foreach ($nodes as $node)
-        {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->parentNode->insertBefore($fragment, $node);
-        }
+        $this->domman->selector($class)->html->before($replace());
     }
 
     public function insertAfter($class, object $replace)
     {
-        $nodes = $this->getXPath($class);
-        foreach ($nodes as $node)
-        {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->parentNode->insertBefore($fragment, $node->nextSibling);
-        }
+        $this->domman->selector($class)->html->after($replace());
     }
 
     public function append($class, object $replace)
     {
-        $nodes = $this->getXPath($class);
-        foreach ($nodes as $node)
-        {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->appendChild($fragment);
-        }
+        $this->domman->selector($class)->html->append($replace());
     }
 
     public function prepend($class, object $replace)
     {
-        $nodes = $this->getXPath($class);
-        foreach ($nodes as $node)
-        {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->insertBefore($fragment, $node->firstChild);
-        }
+        $this->domman->selector($class)->html->prepend($replace());
     }
 
     public function remove($class)
     {
-        $nodes = $this->getXPath($class);
-        foreach ($nodes as $node)
-        {
-            $node->parentNode->removeChild($node);
-        }
+        $this->domman->selector($class)->html->remove();
     }
 
     public function setAttribute($class, $attribute = [])
     {
-        $nodes = $this->getXPath($class);
-
-        /** @var \DOMElement|\Dom\Element $node */
-        foreach ($nodes as $node)
-        {
-            $node->setAttribute($attribute[0], $attribute[1]);
-        }
+        $this->domman->selector($class)->attribute->set($attribute);
     }
 
     public function getAttribute($class, $attributeName = [])
     {
-        $nodes = $this->getXPath($class);
-        $attr = [];
-
-        /** @var \DOMElement|\Dom\Element $node */
-        foreach ($nodes as $node)
-        {
-            foreach ($attributeName as $attrName)
-            {
-                $attrStr = str_replace(['data-', '-'], ['', '_'], $attrName);
-                $attr[$attrStr] = $node->getAttribute($attrName);
-            }
-        }
-
-        return $attr;
+        return $this->domman->selector($class)->attribute->get($attributeName);
     }
 
     public function removeAttribute($class, $attribute)
     {
-        $nodes = $this->getXPath($class);
-
-        /** @var \DOMElement|\Dom\Element $node */
-        foreach ($nodes as $node)
-        {
-            if ($node->hasAttribute($attribute))
-            {
-                $node->removeAttribute($attribute);
-            }
-        }
+        $this->domman->selector($class)->attribute->remove($attribute);
     }
 
     public function hasAttribute($class, $attributeName)
     {
-        $nodes = $this->getXPath($class);
-
-        /** @var \DOMElement|\Dom\Element $node */
-        foreach ($nodes as $node)
-        {
-            if ($node->hasAttribute($attributeName))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        return $this->domman->selector($class)->attribute->has($attributeName);
     }
 
     public function replaceWith($class, object $replace)
     {
-        $nodes = $this->getXPath($class);
-        foreach ($nodes as $node)
-        {
-            $fragment = $this->dom->createDocumentFragment();
-            $fragment->appendXML(FilterTag::filterSingleTags($replace(), $this));
-            $node->parentNode->replaceChild($fragment, $node);
-        }
+        $this->domman->selector($class)->html->replaceWith($replace());
     }
 
     public function addClass($class, $newClass)
     {
-        $nodes = $this->getXPath($class);
-
-        /** @var \DOMElement|\Dom\Element $node */
-        foreach ($nodes as $node)
-        {
-            foreach ($node->attributes as $attribute)
-            {
-                $attrs[$node->nodeName] = $attribute->nodeValue;
-            }
-
-            if (!isset($attrs))
-            {
-                $node->setAttribute('class', $newClass);
-            }
-            else
-            {
-                foreach ($attrs as $attr)
-                {
-                    $node->setAttribute('class', "{$attr} {$newClass}");
-                }
-            }
-        }
+        $this->domman->selector($class)->class->add($newClass);
     }
 
     public function removeClass($class, $removeClass)
     {
-        if (preg_match('/\./', $removeClass, $matchCorrectClass))
-        {
-            throw new \Exception('There should be no dots in the deleted class.');
-        }
-
-        $nodes = $this->getXPath($class);
-
-        /** @var \DOMElement|\Dom\Element $node */
-        foreach ($nodes as $node)
-        {
-            foreach ($node->attributes as $attribute)
-            {
-                $attrs[$node->nodeName] = $attribute->nodeValue;
-            }
-
-            foreach ($attrs as $attr)
-            {
-                $pos = strpos($attr, $removeClass);
-                if ($pos !== false)
-                {
-                    $attr = substr_replace($attr, "", $pos, \mb_strlen($removeClass));
-                }
-                $attr = trim($attr);
-
-                $node->setAttribute('class', $attr);
-
-                if (!$node->getAttribute('class'))
-                {
-                    $node->removeAttribute('class');
-                }
-            }
-        }
+        $this->domman->selector($class)->class->add($removeClass);
     }
 
     public function setStyle($class, $value)
     {
-        $nodes = $this->getXPath($class);
-
-        /** @var \DOMElement|\Dom\Element $node */
-        foreach ($nodes as $node)
-        {
-            $node->setAttribute('style', $value);
-        }
+        $this->domman->selector($class)->style->set($value);
     }
 
-    public function hasClass($name)
+    public function hasClass($class, $name)
     {
-        if (!preg_match('/\./', $name, $matchCorrectClass))
-        {
-            $name = ".{$name}";
-        }
-
-        $nodes = $this->getXPath($name);
-        foreach ($nodes as $node)
-        {
-            foreach ($node->attributes as $attribute)
-            {
-                $attrs[$node->nodeName] = $attribute->nodeValue;
-            }
-
-            $name = ltrim($name, '.');
-            $name = ltrim($name);
-            if (in_array($name, $attrs))
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return $this->domman->selector($class)->class->has($name);
     }
 
     public function getInnerHtml($class)
     {
-        $html = '';
-
-        $nodes = $this->getXPath($class);
-        foreach ($nodes as $node)
-        {
-            $html .= $this->html5->saveHtml($node);
-        }
-
-        return $this->get($html);
-    }
-
-    public function get($html)
-    {
-        return new Crawler($html);
+        return $this->domman->selector($class)->html->get();
     }
 
     public function isTemplate($name)
@@ -418,53 +235,25 @@ class Html
         });
     }
 
-    public function saveHtml()
-    {
-        return $this->dom->saveHTML($this->dom->documentElement);
-    }
-
-    /**
-     * These classes do not defined to Intelephense yet: \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr
-     * 
-     * @disregard P1009 Undefined type
-     */
-    public function getXPath($class): \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr|\DOMNode|\DOMNodeList|\DOMElement|\DOMAttr
-    {
-        $class = preg_replace_callback('/\{hook:([a-zA-Z0-9-_]+)\}/', function ($matches)
-        {
-            return $this->getHook($matches[1]);
-        }, $class);
-
-        $nodes = $this->xpath->query($this->queryBuilder($class));
-
-        return $nodes;
-    }
-
-    public function queryBuilder($query)
-    {
-        if (preg_match('/\/\/|\/|\@/', $query, $matchXPath))
-        {
-            return $query;
-        }
-        else
-        {
-            return (new CssSelectorConverter())->toXPath($query);
-        }
-    }
-
     public function __toString()
     {
         return $this->html;
     }
 
-    public function htmltoTemplate()
+    /**
+     * htmltoTemplate
+     *
+     * @param array{html5: \Masterminds\HTML5, dom: \Dom\Document|\DOMDocument, xpath: \Dom\XPath|\DOMXPath, renderer: string} $ownerDocument
+     * @return string
+     */
+    public function htmltoTemplate(array $ownerDocument)
     {
-        if ($this->dom !== $this->html5)
+        if (!is_null($ownerDocument['html5']) && $ownerDocument['html5'] instanceof HTML5)
         {
             $content = str_replace(
                 ['<head>'],
                 ["\r\n<head>", "<!DOCTYPE html>\r\n", ""],
-                $this->html5->saveHTML($this->dom)
+                $ownerDocument['html5']->saveHTML($ownerDocument['dom'])
             );
         }
         else
@@ -472,16 +261,11 @@ class Html
             $content = str_replace(
                 ['<head>', '<!DOCTYPE html>', '</body>', '</meta>', '</link>', '</img>'],
                 ["\r\n<head>", "<!DOCTYPE html>\r\n", "</body>\r\n", ""],
-                $this->html5->saveHTML()
+                $ownerDocument['dom']->saveHTML()
             );
         }
 
         return $content;
-    }
-
-    protected function getHook($domEventName)
-    {
-        return "[hook-action=\"{Mention:App-domEvent-{$domEventName}}\"]";
     }
 
     private function addDispatch($container)
