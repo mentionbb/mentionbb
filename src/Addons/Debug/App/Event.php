@@ -54,7 +54,7 @@ class Event extends DispatcherEvent
                                         'self' => $event->container->routing->getSelf(),
                                         'matchingPath' => $event->container->routing->getMatchingPath()
                                     ],
-                                    'domRenderer' => $event->container->dom->getAttribute('{hook:htmlbody}', ['dom-renderer'])['dom_renderer']
+                                    'domRenderer' => $event->container->dom->getAttribute('{hook:htmlbody}', ['dom-renderer'])
                                 ]
                             ]
                         );

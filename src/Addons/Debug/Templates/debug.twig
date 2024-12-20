@@ -13,8 +13,8 @@
                 <small>{{ debug.serverInfo }}</small>
             </div>
         {% endif %}
-        {% if debug.domRenderer is same as ('php84-html5') %}
-            <div>Page from <code>{{ debug.domRenderer }}</code> was loaded in <strong>{{ debug.calculatePageLoadTime }}</strong> seconds.</div>
+        {% if debug.domRenderer.dom_renderer is same as ('php84-html5') %}
+            <div>Page from <code>{{ debug.domRenderer.dom_renderer }}</code> was loaded in <strong>{{ debug.calculatePageLoadTime }}</strong> seconds.</div>
         {% else %}
             <div>Page loaded in <strong>{{ debug.calculatePageLoadTime }}</strong> seconds.</div>
         {% endif %}

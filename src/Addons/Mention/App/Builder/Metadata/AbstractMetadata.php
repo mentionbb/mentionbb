@@ -40,7 +40,13 @@ abstract class AbstractMetadata
             'GET_URI' => $this->app->request->getUri(),
             'title' => $this->app->settings->site_title,
             'imageDir' => \App\SubContainer\AppSub::getPublicDir() . '/images',
-            'themeBaseColor' => $this->app->dom->getAttribute('.app-container', ['data-color'])['color'],
+            'themeBaseColor' => (function ()
+            {
+                if ($this->app->dom->hasAttribute('.app-container', 'data-color'))
+                {
+                    return $this->app->dom->getAttribute('.app-container', ['data-color'])['color'];
+                }
+            })(),
             'subDir' => (function ()
             {
                 if (\App\SubContainer\AppSub::getSubDir())
