@@ -21,6 +21,8 @@ class FilterTag
         $content = preg_replace('/<(br|hr)>/si', '<$1 />', $content);
         $content = preg_replace('/<img(.*?)>/si', '<img$1 />', $content);
 
+        $content = str_replace(['&nbsp;'], [''], $content);
+
         return $content;
     }
 
