@@ -1,5 +1,5 @@
 {
-    "created_on": "Thu, 19 Dec 2024 02:50:56 GMT",
+    "created_on": "Sun, 22 Dec 2024 05:00:52 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.21",
@@ -13,7 +13,7 @@
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "a4c83763b3b0abd91dc2b06cbe56e1c4f88d9f74d8207aa47fc4c03c4705b703": {
+            "23b686962d572021bed06fe5e13d5be5f5f21dcd6e64c18b5622b2570ace7dc2": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -277,7 +277,7 @@
             }
         },
         "src\/App\/Hook": {
-            "e1b61178da9a2ace09856f82622279cb61bb96dfc34e01aa6a04a587b7e8bcaa": {
+            "03d49624c25b15e660ed99c7cddddec5ccd4d4d6bb4595ff8ae3213c9371f506": {
                 "filename": "Html.php",
                 "path": ".\/src\/App\/Hook\/Html.php"
             }
@@ -611,7 +611,7 @@
             }
         },
         "src\/Templates\/Default": {
-            "b80f08532579e52d922b5dfb53e32783b9e95048983f6e2f05bdf3a4075f1f44": {
+            "5f5c6238ddf1b5bf16ff0c82ba462c13740f4d6e5c280ec896afc07c8094de42": {
                 "filename": "container.twig",
                 "path": ".\/src\/Templates\/Default\/container.twig"
             }
@@ -732,6 +732,12 @@
             "397838d330523e7fde61df4095e93557d5894860bf60c6079ba8c0b0c81964da": {
                 "filename": "Event.php",
                 "path": ".\/src\/App\/Hook\/Dispatcher\/Event.php"
+            }
+        },
+        "src\/App\/Hook\/DomManipulation": {
+            "a4baa2702f3847d3d8915e75857d535964ef71010cbc6bf65bc74995cb17b19b": {
+                "filename": "DomManipulation.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/DomManipulation.php"
             }
         },
         "src\/App\/Hook\/Helper": {
@@ -1283,7 +1289,7 @@
             }
         },
         "src\/Templates\/Default\/Discussion": {
-            "98762d67379aac9b7cfb34bbfb1ea9bade438b913af0a62c19d4fda543064944": {
+            "0d0e2e2268a5b663d8ae4559b0eb401163c36be4659081e3f5b6b1398dce8f82": {
                 "filename": "discussion.twig",
                 "path": ".\/src\/Templates\/Default\/Discussion\/discussion.twig"
             },
@@ -1371,7 +1377,7 @@
                 "filename": "macro.notifications.twig",
                 "path": ".\/src\/Templates\/Default\/Macros\/macro.notifications.twig"
             },
-            "51a623380f61172728cde434fc4f3878cd6be65b7530e77fff4b58c0dff9eaf2": {
+            "8480271e0884e179d8d23bf982ebaedaced557efabc0b68c9fa87feb67a3144f": {
                 "filename": "macro.posts.twig",
                 "path": ".\/src\/Templates\/Default\/Macros\/macro.posts.twig"
             },
@@ -1548,6 +1554,28 @@
                 "path": ".\/src\/App\/Cli\/Command\/Install\/Db.php"
             }
         },
+        "src\/App\/Hook\/DomManipulation\/Nodes": {
+            "c9f7c9a1ae9ec687b33dbb47b277d1752e8a89dedc12f9843e87f9d2037e853d": {
+                "filename": "AbstractNode.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/AbstractNode.php"
+            },
+            "701710496c0df8535e1f61de19020c790d9860da80d026f30ec1054f21403a52": {
+                "filename": "Attribute.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/Attribute.php"
+            },
+            "0ad453111418fb512d818a057b5e624f72bc98bf08ed8ee10c653d2a2f76bf2c": {
+                "filename": "Html.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/Html.php"
+            },
+            "defb9c3bebcf48ed2c35211cad3515393a79613d9873e023b9739bd40de91cb1": {
+                "filename": "HtmlClass.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/HtmlClass.php"
+            },
+            "50d32a49156c997eb0de0ffb0d5bb70f116478827a1e10e4e43b6119b05464e4": {
+                "filename": "Style.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/Style.php"
+            }
+        },
         "src\/App\/Renderer\/BBCode\/Editor": {
             "f359d25651bd3d92cfe81ca9e74e44782d15867e31b845bd79e05884c720449f": {
                 "filename": "Editor.php",
@@ -1709,7 +1737,7 @@
             }
         },
         "src\/Addons\/Mention\/App\/Builder\/Metadata": {
-            "2c756d8aca87f29e9a04f0be75dbb059d7f566bd964e5c5fb74fe67fe0080cdf": {
+            "31cfae0dff7f25ff9220b8713b1dcb08154dad352001a3a8aadf97a65d6692bb": {
                 "filename": "AbstractMetadata.php",
                 "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/AbstractMetadata.php"
             },
