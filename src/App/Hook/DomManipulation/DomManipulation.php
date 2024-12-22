@@ -108,6 +108,9 @@ class DomManipulation
      * An alternative version of appendXML() method.
      * The biggest problem with the original method is that it causes problems with HTML5 elements.
      * In this method, simply add the placed element as a "comment" and then convert it to html.
+     * 
+     * It is important to remember that appendXML() was developed for XML. DOM is one of the very low-level system for PHP and work on HTML5 only started with version 8.4.
+     * If something else replaces this method, I will integrate it. However, the solution I presented is quite logical, super fast and reliable.
      *
      * @param string $data
      * @return \Dom\DocumentFragment|\DOMDocumentFragment
