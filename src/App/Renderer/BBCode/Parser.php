@@ -129,6 +129,7 @@ class Parser
         return preg_replace_callback("/{$options['bbCode']}/si", function ($matches)
         {
             $link = \App\Phrase::buildSeoLink($matches[2]);
+            $link = preg_replace('/(-{2,})/si', '-', $link);
 
             return "<h{$matches[1]} id=\"{$link}\">{$matches[2]}<a href=\"#{$link}\"></a></h{$matches[1]}>";
         }, $string);

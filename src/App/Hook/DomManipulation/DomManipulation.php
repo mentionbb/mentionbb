@@ -121,10 +121,15 @@ class DomManipulation
      */
     public function insertHtml(string $data): \Dom\DocumentFragment|\DOMDocumentFragment
     {
+        $data = $this->filterHtml($data);
+        
         $fragment = $this->dom->createDocumentFragment();
-
         $fragment->appendXML(
-            sprintf($this->insertTemplate, \App\Uuid::v4(), $data)
+            sprintf(
+                $this->insertTemplate,
+                \App\Uuid::v4(),
+                $data
+            )
         );
 
         return $fragment;
@@ -138,5 +143,12 @@ class DomManipulation
     protected function getHook($domEventName)
     {
         return "[hook-action=\"{Mention:App-domEvent-{$domEventName}}\"]";
+    }
+
+    protected function filterHtml($data)
+    {
+        $data = preg_replace('/(-{2,})/si', '-', $data);
+
+        return $data;
     }
 }
