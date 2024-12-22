@@ -101,6 +101,32 @@ if (window.jQuery === undefined) jQuery = $ = {};
                     });
 
                     break;
+                case ('1d'):
+                    consoleLogger('Waiting for user for initial site settings..');
+
+                    $('.app-install .progress:not(.install-progress)').removeClass('d-none');
+
+                    app.post("install?next", { 'step': 'step1d' }).done(function (response) {
+                        if (response.status === "ok") {
+                            if (response.error.status === 'fail') {
+                                consoleLogger('{fail}');
+                                installError('step1f', '99%', '.66;.99', response.error.template);
+                            } else {
+                                consoleLogger('{ok}');
+                                nextStep('step1f', '99%', '.66;.99', false);
+                            }
+
+                            $('.app-install .progress:not(.install-progress)').addClass('d-none');
+
+                            $('.js-AppInstall-Steps').html(response.template);
+
+                            setPercent(20);
+                        }
+                    }).fail(function (xhr, status, err) {
+                        console.log(status, err);
+                    });
+
+                    break;
             }
         });
     });
