@@ -2,7 +2,7 @@
 
 namespace App\Hook\DomManipulation\Nodes;
 
-use App\Hook\DomManipulation\DomManipulation;
+use App\Hook\DomManipulation\Nodes\AbstractNode;
 
 use Dom\HTMLDocument;
 use Dom\Node;
@@ -16,27 +16,8 @@ use DOMNodeList;
 use DOMElement;
 use DOMAttr;
 
-class Style
+class Style extends AbstractNode
 {
-    /** @var DomManipulation $domman */
-    private $domman;
-
-    /** @var Node|NodeList|Element|Attr|DOMNode|DOMNodeList|DOMElement|DOMAttr $nodes */
-    private $nodes;
-
-    /**
-     * These classes do not defined to Intelephense yet: \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr
-     * 
-     * @disregard P1009 Undefined type
-     */
-    public function addDocument(DomManipulation $domman)
-    {
-        $this->domman = $domman;
-        $this->nodes = $domman->getNodes();
-
-        return $this;
-    }
-
     public function set($data)
     {
         /** @var \DOMElement|\Dom\Element $node */
