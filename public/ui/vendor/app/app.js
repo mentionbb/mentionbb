@@ -83,7 +83,9 @@ var app = {};
             quickbars_selection_toolbar: 'bold italic underline | formatselect | bullist numlist | quicklink | quoteMessage',
 
             invalid_elements: "div",
+
             paste_webkit_styles: "font-size color",
+            paste_data_images: true,
 
             menubar: false,
             statusbar: true,
@@ -225,6 +227,32 @@ var app = {};
                         }
                     }
                 });
+
+                editor.on('paste', function (e) {
+                    var imageBlob = app.retrieveImageFromClipboardAsBlob(e);
+                    if (!imageBlob) {
+                        return;
+                    }
+
+                    e.preventDefault();
+
+                    var dataString = new FormData();
+                    dataString.append('file', imageBlob);
+
+                    app.post("attachments/editor-image-upload", dataString, false, false).done(function (response) {
+                        if (response.status === "ok") {
+                            if (editor) {
+                                const img = new Image();
+                                img.src = URL.createObjectURL(imageBlob);
+                                img.onload = () => {
+                                    editor.insertContent('<img src="' + response.location + '" alt="asd" width="' + img.width + '" height="' + img.height + '" />');
+                                };
+                            } else {
+                                console.log('Tinymce editor not found!');
+                            }
+                        }
+                    });
+                });
             },
 
             init_instance_callback: function (editor) {
@@ -234,9 +262,39 @@ var app = {};
                 editor.on('focusout', function (e) {
                     $('.tox-tinymce').removeClass('--focus');
                 });
-            }
+            },
         });
     };
+
+    context.retrieveImageFromClipboardAsBlob = function (pasteEvent) {
+        if (pasteEvent.clipboardData === false) {
+            return false;
+        }
+
+        var items = pasteEvent.clipboardData.items;
+
+        if (items === undefined) {
+            return false;
+        }
+
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf("image") === -1) {
+                return false;
+            }
+
+            var blob = items[i].getAsFile();
+
+            if (blob !== null) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                };
+                reader.readAsDataURL(blob);
+
+                return blob;
+            }
+        }
+        return false;
+    }
 
     context.setupEditorLanguage = function () {
         try {
