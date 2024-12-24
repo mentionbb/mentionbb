@@ -101,6 +101,8 @@ var app = {};
             file_picker_types: 'image',
             file_picker_callback: app.editorFilePickerCallback(),
 
+            image_file_types: app.config.settings.editor.image_filepicker_types,
+
             relative_urls: false,
             remove_script_host: false,
             convert_urls: true,
@@ -245,7 +247,7 @@ var app = {};
                         app.post("attachments/editor-image-upload", dataString, false, false).done(function (response) {
                             if (response.status === "ok") {
                                 if (editor) {
-                                    editor.insertContent('<img src="' + response.location + '" alt="asd" width="' + img.width + '" height="' + img.height + '" />');
+                                    editor.insertContent('<img src="' + response.location + '" alt="' + imageBlob.name + '" width="' + img.width + '" height="' + img.height + '" />');
                                 } else {
                                     console.log('Tinymce editor not found!');
                                 }
