@@ -94,10 +94,6 @@ class Attachment
 				$name = $file['name'];
 			}
 
-			move_uploaded_file($file["tmp_name"], PUBLIC_DIR . "/{$dir}/{$name}");
-
-			$dir = \App\SubContainer\AppSub::getPublicDir() . "/{$dir}/{$name}";
-
 			/**
 			 * If PHP_GD library enabled all images converts to WEBP format.
 			 */
@@ -106,12 +102,18 @@ class Attachment
 				$outputName = \pathinfo($name, PATHINFO_FILENAME) . ".webp";
 				$outputDir = \App\SubContainer\AppSub::getPublicDir() . "/editor/{$outputName}";
 
-				if (\App\Util\Webp::convertToWebp(PUBLIC_DIR . "/editor/{$name}", PUBLIC_DIR . "/editor/{$outputName}"))
+				if (\App\Util\Webp::convertToWebp($file["tmp_name"], PUBLIC_DIR . "/editor/{$outputName}"))
 				{
 					$name = $outputName;
 					$dir = $outputDir;
 				}
 			}
+            else
+            {
+                move_uploaded_file($file["tmp_name"], PUBLIC_DIR . "/{$dir}/{$name}");
+                
+                $dir = \App\SubContainer\AppSub::getPublicDir() . "/{$dir}/{$name}";
+            }
 
 			return [
 				'name' => $name,
