@@ -230,10 +230,21 @@ var app = {};
                     }
                 });
 
-                editor.on('paste', function (e) {
-                    var imageBlob = app.retrieveImageFromClipboardAsBlob(e);
+                editor.on('paste drop', function (e) {
+                    if(e.clipboardData) {
+                        var imageBlob = app.retrieveImageFromClipboardAsBlob(e);
+                    }
+                    else {
+                        var imageBlob = e.dataTransfer.files[0];
+                    }
+
                     if (!imageBlob) {
                         return;
+                    }
+
+                    var supportImageTypes = app.config.settings.editor.image_filepicker_types.replace(/\s?\./g, '').split(',');
+                    if (!$.inArray(imageBlob.name.split('.').pop().toLowerCase(), supportImageTypes)) {
+                        return false;
                     }
 
                     e.preventDefault();
@@ -273,11 +284,11 @@ var app = {};
             return false;
         }
 
-        var items = pasteEvent.clipboardData.items;
-
-        if (items === undefined) {
+        if (pasteEvent.clipboardData.items === undefined) {
             return false;
         }
+
+        var items = pasteEvent.clipboardData.items;
 
         for (var i = 0; i < items.length; i++) {
             if (items[i].type.indexOf("image") === -1) {
