@@ -31,9 +31,6 @@ class Webp
         }
 
         \imagewebp($image, $target, $quality);
-        \imagedestroy($image);
-
-        (new \App\Util\File())->remove($path);
 
         return true;
     }
