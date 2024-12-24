@@ -57,11 +57,6 @@ class DomManipulation
         return $this;
     }
 
-    /**
-     * These classes do not defined to Intelephense yet: \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr
-     * 
-     * @disregard P1009 Undefined type
-     */
     public function getXPath($class): \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr|\DOMNode|\DOMNodeList|\DOMElement|\DOMAttr
     {
         $class = preg_replace_callback('/\{hook:([a-zA-Z0-9-_]+)\}/', function ($matches)
@@ -91,10 +86,6 @@ class DomManipulation
     /**
      * getNodes
      * 
-     * These classes do not defined to Intelephense yet: \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr|\DOMNode|\DOMNodeList|\DOMElement|\DOMAttr
-     * 
-     * @disregard P1009 Undefined type
-     * 
      * @return \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr|\DOMNode|\DOMNodeList|\DOMElement|\DOMAttr
      */
     public function getNodes(): \DOM\Node|\DOM\NodeList|\DOM\Element|\DOM\Attr|\DOMNode|\DOMNodeList|\DOMElement|\DOMAttr
@@ -114,10 +105,6 @@ class DomManipulation
      *
      * @param string $data
      * @return \Dom\DocumentFragment|\DOMDocumentFragment
-     * 
-     * These classes do not defined to Intelephense yet: \Dom\DocumentFragment
-     * 
-     * @disregard P1009 Undefined type
      */
     public function insertHtml(string $data): \Dom\DocumentFragment|\DOMDocumentFragment
     {

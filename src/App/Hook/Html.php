@@ -56,18 +56,8 @@ class Html
     {
         if (\PHP_VERSION >= '8.4' && !InitialConfig::deployConfigParams()['is_enable_legacy_dom_filter'])
         {
-            /**
-             * These classes do not defined to Intelephense yet: \Dom\HTMLDocument|\DOM\XPath
-             * 
-             * @disregard P1009 Undefined type
-             */
             $dom = \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8');
 
-            /**
-             * These classes do not defined to Intelephense yet: \DOM\XPath
-             * 
-             * @disregard P1009 Undefined type
-             */
             $ownerDocument = [
                 'html5' => null,
                 'dom' => $dom,
