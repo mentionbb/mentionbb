@@ -80,7 +80,7 @@ var app = {};
             inline_boundaries: false,
 
             quickbars_insert_toolbar: false,
-            quickbars_selection_toolbar: 'bold italic underline | formatselect | bullist numlist | quicklink | quoteMessage',
+            quickbars_selection_toolbar: 'bold italic underline | backcolor forecolor | formatselect | bullist numlist | quicklink | quoteMessage',
 
             invalid_elements: "div",
 
