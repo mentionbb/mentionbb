@@ -239,19 +239,19 @@ var app = {};
                     var dataString = new FormData();
                     dataString.append('file', imageBlob);
 
-                    app.post("attachments/editor-image-upload", dataString, false, false).done(function (response) {
-                        if (response.status === "ok") {
-                            if (editor) {
-                                const img = new Image();
-                                img.src = URL.createObjectURL(imageBlob);
-                                img.onload = () => {
+                    const img = new Image();
+                    img.src = URL.createObjectURL(imageBlob);
+                    img.onload = () => {
+                        app.post("attachments/editor-image-upload", dataString, false, false).done(function (response) {
+                            if (response.status === "ok") {
+                                if (editor) {
                                     editor.insertContent('<img src="' + response.location + '" alt="asd" width="' + img.width + '" height="' + img.height + '" />');
-                                };
-                            } else {
-                                console.log('Tinymce editor not found!');
+                                } else {
+                                    console.log('Tinymce editor not found!');
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 });
             },
 
