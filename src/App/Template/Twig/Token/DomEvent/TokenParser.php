@@ -9,12 +9,12 @@ class TokenParser extends \Twig\TokenParser\AbstractTokenParser
     /**
      * parse
      * 
-     * Twig token for DomEven.
+     * Twig token for DomEvent.
      * Automatically generates hook names.
      * 
      * Examples:
      * {% domevent name="test" %}
-     * {% domevent "test" %} example {% enddomevet %}
+     * {% domevent "test" %} example {% enddomevent %}
      * {% domevent "test", "div.class1,class2#id" %} example {% enddomevent %}
      *
      * @param \Twig\Token $token
