@@ -71,6 +71,8 @@ abstract class Controller
 			$this->template->addExtension(new $extension());
 		}
 
+        $this->template->addTokenParser(new \App\Template\Twig\Token\DomEvent\TokenParser());
+
 		$this->templaterController();
 
 		if ($this->user->loggedIn() && $this->user->visitor()->use_twofa)
