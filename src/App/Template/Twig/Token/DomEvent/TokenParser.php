@@ -5,7 +5,21 @@ namespace App\Template\Twig\Token\DomEvent;
 use App\Template\Twig\Token\DomEvent\Node;
 
 class TokenParser extends \Twig\TokenParser\AbstractTokenParser
-{
+{    
+    /**
+     * parse
+     * 
+     * Twig token for DomEven.
+     * Automatically generates hook names.
+     * 
+     * Examples:
+     * {% domevent name="test" %}
+     * {% domevent "test" %} example {% enddomevet %}
+     * {% domevent "test", "div.class1,class2#id" %} example {% enddomevent %}
+     *
+     * @param \Twig\Token $token
+     * @return Node
+     */
     public function parse(\Twig\Token $token)
     {
         $parser = $this->parser;
