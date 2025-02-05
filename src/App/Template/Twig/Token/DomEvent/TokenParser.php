@@ -31,9 +31,10 @@ class TokenParser extends \Twig\TokenParser\AbstractTokenParser
         $withElements = false;
         if ($stream->test(\Twig\Token::NAME_TYPE))
         {
-            $name = $stream->expect(\Twig\Token::NAME_TYPE);
+            $stream->expect(\Twig\Token::NAME_TYPE);
             $stream->expect(\Twig\Token::OPERATOR_TYPE, '=');
-            $body = $this->parser->getExpressionParser()->parseMultitargetExpression();
+            $name = $stream->getCurrent()->getValue();
+            $body = $this->parser->getExpressionParser()->parseExpression();
             $stream->expect(\Twig\Token::BLOCK_END_TYPE);
         }
         else

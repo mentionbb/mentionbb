@@ -27,14 +27,13 @@ class Node extends \Twig\Node\Node
                 ->write('yield "\r\n<' . $tag . ' hook-action=\"{Mention:App-domEvent-' . $this->getAttribute('name') . '}\">\r\n"')
                 ->raw(";")
                 ->subcompile($this->getNode('body'))
-                ->write('yield "</' . $tag . '>\r\n"')
+                ->write('yield "</' . $tag . '>"')
                 ->raw(";");
         }
         else
         {
             $compiler->addDebugInfo($this)
-                ->write('yield ')
-                ->subcompile($this->getNode('body'))
+                ->write('yield "hook-action=\"{Mention:App-domEvent-'.$this->getAttribute('name').'}\""')
                 ->raw(";");
         }
     }
