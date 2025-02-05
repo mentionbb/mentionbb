@@ -22,24 +22,35 @@ if (window.jQuery === undefined) jQuery = $ = {};
         rebuildThemes('vs-dark');
 
         const customTokens = [
-            [/"(?!\{Mention:)([^"]*)"/, "attribute.value.html"],
-            [/"\{Mention\:App-domEvent-([a-zA-Z]+)\}"/, "mention.domevent.html"]
+            [/"\{Mention\:App-domEvent-([a-zA-Z]+)\}"/, "mention.domevent.html"],
+            [/domevent/, "mention.domevent.html"],
+            [/enddomevent/, "mention.domevent.html"]
         ];
 
         const customTokenizer = {
+            bracket: [
+                ['{%', '%}']
+            ],
+            keywords: [
+                'domevent',
+                'enddomevent'
+            ],
             tokenizer: {
-                style: [
-                    customTokens[0],
-                    customTokens[1]
-                ],
                 script: [
                     customTokens[0],
-                    customTokens[1]
+                    customTokens[1],
+                    customTokens[2]
                 ],
                 otherTag: [
                     customTokens[0],
-                    customTokens[1]
-                ]
+                    customTokens[1],
+                    customTokens[2]
+                ],
+                blockState: [
+                    customTokens[0],
+                    customTokens[1],
+                    customTokens[2]
+                ],
             }
         };
         async function setupCustomTokenizer() {
