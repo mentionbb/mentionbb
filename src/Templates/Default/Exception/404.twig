@@ -25,7 +25,7 @@
 		</div>
 	</aside>
     {# This is includes meta definitions. #}
-	<div hook-action="{Mention:App-domEvent-metacontents}"
+	<div {% domevent name="metacontents" %}
 		data-title="{{ app.sub.lang.string.container.page_errors.page_not_found.title }}"
 		data-meta-description="{{ app.settings.meta_description }}"
 		data-og-description="{{ app.settings.meta_description }}"

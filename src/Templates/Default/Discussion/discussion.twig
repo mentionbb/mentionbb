@@ -55,11 +55,11 @@
 		{% endif %}
 	</aside>
 	<aside class="col-sm-10 pr-5">
-		<div hook-action="{Mention:App-domEvent-discussion}" class="app-post-container animate slideIn">
-			{% import 'macro.posts.twig' as macros %}
+        {% domevent "discussion", "div.app-post-container,animate,slideIn" %}
+            {% import 'macro.posts.twig' as macros %}
 			{{ macros.posts(string.discussion, false, true, string) }}
 			{% include 'discussion_posts.twig' %}
-		</div>
+        {% enddomevent %}
 		<div class="post-loader-spin"></div>
 	</aside>
 	<aside class="col-sm-2">
@@ -96,7 +96,7 @@
 	</aside>
 	{# This is includes meta definitions. #}
 	{% set meta_content = app.sub.renderer.bbcode.ClearBBCode(string.discussion.content, false, false)|replace({'&nbsp;': '', '&amp': ''}) %}
-	<div hook-action="{Mention:App-domEvent-metacontents}"
+	<div {% domevent name="metacontents" %}
 		data-title="{{ app.string.render.title.Render(string.discussion.title) }}"
 		data-meta-description="{{ meta_content }}" data-og-description="{{ meta_content }}"
 		data-twitter-description="{{ meta_content }}"

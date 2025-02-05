@@ -374,7 +374,8 @@
 		</div>
 	</aside>
 	{# This is includes meta definitions. #}
-	<div hook-action="{Mention:App-domEvent-metacontents}" data-title="{{ app.sub.lang.string.account.title }}"
+	<div {% domevent name="metacontents" %}
+        data-title="{{ app.sub.lang.string.account.title }}"
 		data-meta-description="{{ app.settings.meta_description }}"
 		data-og-description="{{ app.settings.meta_description }}"
 		data-twitter-description="{{ app.settings.meta_description }}" data-og-title="{{ app.settings.site_title }}"

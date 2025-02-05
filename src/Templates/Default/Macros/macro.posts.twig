@@ -1,8 +1,8 @@
 {% macro posts(item, loop, firstpost = false, string = false) %}
 	{% if firstpost %}
-		<div hook-action="{Mention:App-domEvent-discussionfirstpost}" class="post first-post" data-date="{{ app.timer.date.getFullDate(string.discussion.dateline) }}" data-item="1" data-post-id="{{ item.post_id }}" data-discussion-id="{{ item.discussion_id }}" data-forum-id="{{ item.forum_id }}" data-user-id="{{ item.user_id }}" data-post-count="{{ string.post.getDiscussionPostCount() }}" data-last-post-id="{{ string.post.getDiscussionLastPost() }}" data-shortcode="{{ app.sub.discussion.shortcode.toBase(item.shortcode) }}">
+		<div {% domevent name="discussionfirstpost" %} class="post first-post" data-date="{{ app.timer.date.getFullDate(string.discussion.dateline) }}" data-item="1" data-post-id="{{ item.post_id }}" data-discussion-id="{{ item.discussion_id }}" data-forum-id="{{ item.forum_id }}" data-user-id="{{ item.user_id }}" data-post-count="{{ string.post.getDiscussionPostCount() }}" data-last-post-id="{{ string.post.getDiscussionLastPost() }}" data-shortcode="{{ app.sub.discussion.shortcode.toBase(item.shortcode) }}">
 	{% else %}
-	    <div hook-action="{Mention:App-domEvent-discussionposts}" class="post" data-date="{{ app.timer.date.getFullDate(item.dateline) }}" data-item="" data-post-id="{{ item.post_id }}" data-user-id="{{ item.user_id }}" data-shortcode="{{ app.sub.discussion.shortcode.toBase(item.shortcode) }}">
+	    <div {% domevent name="discussionposts" %} class="post" data-date="{{ app.timer.date.getFullDate(item.dateline) }}" data-item="" data-post-id="{{ item.post_id }}" data-user-id="{{ item.user_id }}" data-shortcode="{{ app.sub.discussion.shortcode.toBase(item.shortcode) }}">
 	{% endif %}
 	<div class="app-post app-discussion bg-white shadow rounded">
 		<div class="progress d-none">
@@ -207,13 +207,13 @@
 					</div>
 				</div>
 				<hr>
-				<div hook-action="{Mention:App-domEvent-discussionpost-text}" class="discussion-text">
-					<article class="discussion-body app-bbcode-content">
+                {% domevent "discussionpost-text", "div.discussion-text" %}
+                    <article class="discussion-body app-bbcode-content">
 					    {% autoescape false %}
 						    {{ app.sub.renderer.bbcode.Parse(item.content)|raw }}
 					    {% endautoescape %}
 					</article>
-				</div>
+                {% enddomevent %}
 				<div class="post-attachment-area">
 				    {% include 'updateAttachments.twig' %}
 				</div>

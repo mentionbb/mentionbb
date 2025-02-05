@@ -101,7 +101,7 @@
 					{{ app.sub.user.unsetUser() }}
 				</div>
 			</div>
-			<div hook-action="{Mention:App-domEvent-profileReactionBox}" class="app-reactions reaction-md d-flex ml-lg-auto mt-4 mt-lg-0">
+			{% domevent "profileReactionBox", "div.app-reactions,reaction-md,d-flex,ml-lg-auto,mt-4,mt-lg-0" %}
 				{% set profileTooltipReactionsByUserId = string.reaction.getReactionCountByUserId(string.user.user_id) %}
 				<div class="reaction like d-flex flex-column align-items-center">
 					<span>{{ profileTooltipReactionsByUserId.like|number_format }}</span>
@@ -124,7 +124,7 @@
 				<div class="reaction dislike d-flex flex-column align-items-center mr-0">
 					<span>{{ profileTooltipReactionsByUserId.dislike|number_format }}</span>
 				</div>
-			</div>
+			{% enddomevent %}
 		</div>
 		<hr>
 		{% if app.user.loggedIn() %}
@@ -174,7 +174,8 @@
 		<div class="post-loader-spin"></div>
 	</aside>
 	{# This is includes meta definitions. #}
-	<div hook-action="{Mention:App-domEvent-metacontents}" data-title="{{ string.user.username }}"
+	<div {% domevent name="metacontents" %}
+        data-title="{{ string.user.username }}"
 		data-meta-description="{{ string.user.username }}" data-og-description="{{ string.user.username }}"
 		data-twitter-description="{{ string.user.username }}" data-og-title="{{ string.user.username }}"
 		data-twitter-title="{{ string.user.username }}" class="d-none">

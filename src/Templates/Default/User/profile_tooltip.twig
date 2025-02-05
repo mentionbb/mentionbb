@@ -41,7 +41,7 @@
     {% endif %}
 </div>
 <hr>
-<div hook-action="{Mention:App-domEvent-profileReactionBox}" class="app-reactions reaction-md d-flex pb-1">
+{% domevent "profileReactionBox", "div.app-reactions,reaction-md,d-flex,pb-1" %}
     {% set profileTooltipReactionsByUserId = string.reaction.getReactionCountByUserId(string.user.user_id) %}
     <div class="reaction like d-flex flex-column align-items-center">
         <span>{{ profileTooltipReactionsByUserId.like|number_format }}</span>
@@ -64,7 +64,7 @@
     <div class="reaction dislike d-flex flex-column align-items-center mr-0">
         <span>{{ profileTooltipReactionsByUserId.dislike|number_format }}</span>
     </div>
-</div>
+{% enddomevent %}
 <div class="d-flex align-items-center mt-3 mb-1">
     <a href="{{ app.sub.user.link.getOnlyLink() }}" class="btn btn-app-discussion no-anim-ui icon go mr-2 d-lg-none">{{ app.sub.lang.string.profile.buttons.go }}</a>
     {% if app.user.loggedIn() %}
