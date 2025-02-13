@@ -30,7 +30,16 @@ class DomManipulation
     /** @var StyleNode $style */
     public $style;
 
-    protected $insertTemplate = "<!--{Mention:insert-domId:%s[%s]}-->";
+    public $insertTemplate = [
+        'dom' => [
+            'pattern' => "/<!--\{Mention:insert-domId:\w{8}-\w{4}-\w{4}-\w{4}-\w{12}\[\n?(.*?)\]\}-->/is",
+            'string' => "<!--{Mention:insert-domId:%s[%s]}-->"
+        ],
+        'whitespace' => [
+            'pattern' => "/<!--\{Mention:insert-whitespace:([0-9]+)\}-->/is",
+            'string' => "<!--{Mention:insert-whitespace:%s}-->"
+        ]
+    ];
 
     /**
      * __construct
@@ -93,6 +102,15 @@ class DomManipulation
         return $this->nodes;
     }
 
+    public function addDoctype()
+    {
+        $impl = new \DOMImplementation();
+        $doctype = $impl->createDocumentType('html');
+        $doc = $impl->createDocument(null, '', $doctype);
+
+        return trim(preg_replace('/\s\s+/', ' ', $doc->saveHTML()));
+    }
+
     /**
      * insertHtml
      * 
@@ -106,18 +124,24 @@ class DomManipulation
      * @param string $data
      * @return \Dom\DocumentFragment|\DOMDocumentFragment
      */
-    public function insertHtml(string $data): \Dom\DocumentFragment|\DOMDocumentFragment
+    public function insertHtml(string $data, $isItem = true): \Dom\DocumentFragment|\DOMDocumentFragment
     {
-        $data = $this->filterHtml($data);
-        
-        $fragment = $this->dom->createDocumentFragment();
-        $fragment->appendXML(
-            sprintf(
-                $this->insertTemplate,
+        if ($isItem)
+        {
+            $data = $this->filterHtml($data);
+            $template = $this->getInsertTemplate(
+                'dom',
                 \App\Uuid::v4(),
                 $data
-            )
-        );
+            );
+        }
+        else
+        {
+            $template = $data;
+        }
+
+        $fragment = $this->dom->createDocumentFragment();
+        $fragment->appendXML($template);
 
         return $fragment;
     }
@@ -137,5 +161,10 @@ class DomManipulation
         $data = preg_replace('/(-{2,})/si', '-', $data);
 
         return $data;
+    }
+
+    public function getInsertTemplate($key, ...$values)
+    {
+        return sprintf($this->insertTemplate[$key]['string'], ...$values);
     }
 }

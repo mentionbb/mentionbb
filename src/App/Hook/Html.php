@@ -240,24 +240,41 @@ class Html
     {
         if (!is_null($ownerDocument['html5']) && $ownerDocument['html5'] instanceof HTML5)
         {
-            $content = str_replace(
-                ['<head>'],
-                ["\r\n<head>"],
-                $ownerDocument['html5']->saveHTML($ownerDocument['dom'])
-            );
+            $this->domman->selector("{hook:head}")->html->addWhitespace();
+
+            $this->removeAttribute('{hook:head}', 'hook-meta-exclude');
+            $this->removeAttribute('{hook:head}', 'hook-action');
+            $this->remove('{hook:metacontents}');
+
+            $content = $ownerDocument['html5']->saveHTML($ownerDocument['dom']);
         }
         else
         {
-            $content = str_replace(
-                ['<head>', '<!DOCTYPE html>', '</body>', '</meta>', '</link>', '</img>'],
-                ["\r\n<head>", "<!DOCTYPE html>\r\n", "</body>\r\n", ""],
-                $ownerDocument['dom']->saveHTML()
-            );
+            $this->domman->selector("{hook:htmldoc}, {hook:head}")->html->addWhitespace();
+            $this->domman->selector("{hook:htmlbody}")->html->addWhitespace('after');
+
+            $this->removeAttribute('{hook:head}', 'hook-meta-exclude');
+            $this->removeAttribute('{hook:head}', 'hook-action');
+            $this->remove('{hook:metacontents}');
+
+            if (is_null($ownerDocument['dom']->doctype))
+            {
+                $content = $this->domman->addDoctype() . $ownerDocument['dom']->saveHTML();
+            }
+            else
+            {
+                $content = $ownerDocument['dom']->saveHTML();
+            }
         }
 
-        $content = preg_replace_callback("/<!--\{Mention:insert-domId:\w{8}-\w{4}-\w{4}-\w{4}-\w{12}\[\n?(.*?)\]\}-->/is", function ($matches)
+        $content = preg_replace_callback($this->domman->insertTemplate['dom']['pattern'], function ($matches)
         {
             return "\r\n\t{$matches[1]}";
+        }, $content);
+
+        $content = preg_replace_callback($this->domman->insertTemplate['whitespace']['pattern'], function ($matches)
+        {
+            return str_repeat("\r\n", $matches[1]);
         }, $content);
 
         return $content;

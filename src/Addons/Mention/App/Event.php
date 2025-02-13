@@ -198,9 +198,5 @@ class Event extends DispatcherEvent
         //$event->container->dom->addClass('.app-forums', 'ok');
         //$event->container->dom->removeClass('.app-forums', 'bg-white');
         //$event->container->dom->setStyle('.app-title', 'margin-top: 800px');
-
-        $event->container->dom->removeAttribute('{hook:head}', 'hook-meta-exclude');
-        $event->container->dom->removeAttribute('{hook:head}', 'hook-action');
-        $event->container->dom->remove('{hook:metacontents}');
     }
 }

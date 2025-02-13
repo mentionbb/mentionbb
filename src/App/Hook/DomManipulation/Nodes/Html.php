@@ -106,4 +106,30 @@ class Html extends AbstractNode
             $node->parentNode->removeChild($node);
         }
     }
+
+    public function addWhitespace($where = 'before', $depth = 1)
+    {
+        foreach ($this->nodes as $node)
+        {
+            $data = $this->domman->insertHtml(
+                $this->domman->getInsertTemplate('whitespace', $depth),
+                false
+            );
+
+            if ($where == 'before')
+            {
+                $node->parentNode->insertBefore(
+                    $data,
+                    $node
+                );
+            }
+            else if ($where = 'after')
+            {
+                $node->parentNode->insertBefore(
+                    $data,
+                    $node->nextSibling
+                );
+            }
+        }
+    }
 }
