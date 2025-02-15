@@ -1,19 +1,19 @@
 {
-    "created_on": "Sun, 22 Dec 2024 05:00:52 GMT",
+    "created_on": "Fri, 14 Feb 2025 18:50:12 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
-    "v_for": "1.0.21",
+    "v_for": "1.0.22 Beta 1",
     "data": {
         "\/": {
             "6419a784d324c874ec38a20700131631e08e6318bdffa8e802cea9b9d560ef18": {
                 "filename": "app.php",
                 "path": ".\/app.php"
             },
-            "af089312fb659cbca1b977757fd2ef29e02c688fd748aea967dca69d6a3eed11": {
+            "0dfffd20ffe3cecdb48a8464ae91cbc3fbbb797783d98bf8e495e1c29f8f5ced": {
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "23b686962d572021bed06fe5e13d5be5f5f21dcd6e64c18b5622b2570ace7dc2": {
+            "9eb4f69c372bb6f9b879142b206eb19011ba5335be05fd047d56cf409c57e151": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -43,7 +43,7 @@
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
-            "5c6743eea6b9e5a7fe05d01ca5098d198c3736d0e43ed50c3ded29adb4caaba7": {
+            "6959d0b7b9585bce17038ec118f8eaef1a225316405e3a0960c445c4b1ee6ae1": {
                 "filename": "install.lock",
                 "path": ".\/src\/install.lock"
             }
@@ -277,7 +277,7 @@
             }
         },
         "src\/App\/Hook": {
-            "03d49624c25b15e660ed99c7cddddec5ccd4d4d6bb4595ff8ae3213c9371f506": {
+            "801ef524fd2206f4a7a6f825f41d64481bb358b0c5c9fd223461787234479c6d": {
                 "filename": "Html.php",
                 "path": ".\/src\/App\/Hook\/Html.php"
             }
@@ -291,13 +291,13 @@
                 "filename": "Resource.php",
                 "path": ".\/src\/App\/Install\/Resource.php"
             },
-            "06614e393f510e4a1d0df7f951ff537f9451bba2f8a9f9e2af91cbc1939175e8": {
+            "b6f9b0c12de6dd370bf12f717e19233db5f70bb12e9f92bfc747345213c19348": {
                 "filename": "versions.json",
                 "path": ".\/src\/App\/Install\/versions.json"
             }
         },
         "src\/App\/Mvc": {
-            "8a1cec28a73cdcf601a6daa895a2c468232191b92b2958798c048f97a047e29d": {
+            "660db5c35a41f22cb4d6b0ced30892e9ad8883d0546c62634886688b0a34bad0": {
                 "filename": "Controller.php",
                 "path": ".\/src\/App\/Mvc\/Controller.php"
             },
@@ -513,7 +513,7 @@
                 "filename": "Html.php",
                 "path": ".\/src\/App\/Util\/Html.php"
             },
-            "c25e0d4e21a217aa28e4cb70cfe1a906643a406bcec940e2b2ce60b7eafb102c": {
+            "32f744a081ee9f12cb6055fba35b92a203a0a61a1b857990b31c112a56198467": {
                 "filename": "Webp.php",
                 "path": ".\/src\/App\/Util\/Webp.php"
             },
@@ -611,7 +611,7 @@
             }
         },
         "src\/Templates\/Default": {
-            "5f5c6238ddf1b5bf16ff0c82ba462c13740f4d6e5c280ec896afc07c8094de42": {
+            "44470dc5313ed63d13d91b64263a3e400f92bfca55a74c0d050284fba457f32c": {
                 "filename": "container.twig",
                 "path": ".\/src\/Templates\/Default\/container.twig"
             }
@@ -621,7 +621,7 @@
                 "filename": "account.js",
                 "path": ".\/public\/ui\/vendor\/app\/account.js"
             },
-            "98ce0d963c3f032d4f2082849c999ffd5c4f58d0f8d37f1ed2a507568c403a8e": {
+            "67cb936f1c0408b88f8d652181eff0d44e051fb711f6c72a4360a2f2cbf20997": {
                 "filename": "app.js",
                 "path": ".\/public\/ui\/vendor\/app\/app.js"
             },
@@ -669,13 +669,13 @@
             }
         },
         "public\/ui\/vendor\/monaco-editor-extending": {
-            "3e84112950f6b9fdc25c0e1a39a7f616a26d20fb952afd8cdac78a5fc9fe2d55": {
+            "98e3ad4c3c99bfe1bfff9426f35be18007b2b4519cc0129a8f0908bd98363bfe": {
                 "filename": "twig.js",
                 "path": ".\/public\/ui\/vendor\/monaco-editor-extending\/twig.js"
             }
         },
         "src\/Addons\/Mention\/App": {
-            "324f613bf7e6b243775622869c3f46ea8a4898c2d383dc9b8040838be4c9131d": {
+            "4c9c08723bd2e7ed100e58fbd1c8da28e791de752075c6ac39e0be20257c92a8": {
                 "filename": "Event.php",
                 "path": ".\/src\/Addons\/Mention\/App\/Event.php"
             }
@@ -735,7 +735,7 @@
             }
         },
         "src\/App\/Hook\/DomManipulation": {
-            "a4baa2702f3847d3d8915e75857d535964ef71010cbc6bf65bc74995cb17b19b": {
+            "1096d35a76dfb27a08fedc7e5b681eac3e93e9459240ed070f02eb565cdbe302": {
                 "filename": "DomManipulation.php",
                 "path": ".\/src\/App\/Hook\/DomManipulation\/DomManipulation.php"
             }
@@ -917,7 +917,7 @@
             }
         },
         "src\/App\/Renderer\/BBCode": {
-            "4bc56370832bb861bc937f470c4990a40d6fc644e3e456e290a5550a72348013": {
+            "77e7f4bc216a093340061b10d1c637464428efeccbb6a2021efbf7986894e379": {
                 "filename": "Parser.php",
                 "path": ".\/src\/App\/Renderer\/BBCode\/Parser.php"
             },
@@ -965,7 +965,7 @@
             }
         },
         "src\/App\/SubContainer\/Attachment": {
-            "55aaf77953d47acb06f3702d52c4c31b9db30fc48dc4c4a595df00b9ba5e9f62": {
+            "bb5f95651bb43d6e955885ebfe7b936b28c7bb4cad17865d666045bfe46677b1": {
                 "filename": "Attachment.php",
                 "path": ".\/src\/App\/SubContainer\/Attachment\/Attachment.php"
             },
@@ -1289,7 +1289,7 @@
             }
         },
         "src\/Templates\/Default\/Discussion": {
-            "0d0e2e2268a5b663d8ae4559b0eb401163c36be4659081e3f5b6b1398dce8f82": {
+            "2f78fb218149c222a3222d5687afbc8a9f15b3b7142729c5724ca5f32995321a": {
                 "filename": "discussion.twig",
                 "path": ".\/src\/Templates\/Default\/Discussion\/discussion.twig"
             },
@@ -1303,7 +1303,7 @@
             }
         },
         "src\/Templates\/Default\/Exception": {
-            "5fa01b27576a7f94742e0f94b2d2f44a980f83e2521443e252a858a5a5ecbe36": {
+            "52e961b56b3b5833e338d85cab7cc4cbf7f15a4b9806040d9d4ad34f9c72fd18": {
                 "filename": "404.twig",
                 "path": ".\/src\/Templates\/Default\/Exception\/404.twig"
             }
@@ -1377,7 +1377,7 @@
                 "filename": "macro.notifications.twig",
                 "path": ".\/src\/Templates\/Default\/Macros\/macro.notifications.twig"
             },
-            "8480271e0884e179d8d23bf982ebaedaced557efabc0b68c9fa87feb67a3144f": {
+            "ae99395215a19d0a217a8b9e46cba2ad8e687c54f0d0450eb0bf4d68760fdd77": {
                 "filename": "macro.posts.twig",
                 "path": ".\/src\/Templates\/Default\/Macros\/macro.posts.twig"
             },
@@ -1391,7 +1391,7 @@
                 "filename": "conversation.twig",
                 "path": ".\/src\/Templates\/Default\/Messages\/conversation.twig"
             },
-            "f6b9dc10beae713880321e3801666c6eb164d14279fe8e42cbf5a0c3ea54a429": {
+            "d0f3f246fef0f227160ea2a09e90f7a560ae8bc53a6800f7a48d75837a90912e": {
                 "filename": "messages.twig",
                 "path": ".\/src\/Templates\/Default\/Messages\/messages.twig"
             },
@@ -1405,15 +1405,15 @@
             }
         },
         "src\/Templates\/Default\/Pages": {
-            "dfcc1e9ad61c7623b488bf9b0948cf0de07afe32de06e5cd5335b0400d0c8626": {
+            "bf5436426242922cfaa40dcd534dfb2675419f0f7d2785426839627ae0bcdb1f": {
                 "filename": "contact.twig",
                 "path": ".\/src\/Templates\/Default\/Pages\/contact.twig"
             },
-            "c6a9dc85be51fe8cfc6a919103c770e02fb99fc451cc9d7e2f34ecb8bcda9483": {
+            "cd5e91e0a9d3de58a35838baf98966d62c0a16d9aec134f7c3857f2e905bdbd1": {
                 "filename": "faq.twig",
                 "path": ".\/src\/Templates\/Default\/Pages\/faq.twig"
             },
-            "d8602a60b8b48539e76adc78bbe7af13c2c0047b531c828aa072754faf41038a": {
+            "4721095d5e6dc9d01aecb0ea25abf55576e4b1cd0c1c2b51cbdea696145aa1a8": {
                 "filename": "privacy.twig",
                 "path": ".\/src\/Templates\/Default\/Pages\/privacy.twig"
             }
@@ -1445,7 +1445,7 @@
             }
         },
         "src\/Templates\/Default\/User": {
-            "29db9965c40131c6fec000c2aef19a47f8514c63dac1ad3807050fe06c8e88bd": {
+            "d803709b12d38a4b4c9808c47d7421c1e862aa9e7aaaf64c5d3eb079b651fd16": {
                 "filename": "account.twig",
                 "path": ".\/src\/Templates\/Default\/User\/account.twig"
             },
@@ -1457,7 +1457,7 @@
                 "filename": "account_likes_posts.twig",
                 "path": ".\/src\/Templates\/Default\/User\/account_likes_posts.twig"
             },
-            "949c92ba47761046bebfce7cbd600ac483ff1e22a9095e1ab2fd4c81e71c4d02": {
+            "54ef54a6a7c6de618540b5e8702c97a5e21488cfb0233a462919a893fe8c214a": {
                 "filename": "profile.twig",
                 "path": ".\/src\/Templates\/Default\/User\/profile.twig"
             },
@@ -1465,7 +1465,7 @@
                 "filename": "profile_posts.twig",
                 "path": ".\/src\/Templates\/Default\/User\/profile_posts.twig"
             },
-            "d777e5a6fd6f6de4695ab8078c915af9b3495500619149b2e2a9481f1a48a3e8": {
+            "1d5f3c18d2e99d6d14a28948bd9fd63e45cdb14e04936495b85d549558894e6b": {
                 "filename": "profile_tooltip.twig",
                 "path": ".\/src\/Templates\/Default\/User\/profile_tooltip.twig"
             },
@@ -1555,7 +1555,7 @@
             }
         },
         "src\/App\/Hook\/DomManipulation\/Nodes": {
-            "c9f7c9a1ae9ec687b33dbb47b277d1752e8a89dedc12f9843e87f9d2037e853d": {
+            "a781ec563d66f09db34e5e8b8ad572f2a3d2398ca43c280d0acb70dd35942693": {
                 "filename": "AbstractNode.php",
                 "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/AbstractNode.php"
             },
@@ -1563,7 +1563,7 @@
                 "filename": "Attribute.php",
                 "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/Attribute.php"
             },
-            "0ad453111418fb512d818a057b5e624f72bc98bf08ed8ee10c653d2a2f76bf2c": {
+            "ef5be63d5127a18690d019d9584aa7bcca0dfb589a96156638cb1e230c420c73": {
                 "filename": "Html.php",
                 "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/Html.php"
             },
@@ -2032,6 +2032,16 @@
             "10955bbfb56464f29ca25daca3ee26b06451b50ca73a3b812f7dfbb5d468f16a": {
                 "filename": "Twitch.php",
                 "path": ".\/src\/App\/Renderer\/BBCode\/Helper\/Media\/Twitch.php"
+            }
+        },
+        "src\/App\/Template\/Twig\/Token\/DomEvent": {
+            "ef1cdbc066ff6dc0c6267b7e6f5c989729e88e26daf1c9589aa4c838dd849066": {
+                "filename": "Node.php",
+                "path": ".\/src\/App\/Template\/Twig\/Token\/DomEvent\/Node.php"
+            },
+            "0c8c4b1565f65f11c11fed71215b3a481b4e56498f6b09e343cba8514c4867a0": {
+                "filename": "TokenParser.php",
+                "path": ".\/src\/App\/Template\/Twig\/Token\/DomEvent\/TokenParser.php"
             }
         },
         "src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub": {
