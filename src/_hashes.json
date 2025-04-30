@@ -1,5 +1,5 @@
 {
-    "created_on": "Fri, 14 Feb 2025 18:50:12 GMT",
+    "created_on": "Wed, 30 Apr 2025 18:41:30 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.22 Beta 1",
@@ -13,7 +13,7 @@
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "9eb4f69c372bb6f9b879142b206eb19011ba5335be05fd047d56cf409c57e151": {
+            "94f40dfe718cf275750cd58eceb244c855bad601cbc3499c5c9882a77ffb8437": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
             }
@@ -239,7 +239,7 @@
                 "filename": "LinkPreviews.php",
                 "path": ".\/src\/App\/Entity\/LinkPreviews.php"
             },
-            "4326be437d71f58b015fab47232af38d826c9285f2186c72b6d91b4df53afe0f": {
+            "d3fd3b12e33528dd3dd828eddac3f6e8ff47507a30c6825b5dc4bb4d5a5b1403": {
                 "filename": "Messages.php",
                 "path": ".\/src\/App\/Entity\/Messages.php"
             },
