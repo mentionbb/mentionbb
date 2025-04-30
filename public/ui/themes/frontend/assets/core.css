@@ -3688,7 +3688,7 @@ h5.app-title.user:before {
 }
 
 .conversation-list[data-is-seeing="0"] {
-    background-color: #ecf6fb;
+    background-color: var(--mention-light-hover-bg-color);
 }
 
 .conversation-list>div>span:first-child {
