@@ -85,7 +85,6 @@ class Messages extends Layer
             ->orWhere('m.is_archived = :is_archived')
             ->andWhere('m.is_active = :is_active')
             ->andWhere('b.dateline IS NULL')
-            ->andWhere('m.sender_id = :user_id')
             ->groupBy('m.parent_id')
             ->orderBy('m.dateline', 'DESC');
 
