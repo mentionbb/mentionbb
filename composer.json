@@ -89,7 +89,8 @@
     },
     "scripts": {
         "post-update-cmd": [
-            "composer dump-autoload -o"
+            "composer dump-autoload -o",
+            "sh -c 'if [ -d .git ]; then COMMIT=$(git rev-parse --short HEAD) && BRANCH=$(git rev-parse --abbrev-ref HEAD) && REPO=$(git config --get remote.origin.url) && printf \"{\\n    \\\"repo_url\\\": \\\"$REPO\\\",\\n    \\\"commit_id\\\": \\\"$COMMIT\\\",\\n    \\\"branch_name\\\": \\\"$BRANCH\\\"\\n}\" > build.json; fi'"
         ]
     },
     "extra": {
