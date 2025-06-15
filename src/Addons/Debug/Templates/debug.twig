@@ -2,6 +2,15 @@
     <div class="col-lg-6 col-sm-12">
         <h5>Mention standalone debugging console</h5>
         <small class="d-block">Version: {{ app.build.code }}, Build {{ app.build.id }}</small>
+        {% if debug.buildInfo|length > 0 %}
+            <div>
+                <small>
+                    <a href="{{ debug.buildInfo.repo_url }}/tree/{{ debug.buildInfo.branch_name }}" target="_blank">{{ debug.buildInfo.repo_url }}/tree/{{ debug.buildInfo.branch_name }}</a>
+                     | 
+                    <a href="{{ debug.buildInfo.commit_url }}" target="_blank">{{ debug.buildInfo.commit_id }}</a> 
+                </small>
+            </div>
+        {% endif %}
         <div>Memory used: {{ debug.memoryUsed }} / {{ debug.memoryLimit }}</div>
         <div>
             Server: {{ debug.serverSoftware.name|upper }} <strong>{{ debug.serverSoftware.version }}</strong>,

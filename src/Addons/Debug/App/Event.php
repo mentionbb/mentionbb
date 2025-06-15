@@ -39,6 +39,12 @@ class Event extends DispatcherEvent
                     {
                         $server = new \App\SubContainer\ServerEnvironment();
 
+                        $buildInfo = [];
+                        if (file_exists(INDEX_DIR . '/build.json'))
+                        {
+                            $buildInfo = json_decode(file_get_contents(INDEX_DIR . '/build.json'), true);
+                        }
+
                         return $event->container->template->render(
                             '{addon:debug}/debug.twig',
                             [
@@ -54,7 +60,8 @@ class Event extends DispatcherEvent
                                         'self' => $event->container->routing->getSelf(),
                                         'matchingPath' => $event->container->routing->getMatchingPath()
                                     ],
-                                    'domRenderer' => $event->container->dom->getAttribute('{hook:htmlbody}', ['dom-renderer'])
+                                    'domRenderer' => $event->container->dom->getAttribute('{hook:htmlbody}', ['dom-renderer']),
+                                    'buildInfo' => $buildInfo
                                 ]
                             ]
                         );
