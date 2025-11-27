@@ -27,7 +27,7 @@ class App
      * You are currently allowed to change this. However, we would like to point out that the software has not been tested on php versions below this version.
      * We definitely do not recommend you try it, especially under 8.1.
      */
-    public static $_supportPhpVersion = '8.3';
+    public static $_supportPhpVersion = '8.4';
 
 	public static $variable = [
 		'session' => [

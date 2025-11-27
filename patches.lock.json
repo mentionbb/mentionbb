@@ -1,0 +1,53 @@
+{
+    "_hash": "a752820e227723e890e9ec21aea878773173c407b8a701402a61c1aecf832cf2",
+    "patches": {
+        "voku/portable-utf8": [
+            {
+                "package": "voku/portable-utf8",
+                "description": "0",
+                "url": "./src/patches/voku-portable-utf8-src-voku-helper-utf8-php.patch",
+                "sha256": "b11fd1c51d41f7f5e2b82d9f91c13bc59307e4e39a4b90ffb30db44ed675ec70",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "symfony/finder": [
+            {
+                "package": "symfony/finder",
+                "description": "0",
+                "url": "./src/patches/symfony-finder-iterator-vcsignoredfilteriterator-php.patch",
+                "sha256": "c276b145a9d924bac67fb03048e1c5805627e7d78daac8fcbe137d205771305f",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "phpgangsta/googleauthenticator": [
+            {
+                "package": "phpgangsta/googleauthenticator",
+                "description": "0",
+                "url": "./src/patches/phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch",
+                "sha256": "08df7c8bbc41912fb5574a1a00c1822868dd912ec1de740b2064e5bff65c5100",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "symfony/error-handler": [
+            {
+                "package": "symfony/error-handler",
+                "description": "0",
+                "url": "./src/patches/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch",
+                "sha256": "1ffd9c0ffd7fddbcb7a6f9acf89e03e2d13d2a0aaf77d728d086484706f57ab8",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

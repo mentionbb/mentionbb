@@ -1,21 +1,29 @@
 {
-    "created_on": "Wed, 30 Apr 2025 18:41:30 GMT",
+    "created_on": "Thu, 27 Nov 2025 18:23:47 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
-    "v_for": "1.0.22 Beta 1",
+    "v_for": "1.0.22",
     "data": {
         "\/": {
             "6419a784d324c874ec38a20700131631e08e6318bdffa8e802cea9b9d560ef18": {
                 "filename": "app.php",
                 "path": ".\/app.php"
             },
-            "0dfffd20ffe3cecdb48a8464ae91cbc3fbbb797783d98bf8e495e1c29f8f5ced": {
+            "ef914c8c8f6c1839e777e752db7e40047938a9b8f9c6fa5fc2873b9c6abf4963": {
+                "filename": "build.json",
+                "path": ".\/build.json"
+            },
+            "0bb8ba260923a8d9af0b4840c6214434567e0bee8e475f10efe3162691a4c102": {
                 "filename": "composer.json",
                 "path": ".\/composer.json"
             },
-            "94f40dfe718cf275750cd58eceb244c855bad601cbc3499c5c9882a77ffb8437": {
+            "e64034f9b79e9205fda3568430cd22e5be72b46268a78c53b011a28ffc0d0bad": {
                 "filename": "composer.lock",
                 "path": ".\/composer.lock"
+            },
+            "81f892cf514714994019510ec01b1088cc57a852377e022d6ed103f3ef2b0a42": {
+                "filename": "patches.lock.json",
+                "path": ".\/patches.lock.json"
             }
         },
         "bin": {
@@ -43,7 +51,7 @@
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
-            "6959d0b7b9585bce17038ec118f8eaef1a225316405e3a0960c445c4b1ee6ae1": {
+            "5b071e25fcfa58104c1ac090df381bb0c139e6b87aba594775c8ffdf32b15f90": {
                 "filename": "install.lock",
                 "path": ".\/src\/install.lock"
             }
@@ -63,7 +71,7 @@
                 "filename": "Addon.php",
                 "path": ".\/src\/App\/Addon.php"
             },
-            "33f61edd36d1644aface714cecb217563c73d22f06643fccc1013fc174a6903a": {
+            "996e81f06464425506691b4a1f6a46dfb23247a3ee6fe678521f76bba2ce7db6": {
                 "filename": "App.php",
                 "path": ".\/src\/App\/App.php"
             },
@@ -291,7 +299,7 @@
                 "filename": "Resource.php",
                 "path": ".\/src\/App\/Install\/Resource.php"
             },
-            "b6f9b0c12de6dd370bf12f717e19233db5f70bb12e9f92bfc747345213c19348": {
+            "d6296ee56882681109cf1672fd37a348af18d711e4ef988a94cc583f285772c2": {
                 "filename": "versions.json",
                 "path": ".\/src\/App\/Install\/versions.json"
             }

@@ -60,7 +60,7 @@ You have to do this manually as the Installer isn't ready yet.
 
 ## Requirements
 
-- PHP 8.3+
+- PHP 8.4+
 - Composer
 - Git (Optional)
 

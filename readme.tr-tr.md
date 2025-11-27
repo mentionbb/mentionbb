@@ -60,7 +60,7 @@ Bu kompleks yazılım sürekli geliştirildiğinden dolayı kurulum sihirbazı h
 
 ## Gerekliler
 
-- PHP 8.3+
+- PHP 8.4+
 - Composer
 - Git (Opsiyonel)
 
