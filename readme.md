@@ -173,6 +173,30 @@ Default user:pass
 
 Admin Panel for more settings.
 
+## Dosya izinleri ve sahipliği ayarlamak
+
+MentionBB requires some directories to be writable by the web server. Otherwise, some functions (such as caching or file uploads) may not work.
+
+```bash
+# Set directories writable by the web server
+sudo chmod -R 770 www/src/Cache
+sudo chmod -R 770 www/src/Logs
+sudo chmod -R 770 www/public/ui/uploads
+sudo chmod -R 770 www/public/ui/editor
+
+# Set ownership of the project root directory (If necessary) (replace www with your project folder)
+sudo chown -R www-data:www-data www
+
+# Set global directory permissions (If necessary) to 755 and file permissions to 644
+sudo find www -type d -exec chmod 755 {} \;
+sudo find www -type f -exec chmod 644 {} \;
+```
+
+* www-data is the web server username (Apache/Nginx) on Ubuntu/Debian systems. It may vary on different systems.
+* Directories: 755 → readable and executable by the web server.
+* Files: 644 → readable by the web server.
+* Writable directories: 770 → readable and writable only by the owner and the web server.
+
 ### Disabled Developer Mode
 
 We recommend that you turn this setting off. Because with template changes, your files are backed up, but not when Dev Mode is on.

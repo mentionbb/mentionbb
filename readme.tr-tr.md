@@ -174,6 +174,30 @@ Varsayılan kullanıcıadı:şifre
 
 Admin panelde daha fazla ayar mevcuttur.
 
+## Dosya izinleri ve sahipliği ayarlamak
+
+MentionBB, bazı dizinlerin web sunucusu tarafından yazılabilir olmasını gerektirir. Aksi takdirde, bazı fonksiyonlar (örneğin önbellekleme veya dosya yüklemeleri) çalışmayabilir.
+
+```bash
+# Web sunucusu tarafından yazılabilir dizinleri ayarlayın
+sudo chmod -R 770 www/src/Cache
+sudo chmod -R 770 www/src/Logs
+sudo chmod -R 770 www/public/ui/uploads
+sudo chmod -R 770 www/public/ui/editor
+
+# Proje kök dizinin sahipliğini ayarlayın (www yerine proje klasörünüzü yazın)
+sudo chown -R www-data:www-data www
+
+# Genel dizin izinlerini 755, dosya izinlerini 644 olarak ayarlayın
+sudo find www -type d -exec chmod 755 {} \;
+sudo find www -type f -exec chmod 644 {} \;
+```
+
+* www-data, Ubuntu/Debian sistemlerinde web sunucusu kullanıcı adıdır (Apache/Nginx). Farklı sistemlerde değişebilir.
+* Dizinler: 755 → web sunucusu tarafından okunabilir ve yürütülebilir.
+* Dosyalar: 644 → web sunucusu tarafından okunabilir.
+* Yazılabilir dizinler: 770 → sadece sahibi ve web sunucusu tarafından okunabilir ve yazılabilir.
+
 ### Geliştirme modunu kapatın. (Tavsiye)
 
 Bu ayarı kapatmanızı öneriyoruz, çünkü biz geliştirmeye yaparken şablonların veya bazı dosyaların yedeklenmesini bu şekilde istemiyoruz. Ancak son kullanıcı şablon değişikliği yaptığında bunların kolayca geri dönüştürülmesi ve karşılaştırılması gerekir. O yüzden bu ayarı kapatmanızı tavsiye ederiz.
