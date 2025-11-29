@@ -173,7 +173,7 @@ Default user:pass
 
 Admin Panel for more settings.
 
-## Dosya izinleri ve sahipliği ayarlamak
+## File permissions and ownership
 
 MentionBB requires some directories to be writable by the web server. Otherwise, some functions (such as caching or file uploads) may not work.
 
