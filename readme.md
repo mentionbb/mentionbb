@@ -33,7 +33,7 @@
     </picture>
 </p>
 
-[Mention](https://mentionbb.com/community) is an advanced forum community software. It is based on the balance between the classic forum software and the new generation ones. In this context, it has made it essential to add revolutionary innovations with developing technologies.
+[MentionBB](https://mentionbb.parworks.dev) is an advanced forum community software. It is based on the balance between the classic forum software and the new generation ones. In this context, it has made it essential to add revolutionary innovations with developing technologies.
 
 - **Flexible and fast.** Despite using advanced algorithms, Mention is a very lightweight software thanks to its caching technologies. On the other hand, it contains highly complex and previously unseen components.
 
@@ -213,7 +213,7 @@ public static $dev = [
 
 ## Framework
 
-Mention has been developed under an custom application framework called Par2. I have also used it in my previous projects, but this is a much improved version.
+MentionBB has been developed under an custom application framework called Par2. I have also used it in my previous projects, but this is a much improved version.
 
 In general, Symfony Components are used.
 

@@ -33,7 +33,7 @@
     </picture>
 </p>
 
-[Mention](https://mentionbb.com/community) gelişmiş bir topluluk/forum yazılımıdır. Klasik forum sistemleriyle yeni nesli birleştiren bir dengeye sahiptir. Bununla birlikte en gelişmiş ve güvenilir teknolojiler kullanılarak inşa edilmiş bir projedir.
+[MentionBB](https://mentionbb.parworks.dev) gelişmiş bir topluluk/forum yazılımıdır. Klasik forum sistemleriyle yeni nesli birleştiren bir dengeye sahiptir. Bununla birlikte en gelişmiş ve güvenilir teknolojiler kullanılarak inşa edilmiş bir projedir.
 
 - **Esnek ve hızlı.** Mention, gelişmiş algoritmalar kullanmasına rağmen önbellekleme teknolojileri sayesinde oldukça hafif bir yazılımdır. Öte yandan oldukça karmaşık ve daha önce görülmemiş bileşenler içeriyor.
 
@@ -216,7 +216,7 @@ public static $dev = [
 
 ## Kullanılan altyapı (Framework)
 
-Mention, Par2 adı verilen özel bir uygulama altyapısı kapsamında geliştirilmiştir. Daha önceki projelerimde de kullanmıştım ama bu çok daha gelişmiş bir versiyonudur.
+MentionBB, Par2 adı verilen özel bir uygulama altyapısı kapsamında geliştirilmiştir. Daha önceki projelerimde de kullanmıştım ama bu çok daha gelişmiş bir versiyonudur.
 
 Genel olarak Symfony Bileşenleri kullanılmaktadır.
 
