@@ -1,0 +1,26 @@
+--- /dev/null
++++ ../Iterator/VcsIgnoredFilterIterator.php
+@@ -37,9 +37,11 @@
+     {
+         $this->baseDir = $this->normalizePath($baseDir);
+ 
+-        foreach ([$this->baseDir, ...$this->parentDirectoriesUpwards($this->baseDir)] as $directory) {
+-            if (@is_dir("{$directory}/.git")) {
+-                $this->baseDir = $directory;
++        foreach ($this->parentDirectoriesUpwards($this->baseDir) as $parentDirectory)
++        {
++            if (@is_dir("{$parentDirectory}/.git"))
++            {
++                $this->baseDir = $parentDirectory;
+                 break;
+             }
+         }
+@@ -76,7 +78,7 @@
+ 
+             $fileRelativePath = substr($fileRealPath, \strlen($parentDirectory) + 1);
+ 
+-            if (null === $regexps = $this->readGitignoreFile("{$parentDirectory}/.gitignore")) {
++            if (null === $regexps = $this->readGitignoreFile("{$parentDirectory}/gitignore.custom")) {
+                 continue;
+             }
+ 

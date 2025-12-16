@@ -1,0 +1,2228 @@
+{
+    "created_on": "Thu, 27 Nov 2025 18:23:47 GMT",
+    "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
+    "algo": "SHA256",
+    "v_for": "1.0.22",
+    "data": {
+        "\/": {
+            "6419a784d324c874ec38a20700131631e08e6318bdffa8e802cea9b9d560ef18": {
+                "filename": "app.php",
+                "path": ".\/app.php"
+            },
+            "ef914c8c8f6c1839e777e752db7e40047938a9b8f9c6fa5fc2873b9c6abf4963": {
+                "filename": "build.json",
+                "path": ".\/build.json"
+            },
+            "0bb8ba260923a8d9af0b4840c6214434567e0bee8e475f10efe3162691a4c102": {
+                "filename": "composer.json",
+                "path": ".\/composer.json"
+            },
+            "e64034f9b79e9205fda3568430cd22e5be72b46268a78c53b011a28ffc0d0bad": {
+                "filename": "composer.lock",
+                "path": ".\/composer.lock"
+            },
+            "81f892cf514714994019510ec01b1088cc57a852377e022d6ed103f3ef2b0a42": {
+                "filename": "patches.lock.json",
+                "path": ".\/patches.lock.json"
+            }
+        },
+        "bin": {
+            "2c71aa6c2bb1250e1debc7fdeae4eb97e1906616ed805cba486fbdd8b97915ad": {
+                "filename": "RuntimeErrors.php",
+                "path": ".\/bin\/RuntimeErrors.php"
+            },
+            "73d0ecb252ee48d485ba5f074fe9fa110a701a8cdc73d4ddf57b30d7c4e1a746": {
+                "filename": "defs.php",
+                "path": ".\/bin\/defs.php"
+            }
+        },
+        "public": {
+            "1270eb94c1bdcda89d7e5775079c663426e0fe8fbf44ad21e9740b7aa0af69d1": {
+                "filename": "index.php",
+                "path": ".\/public\/index.php"
+            },
+            "ca7dec8a22c59af525f881605fd80718aa9009b7f0757ead87654f75f399b5eb": {
+                "filename": "service-worker.js",
+                "path": ".\/public\/service-worker.js"
+            }
+        },
+        "src": {
+            "d239f13bc1f1983d23f9c58a5965d513308e16a87cdcb5cd521578ec8f8acc3c": {
+                "filename": "RequireChecker.php",
+                "path": ".\/src\/RequireChecker.php"
+            },
+            "5b071e25fcfa58104c1ac090df381bb0c139e6b87aba594775c8ffdf32b15f90": {
+                "filename": "install.lock",
+                "path": ".\/src\/install.lock"
+            }
+        },
+        "src\/Addons": {
+            "40146e5b13727563dd3c8ea0dc241da9d2c92121bc54d7621c28412e5d2857cb": {
+                "filename": "Mention.yaml",
+                "path": ".\/src\/Addons\/Mention.yaml"
+            },
+            "a2890e963467164893cc14fe81b5cc04f81dd299eaf2fc828e89ef02dc01a5e1": {
+                "filename": "PublicApp.yaml",
+                "path": ".\/src\/Addons\/PublicApp.yaml"
+            }
+        },
+        "src\/App": {
+            "f1dad1afb2e56b18b267fa3dd79289e040bdfbf07576b52a0bcb35c4cd2d33eb": {
+                "filename": "Addon.php",
+                "path": ".\/src\/App\/Addon.php"
+            },
+            "996e81f06464425506691b4a1f6a46dfb23247a3ee6fe678521f76bba2ce7db6": {
+                "filename": "App.php",
+                "path": ".\/src\/App\/App.php"
+            },
+            "853a9e6a4a0348a9cd4979a36c123060f1eee791fe345c0d50de901cfbf0490a": {
+                "filename": "Logger.php",
+                "path": ".\/src\/App\/Logger.php"
+            },
+            "121eb0db4bcd4fe24a439dffed36fd18ce8cf32f94a33726eb984fd859c3fb16": {
+                "filename": "Phrase.php",
+                "path": ".\/src\/App\/Phrase.php"
+            },
+            "75a72eff6ea54a161c979a1ad3a2bbbeefc192f1cc1c180488837988002046e4": {
+                "filename": "RemoveTrailingSlash.php",
+                "path": ".\/src\/App\/RemoveTrailingSlash.php"
+            },
+            "861af2eb04255bd185e154c3634b7bf69e1465333ef19035c2bd31194b6f4b90": {
+                "filename": "RouteCollection.php",
+                "path": ".\/src\/App\/RouteCollection.php"
+            },
+            "e99e4e58cba8d90f8ce0cdeb3735a45a958162ee52bb7a6ac58c51217ee396a9": {
+                "filename": "UrlMatcher.php",
+                "path": ".\/src\/App\/UrlMatcher.php"
+            },
+            "eafc6a8345a9c8ecd3c4b789eb92cc1730b044ce99cddf1c980649b532555a1a": {
+                "filename": "Uuid.php",
+                "path": ".\/src\/App\/Uuid.php"
+            }
+        },
+        "src\/Languages": {
+            "3d3b6bd392ff6dcf0b7a12a52a16be5a3e3effddab8644151f79a7bd0a3c4a5e": {
+                "filename": "EnglishUS.yaml",
+                "path": ".\/src\/Languages\/EnglishUS.yaml"
+            },
+            "4f168755bdab533c07a360328445e79a03a00fcd03b7caa183b8e2ecc2d96312": {
+                "filename": "Turkish.yaml",
+                "path": ".\/src\/Languages\/Turkish.yaml"
+            }
+        },
+        "src\/patches": {
+            "1c3bb18829d2e37ba5dfba0331d4cc2db8108f97aa355637c3dd333cd4fabf7a": {
+                "filename": "phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch",
+                "path": ".\/src\/patches\/phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch"
+            },
+            "1f074fa0518da9999d54b46afb0fcbde6c97f4d060c62171ae2957977d73b00f": {
+                "filename": "symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch",
+                "path": ".\/src\/patches\/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch"
+            },
+            "0d275781a46d888e4eeeb2b414abb807ce75363a8874d995341fc6b9df8f9a88": {
+                "filename": "symfony-finder-iterator-vcsignoredfilteriterator-php.patch",
+                "path": ".\/src\/patches\/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
+            },
+            "4efa63d1193248f863c22735a7d84feba40a2a4e49ba56eec71d6365c97bff5a": {
+                "filename": "voku-portable-utf8-src-voku-helper-utf8-php.patch",
+                "path": ".\/src\/patches\/voku-portable-utf8-src-voku-helper-utf8-php.patch"
+            }
+        },
+        "public\/ui\/vendor": {
+            "98dce6b2b09a25d09cd4e61ad456fa7f2703c57692574c79f735ae992b3b84f0": {
+                "filename": "admin-vendor.css",
+                "path": ".\/public\/ui\/vendor\/admin-vendor.css"
+            },
+            "577e635e9a146480055860b7d1aa9b14a3c935ffab54920c4ea62266ad553ea7": {
+                "filename": "admin.js.map",
+                "path": ".\/public\/ui\/vendor\/admin.js.map"
+            },
+            "f922518b3b8ffb24b0af16b2df991142e2a73969e08fa41617bee9da64604e30": {
+                "filename": "core.js.map",
+                "path": ".\/public\/ui\/vendor\/core.js.map"
+            },
+            "a979c9a12767b745dbccf616b15825a68795dfbffd1b6500be2b6d5d412e287e": {
+                "filename": "editor.admin.js.map",
+                "path": ".\/public\/ui\/vendor\/editor.admin.js.map"
+            },
+            "26d6b5d5108980692a66f5174bc856e99a222b90b962d2d9f6df4f1e5476b284": {
+                "filename": "editor.js.map",
+                "path": ".\/public\/ui\/vendor\/editor.js.map"
+            },
+            "dece2f40cdbc61153640fb85f01426af6dc9fee462555bfd6cf2a08f1219e388": {
+                "filename": "install.js.map",
+                "path": ".\/public\/ui\/vendor\/install.js.map"
+            },
+            "1a87c2b9d18658c0367712a137c9f8cd26ae0c8d0795fc5ed751c0c36e93f7b3": {
+                "filename": "monaco.editor.admin.js.map",
+                "path": ".\/public\/ui\/vendor\/monaco.editor.admin.js.map"
+            },
+            "27f2a6206bae2fcd96e88f8acf49d85ff0c76c94108298566488b86d69f2483a": {
+                "filename": "vendor.css",
+                "path": ".\/public\/ui\/vendor\/vendor.css"
+            },
+            "a5001a593d727f8a925f477b8cfc83e32396accb776986644cd2816edf16fbb1": {
+                "filename": "vendor.js",
+                "path": ".\/public\/ui\/vendor\/vendor.js"
+            }
+        },
+        "src\/Addons\/Mention": {
+            "cd4089b0a974c587eb2c751b3ee57ecae0e3247f0991956c4a1e0f9d5b2dea89": {
+                "filename": "Addon.php",
+                "path": ".\/src\/Addons\/Mention\/Addon.php"
+            }
+        },
+        "src\/App\/Authentication": {
+            "b280ddfe3233ba400b9fbf5f32942047f12cdc6244abe345199656e694b40774": {
+                "filename": "Auth.php",
+                "path": ".\/src\/App\/Authentication\/Auth.php"
+            }
+        },
+        "src\/App\/Builder": {
+            "58a11f45400008173c71947e4065847ce836869e00362e09e6492dcd12ed9bdc": {
+                "filename": "VersionBuilder.php",
+                "path": ".\/src\/App\/Builder\/VersionBuilder.php"
+            }
+        },
+        "src\/App\/Cli": {
+            "a84644921f2570b6b41a2e8b188e3009ea3b76ef8f213acae5604031b70f96aa": {
+                "filename": "CommandList.php",
+                "path": ".\/src\/App\/Cli\/CommandList.php"
+            },
+            "a3f3102661c5da251e32f0d56a582f3f3e2dcb2d68cd1ed6f2fc0a4fe28b94b4": {
+                "filename": "Run.php",
+                "path": ".\/src\/App\/Cli\/Run.php"
+            }
+        },
+        "src\/App\/Config": {
+            "c6f30d755ca68872df1d2802c4cfbe21900118ebc7e2b84b634960dd8f133b37": {
+                "filename": "routes.yaml",
+                "path": ".\/src\/App\/Config\/routes.yaml"
+            }
+        },
+        "src\/App\/Db": {
+            "78537acae16fe06059c1fde0dc414f7b7caa396dbd3c4a38ce9f310082f39a39": {
+                "filename": "Layer.php",
+                "path": ".\/src\/App\/Db\/Layer.php"
+            },
+            "846b76910479edb548d91d22fc2296c53f9058af7a2629992d163ff638a6a3f5": {
+                "filename": "Native.php",
+                "path": ".\/src\/App\/Db\/Native.php"
+            }
+        },
+        "src\/App\/Entity": {
+            "e67af1e865dbb3dc6b48b164b3f36b32f8e121314768ace95869f0a3cc2685a5": {
+                "filename": "AttachmentFileTypes.php",
+                "path": ".\/src\/App\/Entity\/AttachmentFileTypes.php"
+            },
+            "0ad630b0c52e9aad904f83651173df44dc0c3960b951da2e78511a4f1d85d60a": {
+                "filename": "Attachments.php",
+                "path": ".\/src\/App\/Entity\/Attachments.php"
+            },
+            "5894c6efb8c6aad463c00c6911b3b345fd5cdf289a4b980c7e31e5f78abee9ea": {
+                "filename": "BBMedias.php",
+                "path": ".\/src\/App\/Entity\/BBMedias.php"
+            },
+            "1979b89800305284f2a463e1b8324526645e499064b3624ca87347b3115b1f10": {
+                "filename": "CensorWords.php",
+                "path": ".\/src\/App\/Entity\/CensorWords.php"
+            },
+            "648b5bc72bae98373d712daf188be94fffb837eff06168c544bffb8507c01b49": {
+                "filename": "DateTime.php",
+                "path": ".\/src\/App\/Entity\/DateTime.php"
+            },
+            "3c89acfea6101112557b8b156749127d365703c51d9266825ff6c50ecdc35673": {
+                "filename": "Discussion.php",
+                "path": ".\/src\/App\/Entity\/Discussion.php"
+            },
+            "fe5bc108270917e36ad2a7532ef54dc4cb5edb41fbf11db6b29e7900373db5f6": {
+                "filename": "EditorButtons.php",
+                "path": ".\/src\/App\/Entity\/EditorButtons.php"
+            },
+            "d13a6594a2b454cd418419491e6e1e363fa445c99f2633d9c188f93f01101351": {
+                "filename": "Forum.php",
+                "path": ".\/src\/App\/Entity\/Forum.php"
+            },
+            "764d31a73ec958abc608e567c6f6915746f51280f4308f64cda2f9bccd09e60f": {
+                "filename": "LinkPreviews.php",
+                "path": ".\/src\/App\/Entity\/LinkPreviews.php"
+            },
+            "d3fd3b12e33528dd3dd828eddac3f6e8ff47507a30c6825b5dc4bb4d5a5b1403": {
+                "filename": "Messages.php",
+                "path": ".\/src\/App\/Entity\/Messages.php"
+            },
+            "4d478c52e78b4283038e7c9c3b7964c8a2d4f01402afb2358cb3a1ba18b20051": {
+                "filename": "Notifications.php",
+                "path": ".\/src\/App\/Entity\/Notifications.php"
+            },
+            "20563ac2826aca76f446fd960d6cff8408bfa827cc9edb679a75243e9faf3c38": {
+                "filename": "PostReports.php",
+                "path": ".\/src\/App\/Entity\/PostReports.php"
+            },
+            "186e5e4d2605773dbac403d76c36fa560e8239048f064c7254bd4f6990263c3c": {
+                "filename": "Posts.php",
+                "path": ".\/src\/App\/Entity\/Posts.php"
+            },
+            "3f9513802f00abfa62b80787aea064b762733c27c2f5d4ddfef1ae9f1e6562ca": {
+                "filename": "Reactions.php",
+                "path": ".\/src\/App\/Entity\/Reactions.php"
+            },
+            "a2b2d5cda60a3163d2f87ab01cca591641b9561e93853f687e47e42a640a62ea": {
+                "filename": "Session.php",
+                "path": ".\/src\/App\/Entity\/Session.php"
+            },
+            "b96a489670ec9f0d9052edc1f6c23002416e7ce2d50859c4b3286509a4b0ae3a": {
+                "filename": "Settings.php",
+                "path": ".\/src\/App\/Entity\/Settings.php"
+            },
+            "7d20b4a8134a7f51148d821e7e754aade837c48ea1ed95da2465437d9d95f047": {
+                "filename": "Social.php",
+                "path": ".\/src\/App\/Entity\/Social.php"
+            },
+            "4464d3077687dd9d50132c7a6dab9af9f5abebc7a4545424867b339061e11538": {
+                "filename": "User.php",
+                "path": ".\/src\/App\/Entity\/User.php"
+            }
+        },
+        "src\/App\/Hook": {
+            "801ef524fd2206f4a7a6f825f41d64481bb358b0c5c9fd223461787234479c6d": {
+                "filename": "Html.php",
+                "path": ".\/src\/App\/Hook\/Html.php"
+            }
+        },
+        "src\/App\/Install": {
+            "0397edef70a09521923636771e31d09e6b6f042b0576dcbf1f2c1ee83ec7a621": {
+                "filename": "Controller.php",
+                "path": ".\/src\/App\/Install\/Controller.php"
+            },
+            "8a96d2f5ae3f5b75d5553f641407fb5fe002268685f44f10da1ae2706c837eb8": {
+                "filename": "Resource.php",
+                "path": ".\/src\/App\/Install\/Resource.php"
+            },
+            "d6296ee56882681109cf1672fd37a348af18d711e4ef988a94cc583f285772c2": {
+                "filename": "versions.json",
+                "path": ".\/src\/App\/Install\/versions.json"
+            }
+        },
+        "src\/App\/Mvc": {
+            "660db5c35a41f22cb4d6b0ced30892e9ad8883d0546c62634886688b0a34bad0": {
+                "filename": "Controller.php",
+                "path": ".\/src\/App\/Mvc\/Controller.php"
+            },
+            "eeeb7af00a4aaea8c88e552cf5ced2d11077811f2bb93aacc02ef844b06d19fc": {
+                "filename": "EventController.php",
+                "path": ".\/src\/App\/Mvc\/EventController.php"
+            },
+            "511eedd6a62886556c2a839931570ee5698f8f33c4edcffffba431f3bd6c52a3": {
+                "filename": "Pub.php",
+                "path": ".\/src\/App\/Mvc\/Pub.php"
+            }
+        },
+        "src\/App\/Params": {
+            "fee08e8b53fd026fb95d5c71a17b75a22378135a835fca890912fe367cf67a1b": {
+                "filename": "Env.php",
+                "path": ".\/src\/App\/Params\/Env.php"
+            }
+        },
+        "src\/App\/Renderer": {
+            "b9909fbbb9a5ebd9bb9eb00b9dfc92568f9bda6514a298f3a51c27cdca55b5fb": {
+                "filename": "ExternalLinkRenderer.php",
+                "path": ".\/src\/App\/Renderer\/ExternalLinkRenderer.php"
+            },
+            "9e5b9e9ec45060e395512fe586191cbbb535bc9fccfb23da84813f253217bbda": {
+                "filename": "Title.php",
+                "path": ".\/src\/App\/Renderer\/Title.php"
+            }
+        },
+        "src\/App\/Repository": {
+            "359da272c10a6345666687978d6d2732c0b0c597d689edec9b3e30e96516ef0d": {
+                "filename": "Attributes.php",
+                "path": ".\/src\/App\/Repository\/Attributes.php"
+            },
+            "19ce5791d826fd95c990174c5c273936bf67006a4f80071d2b43fbf13ba286af": {
+                "filename": "CookieEncrypt.php",
+                "path": ".\/src\/App\/Repository\/CookieEncrypt.php"
+            },
+            "8c8cda4cf104034e2a6f95876fb9a0214f043ae659fc7cbaaef1b1847ff6e3b5": {
+                "filename": "Crypto.php",
+                "path": ".\/src\/App\/Repository\/Crypto.php"
+            },
+            "db420587069c26b4ede92fb54a6fcfc07ebe0c082df683f5425734834e410b30": {
+                "filename": "Get.php",
+                "path": ".\/src\/App\/Repository\/Get.php"
+            },
+            "6b4a55cf5c95254303480643059d94e96d04ea5d8d8e567bb59a54eeae96e2d8": {
+                "filename": "Post.php",
+                "path": ".\/src\/App\/Repository\/Post.php"
+            },
+            "964d7ec29f9dc350cae608e6b833fadd2a5bf0e4e8dad3d96ecc8e5ff978f822": {
+                "filename": "Request.php",
+                "path": ".\/src\/App\/Repository\/Request.php"
+            },
+            "a624c275a98ae86bb96c3e6987f8b478904e41e8d47cf00b48e6d7d44bb92d4b": {
+                "filename": "Server.php",
+                "path": ".\/src\/App\/Repository\/Server.php"
+            },
+            "24b8c7a5a835481c11a1321f8769874b9fad82c2c02654f53ccad4ee9af668e3": {
+                "filename": "Session.php",
+                "path": ".\/src\/App\/Repository\/Session.php"
+            },
+            "ef1bc999903e7db3ebd38084e1f2d67e7d9668bcfd42767c6a9f2425f79d4ebc": {
+                "filename": "Set.php",
+                "path": ".\/src\/App\/Repository\/Set.php"
+            }
+        },
+        "src\/App\/Rule": {
+            "6c417baa656cefbbddad640ebca6bbac26f432c1db1a078729f6f8ad60d4a96c": {
+                "filename": "Database.php",
+                "path": ".\/src\/App\/Rule\/Database.php"
+            },
+            "8e00b78043812ebf52f0d556abeafcbb1c88c5b0932862428380c3b8cf2d80ca": {
+                "filename": "Pub.php",
+                "path": ".\/src\/App\/Rule\/Pub.php"
+            }
+        },
+        "src\/App\/SecurityProtocols": {
+            "1e375724277e950dae11580538685d5c978b109d7c76e9b030b5105be3d78873": {
+                "filename": "CrossSiteRequestForgery.php",
+                "path": ".\/src\/App\/SecurityProtocols\/CrossSiteRequestForgery.php"
+            }
+        },
+        "src\/App\/Sitemap": {
+            "3a5dafb788f0d22e8fb9c47b544a963d1c9ba4d9cc013a1c7450d39746e52a78": {
+                "filename": "AbstractSitemap.php",
+                "path": ".\/src\/App\/Sitemap\/AbstractSitemap.php"
+            },
+            "10e6a43ce1892cbc5cb248c1ac8adac9d738cf42a4e620573667cd3dfa1870a2": {
+                "filename": "Generator.php",
+                "path": ".\/src\/App\/Sitemap\/Generator.php"
+            },
+            "e72b3a99cddbff976aa939afccc30444999d75c79227ad719458158ff6475190": {
+                "filename": "IndexBuilder.php",
+                "path": ".\/src\/App\/Sitemap\/IndexBuilder.php"
+            },
+            "998c46064ab02da8b8980e36e883053119fa72578ff763e91a80076c7ce6a88d": {
+                "filename": "UrlBuilder.php",
+                "path": ".\/src\/App\/Sitemap\/UrlBuilder.php"
+            }
+        },
+        "src\/App\/String": {
+            "a0d5c4793bd1d999bb22d75cda57597611a87f6714bf9aebe7f65d1bbb9d1ad3": {
+                "filename": "Attachments.php",
+                "path": ".\/src\/App\/String\/Attachments.php"
+            },
+            "6bbae39cdc7e7c86d0ff73b4a857989d287813008018cc82a540fd1164079ba0": {
+                "filename": "CensorWords.php",
+                "path": ".\/src\/App\/String\/CensorWords.php"
+            },
+            "735a7b0c0480d7f253c1a490c13606416705fc4e084bf7bc3929f3900d67ba77": {
+                "filename": "Discussion.php",
+                "path": ".\/src\/App\/String\/Discussion.php"
+            },
+            "0a4d987b6bb99b55694e97219a81765a24a40e8fdce0ece8fd164dd66c4e950d": {
+                "filename": "EditorButtons.php",
+                "path": ".\/src\/App\/String\/EditorButtons.php"
+            },
+            "9a99c34f91036d393039d0f2b2691a809851e1a80de247b2303ba2682420d898": {
+                "filename": "Forum.php",
+                "path": ".\/src\/App\/String\/Forum.php"
+            },
+            "d5331a069b679bc00e053842de9c9d90bd5d82ed2588e6ffd8c8ee8a7be4b3c9": {
+                "filename": "Messages.php",
+                "path": ".\/src\/App\/String\/Messages.php"
+            },
+            "e775b5c5662a227ad316833669ff21abce5c18439d77e4e51e3e0614826b2e24": {
+                "filename": "Notifications.php",
+                "path": ".\/src\/App\/String\/Notifications.php"
+            },
+            "6b54bdca63f960db681d7c134ba81f6b47d274b609c7fb2f3eb9fc458df1796f": {
+                "filename": "Post.php",
+                "path": ".\/src\/App\/String\/Post.php"
+            },
+            "ec15336cc62a80ec2d0e9c4241628de43cbd7dd28df59718f970dc5500d4b1e5": {
+                "filename": "Profile.php",
+                "path": ".\/src\/App\/String\/Profile.php"
+            },
+            "0c8487622247869654d34e42b1f04bdec62ddc2f9425a0a5686a81d5d14202b6": {
+                "filename": "Reaction.php",
+                "path": ".\/src\/App\/String\/Reaction.php"
+            },
+            "08e0086a5eff0ec206bf90b0bd7a0b0fc799e1145234ee8df3247a02c406da49": {
+                "filename": "Social.php",
+                "path": ".\/src\/App\/String\/Social.php"
+            },
+            "ff976b02dd5ab8d37158fa8a5e145b96662dbe2a03b2d602c083f66d894d4841": {
+                "filename": "Stats.php",
+                "path": ".\/src\/App\/String\/Stats.php"
+            }
+        },
+        "src\/App\/SubContainer": {
+            "dd865e2ab41c44695e8f34010589b3e1414c8e701fd9e8f00d9ea213385de8a0": {
+                "filename": "AppSub.php",
+                "path": ".\/src\/App\/SubContainer\/AppSub.php"
+            },
+            "50904fea6ae8f994ad26a9f6cc336b5f0198707a674d858e0327a46566276ebf": {
+                "filename": "Bytes.php",
+                "path": ".\/src\/App\/SubContainer\/Bytes.php"
+            },
+            "1ce3da3c5a2f685e1744409621e038e504cc12ba43fef3b8de8fc181636becc3": {
+                "filename": "Captcha.php",
+                "path": ".\/src\/App\/SubContainer\/Captcha.php"
+            },
+            "fcecbe1737eba71e6eddce8d428fde980f472ffef48ebd75be3c9b1a6b580a51": {
+                "filename": "Device.php",
+                "path": ".\/src\/App\/SubContainer\/Device.php"
+            },
+            "740b052b636bb26c11d4943fdec2d4acb9f6479674cf2e6bc8c0c6f37e23e0f4": {
+                "filename": "Language.php",
+                "path": ".\/src\/App\/SubContainer\/Language.php"
+            },
+            "7305fa6ff8532a2b138f0b8770776ee9cd8ad685eabe5f6572a75b3315ae50fe": {
+                "filename": "Mailer.php",
+                "path": ".\/src\/App\/SubContainer\/Mailer.php"
+            },
+            "f4383ce0270d0e840a24c22034ed5fa15f17c7d460562f4da084b854eabd637b": {
+                "filename": "NumberFormat.php",
+                "path": ".\/src\/App\/SubContainer\/NumberFormat.php"
+            },
+            "c0a69d2fb3ca7c0042397437298e05d525c13eaa3abb9602529b53371a2b0889": {
+                "filename": "ServerEnvironment.php",
+                "path": ".\/src\/App\/SubContainer\/ServerEnvironment.php"
+            },
+            "0a8b6a4dc865fe854b949cf78bedd5bbf8450f45da00e08fd40d96f9a2ec4545": {
+                "filename": "Sitemap.php",
+                "path": ".\/src\/App\/SubContainer\/Sitemap.php"
+            }
+        },
+        "src\/App\/Template": {
+            "4bad9a69877fe27fd0e544058bb7bba79b1fac136d3d3c6ef439a7d9b251e1fb": {
+                "filename": "Simple.php",
+                "path": ".\/src\/App\/Template\/Simple.php"
+            }
+        },
+        "src\/App\/Util": {
+            "585e72ed619b96dad7e99f5cc296a7c3424d3f320b4cfb4189ed5536c5f0a78e": {
+                "filename": "AccessableReflection.php",
+                "path": ".\/src\/App\/Util\/AccessableReflection.php"
+            },
+            "d11852b26f0df75dd260b4e45df8b1bc5c12726b79560962e279e09b77ebbccf": {
+                "filename": "Arr.php",
+                "path": ".\/src\/App\/Util\/Arr.php"
+            },
+            "25dd3b894ed329d42fcfb73a6395b32b77075275b08a26cdab2868d0d823138b": {
+                "filename": "ClassFinder.php",
+                "path": ".\/src\/App\/Util\/ClassFinder.php"
+            },
+            "662a75c15b6e5ae0b0073edd3af379292a451062c8f7bc84629e7785504b8622": {
+                "filename": "File.php",
+                "path": ".\/src\/App\/Util\/File.php"
+            },
+            "816806c5ac914162c1b42def7d202bd2c993814ffa7dd2667257bb7515f3ddc1": {
+                "filename": "Html.php",
+                "path": ".\/src\/App\/Util\/Html.php"
+            },
+            "32f744a081ee9f12cb6055fba35b92a203a0a61a1b857990b31c112a56198467": {
+                "filename": "Webp.php",
+                "path": ".\/src\/App\/Util\/Webp.php"
+            },
+            "d1faf77ad5befb37c8b604d53ae00cf4faa56fd2266ad93ba7a1dcfa8135e5ed": {
+                "filename": "Yaml.php",
+                "path": ".\/src\/App\/Util\/Yaml.php"
+            },
+            "04bd03fa9cc0700da841970b891920a9cdd1aa48adf93ed9c43a47c42c878c7f": {
+                "filename": "Zip.php",
+                "path": ".\/src\/App\/Util\/Zip.php"
+            }
+        },
+        "src\/Languages\/English (US)": {
+            "eccc6f8e283a33f9f68b2d44c96148ae8527caa4ab9e042930db3b134ec71a8c": {
+                "filename": "Account.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Account.yaml"
+            },
+            "8eac60c5ce384ee49214569191383d085200c3d78b890656942c8b14b1b1b10c": {
+                "filename": "Container.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Container.yaml"
+            },
+            "3b58d80e4c3160bf2f0c69ccce769cc41e0b02f797b740c44db2353942d897a2": {
+                "filename": "Discussion.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Discussion.yaml"
+            },
+            "812b017b57426f85ca0411c63c813825bf6e9f15a5c258092881a893ac8977f4": {
+                "filename": "Editor.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Editor.yaml"
+            },
+            "a600b11913fdd745b386314414b664af0504d4527b22b90dae6a875dee27dba2": {
+                "filename": "Error.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Error.yaml"
+            },
+            "39a28d735754e2f2ff7269bc560f2c57f3d8a5fe8cfcd72d27b7d0ebcf1c9e1c": {
+                "filename": "Index.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Index.yaml"
+            },
+            "41ce46aff8443e552541f32eb12dfc751550537ab9f18727fbc88fc47fcaabbf": {
+                "filename": "Messages.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Messages.yaml"
+            },
+            "6cf5950466546f0a3b1660ddcb68b315ece450df3624e285dc1f43ef3b9833ae": {
+                "filename": "Modification.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Modification.yaml"
+            },
+            "bc286ced0e00200aab6c85589e9245fc8fe414d5f0672344f9015d257860e7c8": {
+                "filename": "Pages.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Pages.yaml"
+            },
+            "13aee533730235b1f4357a37a6cb6e80d5755228b94e10183483128e5256620b": {
+                "filename": "Profile.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Profile.yaml"
+            }
+        },
+        "src\/Languages\/Turkish": {
+            "ef62f4b1236f4f2fb53375335c58e4ea9c82f1b96e29fbaa6b62542ffe3c1a36": {
+                "filename": "Account.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Account.yaml"
+            },
+            "0e22e556228e2aca2adb9060e7e41af7b80f4a87b745374b3644819bacc4474e": {
+                "filename": "Container.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Container.yaml"
+            },
+            "e934544e0d6d43399aeae6aa29214c7e167331c76336287bc5a1a5ef28bf5df7": {
+                "filename": "Discussion.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Discussion.yaml"
+            },
+            "e9e5aad8b964e39177ec9d6a9f113128e4f815e75d2b48fbbd46feb70767a08f": {
+                "filename": "Editor.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Editor.yaml"
+            },
+            "7787a58e4b06343edbd5fd362af8742ad8115d2bf3c9126dc079ef8bd703d3f4": {
+                "filename": "Error.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Error.yaml"
+            },
+            "ab391f064b5e0efe372c78760603d7feb179c23e5cff9806320708dd459cfda2": {
+                "filename": "Index.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Index.yaml"
+            },
+            "9f786359de7c0ada2a4ffff8f5909a65d6c8eda960088ce0554c592b71e099a5": {
+                "filename": "Messages.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Messages.yaml"
+            },
+            "6cf5950466546f0a3b1660ddcb68b315ece450df3624e285dc1f43ef3b9833ae": {
+                "filename": "Modification.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Modification.yaml"
+            },
+            "93cf72e4116bc3c98ee99335214eb4d3fa0d63e4a62277bd96fd221a957d892d": {
+                "filename": "Pages.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Pages.yaml"
+            },
+            "0d9593007db19fd991ca5fbe40c70bcc55c1cd25df9e5f766a1e374a14cd2bc5": {
+                "filename": "Profile.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Profile.yaml"
+            }
+        },
+        "src\/Templates\/Default": {
+            "44470dc5313ed63d13d91b64263a3e400f92bfca55a74c0d050284fba457f32c": {
+                "filename": "container.twig",
+                "path": ".\/src\/Templates\/Default\/container.twig"
+            }
+        },
+        "public\/ui\/vendor\/app": {
+            "a7bce6481ae4506f6f8bb23589f8cbf5b3b6df61f56a0353d0a86e110acfba96": {
+                "filename": "account.js",
+                "path": ".\/public\/ui\/vendor\/app\/account.js"
+            },
+            "67cb936f1c0408b88f8d652181eff0d44e051fb711f6c72a4360a2f2cbf20997": {
+                "filename": "app.js",
+                "path": ".\/public\/ui\/vendor\/app\/app.js"
+            },
+            "07496ea4930a40b8ffd8a9e80da90208f32daf381c62031c6e13796d4a6f6c5e": {
+                "filename": "core.js",
+                "path": ".\/public\/ui\/vendor\/app\/core.js"
+            },
+            "04a458199ee077836cedfee10ff1fa16717c6159851361dd808549dc0b94a01f": {
+                "filename": "discussion.js",
+                "path": ".\/public\/ui\/vendor\/app\/discussion.js"
+            },
+            "d9decdd2ae9c893e0888158dc0bd14a0d216e366a51de0381b4232c2137dc5a6": {
+                "filename": "index.js",
+                "path": ".\/public\/ui\/vendor\/app\/index.js"
+            },
+            "bb136978d60542451d29f164e86b5b5188fa188f016f7c5c1e793dfbacb2febc": {
+                "filename": "messages.js",
+                "path": ".\/public\/ui\/vendor\/app\/messages.js"
+            },
+            "cc80855bf4532dde49803b697530d5fe4ce3e82677a7149a955f4ff8cb39e72f": {
+                "filename": "pages.js",
+                "path": ".\/public\/ui\/vendor\/app\/pages.js"
+            },
+            "a9e60ac1722ac558fc00ad3a6e871d38e6fa5e07e674a4dc606781b6974a181e": {
+                "filename": "post.js",
+                "path": ".\/public\/ui\/vendor\/app\/post.js"
+            },
+            "e387a1ea5a7b0dd093f03eddf58d1e2031c018828b978620e392f41813ce499b": {
+                "filename": "profile.js",
+                "path": ".\/public\/ui\/vendor\/app\/profile.js"
+            },
+            "dc827bf9c882573c1ea5c4cc2fc4e7114fc5d40c448f47794a8a709fa4b0b3f9": {
+                "filename": "visitor.js",
+                "path": ".\/public\/ui\/vendor\/app\/visitor.js"
+            }
+        },
+        "public\/ui\/vendor\/install": {
+            "31f2cd88c28ae728b62ff3e82d2dc8a67468b1cd3bb3066937fd1b6759890db6": {
+                "filename": "install.js",
+                "path": ".\/public\/ui\/vendor\/install\/install.js"
+            },
+            "e09eb19007015e4ea68c99468b6e491dfb720ea172a9c1c26eb9e063ed184574": {
+                "filename": "style.css",
+                "path": ".\/public\/ui\/vendor\/install\/style.css"
+            }
+        },
+        "public\/ui\/vendor\/monaco-editor-extending": {
+            "98e3ad4c3c99bfe1bfff9426f35be18007b2b4519cc0129a8f0908bd98363bfe": {
+                "filename": "twig.js",
+                "path": ".\/public\/ui\/vendor\/monaco-editor-extending\/twig.js"
+            }
+        },
+        "src\/Addons\/Mention\/App": {
+            "4c9c08723bd2e7ed100e58fbd1c8da28e791de752075c6ac39e0be20257c92a8": {
+                "filename": "Event.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Event.php"
+            }
+        },
+        "src\/App\/Cli\/Command": {
+            "2aa4554cd708030ef09e155e2bbc0e67eb48b6d7074c1af1009820796741656d": {
+                "filename": "DeleteCache.php",
+                "path": ".\/src\/App\/Cli\/Command\/DeleteCache.php"
+            }
+        },
+        "src\/App\/Cli\/Console": {
+            "ba935afda51260fb1860a059d37dc325afe508cf55a80a60ae9c7b6778aa9f67": {
+                "filename": "LoggableOutput.php",
+                "path": ".\/src\/App\/Cli\/Console\/LoggableOutput.php"
+            }
+        },
+        "src\/App\/Db\/QueryBuilder": {
+            "bd5715b117521d6f72ab06e7f8796a4406e74a60b19c36bbca6e9b6d4544d16c": {
+                "filename": "Builder.php",
+                "path": ".\/src\/App\/Db\/QueryBuilder\/Builder.php"
+            }
+        },
+        "src\/App\/Errors\/Views": {
+            "6db4865e87d46792d81e423ef7f42171694e827b422fcc71da5337ed85b61662": {
+                "filename": "view.env_not_found.php",
+                "path": ".\/src\/App\/Errors\/Views\/view.env_not_found.php"
+            },
+            "fb64d60036a64f8d131c22929c2554e75c81e1abe94fe11784edabdd939d2f47": {
+                "filename": "view.exception.php",
+                "path": ".\/src\/App\/Errors\/Views\/view.exception.php"
+            },
+            "c27980ec7b63b0a791c6980c415c58d12d58108f31991dc90328c9c898db9979": {
+                "filename": "view.page_container.php",
+                "path": ".\/src\/App\/Errors\/Views\/view.page_container.php"
+            },
+            "32d91e3e8d574a44d7880f96e9e015b364af8cf0dfe507d24ab49acbe8f1a849": {
+                "filename": "view.php_extensions_not_found.php",
+                "path": ".\/src\/App\/Errors\/Views\/view.php_extensions_not_found.php"
+            },
+            "3c7a8ce3cc828725ec324ccfcf3f219ea3cea482bd22d402c07031c0a0978070": {
+                "filename": "view.trace.php",
+                "path": ".\/src\/App\/Errors\/Views\/view.trace.php"
+            },
+            "9569234be60fd684abfa422562db3181261f552720998ae899ea967f283667cf": {
+                "filename": "view.unsupported_php_version.php",
+                "path": ".\/src\/App\/Errors\/Views\/view.unsupported_php_version.php"
+            },
+            "15f7346267cc190c304c616729c071b5ddf0d93170b387f2881023dddd7dfc75": {
+                "filename": "view.vendor.php",
+                "path": ".\/src\/App\/Errors\/Views\/view.vendor.php"
+            }
+        },
+        "src\/App\/Hook\/Dispatcher": {
+            "397838d330523e7fde61df4095e93557d5894860bf60c6079ba8c0b0c81964da": {
+                "filename": "Event.php",
+                "path": ".\/src\/App\/Hook\/Dispatcher\/Event.php"
+            }
+        },
+        "src\/App\/Hook\/DomManipulation": {
+            "1096d35a76dfb27a08fedc7e5b681eac3e93e9459240ed070f02eb565cdbe302": {
+                "filename": "DomManipulation.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/DomManipulation.php"
+            }
+        },
+        "src\/App\/Hook\/Helper": {
+            "5ed622a7c1fe147e5e2c1fd73ef79db835f8c8e391bc1637bdf8e039785a22bf": {
+                "filename": "Discussion.php",
+                "path": ".\/src\/App\/Hook\/Helper\/Discussion.php"
+            },
+            "6091e91af1eea91fad10b2f83851ce9825727661fec3dfcba869921479507e81": {
+                "filename": "Faq.php",
+                "path": ".\/src\/App\/Hook\/Helper\/Faq.php"
+            },
+            "bf9c6358d07d13efc4ca0d05019f1e0aa1916ff85a590712ca8aaa98779d74a2": {
+                "filename": "Feature.php",
+                "path": ".\/src\/App\/Hook\/Helper\/Feature.php"
+            },
+            "efa2f264fb7c393308bd8bc008179e9c531cd16699b6c031423809432cffae5e": {
+                "filename": "Forum.php",
+                "path": ".\/src\/App\/Hook\/Helper\/Forum.php"
+            },
+            "e34de98e010b82c8e29489d79a389fc8f7bdb1d8cc5e9a446d44a9a7102a9394": {
+                "filename": "User.php",
+                "path": ".\/src\/App\/Hook\/Helper\/User.php"
+            }
+        },
+        "src\/App\/Install\/Controller": {
+            "e34f91da3be796d8991137623b8bc964c6f644885cc717a29742d923fed956eb": {
+                "filename": "Install.php",
+                "path": ".\/src\/App\/Install\/Controller\/Install.php"
+            }
+        },
+        "src\/App\/Install\/Resource": {
+            "fb052aee6d10fd48d1a3c3c51b44c34e8026271d64b736b022aeb5dc4986d3e8": {
+                "filename": "common.yaml",
+                "path": ".\/src\/App\/Install\/Resource\/common.yaml"
+            },
+            "df3ca5abc5843c8b2340f9a250aade7b7d42e613d0e94891f57fb15f81db923e": {
+                "filename": "routes.yaml",
+                "path": ".\/src\/App\/Install\/Resource\/routes.yaml"
+            }
+        },
+        "src\/App\/Install\/Table": {
+            "bd9e0921d2ec1e47b23a058d7618a3a4c12d9f44afb528b29bcc28b427e1398c": {
+                "filename": "Contents.php",
+                "path": ".\/src\/App\/Install\/Table\/Contents.php"
+            },
+            "3a88186e0f45d937ed743f06b2cbc7b658ab2e2fd4d08cf8849a77462955de31": {
+                "filename": "Tables.php",
+                "path": ".\/src\/App\/Install\/Table\/Tables.php"
+            }
+        },
+        "src\/App\/Install\/Views": {
+            "43d4e4ef74a5d1c2071f9bc7313a84ae20baa1c864acee3516fc527938ab230a": {
+                "filename": "view.copyright.php",
+                "path": ".\/src\/App\/Install\/Views\/view.copyright.php"
+            },
+            "6d8a6a69d61bd88015b2829075c34667c2076c8e4949e3787112bad33c007e62": {
+                "filename": "view.install.php",
+                "path": ".\/src\/App\/Install\/Views\/view.install.php"
+            },
+            "dc1f3d0579a67e348d9a0a26fa64de6097d6c54ba4f588561bf49093e19df84d": {
+                "filename": "view.install_error.php",
+                "path": ".\/src\/App\/Install\/Views\/view.install_error.php"
+            },
+            "f01b37916c449913d5b5af2ed22984c7445a057c1ca5037ec70aeeabc2b4cec2": {
+                "filename": "view.install_step1b.php",
+                "path": ".\/src\/App\/Install\/Views\/view.install_step1b.php"
+            },
+            "7623e7d87da7a40e46bc9f6cc0cbef85404f350a21b2f12c728c1888400fe08d": {
+                "filename": "view.install_step1c.php",
+                "path": ".\/src\/App\/Install\/Views\/view.install_step1c.php"
+            },
+            "5ff79af128b0cbfb44baf6e7ce436f9d782c007ce210c3fc405419024dcdcd21": {
+                "filename": "view.install_step1d.php",
+                "path": ".\/src\/App\/Install\/Views\/view.install_step1d.php"
+            },
+            "d09976596cbb42f2e2976eaa54338c875812f682b820b43fd838bda2454d86c4": {
+                "filename": "view.logo.php",
+                "path": ".\/src\/App\/Install\/Views\/view.logo.php"
+            },
+            "16f3ff2b4a3a606f2a5a4cab193c5c33ce129bea48af9b3b02308c856ba0e6a0": {
+                "filename": "view.page_container.php",
+                "path": ".\/src\/App\/Install\/Views\/view.page_container.php"
+            }
+        },
+        "src\/App\/Mvc\/EventInterface": {
+            "01bc68da350ec30e91b5965148566d736d79ba5d17e019fe5e2da7fdd46f6fed": {
+                "filename": "Container.php",
+                "path": ".\/src\/App\/Mvc\/EventInterface\/Container.php"
+            },
+            "949338f37ca897d872d3ccc2cbc00c023f377908beabf7dd793151f97590e9e6": {
+                "filename": "EventInterface.php",
+                "path": ".\/src\/App\/Mvc\/EventInterface\/EventInterface.php"
+            }
+        },
+        "src\/App\/Mvc\/Pub": {
+            "cbad3a6afd370958f2fefa7759fb4b86a0acc8d866e33a2c1eb69a0fbad1c5df": {
+                "filename": "Account.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Account.php"
+            },
+            "75b5b04773148b5797fe3d0cc3c520be23f3a4fb771bd3b16daeacae333f152e": {
+                "filename": "AppException.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/AppException.php"
+            },
+            "5cff3fa3c18e00b65fbed077bf272c023556f8603eb36595db6e710868f9f57e": {
+                "filename": "Attachment.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Attachment.php"
+            },
+            "8b78563991d665fc4069a0256f43549e64645f4b8d701609095dd2d0ea8979d3": {
+                "filename": "Auth.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Auth.php"
+            },
+            "89a4bfab3c743658380f2966f41b6c92d1a19859dc1ead2c6117a522b14625df": {
+                "filename": "Discussion.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Discussion.php"
+            },
+            "d7c456d7ecb80dcab7110a4a428d5d01897b32ea6defa6dace907a56ff2fd455": {
+                "filename": "Editor.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Editor.php"
+            },
+            "9f732b11ba540e7383e42e5f37b73faccd0dba5bc40bcf9af34c3c64cb4132d0": {
+                "filename": "Index.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Index.php"
+            },
+            "a6762fae861c8396d4c07b0e4acbe47a2872f0ec441ee3c52d49c728a0bb469e": {
+                "filename": "Messages.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Messages.php"
+            },
+            "fd0060a52ec5875a88e0e084f7d0d923757c1df6b97f051014e20a91ea23aa55": {
+                "filename": "Moderation.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Moderation.php"
+            },
+            "f453a9d035f4bde0572156803447428080e1a941918c15a5a8071378d664d66a": {
+                "filename": "Pages.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Pages.php"
+            },
+            "3ec9f21f133decba134cc5d32cf36204625edb7d08e026bbf514ddf02a65458a": {
+                "filename": "Post.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Post.php"
+            },
+            "93728c3fddedad24cbdac1bb656cdaebbe6d3a57ff76f2c4f6dd7db16011b30c": {
+                "filename": "Profile.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Profile.php"
+            },
+            "044dbacb9ea90c03434f35753cdb4f08889a70a7009305eae21617880ec2c540": {
+                "filename": "Search.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Search.php"
+            },
+            "c388374301cf115d4d748e653ea48fca757662fa2c9f1bc19e2b1b6c7f37916f": {
+                "filename": "Shortcode.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Shortcode.php"
+            },
+            "b5fbcb7558144043395eb114cbcd74a23599a8abd846ef02e3c444ea82d3c1fb": {
+                "filename": "Sitemap.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Sitemap.php"
+            },
+            "307f10422f2030364ca50f194e93127739e0e6b9d5805c704aa4696e2bc48b9b": {
+                "filename": "Test.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/Test.php"
+            },
+            "cd5e96fb7e97dfcb9b4bfde2d058fcce048e043a0307d53fbc41fe153e33db3b": {
+                "filename": "TwoStepVerification.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/TwoStepVerification.php"
+            },
+            "cf79c9be00c05f3e3019dc7a45d07024856615dec403728221339df9e6459c16": {
+                "filename": "WebManifest.php",
+                "path": ".\/src\/App\/Mvc\/Pub\/WebManifest.php"
+            }
+        },
+        "src\/App\/Params\/Deploy": {
+            "194a87a9f3c9a452ad3f6a6ea50b5edbe69a8a3e7d96c043ce096497945134d2": {
+                "filename": "Config.php",
+                "path": ".\/src\/App\/Params\/Deploy\/Config.php"
+            },
+            "2459d10f42170d35bd89791afa423cb2401367bd2e86f2a3d4a18ae9a992bfad": {
+                "filename": "Db.php",
+                "path": ".\/src\/App\/Params\/Deploy\/Db.php"
+            }
+        },
+        "src\/App\/Renderer\/BBCode": {
+            "77e7f4bc216a093340061b10d1c637464428efeccbb6a2021efbf7986894e379": {
+                "filename": "Parser.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Parser.php"
+            },
+            "5408a8e009ab5c483a2c22f8115106e75b3ed7e3b8adad6ab4cf3a1233111063": {
+                "filename": "Posting.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Posting.php"
+            },
+            "8cf4368b548c9287d25bbdf8335232e64975d33e14721f36f8d4fcb9c9f7867d": {
+                "filename": "ProcessTags.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/ProcessTags.php"
+            },
+            "23f79eaa8ec8373287188f638c30c8fba4cc1a36d1612da632da876198f22a73": {
+                "filename": "TagModification.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/TagModification.php"
+            }
+        },
+        "src\/App\/Renderer\/Response": {
+            "3211d75cd71e5b897a7d50268546309fcc7489d5f670839cb605d632cdda2513": {
+                "filename": "Html.php",
+                "path": ".\/src\/App\/Renderer\/Response\/Html.php"
+            },
+            "2a5299b304b5b97516455a009d2fbd00f7802006f42e90568e49fe2c90da0845": {
+                "filename": "Json.php",
+                "path": ".\/src\/App\/Renderer\/Response\/Json.php"
+            },
+            "02a59b0b3f9e76acfa21795f69d522ac5f6b004eeef4c5b3691aa58e25d5f8c9": {
+                "filename": "ResponseRenderer.php",
+                "path": ".\/src\/App\/Renderer\/Response\/ResponseRenderer.php"
+            },
+            "3b21a0da6b3ad2797d549d687479d21711a131059b36494dbdd911887ae7e8a9": {
+                "filename": "Xml.php",
+                "path": ".\/src\/App\/Renderer\/Response\/Xml.php"
+            }
+        },
+        "src\/App\/Renderer\/SeoBundle": {
+            "c3a2e1b1f0dd6e4a1c3dffc70e9b1fce8182ef1444e87634c94c3460c101d77c": {
+                "filename": "Title.php",
+                "path": ".\/src\/App\/Renderer\/SeoBundle\/Title.php"
+            }
+        },
+        "src\/App\/Repository\/Config": {
+            "b59750eb1af26a8c03f8a4d803cdc9524a918c9e276ea07458b654502006ab8d": {
+                "filename": "Schema.php",
+                "path": ".\/src\/App\/Repository\/Config\/Schema.php"
+            }
+        },
+        "src\/App\/SubContainer\/Attachment": {
+            "bb5f95651bb43d6e955885ebfe7b936b28c7bb4cad17865d666045bfe46677b1": {
+                "filename": "Attachment.php",
+                "path": ".\/src\/App\/SubContainer\/Attachment\/Attachment.php"
+            },
+            "27c3b62480b19693e7a0a9a5e19cb83984303740cccc9dca031d2fb4dd6bc708": {
+                "filename": "Create.php",
+                "path": ".\/src\/App\/SubContainer\/Attachment\/Create.php"
+            },
+            "00a87ddb43e5baf08a067898395677d59b57880b071907186a4cd77818e78e0c": {
+                "filename": "Editor.php",
+                "path": ".\/src\/App\/SubContainer\/Attachment\/Editor.php"
+            }
+        },
+        "src\/App\/SubContainer\/Auth": {
+            "a64cc349116d76a3d1ccbb7166c24972f62eff95aa2d38b053a354f888e49783": {
+                "filename": "Social.php",
+                "path": ".\/src\/App\/SubContainer\/Auth\/Social.php"
+            },
+            "39d13e26d12569008fae21daecc520ad8ae09a965e2774384a64f2ec45f21b96": {
+                "filename": "TwoStepVerification.php",
+                "path": ".\/src\/App\/SubContainer\/Auth\/TwoStepVerification.php"
+            }
+        },
+        "src\/App\/SubContainer\/Discussion": {
+            "7f5113c48452a52184146cb983ec56f9df00c935b14b7557bbe77cfb3a26ffd6": {
+                "filename": "Create.php",
+                "path": ".\/src\/App\/SubContainer\/Discussion\/Create.php"
+            },
+            "8ee33adf166d5cddd9b41f7c512a23f7acec262bb1759925c4f44b37c4be534e": {
+                "filename": "Edit.php",
+                "path": ".\/src\/App\/SubContainer\/Discussion\/Edit.php"
+            },
+            "d3ea10a5fa9206f0a4bf8524c0c0b15c2b6738019f9814eb002634e2afea8d6b": {
+                "filename": "Shortcode.php",
+                "path": ".\/src\/App\/SubContainer\/Discussion\/Shortcode.php"
+            },
+            "d74f8449743e7cf83a32af147d54bf2f39075970ce9380d3e6cbbed6cc46ddfc": {
+                "filename": "Subscription.php",
+                "path": ".\/src\/App\/SubContainer\/Discussion\/Subscription.php"
+            }
+        },
+        "src\/App\/SubContainer\/Editor": {
+            "15c1dfeaec3616f72730169a86560abfb49d7b9c28815942194f43d8d2123347": {
+                "filename": "Buttons.php",
+                "path": ".\/src\/App\/SubContainer\/Editor\/Buttons.php"
+            }
+        },
+        "src\/App\/SubContainer\/Messages": {
+            "b543e96642d5c63a299da2040a0d048a3408e4042cf70235cf983d476aae3d4e": {
+                "filename": "Archive.php",
+                "path": ".\/src\/App\/SubContainer\/Messages\/Archive.php"
+            },
+            "ad1775be6475d903a999300d64ac3d89e856cfde6d563325c43a251b8dbd9c0f": {
+                "filename": "Create.php",
+                "path": ".\/src\/App\/SubContainer\/Messages\/Create.php"
+            },
+            "78a18af8d8177ab58e0882ba10e312bab731a7cdda294022a01108c58d86b3a7": {
+                "filename": "Send.php",
+                "path": ".\/src\/App\/SubContainer\/Messages\/Send.php"
+            }
+        },
+        "src\/App\/SubContainer\/Moderation": {
+            "2170372f012c5c2ca56665ac53a418fa754f92b7ff7f353b99d2a856ab3ac8ce": {
+                "filename": "Discussion.php",
+                "path": ".\/src\/App\/SubContainer\/Moderation\/Discussion.php"
+            }
+        },
+        "src\/App\/SubContainer\/Notification": {
+            "7a5f87c4b360eac6da689dbb11dc46ec56d7ec3a238145b4e4277f3c87b66658": {
+                "filename": "Create.php",
+                "path": ".\/src\/App\/SubContainer\/Notification\/Create.php"
+            },
+            "d6f78bdc6fbd3ca111a57ecff0869f17b247096db2c54a0362e56923d7bbdade": {
+                "filename": "Remove.php",
+                "path": ".\/src\/App\/SubContainer\/Notification\/Remove.php"
+            }
+        },
+        "src\/App\/SubContainer\/Post": {
+            "d5c00659cd47471997e43f394c8562199039d2ba39ea127cc7e054e3ce1188d2": {
+                "filename": "Attachment.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Attachment.php"
+            },
+            "6f00c270f2e653fbc100fedd72e0b986efa7d768a6168bd984d27c5dc4354379": {
+                "filename": "Bookmark.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Bookmark.php"
+            },
+            "bdddaf672ba84fe3e728255b67eae9fe7ffa398da63b1c95dc890188667b80fe": {
+                "filename": "Create.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Create.php"
+            },
+            "d0610d0d7e6098d53cd2b460ecaadc092e8bebae1910f94cee2233e7202b1785": {
+                "filename": "Delete.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Delete.php"
+            },
+            "61113d9bd19ed058afbe1c5ea484dad7414bf25fd73ce37de4aa9ebe10f4c743": {
+                "filename": "Edit.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Edit.php"
+            },
+            "e38523513ff14d9f127b8ae5775ac29e43c0752be5442df9d8ce8459db76933a": {
+                "filename": "Like.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Like.php"
+            },
+            "828bfa2c05a0baea0d7e7623bd1dda193d7d6be58e74fc6104cf8d0b3ad10d0f": {
+                "filename": "Link.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Link.php"
+            },
+            "6d244defac848ffd765090f2e1fa64d2cd90feabb54ed73cc92cd2c4cb7265cd": {
+                "filename": "Order.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Order.php"
+            },
+            "b1e347b7b9ad752ec0b0cd5d1b4626af1e0a9e01e56922259148002f6e69ce77": {
+                "filename": "Pagination.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Pagination.php"
+            },
+            "4c4792606a00d7defda011da84533cf2f0d2f6add5437fbdfdb84b1f09b68171": {
+                "filename": "Report.php",
+                "path": ".\/src\/App\/SubContainer\/Post\/Report.php"
+            }
+        },
+        "src\/App\/SubContainer\/Search": {
+            "2b4bf3fa03792bc9230f6356961487992db18de66b872738aa41dee92acd66cf": {
+                "filename": "Advanced.php",
+                "path": ".\/src\/App\/SubContainer\/Search\/Advanced.php"
+            },
+            "e62a098b2269521c3a73bfb9d06bc899d65bb9d98a30e7d81469914caf42cbb7": {
+                "filename": "Post.php",
+                "path": ".\/src\/App\/SubContainer\/Search\/Post.php"
+            },
+            "dcda704d0cb08485eb69666ffbb77a9092cca7f48eb64b94ea9e4ac82337354d": {
+                "filename": "Quick.php",
+                "path": ".\/src\/App\/SubContainer\/Search\/Quick.php"
+            }
+        },
+        "src\/App\/SubContainer\/Theme": {
+            "5c79caf70af62c51829c384a27e198e0f042819eea6b99015f641f6d74e3be45": {
+                "filename": "Attributes.php",
+                "path": ".\/src\/App\/SubContainer\/Theme\/Attributes.php"
+            },
+            "cfeb92875d90bd0bb838ef7fe6b906275deea3bb32b19bfbda18a0dd1878c2b7": {
+                "filename": "Compile.php",
+                "path": ".\/src\/App\/SubContainer\/Theme\/Compile.php"
+            },
+            "f66783e13836dc1c08f18b849db23cc91d927881075792575a9e535da18bdf6d": {
+                "filename": "CssSchema.php",
+                "path": ".\/src\/App\/SubContainer\/Theme\/CssSchema.php"
+            }
+        },
+        "src\/App\/SubContainer\/User": {
+            "599b96d9405ef9ec948d5f2c589238083311c654c2b681fa562c5f143c0c4732": {
+                "filename": "Account.php",
+                "path": ".\/src\/App\/SubContainer\/User\/Account.php"
+            },
+            "a12c395adf9586b91f4307ac61c12c2f8879575ab9dbd17557fdaf75d552f68f": {
+                "filename": "Ban.php",
+                "path": ".\/src\/App\/SubContainer\/User\/Ban.php"
+            },
+            "d1de7bcb6a061a7195e675cec682d0b2be239f8a493194ad45385f864010622a": {
+                "filename": "Create.php",
+                "path": ".\/src\/App\/SubContainer\/User\/Create.php"
+            },
+            "2fedd736f436d55187e9e185ba14b4b884d82e2f9f2254fc0bbb40d430a03ec8": {
+                "filename": "Friendship.php",
+                "path": ".\/src\/App\/SubContainer\/User\/Friendship.php"
+            },
+            "1e63c441daf175c4182b483ac540c1445b503b9b88fda15deecf8200fc614710": {
+                "filename": "Link.php",
+                "path": ".\/src\/App\/SubContainer\/User\/Link.php"
+            },
+            "caec7b90b5568a8980749dc557077ceb7d36fa1d9c488139e4e366ef047c0636": {
+                "filename": "UsernameControl.php",
+                "path": ".\/src\/App\/SubContainer\/User\/UsernameControl.php"
+            }
+        },
+        "src\/App\/Template\/Twig": {
+            "b06f02ee5900a6b7e1234df238d846871939ef302d2723e0329a00546699d2cd": {
+                "filename": "Environment.php",
+                "path": ".\/src\/App\/Template\/Twig\/Environment.php"
+            },
+            "c175ea0188405a290041f3157ce4140945d9af62f9d01e062012905163ccbd4c": {
+                "filename": "Loader.php",
+                "path": ".\/src\/App\/Template\/Twig\/Loader.php"
+            }
+        },
+        "src\/Languages\/English (US)\/Admin": {
+            "d03069bc0c177aea2bff6ee7d8f8da40b805e1365ed91b3aa1abb2bbae41e6ef": {
+                "filename": "Addons.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Addons.yaml"
+            },
+            "45213bf239aeaf3f1115f4e04eccd293679078a52224204a86d94fff5fc46456": {
+                "filename": "Attachments.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Attachments.yaml"
+            },
+            "9a425628e13fc9445ce04686550964405ef3e3f91cd885d440ba476dbb9b08f6": {
+                "filename": "CensorWords.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/CensorWords.yaml"
+            },
+            "28d8eff11558ce91e9f8ac2ffbc33c35c0b5236397f8a62252ce2317bf259c9c": {
+                "filename": "Container.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Container.yaml"
+            },
+            "b06d728a56d0cfee3a18cd4b3dc92efb55a5ac436aaf82c23731ddce0f12f182": {
+                "filename": "Editor.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Editor.yaml"
+            },
+            "ebbd1fa81a3562e9f730507197d3f671d908e6e6f778388aa1c6e0ae932c3c8a": {
+                "filename": "Forums.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Forums.yaml"
+            },
+            "f330b1cbbe9d8c79ed57739669db4e02da195fc1d27bfb1fa747663760ed99c4": {
+                "filename": "Index.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Index.yaml"
+            },
+            "471cea487fc3a4be2df2031d1511c5a4d15e36264f9d5d80bfd110985ead6f07": {
+                "filename": "Languages.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Languages.yaml"
+            },
+            "1996be6664f2922b65e7e5a3aee77bfe2de4c1105d8447ea945c6ce435ed80a6": {
+                "filename": "NativeApi.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/NativeApi.yaml"
+            },
+            "583b85a2de95321641e33d752b6b86350cb2ff9cf9c701d2582c88da17224ed5": {
+                "filename": "OAuth.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/OAuth.yaml"
+            },
+            "41c75c2a5b82312940acc028522431a33bd51d24f2be411d9a3501291f8c906e": {
+                "filename": "RouteFilters.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/RouteFilters.yaml"
+            },
+            "b64d8e83c5a29bbd2de76c982d784e27dc276beb2edcdf1936a7205354a57bc9": {
+                "filename": "Settings.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Settings.yaml"
+            },
+            "855e4da9041706deb36b306dcbdc90349b1cb84fefed72cfd05179b7aca23d5b": {
+                "filename": "Theme.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Theme.yaml"
+            },
+            "ddd622c485853e274bccb0ac096ae095f6e66949af43d812221d876671b2db0a": {
+                "filename": "Users.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Admin\/Users.yaml"
+            }
+        },
+        "src\/Languages\/English (US)\/Gestures": {
+            "3db30f8923d5c4313d8a410182b9733aa222126c2d6b03c2059f457480a787c5": {
+                "filename": "Discussion.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Gestures\/Discussion.yaml"
+            }
+        },
+        "src\/Languages\/English (US)\/Pacman": {
+            "a096e15fc9842e3fe0cefb5e27b58a4bdc0cd7b40619fbcb78858c5ea8879cd3": {
+                "filename": "Game.yaml",
+                "path": ".\/src\/Languages\/English (US)\/Pacman\/Game.yaml"
+            }
+        },
+        "src\/Languages\/Turkish\/Admin": {
+            "8776038e20ca09db0ba4a322d71369d68a17ce2dae119edac2afc23483cb6646": {
+                "filename": "Addons.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Addons.yaml"
+            },
+            "20334e9ed8a29dcc0cca8952e8ffda66ef266674430c212bc8307022d5eef6d8": {
+                "filename": "Attachments.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Attachments.yaml"
+            },
+            "c7409c97ccd5429d5f3fa1267fce097388c75c17ba6d47f6e7621c7112f0c9a9": {
+                "filename": "CensorWords.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/CensorWords.yaml"
+            },
+            "ea7dcb840505f258bdf02535658bdd10eb9201cc36b8d5f8cc2b593e3b473bb4": {
+                "filename": "Container.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Container.yaml"
+            },
+            "c1c8eba73c2f74a9a32a46be440a6d418067d21ed278d95c5d6a3dab727ee762": {
+                "filename": "Editor.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Editor.yaml"
+            },
+            "7794f99c7c2932085b5807ba2ff4416bbc6e15c507e0f265bd117c52f0997d68": {
+                "filename": "Forums.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Forums.yaml"
+            },
+            "e58b4aaaa6cbba3623c3ed63e421b0de478e01fc2eb24bbe28872875bb5e696f": {
+                "filename": "Index.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Index.yaml"
+            },
+            "875b9e1b4172b0f80a1f8869e5500d6b93f2a40077a7402e86dc451fe3ac2348": {
+                "filename": "Languages.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Languages.yaml"
+            },
+            "6ef48413a04a29160865869ca2d39249749ff2962f3e448bbfb40d804aad9bc7": {
+                "filename": "NativeApi.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/NativeApi.yaml"
+            },
+            "cf845be8bd7df0091db496586793d6f3b5fa58d8f6c3c656b6d01eec9e7fa5ce": {
+                "filename": "OAuth.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/OAuth.yaml"
+            },
+            "3f8d24cb3ce6dcb86d034029ca01a9506b0d9f62a2d599a191cff4dc509291c8": {
+                "filename": "RouteFilters.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/RouteFilters.yaml"
+            },
+            "6a8b2a6a82d69d0974cb1747d228e4e238468d9e6ec9452cecc2ba1475d8b27d": {
+                "filename": "Settings.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Settings.yaml"
+            },
+            "8f941c9c0c2fde18f8dd2c3288c6403659dbdebf85360bc1defe5a48a6f417d9": {
+                "filename": "Theme.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Theme.yaml"
+            },
+            "fadf3a0395dce2b7e959764cce6fbac67381e23858937dccc3149e69b6e5c0ad": {
+                "filename": "Users.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Admin\/Users.yaml"
+            }
+        },
+        "src\/Languages\/Turkish\/Gestures": {
+            "ef02b215d32c633371c26f25d6331f12c7a45f911007bd1e281f1fc289db33ce": {
+                "filename": "Discussion.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Gestures\/Discussion.yaml"
+            }
+        },
+        "src\/Languages\/Turkish\/Pacman": {
+            "faa799e6e6836254f02950c206a23fb86ebe078f0005d964d39a195b34df0eb4": {
+                "filename": "Game.yaml",
+                "path": ".\/src\/Languages\/Turkish\/Pacman\/Game.yaml"
+            }
+        },
+        "src\/Templates\/Default\/Discussion": {
+            "2f78fb218149c222a3222d5687afbc8a9f15b3b7142729c5724ca5f32995321a": {
+                "filename": "discussion.twig",
+                "path": ".\/src\/Templates\/Default\/Discussion\/discussion.twig"
+            },
+            "17d78ee714d44451b4636806e94b7bd2a1ff56ffc2cd23d74c502fb944e1ab8f": {
+                "filename": "discussion_posts.twig",
+                "path": ".\/src\/Templates\/Default\/Discussion\/discussion_posts.twig"
+            },
+            "e6b0a09088980f5bdcbe80572f5c22d02e773801e89ea2ec0a2240f57a588630": {
+                "filename": "move.twig",
+                "path": ".\/src\/Templates\/Default\/Discussion\/move.twig"
+            }
+        },
+        "src\/Templates\/Default\/Exception": {
+            "52e961b56b3b5833e338d85cab7cc4cbf7f15a4b9806040d9d4ad34f9c72fd18": {
+                "filename": "404.twig",
+                "path": ".\/src\/Templates\/Default\/Exception\/404.twig"
+            }
+        },
+        "src\/Templates\/Default\/Index": {
+            "f21c9c262623b3a900d190c9f523a6cf44f27c077ce5fe3c90e37daad7889014": {
+                "filename": "index.twig",
+                "path": ".\/src\/Templates\/Default\/Index\/index.twig"
+            },
+            "79d8c25fbaf8be8565a6751668b285b907109eda6efe4b7f1098d0a3343ddaa9": {
+                "filename": "index_posts.twig",
+                "path": ".\/src\/Templates\/Default\/Index\/index_posts.twig"
+            }
+        },
+        "src\/Templates\/Default\/Layout": {
+            "c44fb1dbc85ea41ca8ff9b3c3187972d3b7b17cb23c8d9e7ff82a8fc2a1b6fda": {
+                "filename": "guest_welcome.twig",
+                "path": ".\/src\/Templates\/Default\/Layout\/guest_welcome.twig"
+            },
+            "78cb76bcba5235840ab42c047d036b4f6625b7da98aa8c9bb66a2e54341bdca7": {
+                "filename": "logo.twig",
+                "path": ".\/src\/Templates\/Default\/Layout\/logo.twig"
+            },
+            "503dcab0dd2ecb054b7fb63c330cb4d0ef503e27beb970a4caf62109641b357a": {
+                "filename": "navbar.twig",
+                "path": ".\/src\/Templates\/Default\/Layout\/navbar.twig"
+            },
+            "b51bfe4f5259fc8b69cfba67978a17f6a66f25a188a215c9c51220bd90316efc": {
+                "filename": "quick_search.twig",
+                "path": ".\/src\/Templates\/Default\/Layout\/quick_search.twig"
+            },
+            "593cde74c8cafcb8f2b6cfd1788cfbe7cfa2f4008d77f2f0fdfcbb8f1ec7f199": {
+                "filename": "social_login_buttons.twig",
+                "path": ".\/src\/Templates\/Default\/Layout\/social_login_buttons.twig"
+            },
+            "f35cb809af20df138c2ee5db86ed66e13be021b05c67f25745031a85a64065d2": {
+                "filename": "usermenu_member.twig",
+                "path": ".\/src\/Templates\/Default\/Layout\/usermenu_member.twig"
+            },
+            "acf1cf08349f4f76d039a567e109182d65ddb0e54369363d5941e64d4ea1a417": {
+                "filename": "usermenu_messages.twig",
+                "path": ".\/src\/Templates\/Default\/Layout\/usermenu_messages.twig"
+            },
+            "b8e9221f44591fd82d6bc76dfdcce80c38f8f890890c900a8f5874ec386cc492": {
+                "filename": "usermenu_notification.twig",
+                "path": ".\/src\/Templates\/Default\/Layout\/usermenu_notification.twig"
+            }
+        },
+        "src\/Templates\/Default\/Macros": {
+            "ccdabe5eaca15be3fbe5245139513db122e9b1ed4e1e18789069f23e39902f7c": {
+                "filename": "macro.account_posts.twig",
+                "path": ".\/src\/Templates\/Default\/Macros\/macro.account_posts.twig"
+            },
+            "aabe4b1f397d4190496ca43e76cbf09769e3c4148fe2713838d7041b837f0a35": {
+                "filename": "macro.editor.twig",
+                "path": ".\/src\/Templates\/Default\/Macros\/macro.editor.twig"
+            },
+            "60265093e25c1d6969359702aad2950fdd91e8dfb75e23d03b43c82c20df892c": {
+                "filename": "macro.index_posts.twig",
+                "path": ".\/src\/Templates\/Default\/Macros\/macro.index_posts.twig"
+            },
+            "68f74c6faa491096f313ef3576bf62586edfbb23f393566d1796f030e6230a85": {
+                "filename": "macro.messages.twig",
+                "path": ".\/src\/Templates\/Default\/Macros\/macro.messages.twig"
+            },
+            "44c415464f3221cccd4360b144eca85f44a81ba3cfb7fe7c6ad49b68fc49e874": {
+                "filename": "macro.messages_list.twig",
+                "path": ".\/src\/Templates\/Default\/Macros\/macro.messages_list.twig"
+            },
+            "4d2a7a21f12be3fe8ebe9a5de34ff6852343709cd817ec580197f265b1274d3b": {
+                "filename": "macro.notifications.twig",
+                "path": ".\/src\/Templates\/Default\/Macros\/macro.notifications.twig"
+            },
+            "ae99395215a19d0a217a8b9e46cba2ad8e687c54f0d0450eb0bf4d68760fdd77": {
+                "filename": "macro.posts.twig",
+                "path": ".\/src\/Templates\/Default\/Macros\/macro.posts.twig"
+            },
+            "9360a3dac878fbc393f25cca0a783565f524541a07db6d8f96df174960fe00fb": {
+                "filename": "macro.profile_posts.twig",
+                "path": ".\/src\/Templates\/Default\/Macros\/macro.profile_posts.twig"
+            }
+        },
+        "src\/Templates\/Default\/Messages": {
+            "c4521b35cbb71b9b19cda847becb52806f2fdcabd8c933173e1ff92576f6deff": {
+                "filename": "conversation.twig",
+                "path": ".\/src\/Templates\/Default\/Messages\/conversation.twig"
+            },
+            "d0f3f246fef0f227160ea2a09e90f7a560ae8bc53a6800f7a48d75837a90912e": {
+                "filename": "messages.twig",
+                "path": ".\/src\/Templates\/Default\/Messages\/messages.twig"
+            },
+            "3ec9054145b492ee8acc1574910635047568a45c3d4d04ed9c94c620aa488f48": {
+                "filename": "new.twig",
+                "path": ".\/src\/Templates\/Default\/Messages\/new.twig"
+            },
+            "d89e703857d250fff43a43f97da7c9b704cbb0de4febd7f7b90e6a5549fda31c": {
+                "filename": "new_users.twig",
+                "path": ".\/src\/Templates\/Default\/Messages\/new_users.twig"
+            }
+        },
+        "src\/Templates\/Default\/Pages": {
+            "bf5436426242922cfaa40dcd534dfb2675419f0f7d2785426839627ae0bcdb1f": {
+                "filename": "contact.twig",
+                "path": ".\/src\/Templates\/Default\/Pages\/contact.twig"
+            },
+            "cd5e91e0a9d3de58a35838baf98966d62c0a16d9aec134f7c3857f2e905bdbd1": {
+                "filename": "faq.twig",
+                "path": ".\/src\/Templates\/Default\/Pages\/faq.twig"
+            },
+            "4721095d5e6dc9d01aecb0ea25abf55576e4b1cd0c1c2b51cbdea696145aa1a8": {
+                "filename": "privacy.twig",
+                "path": ".\/src\/Templates\/Default\/Pages\/privacy.twig"
+            }
+        },
+        "src\/Templates\/Default\/Post": {
+            "32c5cdb237ea0f918b7ff8beab3c2eed2d86df9af24b3d9138b90e87acd997d7": {
+                "filename": "delete.twig",
+                "path": ".\/src\/Templates\/Default\/Post\/delete.twig"
+            },
+            "76ced78f52bcaf321d511b03301c89b20fc18bc92281fea4de6dc9b321a6e4cf": {
+                "filename": "edit.twig",
+                "path": ".\/src\/Templates\/Default\/Post\/edit.twig"
+            },
+            "896b92f882d0012eb6c54204cbcbd8b45e5ab3410d26d7d4113cbe64f7f5fc5d": {
+                "filename": "report.twig",
+                "path": ".\/src\/Templates\/Default\/Post\/report.twig"
+            },
+            "035df3d60c3a5550fbae06f980cd1623db24dfc3c140b522c63f72d2ab8a6743": {
+                "filename": "updateAttachments.twig",
+                "path": ".\/src\/Templates\/Default\/Post\/updateAttachments.twig"
+            },
+            "98f30dcb139f8e19e914cf6a6c13fa6df813757dcea18b52ca5cc0d9891b840f": {
+                "filename": "updateContent.twig",
+                "path": ".\/src\/Templates\/Default\/Post\/updateContent.twig"
+            },
+            "d688271e49c89bae00a5f2bd7ac4e4b088e22ebb4cdf9b62ff87aee8176d04ea": {
+                "filename": "updateLike.twig",
+                "path": ".\/src\/Templates\/Default\/Post\/updateLike.twig"
+            }
+        },
+        "src\/Templates\/Default\/User": {
+            "d803709b12d38a4b4c9808c47d7421c1e862aa9e7aaaf64c5d3eb079b651fd16": {
+                "filename": "account.twig",
+                "path": ".\/src\/Templates\/Default\/User\/account.twig"
+            },
+            "c65ddb3a1de8a5f4bf35eebab541b7b6cf8442d69940712f96a35cd62e41af26": {
+                "filename": "account_bookmarks_posts.twig",
+                "path": ".\/src\/Templates\/Default\/User\/account_bookmarks_posts.twig"
+            },
+            "3db7c99d4bce812cf21ef47b55f39cc2dadad7f260275430f6c2bcde7c84ac38": {
+                "filename": "account_likes_posts.twig",
+                "path": ".\/src\/Templates\/Default\/User\/account_likes_posts.twig"
+            },
+            "54ef54a6a7c6de618540b5e8702c97a5e21488cfb0233a462919a893fe8c214a": {
+                "filename": "profile.twig",
+                "path": ".\/src\/Templates\/Default\/User\/profile.twig"
+            },
+            "281c9688d63457a6c8472cb89e7321468bddb163cf750c25445e88cd1d70205d": {
+                "filename": "profile_posts.twig",
+                "path": ".\/src\/Templates\/Default\/User\/profile_posts.twig"
+            },
+            "1d5f3c18d2e99d6d14a28948bd9fd63e45cdb14e04936495b85d549558894e6b": {
+                "filename": "profile_tooltip.twig",
+                "path": ".\/src\/Templates\/Default\/User\/profile_tooltip.twig"
+            },
+            "63e20aba8126552d9d99142f7fa69fc8d0ce2cd12124b87daa462e8b311a7963": {
+                "filename": "two_step_verification.twig",
+                "path": ".\/src\/Templates\/Default\/User\/two_step_verification.twig"
+            }
+        },
+        "public\/ui\/vendor\/app\/admin": {
+            "dc4fb38b86f8fa69b6c73dcaf37408e29161ae38099ce877ff98ee6637341fd2": {
+                "filename": "admin.js",
+                "path": ".\/public\/ui\/vendor\/app\/admin\/admin.js"
+            },
+            "fbe313ee56e98ebfd08adda8e3bd3b49d062e05f5db1c0d58ad3d5b353890045": {
+                "filename": "vendor.js",
+                "path": ".\/public\/ui\/vendor\/app\/admin\/vendor.js"
+            }
+        },
+        "public\/ui\/vendor\/app\/editor": {
+            "e9a6eb71c776699cef7be40abaf7ca7746ec8f841437f5e86ecb5e8fd8b01b26": {
+                "filename": "bbcode.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/bbcode.js"
+            },
+            "9c6d99d6ad7753f980657ea0b2c5bf63dfbff83e063ccc91ea2afff4328b45ba": {
+                "filename": "code.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/code.js"
+            },
+            "82a3833492ab2bb9c0e95427de5c5d505f2cdbe63723a8a65d7658f4b98dcab6": {
+                "filename": "emoticons.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/emoticons.js"
+            },
+            "114c1077f6508d8fc1f5e17f92a678e3fb74ae267cccf392135ad60919da9ebb": {
+                "filename": "fullscreen.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/fullscreen.js"
+            },
+            "725c9c764e9423d059fb99bbd8bf72ca02d6012ea3e69b4ab280f1cd2db483d2": {
+                "filename": "preview.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/preview.js"
+            },
+            "1022eec1bfea8944afec462456c280028b6594433eebe2b9becfd24cd6a51390": {
+                "filename": "quote-message.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/quote-message.js"
+            },
+            "93c30068110ff425dee75e122b38a067418285c725e0117f87ff6a0136abe0f7": {
+                "filename": "spoiler.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/spoiler.js"
+            },
+            "f2f005a052f66b6b348a67b31cc5ddf91abb3edcfc1774a9e44dd4b63c3a320f": {
+                "filename": "user-tagging.js",
+                "path": ".\/public\/ui\/vendor\/app\/editor\/user-tagging.js"
+            }
+        },
+        "src\/Addons\/Mention\/App\/Config": {
+            "bc7e5ed23ab8d53b79338f89b5414c586a40ff445cb0ee34941204cdc6d546ef": {
+                "filename": "routes.yaml",
+                "path": ".\/src\/Addons\/Mention\/App\/Config\/routes.yaml"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin": {
+            "f53894d4d5a3b0ae81eb433e976ba034b9eea6e02d19ed0b3607dae81ae91ded": {
+                "filename": "container.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/container.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Common": {
+            "2d2190140f76f1185e2d3a0112ffd7a2ab4a9ac2f789bbd7c62d2b179bc37964": {
+                "filename": "urlwarn.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Common\/urlwarn.twig"
+            }
+        },
+        "src\/App\/Cli\/Command\/Addons": {
+            "11c70f51441fb6a2f24cff535f902e23daf026234496950c5d7fee30d722e536": {
+                "filename": "Package.php",
+                "path": ".\/src\/App\/Cli\/Command\/Addons\/Package.php"
+            }
+        },
+        "src\/App\/Cli\/Command\/Build": {
+            "e061e03f7521d22447d120c9d1c9aac67f1590dba6c2d9a679cf01ea85853c1b": {
+                "filename": "BuildHashes.php",
+                "path": ".\/src\/App\/Cli\/Command\/Build\/BuildHashes.php"
+            }
+        },
+        "src\/App\/Cli\/Command\/Install": {
+            "06a20cff69bd34f77cb4a05bfd773e31ae39d659a9e629404fbae37ee18b01c1": {
+                "filename": "Db.php",
+                "path": ".\/src\/App\/Cli\/Command\/Install\/Db.php"
+            }
+        },
+        "src\/App\/Hook\/DomManipulation\/Nodes": {
+            "a781ec563d66f09db34e5e8b8ad572f2a3d2398ca43c280d0acb70dd35942693": {
+                "filename": "AbstractNode.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/AbstractNode.php"
+            },
+            "701710496c0df8535e1f61de19020c790d9860da80d026f30ec1054f21403a52": {
+                "filename": "Attribute.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/Attribute.php"
+            },
+            "ef5be63d5127a18690d019d9584aa7bcca0dfb589a96156638cb1e230c420c73": {
+                "filename": "Html.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/Html.php"
+            },
+            "defb9c3bebcf48ed2c35211cad3515393a79613d9873e023b9739bd40de91cb1": {
+                "filename": "HtmlClass.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/HtmlClass.php"
+            },
+            "50d32a49156c997eb0de0ffb0d5bb70f116478827a1e10e4e43b6119b05464e4": {
+                "filename": "Style.php",
+                "path": ".\/src\/App\/Hook\/DomManipulation\/Nodes\/Style.php"
+            }
+        },
+        "src\/App\/Renderer\/BBCode\/Editor": {
+            "f359d25651bd3d92cfe81ca9e74e44782d15867e31b845bd79e05884c720449f": {
+                "filename": "Editor.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Editor\/Editor.php"
+            },
+            "d87a958c0d475797d0b7ea9c2755646a3fc8a813843e2989754eede68971e3db": {
+                "filename": "Parser.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Editor\/Parser.php"
+            },
+            "51becd8ca361d174f09cbcef896f6fca28f24a5b3c69b9d27d24a0832b189d46": {
+                "filename": "PostProcess.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Editor\/PostProcess.php"
+            }
+        },
+        "src\/App\/Renderer\/BBCode\/Helper": {
+            "c274f3efffecf81825e6fc5e015291675a7c546bb70206226141cd5d68957487": {
+                "filename": "Link.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Helper\/Link.php"
+            },
+            "d3488cecbb027c85fb6a88078cae5a79f9d3637d2b4608dcede047b1b1ec7fde": {
+                "filename": "Media.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Helper\/Media.php"
+            }
+        },
+        "src\/App\/Renderer\/BBCode\/Html": {
+            "5befd1016384665e8cef71f8c2b960d79779b0137bfc8ebb55a7b25af9879b4f": {
+                "filename": "ClearBBCode.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Html\/ClearBBCode.php"
+            },
+            "1a6171d3db54187e38acaba93abd4ec63307eee796bd783f98d030e00e97ca37": {
+                "filename": "Escape.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Html\/Escape.php"
+            },
+            "b6fc4339647ae55426d6164a525996da73d852dc6fe2310f62043b5d22b6453e": {
+                "filename": "LineBreaks.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Html\/LineBreaks.php"
+            },
+            "00fa9f7972dbda651f44d5fb94acf186d91cd33d0a14f458a532028e98f790bf": {
+                "filename": "ProcessListItems.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Html\/ProcessListItems.php"
+            }
+        },
+        "src\/App\/Renderer\/BBCode\/Str": {
+            "bf6f8f044bcf5121de8161d2d6beb64fafe63e3f9a4f7933842de2a64931f2a4": {
+                "filename": "CensorWords.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Str\/CensorWords.php"
+            },
+            "4a38bac5bb4dbcade994b0340e5cf06f86beaa661dda1d25b87418fbdb3ab3fc": {
+                "filename": "Emoticons.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Str\/Emoticons.php"
+            }
+        },
+        "src\/App\/Renderer\/BBCode\/Tag": {
+            "e91ac99854dcd065215d5e335a9824e3e1b24aea078fb9487480fe2056d9b02b": {
+                "filename": "AbstractTag.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/AbstractTag.php"
+            },
+            "1972eedc4bf0dd33a0d9c9b0a7429be72db3361ec71233ee62d57cd78b688332": {
+                "filename": "Align.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Align.php"
+            },
+            "058dff62c97a1e68d9290d6e330e18907d432e99329817a734d1c1ef70aecd14": {
+                "filename": "Code.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Code.php"
+            },
+            "323a23a503066e32c6c2eb647c3159f0c216d57f8a3c54bc3c85c32aa2fe826b": {
+                "filename": "Extending.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Extending.php"
+            },
+            "ba326b290fecb45144f62caf5e18b58d9f6364164578d65e8db36233195916cf": {
+                "filename": "Image.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Image.php"
+            },
+            "9226a6fa4f216bca065164d31cefa8333fa29aa4a5c500c73cc705f1fb7ed240": {
+                "filename": "Link.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Link.php"
+            },
+            "73b00d8fef29a1e75f6d6577ba66a20cf9d33bca4f4c856d91db891e20edc6de": {
+                "filename": "Listing.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Listing.php"
+            },
+            "304a250ece4e124e540ec13c4a27458ff24d179b2a48dfd87e49bd8abe76ed08": {
+                "filename": "Spoiler.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Spoiler.php"
+            },
+            "cc3a55a509e2c53977396fd67417b9e74629e47fe58c0eef018b4fd7ea8a3c19": {
+                "filename": "Table.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Table.php"
+            },
+            "aacc06374e7a027d26a0106c34208d9704e1420a08a576633f32e8b605714c41": {
+                "filename": "Text.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Tag\/Text.php"
+            }
+        },
+        "src\/App\/Renderer\/SeoBundle\/Meta": {
+            "5a381f9325e0ed5fa4035d1695cca7d4a20f27a07667973de4908948c07ce474": {
+                "filename": "AbstractMeta.php",
+                "path": ".\/src\/App\/Renderer\/SeoBundle\/Meta\/AbstractMeta.php"
+            },
+            "f845ba236783b86afbe31e773768369487e126b30cf738484b1fd2565ec6b1d5": {
+                "filename": "Items.php",
+                "path": ".\/src\/App\/Renderer\/SeoBundle\/Meta\/Items.php"
+            },
+            "4736defb929815214be87e81b6b86b1f3662817acc82708c60b1075422ba4624": {
+                "filename": "MetaBundle.php",
+                "path": ".\/src\/App\/Renderer\/SeoBundle\/Meta\/MetaBundle.php"
+            },
+            "e0d27839c34425840736ac0614806492b0f38c759d9bdbbbc49abbc4a14f2052": {
+                "filename": "RenderHtml.php",
+                "path": ".\/src\/App\/Renderer\/SeoBundle\/Meta\/RenderHtml.php"
+            }
+        },
+        "src\/App\/SubContainer\/Auth\/Service": {
+            "997ca865bfece5aed63e7e4cac0e16121c1ad2d5ad857e4f8a2afcc7b7f66377": {
+                "filename": "Facebook.php",
+                "path": ".\/src\/App\/SubContainer\/Auth\/Service\/Facebook.php"
+            },
+            "cd5e65d631bb325178f078116c565cbe2f5105e27df4bf3957eadd461a65a940": {
+                "filename": "Google.php",
+                "path": ".\/src\/App\/SubContainer\/Auth\/Service\/Google.php"
+            },
+            "acb8b705fade0defa2a67f46791c7aaaccb21b23f0b18356720f41ec30a2ab2e": {
+                "filename": "SocialAbstract.php",
+                "path": ".\/src\/App\/SubContainer\/Auth\/Service\/SocialAbstract.php"
+            },
+            "e164e20616bc949ea45b2f8487fbfcb8c3411cc9bad2466ab9e8d2f0bf26478e": {
+                "filename": "Twitter.php",
+                "path": ".\/src\/App\/SubContainer\/Auth\/Service\/Twitter.php"
+            }
+        },
+        "src\/App\/Template\/Twig\/Extension": {
+            "2dee20102a5482bd3206c1dbab51076b29a0204de9f6b217f4f1763a50f7456f": {
+                "filename": "Base64.php",
+                "path": ".\/src\/App\/Template\/Twig\/Extension\/Base64.php"
+            },
+            "d966cc9630372b8b585885c40ed7ff0101bd530c8fc6c566ef59d34e050e6db5": {
+                "filename": "Basename.php",
+                "path": ".\/src\/App\/Template\/Twig\/Extension\/Basename.php"
+            },
+            "6fc7728bd5a77f38ed359729072573d15482a5f65622012e1084d028692f5b1a": {
+                "filename": "BuildSeoLink.php",
+                "path": ".\/src\/App\/Template\/Twig\/Extension\/BuildSeoLink.php"
+            },
+            "d995300724146837157f0d29d18da771c5ab91785acb57e2dca0a1f20461c460": {
+                "filename": "Bytes.php",
+                "path": ".\/src\/App\/Template\/Twig\/Extension\/Bytes.php"
+            },
+            "540dc2be4b95322c3e44b929d06de4cc07806a6756f42a31ae40688263ecc641": {
+                "filename": "Json.php",
+                "path": ".\/src\/App\/Template\/Twig\/Extension\/Json.php"
+            },
+            "3d7d240fd4de21f42c6234433c1fbb46aae00f81458c17737db8ab0ec941e583": {
+                "filename": "Matcher.php",
+                "path": ".\/src\/App\/Template\/Twig\/Extension\/Matcher.php"
+            },
+            "f71d0a7233d74c20e2eec2d36270e5e1f71ba152f9d8d7382e6095df456157da": {
+                "filename": "NumberFormat.php",
+                "path": ".\/src\/App\/Template\/Twig\/Extension\/NumberFormat.php"
+            }
+        },
+        "src\/Addons\/Mention\/App\/Builder\/Metadata": {
+            "31cfae0dff7f25ff9220b8713b1dcb08154dad352001a3a8aadf97a65d6692bb": {
+                "filename": "AbstractMetadata.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/AbstractMetadata.php"
+            },
+            "5bc09da80798418295ebff28b364bc1097c711ea1ad2675580b26c3666d6bca3": {
+                "filename": "Account.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Account.php"
+            },
+            "e5f9f10067c871d1d603df819180c9b1c244359a5bf69549002fa47981376b4c": {
+                "filename": "Contact.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Contact.php"
+            },
+            "f4c51deafe43425fecd834221161d364871ab4fa97d2b768261a6189df475eea": {
+                "filename": "Discussion.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Discussion.php"
+            },
+            "dfefaf25c9aebd198367027146b8ba8e312cd4349fdbe479ba31a71da8348d2d": {
+                "filename": "Faq.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Faq.php"
+            },
+            "1c83be43d066f879d1b068b7dc69728074b6b034a5f238ecca1ae88a7a227ba4": {
+                "filename": "Index.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Index.php"
+            },
+            "13fb16088311ea6eee6508a96914890713831d3896e3a37a50dc48418aa0f156": {
+                "filename": "Messages.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Messages.php"
+            },
+            "38db6c8ef90f3fa6cb5fcde13912459ff175fb8c18799918b121b20b7cf8d044": {
+                "filename": "Options.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Options.php"
+            },
+            "0f71860611619216fc9b0576a81defb61078720a9792f37a03e2cd9414b56aa9": {
+                "filename": "PageNotFound.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/PageNotFound.php"
+            },
+            "648c0303eb683095044901bfd109d35dcc1dc3d7b645b4bbb7ac08ea27facd2b": {
+                "filename": "Privacy.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Privacy.php"
+            },
+            "d196792f5dd88a3d4bbc17223eff78866147eba293259068a4fc0ede6d46e07c": {
+                "filename": "Profile.php",
+                "path": ".\/src\/Addons\/Mention\/App\/Builder\/Metadata\/Profile.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/Config": {
+            "b5b42ff7be1e516808548ba9edfc18ddd21f6dea7f3b5bf9cc127906181f9252": {
+                "filename": "routes.yaml",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Config\/routes.yaml"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/Entity": {
+            "7f6c61e41133bdf770a2a0fd7784c7228c068ac7d026bdc2fa25c9c78d38deca": {
+                "filename": "AdminNavigations.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Entity\/AdminNavigations.php"
+            },
+            "d1a7e7178c222b0c7393e38bb04bde169d585522532c82d6bfbfc1e3bf616bc1": {
+                "filename": "Stats.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Entity\/Stats.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/Mvc": {
+            "f3e181d15b111d91066be1bc5a9905741507f9184b59e173d642ab789ff8c443": {
+                "filename": "ApplicationDefinitions.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/ApplicationDefinitions.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/String": {
+            "7127706f337d7b44516423fd3f86c6eb1e708418c3acfec38f448a2ff2bd1fd8": {
+                "filename": "Addons.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/Addons.php"
+            },
+            "275c4bdf46f37f08f8ba013adc2aeb73d1bd998449784d075354afae44cf4820": {
+                "filename": "AdminNavigations.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/AdminNavigations.php"
+            },
+            "dc39217201002b831a278fb3fe9e5b50d1058ea9c312a3ac9559ec0ca1015e5a": {
+                "filename": "AttachmentFileTypes.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/AttachmentFileTypes.php"
+            },
+            "341e8e8a40628d7f98ff3d7d9d63e4a11645b83bc76af6d7b77732b7b82c2b21": {
+                "filename": "Languages.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/Languages.php"
+            },
+            "12eb5a98c8cfd3bddae323dd4a85272be45dcd008256e495b93673f4e4b6f218": {
+                "filename": "Routes.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/Routes.php"
+            },
+            "3b319421a812e3a7e49234aa82c98dfcfdc203317e8c82aad8d31ae4fec20b5f": {
+                "filename": "Stats.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/Stats.php"
+            },
+            "f98910702f12016fee38714a76af27c729efec47d3168831fcc51cea0fcabb96": {
+                "filename": "Templates.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/Templates.php"
+            },
+            "43b0b7343d388c639b56841b97d76eddba4af373be75a7bc6a95d73446bafda0": {
+                "filename": "Theme.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/Theme.php"
+            },
+            "9e3469578aba3e1a0d748b729e8d90d16b00c9d3ab37a337387f77369a4c4b4b": {
+                "filename": "Users.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/String\/Users.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer": {
+            "d7f0cdc9cd911829e56dd28a9ec2cf50ecd7b4e5a42dfbfb336cc7e4942ef3d4": {
+                "filename": "Logs.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Logs.php"
+            },
+            "7de161f352ae660bee538cb228e512e2d7f65568ba4f4cf3493ca5afcd7f1c58": {
+                "filename": "Modification.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Modification.php"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Addons": {
+            "b76691bbc6164b685daea296df250a492fe7ac263a4279ddea54a08d433fa3b1": {
+                "filename": "app.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Addons\/app.twig"
+            },
+            "1bd10455b6bc531c03bf18a4cdafb0da4c54489b5ef7d0b011814c399cac8d2f": {
+                "filename": "install.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Addons\/install.twig"
+            },
+            "93a2919179620a39395fb8f7ee9e106e2162ee82cb9763623a303d1fb92a9e93": {
+                "filename": "list.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Addons\/list.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Api": {
+            "6b7e6c466bec19935c2a08d9715ab05789d0e50d56cf4749e5de09ef23ec1cd8": {
+                "filename": "native_api.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Api\/native_api.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Attachments": {
+            "a5ca18dfb60694fb91da42bd82a0e8f95447f462a0eb51b55edc065eb014ca65": {
+                "filename": "file_types.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Attachments\/file_types.twig"
+            },
+            "891335b0d4fd2b9f836acf8ac7679f104734a773dc80b3529b00de690a1a2142": {
+                "filename": "new_file_type.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Attachments\/new_file_type.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/CensorWords": {
+            "81e3440ef07062e82886d1c32369dabc3e7ed8c0311447410a16ab65afb9b076": {
+                "filename": "censor_words.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/CensorWords\/censor_words.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Editor": {
+            "d6919e6bd9d53b09792287afbd493907465eae18241e7b3a673cfdf161d494e7": {
+                "filename": "edit_buttons.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Editor\/edit_buttons.twig"
+            },
+            "7184508fab8f3c4f1c60b8165eabbd29fbd78b55b15311fa2c13200f7f51a79d": {
+                "filename": "editor_buttons.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Editor\/editor_buttons.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Forums": {
+            "d8a3b608b2a6a291a7fab1901b97e352d362078db7cbda7ad544510e0232eb14": {
+                "filename": "add_forums.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Forums\/add_forums.twig"
+            },
+            "6104d3368c43b18647363e45cf055d1802d7eab872de873dd4268c5cfa0c6d30": {
+                "filename": "edit_forum_accordion.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Forums\/edit_forum_accordion.twig"
+            },
+            "89eaadd019e8b3035b2636be656313918ba440a2ad6acacf587de282d832cf85": {
+                "filename": "forums.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Forums\/forums.twig"
+            },
+            "ab5c1cf0471c812ce0e658785bfe76c1a3d5d33e0e9e46f86dbbafb00fa817d2": {
+                "filename": "remove_forum_modal.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Forums\/remove_forum_modal.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Index": {
+            "ada52ed791702939249a8edfc0dc1e0bf0f51f068f59ca7aed57637bd921c424": {
+                "filename": "index.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Index\/index.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Languages": {
+            "993ea2dcc229a72a449ff9e84b3afa1b0261dcd3ea48b2ec5a4603c17463b411": {
+                "filename": "edit.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/edit.twig"
+            },
+            "0e57d81cc6c23d93ebf19d5d00ad9d37e29ff4c16987d72ff97d542c5443be67": {
+                "filename": "import.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/import.twig"
+            },
+            "247020a00810a17b17dca47bc1923b40bce0ab5b5104c9805b2730b736b65548": {
+                "filename": "list.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/list.twig"
+            },
+            "fd6f4e6f6405c65e22c52cdc9ea5faafebdd038a53af8295adc7d43ef657aed6": {
+                "filename": "new.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/new.twig"
+            },
+            "f5eab824488d634c09152b7f53f7a1c02d2d6f4d31bf6c2b1d934260113727a6": {
+                "filename": "phrase.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/phrase.twig"
+            },
+            "907a2ea3f7c1947e44f20cfa423f9edad171d5987d2c963a7a76b5b9ebf2fb21": {
+                "filename": "remove_language_modal.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/remove_language_modal.twig"
+            },
+            "5b2ed9d756cc3672f266becb0fa823e7748423209f584c9991fc61b7a3dd258f": {
+                "filename": "search_sentences.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/search_sentences.twig"
+            },
+            "03215c7d93a57b48551929bea0ca3b4cc0861d6613f71192f67bc62c9af328a0": {
+                "filename": "sentence_list.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/sentence_list.twig"
+            },
+            "5eea42ecfa678ef0483057e96d388e8d61cf1a5b21339f61636b0d8d939d3604": {
+                "filename": "sentences.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Languages\/sentences.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Layout": {
+            "0a2ec7699ce0f2d215680bde63a2a5c9349cf0eeaf842dee4eb3082cf614622a": {
+                "filename": "sidebar.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Layout\/sidebar.twig"
+            },
+            "a57a06f85414b1ece0d2ce6204149c1c98a8132e97ab62b8cd0c43cf24aa22e0": {
+                "filename": "user_quick_search.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Layout\/user_quick_search.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/OAuth": {
+            "28d27ebbb8ea06058443e2b0f6684673135f2a0c2c377ab61138c0e44639c574": {
+                "filename": "add_service.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/OAuth\/add_service.twig"
+            },
+            "c303dcb794babf602f1be54e80fd6f1991b94e82868913424729a1819f10e42a": {
+                "filename": "oauth_services.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/OAuth\/oauth_services.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/RouteFilters": {
+            "3e1378ede068e477bd1cb574948afcfbbce1d17ebc49b25c218bda7015139a2e": {
+                "filename": "route_filters.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/RouteFilters\/route_filters.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Settings": {
+            "486ea4304518d74912700e9283b1802f028c0577197bfe813104e8270cf26467": {
+                "filename": "groups.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Settings\/groups.twig"
+            },
+            "bb9489ed9b082143e15fb628b6d4d6de957eeca0a924f3e6ff4fe60e3eac4a45": {
+                "filename": "setting.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Settings\/setting.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Theme": {
+            "e2221b55524c51f635244c80c0dd337eeab5edf3c67d689df1c9c815299dedd5": {
+                "filename": "templates.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Theme\/templates.twig"
+            },
+            "d6f79ecea57ee3181a04525fd1f4d54b5e93094882e1391366933fdcd60e57f3": {
+                "filename": "theme.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Theme\/theme.twig"
+            }
+        },
+        "src\/Addons\/Mention\/Templates\/Admin\/Users": {
+            "43da138ca3f9af277fea44c7801123f67031b36d44111f79afe7f82b5e5e2e55": {
+                "filename": "add_user.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Users\/add_user.twig"
+            },
+            "ab7075dfa60fc6f91f5f587747de8bdb1d5f83cdbb2e0cf7dded656b3abe787b": {
+                "filename": "ban_user.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Users\/ban_user.twig"
+            },
+            "0eef894ffb7a6a47589ebd26c391a07493dbf2395deb8b9c9916fc4c55e554b6": {
+                "filename": "edit_user.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Users\/edit_user.twig"
+            },
+            "e4f67ed9347569bb3d4e498011506681073bc34e6d3eff6683a3801dd88d9de5": {
+                "filename": "users.twig",
+                "path": ".\/src\/Addons\/Mention\/Templates\/Admin\/Users\/users.twig"
+            }
+        },
+        "src\/App\/Renderer\/BBCode\/Helper\/Media": {
+            "505e9c72de57d15e4e50baa9cb85d291cae7999db62f79d23599141b4423f9b1": {
+                "filename": "Spotify.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Helper\/Media\/Spotify.php"
+            },
+            "10955bbfb56464f29ca25daca3ee26b06451b50ca73a3b812f7dfbb5d468f16a": {
+                "filename": "Twitch.php",
+                "path": ".\/src\/App\/Renderer\/BBCode\/Helper\/Media\/Twitch.php"
+            }
+        },
+        "src\/App\/Template\/Twig\/Token\/DomEvent": {
+            "ef1cdbc066ff6dc0c6267b7e6f5c989729e88e26daf1c9589aa4c838dd849066": {
+                "filename": "Node.php",
+                "path": ".\/src\/App\/Template\/Twig\/Token\/DomEvent\/Node.php"
+            },
+            "0c8c4b1565f65f11c11fed71215b3a481b4e56498f6b09e343cba8514c4867a0": {
+                "filename": "TokenParser.php",
+                "path": ".\/src\/App\/Template\/Twig\/Token\/DomEvent\/TokenParser.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub": {
+            "54d85f78d31b5c66443fb90e37dc8e1fa484a6655951d9a7fd8700774610b6c5": {
+                "filename": "Addons.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Addons.php"
+            },
+            "e4c8b8079b0d9f9df9dc136f8653900f06f78513324115bb6267e74e88d49e69": {
+                "filename": "Attachments.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Attachments.php"
+            },
+            "719273780860a68948cf06a24eee52dba2ed70b20f84107fefab2ee3ebb1684d": {
+                "filename": "CensorWords.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/CensorWords.php"
+            },
+            "46141937908a72dbce05926b9a3a0c32fa74ab9a29ed3c00b06b616a5f1e4e8e": {
+                "filename": "Common.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Common.php"
+            },
+            "78d2d8228bdf8d9a4a903b83d62ad77b0b6dbc9a841176710188c94917edee87": {
+                "filename": "Editor.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Editor.php"
+            },
+            "0d17d4f1b1c050dd8b84228bd1cae11886f9d644ae3c409820101c4127f0bdcc": {
+                "filename": "Forums.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Forums.php"
+            },
+            "fe1decc59f3df7370fe21dbe8e7834d559332cdfe09f1d1b5897bd5d193d20a3": {
+                "filename": "Index.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Index.php"
+            },
+            "ac97cc3885e73441f1cc22fefb0010909bca16b21c14b75bfc6abebd2d290380": {
+                "filename": "Languages.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Languages.php"
+            },
+            "42628e0345194272732b8e4d13e2ff6fd8ef3f1ec709f5e5f5bfbbe60a3bc274": {
+                "filename": "NativeApi.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/NativeApi.php"
+            },
+            "2cf8e4ec50a0151712f667508656c0c6bfdaa1ff733606d7ad619dc9bf7543c3": {
+                "filename": "OAuth.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/OAuth.php"
+            },
+            "180ccee590844795dbd38f5c66ee03c3098a4d432beb7e9d4cf5d413ddb12710": {
+                "filename": "RouteFilters.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/RouteFilters.php"
+            },
+            "e447fad63fc6d8fc30b17fc37a53bc7300aa1e5a086c343d8c0844968177cc37": {
+                "filename": "Settings.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Settings.php"
+            },
+            "6dd04cd4877ee8e9d104ad59b26e7317391d546c15d08ca47e006126184629a4": {
+                "filename": "Templates.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Templates.php"
+            },
+            "c275c90d0f4e9ae90a63567c2fa1ddebb79f5883a57d348dc7c6b581055e86de": {
+                "filename": "Theme.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Theme.php"
+            },
+            "82220d8b9c4b12f4a800c6054580de10fa27cf9d0a2cfcf31e59ff3cef5a64e8": {
+                "filename": "Users.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/Mvc\/Pub\/Users.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Addons": {
+            "f4c430dcf58a2ad497cde30fb2778087531c8d1cb0e56f43177ef0c1cdcda5e8": {
+                "filename": "Application.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Addons\/Application.php"
+            },
+            "df4d0a63151f8e7d5212635cd2db5ea795af5cc78a118249ee776ddfac0b36e3": {
+                "filename": "Install.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Addons\/Install.php"
+            },
+            "989d42ae24a6bd06cfe47ab3c0b341a30438872b7ade0a4deaa444bca17449df": {
+                "filename": "Switcher.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Addons\/Switcher.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Attachments": {
+            "7378b80e192a7e4331d638c216bd7a96b19ca41b9d64c4dabddea92223128adf": {
+                "filename": "AttachmentFileTypes.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Attachments\/AttachmentFileTypes.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/CensoredWords": {
+            "8f4a3d421920d165c30e18b1db20553b5e3d6e60600dfa88b960932245b44c04": {
+                "filename": "Edit.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/CensoredWords\/Edit.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Editor": {
+            "38a75c12acd7a8917c4402378771bd2ba01832b6dc759ef1c2d24e3d168c29cf": {
+                "filename": "EditButtons.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Editor\/EditButtons.php"
+            },
+            "19d4b9581001f47cdc422830995eda4aff62e110ff3a6fbc0a7846fc13ead452": {
+                "filename": "EditToolbars.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Editor\/EditToolbars.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Forums": {
+            "26dbe069f2c41b3fcdded1be85092b9b2a136d94c47971c1f39d85599b3a3310": {
+                "filename": "Create.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Forums\/Create.php"
+            },
+            "9c6a4242c4e8dc41d1834f77a050d9940564d9931820cbbc66ab21758c57f41a": {
+                "filename": "Delete.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Forums\/Delete.php"
+            },
+            "cfd926e2cb38e336ec8f504dc46e4cbdf069953661ccc471e755d28d56303f47": {
+                "filename": "Edit.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Forums\/Edit.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Languages": {
+            "d83c412478ea70db8b6f84393fd07f008d4ea030778cecb91bf50795431680ec": {
+                "filename": "Create.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Languages\/Create.php"
+            },
+            "58fc4dc4dbe8117ceee0603c410854f2e5fbcd82e1e3920b6149b5c72ec957b3": {
+                "filename": "Edit.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Languages\/Edit.php"
+            },
+            "72b147911ef788b7e7a834411db70cafda02c8837832abfca6fd18b68c49f7de": {
+                "filename": "EditPhrase.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Languages\/EditPhrase.php"
+            },
+            "2ddf82e83c7eeb1c141faa143dfcd92181239443e521cecfee33b20a682d61f6": {
+                "filename": "Export.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Languages\/Export.php"
+            },
+            "b71933be93ed1e3f433b39c3219ab1e290b602e94101c2617ba37171e204e1c4": {
+                "filename": "Import.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Languages\/Import.php"
+            },
+            "5084a1956537cb176be787f5becef95128e37ec4b01ee78ad63609b6537d7b41": {
+                "filename": "Remove.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Languages\/Remove.php"
+            },
+            "460249c5045cfc4aac08bb5c489485027121ce1b7a025cfd7e9ea4637adb9eff": {
+                "filename": "Search.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Languages\/Search.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Routes": {
+            "58f133dfa8ffaea0c8beac71ada5d88513da701a11a46a74f3c0f2d3bcf9454d": {
+                "filename": "Defaults.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Routes\/Defaults.php"
+            },
+            "a8a15cc8444eff5efe019da44e2d4b9c4ed94c6dfe067c67913c49fdc96da4fc": {
+                "filename": "Rebuild.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Routes\/Rebuild.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Services": {
+            "4d90fd0cf02b6bcb4ae9443f2486d13226f39f657482d68ffd844891d1f45ebc": {
+                "filename": "Create.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Services\/Create.php"
+            },
+            "b495bef36c9c71c1118f0fb75991d365049ee010ac66af3179c3a5398185dd53": {
+                "filename": "Set.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Services\/Set.php"
+            }
+        },
+        "src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Theme": {
+            "f3c993e1d6339b98e6344e004c2e17e7b5e805d02647483482a534a05a54ff7d": {
+                "filename": "UpdateStyle.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Theme\/UpdateStyle.php"
+            },
+            "aac51d827f69c89a06e48adba944eaa6cc75a534ddf86b4224db449651878243": {
+                "filename": "UpdateTemplate.php",
+                "path": ".\/src\/Addons\/Mention\/Extending\/Admin\/SubContainer\/Theme\/UpdateTemplate.php"
+            }
+        }
+    }
+}

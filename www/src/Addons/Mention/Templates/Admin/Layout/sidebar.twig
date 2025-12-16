@@ -1,0 +1,60 @@
+<aside class="col-sm-3 app-sidebar-area mb-4 pr-4">
+    <div id="accordion">
+        <div class="card app-forums bg-white rounded shadow mb-4">
+            {% for item in appAdmin.string.navigations.getNavigations() %}
+            {% if appAdmin.string.getActiveNavigation.parent is same as(item.name) %}
+                {% set activeNavAriaExpanded = 'true' %}
+                {% set activeNavCollapsed = '' %}
+                {% set activeNavShow = 'show' %}
+            {% else %}
+                {% set activeNavAriaExpanded = 'false' %}
+                {% set activeNavCollapsed = ' collapsed' %}
+                {% set activeNavShow = '' %}
+            {% endif %}
+            <a href="#" class="card-header text-dark{{ activeNavCollapsed }}" data-toggle="collapse" data-target="#adminSidebar_{{ item.name }}-{{ item.nav_id }}"
+            aria-expanded="{{ activeNavAriaExpanded }}" aria-controls="adminSidebar_{{ item.name }}-{{ item.nav_id }}" data-tab="{{ item.name }}-{{ item.nav_id }}">
+                <h6 class="font-weight-bold">
+                    <i class="{{ item.icon }}"></i>
+                    <span>
+                        {% if app.sub.lang.string.admin.container.sidebar[item.name].title|length > 20 %}
+                            {{ app.sub.lang.string.admin.container.sidebar[item.name].title|slice(0, 20) }}...
+                        {% else %}
+                            {{ app.sub.lang.string.admin.container.sidebar[item.name].title }}
+                        {% endif %}
+                    </span>
+                </h6>
+            </a>
+            <div id="adminSidebar_{{ item.name }}-{{ item.nav_id }}" class="collapse {{ activeNavShow }}" aria-labelledby="adminSidebar_{{ item.name }}-{{ item.nav_id }}" data-parent="#accordion">
+                <div class="card-body p-0">
+                    <article class="card-group-item">
+                        <div class="filter-content">
+                            <div class="list-group list-group-flush">
+                                {% for subitem in appAdmin.string.navigations.getNavigations(item.nav_id) %}
+                                    {% if appAdmin.string.getActiveNavigation.nav is same as(subitem.name) %}
+                                        {% set activeNavActive = ' active' %}
+                                    {% else %}
+                                        {% set activeNavActive = '' %}
+                                    {% endif %}
+                                    {% if subitem.link is not same as('') %}
+                                        <a href="{{ app.phrase.buildLink('adminIndex', {}) }}{% if subitem.link is not same as('/') %}/{{ subitem.link }}{% endif %}" class="list-group-item {{ subitem.name }}{{ activeNavActive }}">{{ app.sub.lang.string.admin.container.sidebar[item.name][subitem.name] }}</a>
+                                    {% else %}
+                                        <span class="text-dark">{{ app.sub.lang.string.admin.container.sidebar[item.name][subitem.name].title }}</span>
+                                        {% for subsubitem in appAdmin.string.navigations.getNavigations(subitem.nav_id) %}
+                                            {% if appAdmin.string.getActiveNavigation.nav is same as(subsubitem.name) %}
+                                                {% set activeNavActive = ' active' %}
+                                            {% else %}
+                                                {% set activeNavActive = '' %}
+                                            {% endif %}
+                                            <a href="{{ app.phrase.buildLink('adminIndex', {}) }}{% if subsubitem.link is not same as('/') %}/{{ subsubitem.link }}{% endif %}" class="list-group-item {{ subsubitem.name }}{{ activeNavActive }}">{{ app.sub.lang.string.admin.container.sidebar[item.name][subitem.name][subsubitem.name] }}</a>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</aside>

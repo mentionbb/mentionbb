@@ -1,0 +1,101 @@
+Language:
+  items:
+    first_post:
+      pinned: "This discussion is pinned."
+      locked: "This discussion is locked.."
+      posts: "{1} Reply"
+
+    subscribe:
+      success: "Subscribed to the discussion."
+      remove: "Unsubscribed."
+      allready: "You are already subscribed to this discussion."
+
+    posts:
+      quick_menu:
+        buttons:
+          edit: "Edit"
+          flag: "Flag"
+          ban: "Ban"
+        links:
+          add_as_friend: "Add as friend"
+          request_send_friend: "Request sent"
+          remove_from_list: "Remove from your friends list"
+          profile: "User profile"
+          posts: "All posts"
+          message: "Send a message"
+      message_options:
+        title: "Message Options"
+        moderation: "Discussion Moderation"
+        message_moderation: "Message Moderation"
+        more: "More"
+        links:
+          bookmark: "Save to collection"
+          bookmark_saved: "Added to the collection."
+          mark_helpful: "Mark as useful."
+          marked_helpful: "Marked as useful."
+          move: "Move"
+          pin: "Pin"
+          pinned: "Unpin"
+          lock: "Lock"
+          locked: "Open the discussion"
+          copy_link: "Copy short link"
+          copy_link_success: "Copied to clipboard."
+          share: "Share"
+      buttons:
+        report: "Report"
+        delete: "Delete"
+        edit: "Edit"
+        like: "Like"
+        take_like: "Liked"
+        reply: "Reply"
+        share: "Share"
+        expand: "Expand"
+        grey_button: "Discussion locked"
+      likes:
+        title: "Likes"
+        more: "{1} more people"
+        liked_this: "liked this"
+        reaction_this: "left an reaction for it."
+      report:
+        title: "Report"
+        text: "With reporting, you can report post content to administrators."
+        placeholder:
+          content: "Explain your reason for reporting to the manager..."
+        success: "Sent"
+      delete:
+        title: "Delete confirmation."
+        text: "Are you sure you really want to delete this post?"
+        success: "Post deleted."
+      edit:
+        title: "Edit"
+        placeholder:
+          title: "Discussion title"
+        success: "Edit successful"
+        text: "This post <strong>{1}</strong> edited by <strong>{2}</strong>."
+      reaction:
+        like: "Like"
+        love: "Wonderful"
+        haha: "Haha"
+        wow: "Unbelievable"
+        sad: "Sad"
+        angry: "Angry"
+        dislike: "Dislike"
+      device:
+        text: "This post was sent from <strong>{1}</strong> device."
+      code_block:
+        title: "Code block."
+      attachments:
+        text: "Attached file(s)"
+
+    moderation:
+      move:
+        title: "Move the discussion"
+
+    edit_text: "In order to write a post, you must complete the editing."
+    locked_text: "New posts are not allowed as this discussion is locked."
+
+    scrubber:
+      discussion_post: "Discussion post"
+      first_message: "First post"
+      low_likes: "Least likes"
+      last_message: "Last post"

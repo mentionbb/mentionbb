@@ -1,0 +1,30 @@
+Language:
+  items:
+    forums:
+      title: "Forums"
+      news: "All"
+
+    search:
+      placeholder: "Quick search"
+      stop_search: "You must end the search first."
+      results: "Search Results"
+
+    stats:
+      title: "Statistics"
+      discussion_count: "Number of discussions"
+      total_posts: "Total posts"
+      user_count: "Number of users"
+      last_registered_user: "Last record"
+
+    auto_refresher: "Auto refresher"
+
+    posts:
+      pinned: "Pinned"
+      newest: "Newest"
+      started_by: "Post <strong>{1}</strong> started by {2} ."
+      replied_by: "<strong>{1}</strong> replied by {2} ."
+      new_post:
+        text: "New"
+        title: "There are unread posts."
+
+    responsive_mode: "You are in Mobile/Responsive mode. You need to refresh the page for this mod to work fully."

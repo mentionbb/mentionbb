@@ -1,0 +1,63 @@
+Language:
+  items:
+    title: "My account"
+    settings: "Dashboard"
+
+    tab:
+      title: "Options"
+      account: "My account"
+      security: "Password and security"
+      twofa: "Two-step verification"
+      privacy: "Privacy"
+      my: "User"
+      subscriptions: "My subscriptions"
+      reactions: "Reactions"
+      bookmarks: "My collection"
+      friendships: "My friendlist"
+      other: "Other"
+      about: "About"
+
+    account_details:
+      title: "Account details"
+      profile_picture_size: "Maximum size: <strong>{1}</strong>"
+      profile_picture_text: "To change the profile photo, click on the photo or choose one from the available ones."
+      username: "User name"
+      usertitle: "User title"
+      usertitle_text: "This is the user title that will appear."
+      usertitle_text_admin: "This is the user title that will appear, You can use HTML."
+      mail: "E-Mail Address"
+      mail_text: "If you update your e-mail, a confirmation e-mail will be sent."
+
+    security:
+      password:
+        title: "password"
+        password: "password"
+        re_password: "Repeat password"
+        now_password: "Your password"
+        now_password_text: "You must enter your old password before continuing."
+        text: "You will be logged out after changing your password for security purposes."
+
+    twofa:
+      text: "In case of logging in from untrusted devices or revealing your password, you can approve the session with the Google Authenticator application, which you can access from your phone."
+      i_dont_use_twofa: "I do not want to use two-step verification."
+      i_use_twofa: "I will use two-step verification."
+      secret_key: "Your secret key."
+      secret_key_text: "Don't forget to save your secret key. This key is the code that will disable two factor authentication in case you lose your phone."
+      code: "Application code"
+      caution: "When you start using two-step verification, it will periodically ask for the application code."
+      is_active: "Two-step verification is on."
+
+    privacy:
+      send_mail: "Email me about updates."
+      send_mail_for_notifications: "Notify notifications and messages by e-mail."
+
+    subscriptions:
+      discussion:
+        title: "Subject subscriptions"
+
+    posts:
+      buttons:
+        remove_bookmark: "Remove from collection"
+
+    about:
+      for_issues_and_support: "For issues and support:"

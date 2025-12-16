@@ -1,0 +1,22 @@
+iframe.pacman {
+    width: 100%;
+    height: 600px;
+    border: 0;
+    overflow: hidden;
+}
+
+.arrow-buttons {
+    margin-bottom: 36px;
+}
+
+.pacman-buttons {
+    position: absolute;
+    margin-top: -85px;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    iframe.pacman {
+        height: 300px;
+    }
+}

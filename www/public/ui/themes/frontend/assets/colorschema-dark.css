@@ -1,0 +1,129 @@
+body.app-night-mode {
+	--mention-meta-color: #23292f;
+
+	--mention-doc-bg-color: #0d1117;
+	--mention-doc-text-color: #b9b9b9;
+	--mention-doc-light-text-color: #676767;
+
+	--mention-link-color: #79a2ce;
+	--mention-link-hover-color: #d0e7ff;
+
+	--mention-primary-bg-color: rgb(35, 41, 47);
+	--mention-light-bg-color: #2d343c;
+	--mention-light-hover-bg-color: rgba(9, 11, 15, 0.78);
+	--mention-dark-bg-color: #111519;
+
+	--mention-box-bg-color: #111519;
+
+	--mention-primary-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+	--mention-secondary-shadow: 0 .5rem 1rem rgb(0 0 0 / 35%);
+	--mention-light-shadow: none;
+	--mention-dark-shadow: 0 2px 10px -2px #3f515a;
+
+	--mention-primary-text-color: #d0e7ff;
+	--mention-text-white-color: #fff;
+	--mention-text-light-color: #fff;
+	--mention-text-dark-color: #a2b4bd;
+	--mention-text-muted-color: #6c757d;
+
+	--mention-navbar-text-color: rgba(255, 255, 255, 0.64);
+	--mention-navbar-selected-text-color: rgb(208, 231, 255);
+	--mention-navbar-dd-hover-bg: rgba(9, 11, 15, 0.78);
+
+	--mention-app-title-text-color: #aeaeae;
+
+	--mention-primary-border-color: #c19e7a;
+	--mention-light-border-color: rgba(128, 128, 128, 0.31);
+	--mention-dark-border-color: #5b686c;
+	--mention-border-color: #37474f;
+	--mention-discussion-border-color: #6693ca;
+
+	--mention-post-approval-bg-color: #fff4e9;
+	--mention-post-approval-border-color: #ffca94;
+	--mention-post-approval-border-top-color: #ffd6ae;
+
+	--mention-editor-bg-color: #2f3742;
+	--mention-editor-border-color: #4c535e;
+	--mention-editor-text-color: #fff;
+	--mention-editor-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+	--mention-editor-header-shadow: 0 2px 2px -2px rgba(100, 124, 151, 0.22), 0 8px 8px -4px rgba(30, 41, 53, 0.31);
+	--mention-editor-btn-hover-bg-color: rgba(9, 11, 15, 0.66);
+	--mention-editor-btn-select-bg-color: rgba(25, 30, 40, 0.25);
+	--mention-editor-hide-backdrop-bg-color: rgba(0, 0, 0, 0.32);
+	--mention-editor-hide-backdrop-bg-image: linear-gradient(315deg,rgba(66, 66, 66, 0.62) 0%,rgba(83, 83, 83, 0.55) 74%);
+
+	--mention-loader-spin-color: #d0e7ff;
+
+	--mention-progress-bg-color: #37474f;
+	--mention-progress-indeterminate-bg-color: #d0e7ff;
+
+	--mention-file-label-bg-color: #14191d;
+	--mention-file-label-text-color: #e2e2e2;
+
+	--mention-list-group-active-bg-color: rgba(9, 11, 15, 0.66);
+	--mention-list-group-hover-bg-color: rgba(9, 11, 15, 0.78);
+
+	--mention-button-bg-color: transparent;
+	--mention-button-border-color: #2d343c;
+	--mention-button-text-color: #838991;
+	--mention-button-hover-bg-color: transparent;
+	--mention-button-hover-border-color: #9197a0;
+	--mention-button-hover-text-color: #9197a0;
+	--mention-button-active-bg-color: #37474f;
+	--mention-button-active-border-color: transparent;
+	--mention-button-active-text-color: #e2e2e2;
+	--mention-button-light-bg-color: #ececec;
+	--mention-button-light-border-color: #ced4da;
+	--mention-button-light-text-color: #37474f;
+
+	--mention-input-bg-color: rgba(0, 0, 0, 0.34);
+	--mention-input-border-color: transparent;
+	--mention-input-focus-border-color: #a5a5a5;
+
+	--mention-textarea-bg-color: rgba(0, 0, 0, 0.34);
+	--mention-textarea-disabled-bg-color: rgba(0, 0, 0, 0.10);
+	--mention-textarea-border-color: transparent;
+	--mention-textarea-text-color: #fff;
+	--mention-textarea-focus-border-color: #a5a5a5;
+
+	--mention-bselect-bg-color: rgba(0, 0, 0, 0.34);;
+	--mention-bselect-border-color: transparent;
+
+	--mention-conversation-bg-color: #23292f;
+	--mention-conversation-light-bg-color: rgb(20, 25, 29);
+	--mention-conversation-message-bg-color: #fa8f20;
+	--mention-conversation-message-text-color: #fff;
+	--mention-conversation-message-light-bg-color: #fff;
+	--mention-conversation-message-light-text-color: #000;
+
+	--mention-tooltip-main-color: rgb(208, 231, 255);
+	--mention-tooltip-text-color: #000;
+
+	--mention-scroll-color: #6f8692;
+	--mention-scroll-hover-color: #37474f;
+
+	--mention-table-text-color: #a2b5c8;
+	--mention-table-nth-bg-color: rgb(35, 41, 47);
+	--mention-table-border-color: #575757;
+
+	--mention-post-highlight-bg-color: #1e3766;
+	--mention-post-count-text-color: #7777bf;
+	--mention-post-views-text-color: #269626;
+
+    --mention-code-title-bg-color: #0d1117;
+    --mention-code-title-text-color: #a7a7a7;
+    --mention-code-bg-color: #0d1117;
+    --mention-code-text-color: #bbb;
+
+	--mention-user-status-online-border-color: #53c72e;
+	--mention-user-status-offline-border-color: #6b6b6b;
+
+	--mention-admin-list-group-header-bg-color: #111519;
+	--mention-admin-list-group-header-hover-bg-color: #212830;
+
+	--mention-install-svg-color: #d0e7ff;
+	--mention-install-button-border-color: #dfb78e;
+	--mention-install-button-hover-border-color: #d0e7ff;
+	--mention-install-button-text-color: #dfb78e;
+	--mention-install-button-hover-text-color: #d0e7ff;
+}

@@ -1,0 +1,69 @@
+Language:
+  items:
+    title: "Kullanıcı yönetimi"
+    desc: "Bu sayfadan kayıtlı kullanıcıları aratabilir ve onları düzenleyebilir ve yeni bir kullanıcı oluşturabilirsiniz."
+
+    last:
+      title: "Son 5 kayıt"
+
+      user:
+        registration_date: "<b>{1}</b> katılmış."
+        buttons:
+          ban: "Yasakla"
+
+    new:
+      title: "Yeni kullanıcı ekle"
+      desc: "Buradan manuel olarak kullanıcı ekleyebilirsiniz."
+    
+    edit:
+      title: "Kullanıcı yönetimi"
+      desc: "{1} kullanıcısı düzenleniyor."
+      account: "Hesap ayarları"
+      profile_picture:
+        remove: "Profil fotoğrafını kaldır"
+    
+    ban:
+      title: "Yasakla"
+      desc: "{1} kullanıcısı yasaklanıyor."
+      help: "Yasaklanan kullanıcı siteyi gene kullanabilir fakat mesaj yazmak, konu açmak ve düzenlemek gibi özelliklerden yoksun kalacaktır."
+      history:
+        title: "Geçmiş"
+        text: "<strong>{1}</strong> tarihinde banlanmış, sebebi: <strong>{2}</strong>. Ban süresi şu tarihte bitiyor: <strong>{3}</strong>"
+        no_history: "Kullanıcı daha önce yasaklanma almamış."
+        buttons:
+          remove: "Yasaklamayı kaldır."
+      forms:
+        expires_in: 
+          title: "Şu tarihe kadar"
+          text: "Yasağın kalkacağı tarih."
+        text:
+          title: "Açıklama"
+          text: "Açıklama ve tarihi yasaklanan kullanıcıya gösterilecek ve seçilen tarih geldiğinde ceza otomatik olarak kalkacaktır."
+
+    forms:
+      name:
+        title: "Kullanıcı adı"
+        desc: "Giriş yaparken kullanılacak kullanıcı adı."
+
+      password:
+        title: "Şifre"
+        desc: "Giriş yaparken kullanılacak şifre."
+        text: "Mention, gelişmiş bir şifre kriptolama yöntemi kullanır. Bu yüzden kullanıcıların şifreleri belirlendikten sonra görülemez veya düzenlenemez. Fakat sıfırlanabilir."
+      
+      mail:
+        title: "E-Posta"
+        desc: "Kullanıcı e-posta adresi"
+        text: "Kullanıcı yönetici tarafından eklendiği için doğrulama maili gitmeyecektir fakat kullanıcı daha sonra şifresini sıfırlamak istediğinde mail adresini kullanacağından dolayı bu kısım önemlidir."
+      
+      title:
+        title: "Kullanıcı başlığı"
+        desc: "Görünecek kullanıcı başlığı"
+        text: "Eğer seçtiğiniz rol yönetici ise html kod kullanabilirsiniz."
+      
+      role:
+        title: "Rol"
+        desc: "Kullanıcının sahip olacağı yetki."
+        text: "Eğer kullanıcı rolünü yönetici olarak seçerseniz panele erişim sağlayabilir."
+        select:
+          registered: "Üye"
+          admin: "Yönetici"

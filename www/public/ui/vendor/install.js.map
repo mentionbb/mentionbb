@@ -1,0 +1,7 @@
+{
+	"path": "install",
+	"js": {
+		"1": "../app/app.js",
+        "2": "install.js"
+	}
+}

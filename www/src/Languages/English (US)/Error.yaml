@@ -1,0 +1,11 @@
+Language:
+  items:
+    editor:
+      title_cannot_be_blank: "Discussion title cannot be left blank."
+      title_is_greater_then: "Discussion title must be more than {1} characters."
+      content_is_greater_then: "Content must be {1} characters or longer."
+      attachment_max: "You can add up to {1} files."
+      attachment_max_size: "The file is too large: {2}. Maximum file size you can upload: {1}"
+      please_select_a_forum: "Please, select a forum."
+      report_cannot_be_blank: "Report content cannot be left blank!"
+      profile_photo_max_size: "The file you are trying to upload is too large, the maximum size allowed: {1}"

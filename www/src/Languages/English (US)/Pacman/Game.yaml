@@ -1,0 +1,8 @@
+Language:
+  items:
+    play: "PLAY"
+    high_score: "HIGH SCORE"
+    paused: "PAUSED"
+    error:
+      title: "Error!"
+      text: "We could not load the pictures and sounds required to play the game.<br /><br /> This may be due to low internet speed or unsupported browser."

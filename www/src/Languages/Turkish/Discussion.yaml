@@ -1,0 +1,101 @@
+Language:
+  items:
+    first_post:
+      pinned: "Bu konu sabitlenmiş."
+      locked: "Bu konu kilitlenmiş."
+      posts: "{1} Cevap"
+
+    subscribe:
+      success: "Konuya abone olundu."
+      remove: "Abonelikten çıkıldı."
+      allready: "Bu konuya zaten abonesiniz."
+
+    posts:
+      quick_menu:
+        buttons:
+          edit: "Düzenle"
+          flag: "Uyar"
+          ban: "Cezalandır"
+        links:
+          add_as_friend: "Arkadaş olarak ekle"
+          request_send_friend: "İstek gönderildi"
+          remove_from_list: "Arkadaşlıktan çıkar"
+          profile: "Kullanıcı profili"
+          posts: "Tüm içeriği"
+          message: "Mesaj gönder"
+      message_options:
+        title: "Mesaj Seçenekleri"
+        moderation: "Konu Moderasyonu"
+        message_moderation: "Mesaj Moderasyonu"
+        more: "Daha fazla"
+        links:
+          bookmark: "Koleksiyona kaydet"
+          bookmark_saved: "Koleksiyona eklendi"
+          mark_helpful: "Faydalı olarak işaretle"
+          marked_helpful: "Faydalı olarak işaretlendi"
+          move: "Taşı"
+          pin: "Sabitle"
+          pinned: "Sabitten çıkar"
+          lock: "Kilitle"
+          locked: "Konuyu aç"
+          copy_link: "Kısa linki kopyala"
+          copy_link_success: "Panoya kopyalandı"
+          share: "Paylaş"
+      buttons:
+        report: "Raporla"
+        delete: "Sil"
+        edit: "Düzenle"
+        like: "Beğen"
+        take_like: "Beğenildi"
+        reply: "Cevapla"
+        share: "Paylaş"
+        expand: "Genişlet"
+        grey_button: "Konu kilitlenmiş"
+      likes:
+        title: "Beğeniler"
+        more: "{1} kişi daha"
+        liked_this: "bunu beğendi."
+        reaction_this: "buna bir ifade bıraktı."
+      report:
+        title: "Raporla"
+        text: "Raporlama ile mesaj içeriğini yöneticilere bildirebilirsiniz."
+        placeholder:
+          content: "Yöneticiye raporlama nedeninizi açıklayın.."
+        success: "Gönderildi"
+      delete:
+        title: "Silme onayı"
+        text: "Bu mesajı gerçekten silmek istediğinize emin misiniz?"
+        success: "Mesaj silindi"
+      edit:
+        title: "Düzenle"
+        placeholder:
+          title: "Konu başlığı"
+        success: "Düzenleme başarılı"
+        text: "Bu mesaj <strong>{1}</strong> tarafından <strong>{2}</strong> düzenlenmiş."
+      reaction:
+        like: "Beğen"
+        love: "Muhteşem"
+        haha: "Haha"
+        wow: "İnanılmaz"
+        sad: "Üzgün"
+        angry: "Sinirli"
+        dislike: "Beğenme"
+      device:
+        text: "<strong>{1}</strong> cihazından gönderilmiş."
+      code_block:
+        title: "Kod bloğu"
+      attachments:
+        text: "Ekli dosya(lar)"
+
+    moderation:
+      move:
+        title: "Konuyu Taşı"
+
+    edit_text: "Mesaj yazmak için düzenlemeyi tamamlamanız gerekmektedir."
+    locked_text: "Bu konu kilitlendiği için yeni mesajlara izin verilmemektedir."
+
+    scrubber:
+      discussion_post: "Konu mesajı"
+      first_message: "İlk mesaj"
+      low_likes: "En az beğeni"
+      last_message: "Son mesaj"

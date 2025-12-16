@@ -1,0 +1,26 @@
+Language:
+  items:
+    breadcrumb:
+      pages: "Sayfalar"
+      help: "Yardım"
+      faq: "SSS"
+      privacy: "Gizlilik"
+      contact: "İletişim"
+
+    faq:
+      tabs:
+        title: "Başlıklar"
+        privacy: "Şartlar ve kurallar"
+        resource_standarts: "İçerik standartları"
+
+    privacy:
+      title: "Gizlilik politikası"
+
+    contact:
+      title: "İletişim"
+      form:
+        name: "Adınız"
+        mail: "Mail adresiniz"
+        mail_text: "Sizinle bu mail üzerinden ile iletişime geçeceğiz."
+        title: "Başlık"
+        message: "Mesajınız"
