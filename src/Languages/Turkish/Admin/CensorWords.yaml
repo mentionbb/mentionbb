@@ -1,9 +1,0 @@
-Language:
-  items:
-    title: "Sansürlü kelimeler"
-    desc: "Yazılan postlarda istenmeyen kelimeleri buraya yazarak sansür filtresi oluşturabilirsiniz. Örneğin, kedi kelimesini köpek ile değiştirebilirsiniz. Bu başlıklar ve postlarda geçerlidir."
-
-    form:
-      word_list: "Kelime listesi"
-      help: "Kelimeleri alt alta yazabilirsiniz."
-      template: "Kelime: değişen"

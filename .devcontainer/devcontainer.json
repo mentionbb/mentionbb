@@ -1,0 +1,30 @@
+{
+    "name": "Mention Docker",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "containerEnv": {
+        "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+        "GITHUB_USER": "${localEnv:GITHUB_USER}"
+    },
+    "service": "svc.mentionbb_php",
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "none",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "editorconfig.editorconfig",
+                "formulahendry.auto-close-tag",
+                "formulahendry.auto-rename-tag",
+                "formulahendry.code-runner",
+                "bmewburn.vscode-intelephense-client",
+				"xdebug.php-debug",
+                "mblode.twig-language-2",
+                "redhat.vscode-xml",
+                "redhat.vscode-yaml",
+                "rexshi.phpdoc-comment-vscode-plugin",
+		        "vivek9patel.vscode-css-compatibility"
+            ]
+        }
+    }
+}

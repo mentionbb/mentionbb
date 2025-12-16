@@ -1,9 +1,0 @@
-Language:
-  items:
-    title: "Censored words"
-    desc: "You can create a censorship filter by typing unwanted words in the written posts here. For example, you can replace the word cat with dog. This applies to titles and posts."
-
-    form:
-      word_list: "Word list"
-      help: "You can write the words below."
-      template: "Word: changing"

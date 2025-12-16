@@ -1,3 +1,0 @@
-PacmanGame:
-  path: /pacman
-  controller: '\Addons\Pacman\App\Mvc\Pub\Game::container'

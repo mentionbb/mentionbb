@@ -1,0 +1,69 @@
+services:
+  svc.mentionbb_nginx:
+    build:
+      context: ./.docker/nginx
+    volumes:
+      - ./${WWW_PATH}:/workspace
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - mention_app
+      - proxy
+    env_file:
+      - ./.docker/.env.nginx.local
+  
+  svc.mentionbb_php:
+    build:
+      context: ./.docker/php
+      args:
+        TIMEZONE: ${TIMEZONE}
+        PHP_VERSION: ${PHP_VERSION}
+        SERVER: ${SERVER}
+    volumes:
+      - ./${WWW_PATH}:/workspace
+      - ./logs/php:/usr/local/var/log
+      - ./logs/php/archive:/usr/local/var/log/archive
+    networks:
+      - mention_app
+      - proxy
+
+  svc.mentionbb_db:
+    image: mariadb:11.3.2
+    platform: linux/x86_64
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+      - --max_connections=250
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    expose:
+      - 3306
+    networks:
+      - mention_app
+      - proxy
+
+  svc.mentionbb_phpmyadmin:
+    depends_on:
+      - svc.mentionbb_db
+    image: phpmyadmin
+    expose:
+      - "80"
+    environment:
+      PMA_HOST: svc.mentionbb_db
+      PMA_PORT: 3306
+      UPLOAD_LIMIT: 8M
+    networks:
+      - mention_app
+      - proxy
+
+networks:
+  mention_app:
+  proxy:
+    external: true
+
+volumes:
+  mariadb_data:

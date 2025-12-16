@@ -1,8 +1,0 @@
-Language:
-  items:
-    play: "OYNA"
-    high_score: "YÜKSEK SKOR"
-    paused: "DURDURULDU"
-    error:
-      title: "Hata!"
-      text: "Oyunu oynamak için gereken resim ve sesleri yükleyemedik.<br /><br /> Bunun sebebi, düşük internet hızı veya desteklenmeyen tarayıcı olabilir."

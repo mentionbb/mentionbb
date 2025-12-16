@@ -18,7 +18,7 @@
         }
     ],
     "config": {
-        "vendor-dir": "./src/vendor",
+        "vendor-dir": "./www/src/vendor",
         "process-timeout": 1800,
         "allow-plugins": {
             "cweagans/composer-patches": true
@@ -77,13 +77,13 @@
     "autoload": {
         "psr-4": {
             "Binaries\\": "./bin",
-            "ComponentBundle\\": "./src/Addons/Mention",
-            "App\\": "./src/App",
-            "Addons\\": "./src/Addons",
-            "Install\\": "./src/Install"
+            "ComponentBundle\\": "./www/src/Addons/Mention",
+            "App\\": "./www/src/App",
+            "Addons\\": "./www/src/Addons",
+            "Install\\": "./www/src/Install"
         },
         "classmap": [
-            "./src/RequireChecker.php"
+            "./www/src/RequireChecker.php"
         ]
     },
     "scripts": {
@@ -95,16 +95,16 @@
     "extra": {
         "patches": {
             "voku/portable-utf8": [
-                "./src/patches/voku-portable-utf8-src-voku-helper-utf8-php.patch"
+                "./www/src/patches/voku-portable-utf8-src-voku-helper-utf8-php.patch"
             ],
             "symfony/finder": [
-                "./src/patches/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
+                "./www/src/patches/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
             ],
             "phpgangsta/googleauthenticator": [
-                "./src/patches/phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch"
+                "./www/src/patches/phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch"
             ],
             "symfony/error-handler": [
-                "./src/patches/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch"
+                "./www/src/patches/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch"
             ]
         }
     }

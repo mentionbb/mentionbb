@@ -1,9 +1,0 @@
-{
-	"path": "app",
-	"js": {
-		"1": "app.js",
-		"2": "core.js",
-        "3": "visitor.js",
-		"4": "admin/admin.js"
-	}
-}
