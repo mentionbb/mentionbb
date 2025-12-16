@@ -55,14 +55,16 @@ MentionBB has been in active development for over 3 years. The project you see o
 
 You have to do this manually as the Installer isn't ready yet.
 
-- If you are on Docker: [mentionbb-dockerized](https://github.com/mentionbb/mentionbb-dockerized)
 - If you are on Plesk: [mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
 
 ## Requirements
 
 - PHP 8.4+
+- Docker
 - Composer
 - Git (Optional)
+
+(Already in Docker)
 
 ## Requirements PHP Extensions
 
@@ -72,6 +74,8 @@ You have to do this manually as the Installer isn't ready yet.
 - Zip
 - GD (Optional)
 
+(This extensions already in Docker file)
+
 ### If you are using Nginx server, the sample config file below will be helpful
 This step is explained in detail in the Plesk installation
 
@@ -79,46 +83,40 @@ This step is explained in detail in the Plesk installation
 server {
     listen 80;
     server_name example.com;
-    root /var/www/public;
+    root /workspace/www/public;
+
+    index index.php index.html;
 
     location / {
         try_files $uri /index.php$is_args$args;
     }
 
     location ~ ^/index\.php(/|$) {
-        if ($request_method = 'OPTIONS') {
-            add_header 'Access-Control-Allow-Origin' '*' always;
-            add_header 'Access-Control-Allow-Methods' 'GET, POST, DELETE, OPTIONS' always;
-            add_header 'Access-Control-Allow-Headers' 'Authorization,DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range' always;
-            add_header 'Access-Control-Max-Age' 1728000 always;
-            add_header 'Content-Type' 'text/plain; charset=utf-8' always;
-            add_header 'Content-Length' 0 always;
-            return 204;
-        }
-        add_header 'Access-Control-Allow-Origin' '*' always;
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, DELETE, OPTIONS' always;
-        add_header 'Access-Control-Allow-Headers' 'Authorization,DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range' always;
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range' always;
-        
-        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        fastcgi_pass php:9000;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         fastcgi_param DOCUMENT_ROOT $realpath_root;
+
+        fastcgi_param HTTPS $https;
+        fastcgi_param HTTP_X_FORWARDED_PROTO $scheme;
+
         internal;
     }
+
     location ~ \.php$ {
         return 404;
     }
+
     location = /favicon.ico {
         log_not_found off;
         access_log off;
     }
- 
-    include /var/www/.nginx.conf;
 
-    error_log /dev/stdout info;
-    access_log /var/log/nginx/project_access.log;
+    include /workspace/www/.nginx.conf;
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log warn;
 }
 ```
 
@@ -128,18 +126,30 @@ You need to edit the paths and server name!
 
 [Download the latest files](https://github.com/mentionbb/mentionbb/releases/latest) and extract them from the Zip file.
 
-After this step, we need to perform a composer update.
+And run:
+```bash
+docker compose up -d
+```
+
+After this step, we need to perform a composer update. 
 
 ```bash
-composer update
+docker exec -it mention_dockerized-svc.mentionbb_php-1 composer install
 ```
+
+### Or;
 
 For Composer installation: [https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
 
 If you have Windows on local: [https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
 
+And run:
+```bash
+composer install
+```
+
 If you cannot install, download the ready vendor file then extract and move it to the `src` folder.
-[Vendor.zip](https://github.com/mentionbb/mentionbb/raw/master/vendor.zip)
+[Vendor.zip](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.zip)
 
 After that, you need to set the database.
 

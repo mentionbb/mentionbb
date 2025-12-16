@@ -55,14 +55,16 @@ MentionBB 3 yılı aşan bir yıldır geliştirilmeye devam ediliyor. GitHub'da 
 
 Bu kompleks yazılım sürekli geliştirildiğinden dolayı kurulum sihirbazı henüz hazır değil. Kurulumu elle yapmalısınız.
 
-- Docker için kurulum: [mentionbb-dockerized](https://github.com/mentionbb/mentionbb-dockerized)
 - Plesk panel için kurulum: [mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
 
 ## Gerekliler
 
 - PHP 8.4+
+- Docker
 - Composer
 - Git (Opsiyonel)
+
+(Docker'da hazır.)
 
 ## Gerekli PHP eklentileri
 
@@ -72,6 +74,7 @@ Bu kompleks yazılım sürekli geliştirildiğinden dolayı kurulum sihirbazı h
 - Zip
 - GD (Opsiyonel)
 
+(Gerekli PHP eklentileri zaten Docker dosyalarını verdiğim için şu anda hazır olarak var, yani Docker kurulumunda her şey hazırdır.)
 
 ### Nginx sunucusu kullanıyorsanız aşağıdaki örnek yapılandırma dosyası işinize yarayacaktır.
 
@@ -79,46 +82,40 @@ Bu kompleks yazılım sürekli geliştirildiğinden dolayı kurulum sihirbazı h
 server {
     listen 80;
     server_name example.com;
-    root /var/www/public;
+    root /workspace/www/public;
+
+    index index.php index.html;
 
     location / {
         try_files $uri /index.php$is_args$args;
     }
 
     location ~ ^/index\.php(/|$) {
-        if ($request_method = 'OPTIONS') {
-            add_header 'Access-Control-Allow-Origin' '*' always;
-            add_header 'Access-Control-Allow-Methods' 'GET, POST, DELETE, OPTIONS' always;
-            add_header 'Access-Control-Allow-Headers' 'Authorization,DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range' always;
-            add_header 'Access-Control-Max-Age' 1728000 always;
-            add_header 'Content-Type' 'text/plain; charset=utf-8' always;
-            add_header 'Content-Length' 0 always;
-            return 204;
-        }
-        add_header 'Access-Control-Allow-Origin' '*' always;
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, DELETE, OPTIONS' always;
-        add_header 'Access-Control-Allow-Headers' 'Authorization,DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range' always;
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range' always;
-        
-        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        fastcgi_pass php:9000;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         fastcgi_param DOCUMENT_ROOT $realpath_root;
+
+        fastcgi_param HTTPS $https;
+        fastcgi_param HTTP_X_FORWARDED_PROTO $scheme;
+
         internal;
     }
+
     location ~ \.php$ {
         return 404;
     }
+
     location = /favicon.ico {
         log_not_found off;
         access_log off;
     }
- 
-    include /var/www/.nginx.conf;
 
-    error_log /dev/stdout info;
-    access_log /var/log/nginx/project_access.log;
+    include /workspace/www/.nginx.conf;
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log warn;
 }
 ```
 Server name veya yolları kendinize göre düzenlemelisiniz!
@@ -127,20 +124,30 @@ Server name veya yolları kendinize göre düzenlemelisiniz!
 
 [Buradan son sürümü indirin](https://github.com/mentionbb/mentionbb/releases/latest) ve Zip dosyası içerisinden çıkarın.
 
+And run:
+```bash
+docker compose up -d
+```
+
 Bu aşamadan sonra composer update çekeceğiz.
 
 ```bash
-composer update
+docker exec -it mention_dockerized-svc.mentionbb_php-1 composer install
 ```
 
-#### Eğer Composer'e sahip değilseniz:
+### Veya container içine girmekle uğraşmak istemiyorsanız;
 
 Composer kurulumu: [https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
 
 Eğer Windows kullanıyorsanız: [https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
 
+Ve çalıştırın:
+```bash
+composer install
+```
+
 Yine de sorun yaşıyorum diyorsanız, hazır Vendor dosyasını `src` içine çıkarabilirsiniz.
-[Vendor.zip](https://github.com/mentionbb/mentionbb/raw/master/vendor.zip)
+[Vendor.zip](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.zip)
 
 Bundan sonra veritabanı ayarlarımızı yapalım.
 
