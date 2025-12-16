@@ -30,15 +30,11 @@ class Request
         $uri = $this->request->getUri();
 
         if (
-            preg_match('/(http)/', $uri, $matchHttpsProtocolButUriIsHttp)
-            && $this->getServerProtocol() == 'https://'
+            str_starts_with($uri, 'http://')
+            && $this->getServerProtocol() === 'https://'
         )
         {
-            $uri = \str_replace(
-                'http',
-                'https',
-                $uri
-            );
+            $uri = 'https://' . substr($uri, 7);
         }
 
         return $uri;
@@ -194,20 +190,8 @@ class Request
 
     public function getServerProtocol()
     {
-        if (
-            isset($_SERVER['HTTPS']) &&
-            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
-            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https'
-        )
-        {
-            $protocol = 'https://';
-        }
-        else
-        {
-            $protocol = 'http://';
-        }
-
-        return $protocol;
+        return (
+            ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https'
+        ) ? 'https://' : 'http://';
     }
 }
