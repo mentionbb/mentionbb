@@ -1,4 +1,4 @@
---- /dev/null
+--- ../Iterator/VcsIgnoredFilterIterator.php
 +++ ../Iterator/VcsIgnoredFilterIterator.php
 @@ -37,9 +37,11 @@
      {

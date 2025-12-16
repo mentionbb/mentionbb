@@ -1,4 +1,4 @@
---- /dev/null
+--- ../src/voku/helper/UTF8.php
 +++ ../src/voku/helper/UTF8.php
 @@ -628,7 +628,6 @@
          }
