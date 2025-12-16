@@ -76,7 +76,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Binaries\\": "./bin",
+            "Binaries\\": "./www/bin",
             "ComponentBundle\\": "./www/src/Addons/Mention",
             "App\\": "./www/src/App",
             "Addons\\": "./www/src/Addons",
