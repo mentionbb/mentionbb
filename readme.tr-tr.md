@@ -158,7 +158,7 @@ composer install
 
 Composer'ı çalıştıramıyorsanız, önceden derlenmiş vendor arşivini indirin ve `src` dizinine çıkarın:
 
-[https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar)
+[https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar.gz](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar.gz)
 
 4. **Nginx örnek şablonu**
 

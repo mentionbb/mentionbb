@@ -158,7 +158,7 @@ composer install
 
 If you cannot run Composer, download the prebuilt vendor archive and extract it into the `src` directory:
 
-[https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar)
+[https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar.gz](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar.gz)
 
 4. **Nginx example template**
 
