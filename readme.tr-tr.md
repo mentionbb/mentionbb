@@ -53,30 +53,114 @@ MentionBB 3 yılı aşan bir yıldır geliştirilmeye devam ediliyor. GitHub'da 
 
 ## Kurulum
 
-Bu kompleks yazılım sürekli geliştirildiğinden dolayı kurulum sihirbazı henüz hazır değil. Kurulumu elle yapmalısınız.
+Kurulum sihirbazı hazır değil, yani kurulumu bu aşamada elle yapmalısınız. Fakat özellikle Docker'da kurulum oldukça basittir.
 
-- Plesk panel için kurulum: [mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
+---
 
-## Gerekliler
+## Opsion A: Docker (Önerilen)
 
-- PHP 8.4+
-- Docker
-- Composer
-- Git (Opsiyonel)
+### Gereklilikler
 
-(Docker'da hazır.)
+* Docker Engine veya Docker Desktop
 
-## Gerekli PHP eklentileri
+> PHP ve gerekli eklentiler ayrıca Composer, Git dahil olmak üzere Docker'da hali hazırda vardır.
 
-- Mbstring
-- Iconv
-- Curl
-- Zip
-- GD (Opsiyonel)
+### Steps
 
-(Gerekli PHP eklentileri zaten Docker dosyalarını verdiğim için şu anda hazır olarak var, yani Docker kurulumunda her şey hazırdır.)
+1. **Son sürümü indirin**
 
-### Nginx sunucusu kullanıyorsanız aşağıdaki örnek yapılandırma dosyası işinize yarayacaktır.
+Arşivi indirin ve çıkartın:
+[https://github.com/mentionbb/mentionbb/releases/latest](https://github.com/mentionbb/mentionbb/releases/latest)
+
+2. **Container başlatma**
+
+Verdiğim ana Docker Compose dosyası Nginx Proxy Manager ile kurulmalıdır eğer Nginx Proxy Manager kullanmıyorsanız hazırladığım alternatif compose dosyasını tercih edin.
+
+**Nginx Proxy Kullanmıyorsanız alternatif compose dosyası ve çalıştırılması:**
+
+```bash
+docker compose -f docker-compose-without-npm.yml up -d
+```
+
+**Nginx Proxy Manager ile**
+
+```bash
+docker compose up -d
+```
+
+3. **Nginx Proxy Manager ayarları**
+
+    - Add Proxy Host >
+        1. Scheme: http
+        2. Forward hostname: svc.mentionbb_nginx
+        3. Forward Port: 80
+
+4. **PHP bağlılıklarını yükleme (Composer)**
+
+```bash
+docker exec -it mention_dockerized-svc.mentionbb_php-1 composer install
+```
+
+---
+
+## Opsiyon B B: Plesk
+
+Eğer Plesk kullanıyorsanız aşağıdaki repoyu takip edin:
+
+[https://github.com/mentionbb/mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
+
+---
+
+## Opsiyon C: Tamamen elle kurulum
+
+### Gereklilikler
+
+* PHP 8.4+
+* Composer
+* Git (optional)
+
+### Gerekli PHP eklentileri
+
+* pdo 
+* pdo_mysql 
+* zip
+* xsl 
+* gd
+* intl 
+* opcache 
+* exif 
+* mbstring
+* webp, avif (optional)
+
+### Adımlar
+
+1. **Son sürümü indirin ve arşivden çıkarın**
+
+[https://github.com/mentionbb/mentionbb/releases/latest](https://github.com/mentionbb/mentionbb/releases/latest)
+
+2. **Composer'i yükleyin**
+
+Linux / macOS:
+[https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+
+Windows:
+[https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
+
+3. **Bağlılıkları yükleyin**
+
+Projenin ana dizininde çalıştırın:
+
+```bash
+composer install
+```
+
+### Alternatif: Composer olmadan.
+
+Composer'ı çalıştıramıyorsanız, önceden derlenmiş vendor arşivini indirin ve `src` dizinine çıkarın:
+
+[https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar)
+
+4. **Nginx örnek şablonu**
 
 ```text
 server {
@@ -118,38 +202,8 @@ server {
     error_log /var/log/nginx/error.log warn;
 }
 ```
-Server name veya yolları kendinize göre düzenlemelisiniz!
 
-### Zip ile kurulum
-
-[Buradan son sürümü indirin](https://github.com/mentionbb/mentionbb/releases/latest) ve Zip dosyası içerisinden çıkarın.
-
-And run:
-```bash
-docker compose up -d
-```
-
-Bu aşamadan sonra composer update çekeceğiz.
-
-```bash
-docker exec -it mention_dockerized-svc.mentionbb_php-1 composer install
-```
-
-### Veya container içine girmekle uğraşmak istemiyorsanız;
-
-Composer kurulumu: [https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
-
-Eğer Windows kullanıyorsanız: [https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
-
-Ve çalıştırın:
-```bash
-composer install
-```
-
-Yine de sorun yaşıyorum diyorsanız, hazır Vendor dosyasını `src` içine çıkarabilirsiniz.
-[Vendor.zip](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.zip)
-
-Bundan sonra veritabanı ayarlarımızı yapalım.
+### Veri tabanı ayarları
 
 - Boş bir veritabanı oluşturun ve ana dizinde bulunan "db.sql" dosyasını içe aktarın.
 
@@ -157,8 +211,6 @@ Bundan sonra veritabanı ayarlarımızı yapalım.
 > settings > site_url
 
 Bu sütuna site adresinizin tamamını yazın. Örnek: https://example.com
-
-### Veri tabanı ayarları
 
 ```bash
 php bin/console mention:install-db [--dbadapter DBADAPTER] [--user USER] [--password PASSWORD] [--dbname DBNAME] [--dbhost DBHOST]

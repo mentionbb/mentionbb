@@ -51,33 +51,116 @@ And much much more.
 
 MentionBB has been in active development for over 3 years. The project you see on GitHub is developed in parallel and in real-time. Goal is to create a new generation forum that complies with completely new standards. You can install and use it on your site in its current status.
 
-## Install
+## Installation
 
-You have to do this manually as the Installer isn't ready yet.
+The installer is not ready yet, so installation is currently manual. Choose **one** of the methods below.
 
-- If you are on Plesk: [mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
+---
 
-## Requirements
+## Option A: Docker (Recommended)
 
-- PHP 8.4+
-- Docker
-- Composer
-- Git (Optional)
+### Requirements
 
-(Already in Docker)
+* Docker Engine or Docker Desktop
 
-## Requirements PHP Extensions
+> PHP, required PHP extensions, and Composer are already included in the Docker setup.
 
-- Mbstring
-- Iconv
-- Curl
-- Zip
-- GD (Optional)
+### Steps
 
-(This extensions already in Docker file)
+1. **Download the latest release**
 
-### If you are using Nginx server, the sample config file below will be helpful
-This step is explained in detail in the Plesk installation
+Download and extract the latest release archive:
+[https://github.com/mentionbb/mentionbb/releases/latest](https://github.com/mentionbb/mentionbb/releases/latest)
+
+2. **Start the containers**
+
+The provided Docker Compose file is designed for Nginx Proxy Manager, but it can also run without it.
+
+**If you are not using Nginx Proxy Manager, use the alternative Compose file and start the stack with:**
+
+```bash
+docker compose -f docker-compose-without-npm.yml up -d
+```
+
+**With Nginx Proxy Manager**
+
+```bash
+docker compose up -d
+```
+
+3. **Nginx Proxy Manager settings**
+
+    - Add Proxy Host >
+        1. Scheme: http
+        2. Forward hostname: svc.mentionbb_nginx
+        3. Forward Port: 80
+
+4. **Install PHP dependencies (Composer)**
+
+```bash
+docker exec -it mention_dockerized-svc.mentionbb_php-1 composer install
+```
+
+---
+
+## Option B: Plesk
+
+If you are installing on **Plesk**, follow the dedicated setup guide:
+
+[https://github.com/mentionbb/mentionbb-plesk-setup](https://github.com/mentionbb/mentionbb-plesk-setup)
+
+---
+
+## Option C: Manual
+
+### Requirements
+
+* PHP 8.4+
+* Composer
+* Git (optional)
+
+### Required PHP Extensions
+
+* pdo 
+* pdo_mysql 
+* zip
+* xsl 
+* gd
+* intl 
+* opcache 
+* exif 
+* mbstring
+* webp, avif (optional)
+
+### Steps
+
+1. **Download the latest release**
+
+[https://github.com/mentionbb/mentionbb/releases/latest](https://github.com/mentionbb/mentionbb/releases/latest)
+
+2. **Install Composer**
+
+Linux / macOS:
+[https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+
+Windows:
+[https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
+
+3. **Install dependencies**
+
+Run this command in the project root:
+
+```bash
+composer install
+```
+
+### Alternative: Prebuilt vendor directory
+
+If you cannot run Composer, download the prebuilt vendor archive and extract it into the `src` directory:
+
+[https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.tar)
+
+4. **Nginx example template**
 
 ```text
 server {
@@ -120,47 +203,16 @@ server {
 }
 ```
 
-You need to edit the paths and server name!
-
-### Install Via Zip
-
-[Download the latest files](https://github.com/mentionbb/mentionbb/releases/latest) and extract them from the Zip file.
-
-And run:
-```bash
-docker compose up -d
-```
-
-After this step, we need to perform a composer update. 
-
-```bash
-docker exec -it mention_dockerized-svc.mentionbb_php-1 composer install
-```
-
-### Or;
-
-For Composer installation: [https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
-
-If you have Windows on local: [https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows)
-
-And run:
-```bash
-composer install
-```
-
-If you cannot install, download the ready vendor file then extract and move it to the `src` folder.
-[Vendor.zip](https://github.com/mentionbb/mentionbb/raw/master/www/src/vendor.zip)
+## Database config
 
 After that, you need to set the database.
 
-- Create an empty database and import the "db.sql" file located in the main directory.
+- Create an empty database and import the [`db.sql`](https://github.com/mentionbb/mentionbb/raw/master/db.sql) file located in the main directory.
 
 The column you need to change is:
 > settings > site_url
 
 Enter the full address of your site in this column.
-
-### Database config
 
 ```bash
 php bin/console mention:install-db [--dbadapter DBADAPTER] [--user USER] [--password PASSWORD] [--dbname DBNAME] [--dbhost DBHOST]
