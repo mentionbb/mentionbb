@@ -1,5 +1,5 @@
 {
-    "created_on": "Thu, 27 Nov 2025 18:23:47 GMT",
+    "created_on": "Thu, 18 Dec 2025 03:47:12 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.22",
@@ -8,22 +8,6 @@
             "6419a784d324c874ec38a20700131631e08e6318bdffa8e802cea9b9d560ef18": {
                 "filename": "app.php",
                 "path": ".\/app.php"
-            },
-            "ef914c8c8f6c1839e777e752db7e40047938a9b8f9c6fa5fc2873b9c6abf4963": {
-                "filename": "build.json",
-                "path": ".\/build.json"
-            },
-            "0bb8ba260923a8d9af0b4840c6214434567e0bee8e475f10efe3162691a4c102": {
-                "filename": "composer.json",
-                "path": ".\/composer.json"
-            },
-            "e64034f9b79e9205fda3568430cd22e5be72b46268a78c53b011a28ffc0d0bad": {
-                "filename": "composer.lock",
-                "path": ".\/composer.lock"
-            },
-            "81f892cf514714994019510ec01b1088cc57a852377e022d6ed103f3ef2b0a42": {
-                "filename": "patches.lock.json",
-                "path": ".\/patches.lock.json"
             }
         },
         "bin": {
@@ -111,19 +95,19 @@
             }
         },
         "src\/patches": {
-            "1c3bb18829d2e37ba5dfba0331d4cc2db8108f97aa355637c3dd333cd4fabf7a": {
+            "21d67a3c7db98e5a961b858ec1dab8d92b4d7008dfc44fd22f7649dd8519563d": {
                 "filename": "phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch",
                 "path": ".\/src\/patches\/phpgangsta-googleauthenticator-phpgangsta-googleauthenticator-php.patch"
             },
-            "1f074fa0518da9999d54b46afb0fcbde6c97f4d060c62171ae2957977d73b00f": {
+            "e93051dd241df9be95a191bc8c1ebf1695d99fe33579d273176bfb3051d60935": {
                 "filename": "symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch",
                 "path": ".\/src\/patches\/symfony-error-handler-errorrenderer-htmlerrorrenderer-php.patch"
             },
-            "0d275781a46d888e4eeeb2b414abb807ce75363a8874d995341fc6b9df8f9a88": {
+            "32a1365f7bda09e7eb10e7aaf2f9d05c1692d77da68bec2055e2c33b0d766e23": {
                 "filename": "symfony-finder-iterator-vcsignoredfilteriterator-php.patch",
                 "path": ".\/src\/patches\/symfony-finder-iterator-vcsignoredfilteriterator-php.patch"
             },
-            "4efa63d1193248f863c22735a7d84feba40a2a4e49ba56eec71d6365c97bff5a": {
+            "edd8554cb1edc1955d971226491998e24a66ebb5bb6a3b2f07badd6be2faf743": {
                 "filename": "voku-portable-utf8-src-voku-helper-utf8-php.patch",
                 "path": ".\/src\/patches\/voku-portable-utf8-src-voku-helper-utf8-php.patch"
             }
@@ -355,7 +339,7 @@
                 "filename": "Post.php",
                 "path": ".\/src\/App\/Repository\/Post.php"
             },
-            "964d7ec29f9dc350cae608e6b833fadd2a5bf0e4e8dad3d96ecc8e5ff978f822": {
+            "ed9dcc6220f6960c3485a510d0951194803b120050b799ddfbc153c02ece1983": {
                 "filename": "Request.php",
                 "path": ".\/src\/App\/Repository\/Request.php"
             },
