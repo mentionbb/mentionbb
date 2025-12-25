@@ -71,6 +71,7 @@ jobs:
           name: full-build-${{ needs.prepare.outputs.timestamp }}-${{ needs.prepare.outputs.short-sha }}
           path: |
             .
+            !www/src/vendor.tar.gz
             !.git
           include-hidden-files: true
           if-no-files-found: error
