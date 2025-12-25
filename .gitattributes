@@ -1,7 +1,8 @@
 # Fix syntax highlighting for custom framework extensions.
-src/install.lock linguist-language=Json
-src/Addons/*.noactive linguist-language=Yaml
-src/Addons/gitignore.custom linguist-language=Ignore-List
+www/src/install.lock linguist-language=Json
+www/src/Addons/*.noactive linguist-language=Yaml
+www/src/Addons/gitignore.custom linguist-language=Ignore-List
+
 mention-docker.code-workspace linguist-language=Json
 
 .env.init linguist-language=Dotenv
