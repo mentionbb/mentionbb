@@ -18,12 +18,13 @@
                 "formulahendry.auto-rename-tag",
                 "formulahendry.code-runner",
                 "bmewburn.vscode-intelephense-client",
-				"xdebug.php-debug",
+                "xdebug.php-debug",
                 "mblode.twig-language-2",
                 "redhat.vscode-xml",
                 "redhat.vscode-yaml",
                 "rexshi.phpdoc-comment-vscode-plugin",
-		        "vivek9patel.vscode-css-compatibility"
+                "vivek9patel.vscode-css-compatibility",
+                "GitHub.vscode-github-actions"
             ]
         }
     }
