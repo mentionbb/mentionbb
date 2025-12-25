@@ -2,7 +2,6 @@
 www/src/install.lock linguist-language=Json
 www/src/Addons/*.noactive linguist-language=Yaml
 www/src/Addons/gitignore.custom linguist-language=Ignore-List
+www/.env.init linguist-language=Dotenv
 
 mention-docker.code-workspace linguist-language=Json
-
-.env.init linguist-language=Dotenv
