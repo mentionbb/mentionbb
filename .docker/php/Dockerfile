@@ -19,6 +19,8 @@ RUN if [ "${SERVER}" = "apache" ] ; then \
     fi
 
 RUN apt-get update && apt-get install -y \
+    sshpass \
+    nano \
     gnupg \
     g++ \
     procps \
@@ -27,21 +29,23 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zlib1g-dev \
     libzip-dev \
-    libfreetype6-dev \
-    libpng-dev \
-    libjpeg-dev \
-	libwebp-dev \
-	libavif-dev \
-    libicu-dev  \
-    libonig-dev \
+    libicu-dev \
     libxslt1-dev \
+    libpq-dev \
+    libonig-dev \
     acl \
-    && echo 'alias sf="php bin/console"' >> ~/.bashrc
+    libjpeg-dev \
+    libpng-dev \
+    libfreetype6-dev \
+    libwebp-dev \
+    libavif-dev
 
-RUN docker-php-ext-configure gd --with-jpeg --with-freetype --with-webp --with-avif
+RUN docker-php-ext-configure gd --with-jpeg --with-freetype --with-webp --with-avif \
+    && docker-php-ext-install gd 
 
+RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-install \
-    pdo pdo_mysql zip xsl gd intl opcache exif mbstring
+    zip xsl intl exif mbstring
 
 # Set timezone
 RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} > /etc/timezone \
