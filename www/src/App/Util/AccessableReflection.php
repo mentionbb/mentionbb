@@ -24,7 +24,6 @@ class AccessableReflection
         if ($refl->hasProperty($propertyOrConstantOrMethod))
         {
             $property = $refl->getProperty($propertyOrConstantOrMethod);
-            $property->setAccessible(true);
 
             return $property->getValue($obj);
         }
@@ -35,7 +34,6 @@ class AccessableReflection
         else if ($refl->hasMethod($propertyOrConstantOrMethod))
         {
             $method = $refl->getMethod($propertyOrConstantOrMethod);
-            $method->setAccessible(true);
 
             return $method->invokeArgs($obj, $args);
         }
