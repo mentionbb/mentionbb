@@ -9,8 +9,6 @@ use App\Hook\Helper\Discussion as DiscussionHook;
 use App\Hook\Helper\Faq as FaqHook;
 use App\Hook\Helper\Feature;
 
-use Masterminds\HTML5;
-
 class Html
 {
     public $name;
@@ -54,31 +52,14 @@ class Html
      */
     public static function loadHTML($html): array
     {
-        if (\PHP_VERSION >= '8.4' && !InitialConfig::deployConfigParams()['is_enable_legacy_dom_filter'])
-        {
-            $dom = \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8');
+        $dom = \Dom\HTMLDocument::createFromString($html, LIBXML_NOERROR, 'UTF-8');
 
-            $ownerDocument = [
-                'html5' => null,
-                'dom' => $dom,
-                'xpath' => new \DOM\XPath($dom),
-                'renderer' => 'php-native-renderer-html5'
-            ];
-        }
-        else
-        {
-            $html5 = new HTML5(
-                ['disable_html_ns' => true]
-            );
-            $dom = $html5->loadHTML($html);
-
-            $ownerDocument = [
-                'html5' => $html5,
-                'dom' => $dom,
-                'xpath' => new \DOMXPath($dom),
-                'renderer' => 'legacy'
-            ];
-        }
+        $ownerDocument = [
+            'html5' => null,
+            'dom' => $dom,
+            'xpath' => new \DOM\XPath($dom),
+            'renderer' => 'php-native-renderer-html5'
+        ];
 
         return $ownerDocument;
     }
@@ -233,38 +214,25 @@ class Html
     /**
      * htmltoTemplate
      *
-     * @param array{html5: \Masterminds\HTML5, dom: \Dom\Document|\DOMDocument, xpath: \Dom\XPath|\DOMXPath, renderer: string} $ownerDocument
+     * @param array{dom: \Dom\Document|\DOMDocument, xpath: \Dom\XPath|\DOMXPath, renderer: string} $ownerDocument
      * @return string
      */
     public function htmltoTemplate(array $ownerDocument)
     {
-        if (!is_null($ownerDocument['html5']) && $ownerDocument['html5'] instanceof HTML5)
+        $this->domman->selector("{hook:htmldoc}, {hook:head}")->html->addWhitespace();
+        $this->domman->selector("{hook:htmlbody}")->html->addWhitespace('after');
+
+        $this->removeAttribute('{hook:head}', 'hook-meta-exclude');
+        $this->removeAttribute('{hook:head}', 'hook-action');
+        $this->remove('{hook:metacontents}');
+
+        if (is_null($ownerDocument['dom']->doctype))
         {
-            $this->domman->selector("{hook:head}")->html->addWhitespace();
-
-            $this->removeAttribute('{hook:head}', 'hook-meta-exclude');
-            $this->removeAttribute('{hook:head}', 'hook-action');
-            $this->remove('{hook:metacontents}');
-
-            $content = $ownerDocument['html5']->saveHTML($ownerDocument['dom']);
+            $content = $this->domman->addDoctype() . $ownerDocument['dom']->saveHTML();
         }
         else
         {
-            $this->domman->selector("{hook:htmldoc}, {hook:head}")->html->addWhitespace();
-            $this->domman->selector("{hook:htmlbody}")->html->addWhitespace('after');
-
-            $this->removeAttribute('{hook:head}', 'hook-meta-exclude');
-            $this->removeAttribute('{hook:head}', 'hook-action');
-            $this->remove('{hook:metacontents}');
-
-            if (is_null($ownerDocument['dom']->doctype))
-            {
-                $content = $this->domman->addDoctype() . $ownerDocument['dom']->saveHTML();
-            }
-            else
-            {
-                $content = $ownerDocument['dom']->saveHTML();
-            }
+            $content = $ownerDocument['dom']->saveHTML();
         }
 
         $content = preg_replace_callback($this->domman->insertTemplate['dom']['pattern'], function ($matches)
