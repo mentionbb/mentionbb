@@ -81,7 +81,8 @@ class RequireChecker
     private function saveHashes($hashes)
     {
         $data = [
-            'created_on' => (new \DateTime())->format(\DateTimeInterface::RFC7231),
+            'created_on' => (new \DateTimeImmutable('now', new \DateTimeZone('UTC')))
+                ->format('D, d M Y H:i:s') . ' GMT',
             'iv4' => $this->staticKeyV4,
             'algo' => 'SHA256',
             'v_for' => \App\App::versionNaming(),
