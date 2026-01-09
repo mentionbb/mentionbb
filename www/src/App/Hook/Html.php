@@ -62,7 +62,7 @@ class Html
                 'html5' => null,
                 'dom' => $dom,
                 'xpath' => new \DOM\XPath($dom),
-                'renderer' => 'php84-html5'
+                'renderer' => 'php-native-renderer-html5'
             ];
         }
         else
