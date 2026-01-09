@@ -1,5 +1,5 @@
 {
-    "created_on": "Thu, 18 Dec 2025 03:47:12 GMT",
+    "created_on": "Fri, 09 Jan 2026 13:33:53 GMT",
     "iv4": "c1ade9d2-374a-41f7-bb7c-56bd516de1e3",
     "algo": "SHA256",
     "v_for": "1.0.22",
@@ -31,7 +31,7 @@
             }
         },
         "src": {
-            "d239f13bc1f1983d23f9c58a5965d513308e16a87cdcb5cd521578ec8f8acc3c": {
+            "cf2332f65877e3ee239a6b6961a1bc47b354cceb0c6f2b2e9728fb493afa7d14": {
                 "filename": "RequireChecker.php",
                 "path": ".\/src\/RequireChecker.php"
             },
@@ -269,7 +269,7 @@
             }
         },
         "src\/App\/Hook": {
-            "801ef524fd2206f4a7a6f825f41d64481bb358b0c5c9fd223461787234479c6d": {
+            "4eb269c1a74ebc751c7b15e54782f54619911418bd8b92dc9d7f7e9f85777cf9": {
                 "filename": "Html.php",
                 "path": ".\/src\/App\/Hook\/Html.php"
             }
@@ -485,7 +485,7 @@
             }
         },
         "src\/App\/Util": {
-            "585e72ed619b96dad7e99f5cc296a7c3424d3f320b4cfb4189ed5536c5f0a78e": {
+            "5c125abc6aad8e9332dca51161620aae8c3136db1e82410dcfb3d4030150a654": {
                 "filename": "AccessableReflection.php",
                 "path": ".\/src\/App\/Util\/AccessableReflection.php"
             },
