@@ -14,6 +14,20 @@
     </picture>
 </p>
 
+> [!WARNING]
+> After many years of development, I have decided to discontinue MentionBB.
+>
+> This project has been an important part of my journey, teaching me far more than I could have imagined when I first started it. Over the years, it has evolved alongside me, and I am grateful for everything I learned throughout the process.
+>
+> As my interests and goals have shifted, I have moved away from PHP and am now focusing on native software development. Because of this, I believe it is the right time to bring MentionBB to a close.
+>
+> I would like to sincerely thank everyone who supported the project, contributed to it, reported issues, shared ideas, or simply followed its progress. Your support has meant a great deal to me.
+>
+> The GitHub repository will remain available as an archive of the project. However, no new features will be added, and it will no longer be updated or adapted for future PHP versions.
+>
+> Thank you for being part of this journey.
+
+
 <p align="center">
     <img alt="license" src="https://img.shields.io/github/license/mentionbb/mentionbb" />
     <img alt="repoSize" src="https://img.shields.io/github/repo-size/mentionbb/mentionbb" />
